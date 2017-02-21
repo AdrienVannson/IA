@@ -13,8 +13,22 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        UI/MainWindow.cpp
+        UI/MainWindow.cpp \
+    partie/PartieManager.cpp \
+    partie/Partie.cpp \
+    partie/PartieDetaillee.cpp \
+    partie/Tour.cpp \
+    partie/SituationJeu.cpp \
+    partie/Action.cpp \
+    partie/Simulateur.cpp
 
-HEADERS  += UI/MainWindow.h
+HEADERS  += UI/MainWindow.h \
+    partie/PartieManager.h \
+    partie/Partie.h \
+    partie/PartieDetaillee.h \
+    partie/Tour.h \
+    partie/SituationJeu.h \
+    partie/Action.h \
+    partie/Simulateur.h
 
 FORMS    += UI/MainWindow.ui
