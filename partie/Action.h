@@ -5,6 +5,8 @@
 #ifndef ACTION_H
 #define ACTION_H
 
+#include "config.h"
+
 
 class Action
 {
@@ -21,6 +23,9 @@ private:
     // ID du joueur ayant réalisé l'action
     int m_idJoueur;
 
+
+// Inclut les informations supplémentaires du jeu utilisé
+#include xstr(jeux/JEU/Action.h)
 };
 
 #endif // ACTION_H

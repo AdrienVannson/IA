@@ -29,6 +29,8 @@ HEADERS  += UI/MainWindow.h \
     partie/Tour.h \
     partie/SituationJeu.h \
     partie/Action.h \
-    partie/Simulateur.h
+    partie/Simulateur.h \
+    jeux/defaut/Action.h \
+    config.h
 
 FORMS    +=
