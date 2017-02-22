@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QLabel>
+#include <QPushButton>
 
 
 class MainWindow : public QMainWindow
