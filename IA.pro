@@ -31,4 +31,4 @@ HEADERS  += UI/MainWindow.h \
     partie/Action.h \
     partie/Simulateur.h
 
-FORMS    += UI/MainWindow.ui
+FORMS    +=

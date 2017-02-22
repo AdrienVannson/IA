@@ -1,14 +1,14 @@
 #include "MainWindow.h"
-#include "ui_MainWindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    QMainWindow(parent)
 {
-    ui->setupUi(this);
+    QLabel *label = new QLabel("Bienvenue dans l'entraineur d'IAs.");
+    label->setAlignment(Qt::AlignCenter);
+    setCentralWidget(label);
 }
 
 MainWindow::~MainWindow()
 {
-    delete ui;
+
 }
