@@ -1,6 +1,6 @@
 #include "SituationJeu.h"
 
-SituationJeu::SituationJeu()
+SituationJeu::SituationJeu ()
 {
 
 }

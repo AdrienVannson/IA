@@ -1,11 +1,17 @@
+/*
+ * Décrit la situation du jeu
+ */
+
 #ifndef SITUATIONJEU_H
 #define SITUATIONJEU_H
 
 
 class SituationJeu
 {
+
 public:
-    SituationJeu();
+    SituationJeu ();
+
 };
 
 #endif // SITUATIONJEU_H
