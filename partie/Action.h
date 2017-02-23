@@ -12,6 +12,7 @@ class Action
 {
 
 public:
+
     Action ();
 
     int idJoueur () const;

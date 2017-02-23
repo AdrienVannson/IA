@@ -2,7 +2,7 @@
  * Ce fichier est inclut automatiquement
  */
 
-#include "Action.h"
+#include "partie/Action.h"
 
 
 Action::Action() :
@@ -14,7 +14,7 @@ Action::Action() :
 
 
 // Direction
-Direction Action::direction () const
+Action::Direction Action::direction () const
 {
     return m_direction;
 }

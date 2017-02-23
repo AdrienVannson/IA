@@ -2,7 +2,7 @@
  * Ce fichier est inclut automatiquement
  */
 
-#include "Action.h"
+#include "partie/Action.h"
 
 
 Action::Action() :

@@ -3,7 +3,7 @@
 
 
 // Jeu à utiliser pour l'entrainement
-#define JEU defaut
+#define JEU tron-battle
 
 
 #define xstr(s) str(s)
