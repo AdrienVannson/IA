@@ -13,4 +13,4 @@ void Action::setIdJoueur (const int nouvelIdJoueur)
 }
 
 
-#include "jeux/defaut/Action.cpp"
+#include xstr(jeux/JEU/Action.cpp)
