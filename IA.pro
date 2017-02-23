@@ -31,6 +31,7 @@ HEADERS  += UI/MainWindow.h \
     partie/Action.h \
     partie/Simulateur.h \
     jeux/defaut/Action.h \
+    jeux/tron-battle/Action.h \
     config.h
 
 FORMS    +=
