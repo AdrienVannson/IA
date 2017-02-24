@@ -104,7 +104,7 @@ void WidgetPartie::afficherTourActuel ()
 
             }
 
-            m_scene->addRect(iColonne*ZOOM, iLigne*ZOOM, ZOOM, ZOOM, QPen(couleur), QBrush(couleur));
+            m_scene->addRect(iColonne*ZOOM, iLigne*ZOOM, ZOOM, ZOOM, QPen(QColor()), QBrush(couleur));
 
         }
     }
