@@ -3,6 +3,8 @@
 MainWindow::MainWindow (QWidget *parent) :
     QMainWindow(parent)
 {
+    showMaximized();
+
     // Menu
     QMenu *menuFichier = menuBar()->addMenu(tr("Fichier"));
 
