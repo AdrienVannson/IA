@@ -2,9 +2,12 @@
 #define MAINWINDOW_H
 
 #include <QApplication>
+#include <QDockWidget>
 #include <QMainWindow>
 #include <QMenuBar>
 #include <QPushButton>
+
+#include "WidgetPartie.h"
 
 
 class MainWindow : public QMainWindow
