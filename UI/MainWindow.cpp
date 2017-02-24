@@ -19,6 +19,23 @@ MainWindow::MainWindow (QWidget *parent) :
     setCentralWidget(boutton);
 
 
+    // Création d'une fausse partie (TODEL)
+    Partie partie;
+
+    SituationJeu sitPrecedante;
+
+    for (int iTour=0; iTour<5; iTour++) {
+        SituationJeu nouvelleSituation;
+
+        nouvelleSituation.setCellule(iTour, 1 + 2*iTour, 1);
+
+        Tour tour;
+        tour.setSituationJeu(nouvelleSituation);
+        partie.addTour(tour);
+
+        sitPrecedante = nouvelleSituation;
+    }
+
     // Affichage d'une partie
     WidgetPartie *widgetPartie = new WidgetPartie;
 

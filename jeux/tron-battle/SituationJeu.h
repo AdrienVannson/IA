@@ -14,16 +14,20 @@ class SituationJeu
 
 public:
 
+    // Constantes
     static const int NB_LIGNES = 20;
     static const int NB_COLONNES = 30;
 
     static const int NB_CELLULES = NB_LIGNES * NB_COLONNES;
 
 
+    // Constructeur
     SituationJeu (const int nbJoueurs = 2);
+
 
     // Convertions
     static int positionCellule (const int iLigne, const int iColonne);
+
 
     // Couleurs des cellules
     char cellule (const int iCellule) const;
@@ -31,6 +35,7 @@ public:
 
     void setCellule (const int iCellule, const char nouvelleCouleur);
     void setCellule (const int iLigne, const int iColonne, const char nouvelleCouleur);
+
 
     // Position des joueurs
     int positionJoueur (const int iJoueur) const;
