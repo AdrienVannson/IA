@@ -64,4 +64,48 @@ void WidgetPartie::afficherTourActuel ()
 
     QGraphicsSimpleTextItem *textItem = m_scene->addSimpleText(QString::number(m_iTourActuel), police);
     textItem->setPos(0, -2*ZOOM);
+
+
+    // Affichage des cellules
+    const SituationJeu &sitJeu = (*m_partie->tours())[m_iTourActuel].situationJeu();
+
+    for (int iLigne=0; iLigne<SituationJeu::NB_LIGNES; iLigne++) {
+        for (int iColonne=0; iColonne<SituationJeu::NB_COLONNES; iColonne++) {
+
+            SituationJeu::Cellule cellule = sitJeu.cellule(iLigne, iColonne);
+
+            if (cellule == SituationJeu::VIDE) {
+                continue;
+            }
+
+            QColor couleur;
+
+            // Sélection de la couleur correspondant au joueur
+            switch (cellule) {
+
+            case SituationJeu::JOUEUR_1:
+                couleur = QColor(255, 0, 0);
+                break;
+
+            case SituationJeu::JOUEUR_2:
+                couleur = QColor(0, 255, 0);
+                break;
+
+            case SituationJeu::JOUEUR_3:
+                couleur = QColor(0, 0, 255);
+                break;
+
+            case SituationJeu::JOUEUR_4:
+                couleur = QColor(255, 255, 255);
+                break;
+
+            default:
+                break;
+
+            }
+
+            m_scene->addRect(iColonne*ZOOM, iLigne*ZOOM, ZOOM, ZOOM, QPen(couleur), QBrush(couleur));
+
+        }
+    }
 }
