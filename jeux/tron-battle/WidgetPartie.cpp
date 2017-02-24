@@ -38,7 +38,7 @@ void WidgetPartie::afficherGrilleVide ()
 {
     m_scene->clear();
 
-    m_scene->setBackgroundBrush(QBrush(QColor(57, 85, 76))); // Couleur de fond: vert
+    m_scene->setBackgroundBrush(QBrush(QColor(39, 71, 60))); // Couleur de fond: vert
 
 
     // Affichage de la grille de jeu
