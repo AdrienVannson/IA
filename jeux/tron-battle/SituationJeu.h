@@ -20,6 +20,15 @@ public:
 
     static const int NB_CELLULES = NB_LIGNES * NB_COLONNES;
 
+    enum Cellule
+    {
+        VIDE = 0,
+        JOUEUR_1 = 1,
+        JOUEUR_2 = 2,
+        JOUEUR_3 = 4,
+        JOUEUR_4 = 8
+    };
+
 
     // Constructeur
     SituationJeu (const int nbJoueurs = 2);
@@ -30,11 +39,11 @@ public:
 
 
     // Couleurs des cellules
-    char cellule (const int iCellule) const;
-    char cellule (const int iLigne, const int iColonne) const;
+    Cellule cellule (const int iCellule) const;
+    Cellule cellule (const int iLigne, const int iColonne) const;
 
-    void setCellule (const int iCellule, const char nouvelleCouleur);
-    void setCellule (const int iLigne, const int iColonne, const char nouvelleCouleur);
+    void setCellule (const int iCellule, const Cellule nouvelleCellule);
+    void setCellule (const int iLigne, const int iColonne, const Cellule nouvelleCellule);
 
 
     // Position des joueurs
@@ -47,7 +56,7 @@ public:
 private:
 
     // Description des cellules en binaire: 00 = vide, 01 = bleu, 10 = rouge
-    std::array<char, NB_CELLULES> m_cellules;
+    std::array<Cellule, NB_CELLULES> m_cellules;
     std::vector<int> m_positionsJoueurs;
 
 

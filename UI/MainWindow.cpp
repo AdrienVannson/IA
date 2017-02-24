@@ -27,7 +27,7 @@ MainWindow::MainWindow (QWidget *parent) :
     for (int iTour=0; iTour<5; iTour++) {
         SituationJeu nouvelleSituation;
 
-        nouvelleSituation.setCellule(iTour, 1 + 2*iTour, 1);
+        nouvelleSituation.setCellule(iTour, 1 + 2*iTour, SituationJeu::JOUEUR_1);
 
         Tour tour;
         tour.setSituationJeu(nouvelleSituation);

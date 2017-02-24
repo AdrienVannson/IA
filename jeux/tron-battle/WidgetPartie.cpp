@@ -59,5 +59,9 @@ void WidgetPartie::afficherTourActuel ()
 {
     afficherGrilleVide();
 
-    m_scene->addSimpleText(QString::number(m_iTourActuel));
+    QFont police;
+    police.setPointSize(21);
+
+    QGraphicsSimpleTextItem *textItem = m_scene->addSimpleText(QString::number(m_iTourActuel), police);
+    textItem->setPos(0, -2*ZOOM);
 }

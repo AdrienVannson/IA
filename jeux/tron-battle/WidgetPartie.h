@@ -1,6 +1,7 @@
 #ifndef WIDGETPARTIE_H
 #define WIDGETPARTIE_H
 
+#include <QGraphicsSimpleTextItem>
 #include <QGraphicsView>
 #include <QTimer>
 

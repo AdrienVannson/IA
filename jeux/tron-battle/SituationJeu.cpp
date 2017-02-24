@@ -5,7 +5,7 @@ SituationJeu::SituationJeu (const int nbJoueurs)
 {
     // Initialisation: toutes les cellules sont noires
     for (int iCellule=0; iCellule<NB_CELLULES; iCellule++) {
-        m_cellules[iCellule] = 0;
+        m_cellules[iCellule] = VIDE;
     }
 
     // Initialisation des positions des joueurs
@@ -25,25 +25,25 @@ int SituationJeu::positionCellule (const int iLigne, const int iColonne)
 
 
 // Couleurs des cellules
-char SituationJeu::cellule (const int iCellule) const
+SituationJeu::Cellule SituationJeu::cellule (const int iCellule) const
 {
     return m_cellules[iCellule];
 }
 
-char SituationJeu::cellule (const int iLigne, const int iColonne) const
+SituationJeu::Cellule SituationJeu::cellule (const int iLigne, const int iColonne) const
 {
     return cellule(positionCellule(iLigne, iColonne));
 }
 
 
-void SituationJeu::setCellule (const int iCellule, const char nouvelleCouleur)
+void SituationJeu::setCellule (const int iCellule, const Cellule nouvelleCellule)
 {
-    m_cellules[iCellule] = nouvelleCouleur;
+    m_cellules[iCellule] = nouvelleCellule;
 }
 
-void SituationJeu::setCellule (const int iLigne, const int iColonne, const char nouvelleCouleur)
+void SituationJeu::setCellule (const int iLigne, const int iColonne, const Cellule nouvelleCellule)
 {
-    setCellule(positionCellule(iLigne, iColonne), nouvelleCouleur);
+    setCellule(positionCellule(iLigne, iColonne), nouvelleCellule);
 }
 
 
