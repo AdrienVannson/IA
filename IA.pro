@@ -4,6 +4,14 @@
 #
 #-------------------------------------------------
 
+
+# Inclusion du jeu
+PATH_JEU = jeux/tron-battle
+
+INCLUDEPATH = $$PATH_JEU
+
+
+
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -11,27 +19,24 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = IA
 TEMPLATE = app
 
-
 SOURCES += main.cpp\
-        UI/MainWindow.cpp \
+    UI/MainWindow.cpp \
     partie/PartieManager.cpp \
     partie/Partie.cpp \
     partie/PartieDetaillee.cpp \
     partie/Tour.cpp \
-    partie/SituationJeu.cpp \
-    partie/Action.cpp \
-    partie/Simulateur.cpp
+    partie/Simulateur.cpp \
+    $$PATH_JEU/Action.cpp \
+    $$PATH_JEU/SituationJeu.cpp
 
 HEADERS  += UI/MainWindow.h \
     partie/PartieManager.h \
     partie/Partie.h \
     partie/PartieDetaillee.h \
     partie/Tour.h \
-    partie/SituationJeu.h \
-    partie/Action.h \
     partie/Simulateur.h \
-    jeux/defaut/Action.h \
-    jeux/tron-battle/Action.h \
-    config.h
+    config.h \
+    $$PATH_JEU/Action.h \
+    $$PATH_JEU/SituationJeu.h
 
 FORMS    +=

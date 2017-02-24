@@ -2,7 +2,7 @@
  * Ce fichier est inclut automatiquement
  */
 
-#include "partie/Action.h"
+#include "Action.h"
 
 
 Action::Action() :
@@ -10,6 +10,18 @@ Action::Action() :
     m_direction(GAUCHE)
 {
 
+}
+
+
+// ID du joueur
+int Action::idJoueur () const
+{
+    return m_idJoueur;
+}
+
+void Action::setIdJoueur (const int nouvelIdJoueur)
+{
+    m_idJoueur = nouvelIdJoueur;
 }
 
 
