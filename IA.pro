@@ -35,7 +35,6 @@ HEADERS  += UI/MainWindow.h \
     partie/PartieDetaillee.h \
     partie/Tour.h \
     partie/Simulateur.h \
-    config.h \
     $$PATH_JEU/Action.h \
     $$PATH_JEU/SituationJeu.h
 
