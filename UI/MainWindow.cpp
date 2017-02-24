@@ -20,7 +20,7 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     // Création d'une fausse partie (TODEL)
-    Partie partie;
+    Partie *partie = new Partie;
 
     SituationJeu sitPrecedante;
 
@@ -31,13 +31,15 @@ MainWindow::MainWindow (QWidget *parent) :
 
         Tour tour;
         tour.setSituationJeu(nouvelleSituation);
-        partie.addTour(tour);
+        partie->addTour(tour);
 
         sitPrecedante = nouvelleSituation;
     }
 
+
     // Affichage d'une partie
     WidgetPartie *widgetPartie = new WidgetPartie;
+    widgetPartie->afficherPartie(partie);
 
     QDockWidget *dockPartie = new QDockWidget("Partie", this);
     dockPartie->setWidget(widgetPartie);
