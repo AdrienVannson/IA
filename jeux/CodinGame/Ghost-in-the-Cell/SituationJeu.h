@@ -49,6 +49,7 @@ public:
 
 
     // Usines
+    std::vector<Usine>* usines ();
     const std::vector<Usine>* usines () const;
     void setUsines (const std::vector<Usine> &nouvellesUsines);
 

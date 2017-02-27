@@ -48,7 +48,16 @@ void Simulateur::executerAction (const Action &action)
 
 void Simulateur::produireUnites ()
 {
+    for (SituationJeu::Usine &usine : *m_situation.usines()) {
 
+        if (usine.nbToursBloquesRestants > 0) {
+            usine.nbToursBloquesRestants--;
+        }
+        else if (usine.m_proprietaire != SituationJeu::NEUTRE) {
+            usine.m_nbUnites += usine.m_production;
+        }
+
+    }
 }
 
 void Simulateur::combattre ()

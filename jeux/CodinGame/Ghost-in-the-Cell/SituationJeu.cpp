@@ -12,6 +12,11 @@ SituationJeu::SituationJeu (const int nbJoueurs)
  */
 
 // Usines
+std::vector<SituationJeu::Usine>* SituationJeu::usines ()
+{
+    return &m_usines;
+}
+
 const std::vector<SituationJeu::Usine>* SituationJeu::usines () const
 {
     return &m_usines;
@@ -37,6 +42,7 @@ void SituationJeu::setDistances (const std::vector< std::vector<int> > nouvelles
 /*
  * Troupes
  */
+
 const std::vector<SituationJeu::Troupe>* SituationJeu::troupes () const
 {
     return &m_troupes;
