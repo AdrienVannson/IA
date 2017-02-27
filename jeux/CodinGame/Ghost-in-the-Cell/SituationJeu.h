@@ -34,6 +34,15 @@ public:
         int nbToursBloquesRestants; // Si l'usine a reçu une bombe, elle ne peut plus produire pendant 5 tours
     };
 
+    struct Troupe
+    {
+        bool estBombe; // Sinon, troupe classique
+        int nbUnites; // Si c'est une troupe
+
+        int cible; // ID de l'usine que la troupe rejoint
+        int nbToursRestants; // Nombre de tours restants avant l'arrivée à l'usine
+    };
+
 
     // Constructeur
     SituationJeu (const int nbJoueurs = 2);
@@ -46,6 +55,10 @@ public:
     const std::vector< std::vector<int> >* distances () const;
     void setDistances (const std::vector< std::vector<int> > nouvellesDistances);
 
+
+    // Troupes
+    const std::vector<Troupe>* troupes () const;
+    std::vector<Troupe>* troupes ();
 
 
     // Actions
@@ -61,6 +74,10 @@ private:
     // Plateau
     std::vector<Usine> m_usines;
     std::vector< std::vector<int> > m_distances; // Matrice 2D représentant les distances entre chaque usine
+
+
+    // Troupes
+    std::vector<Troupe> m_troupes;
 
 
     // Actions à jouer

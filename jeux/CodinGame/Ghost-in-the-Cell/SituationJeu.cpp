@@ -35,6 +35,20 @@ void SituationJeu::setDistances (const std::vector< std::vector<int> > nouvelles
 
 
 /*
+ * Troupes
+ */
+const std::vector<SituationJeu::Troupe>* SituationJeu::troupes () const
+{
+    return &m_troupes;
+}
+
+std::vector<SituationJeu::Troupe>* SituationJeu::troupes ()
+{
+    return &m_troupes;
+}
+
+
+/*
  * Actions
  */
 
