@@ -38,7 +38,14 @@ public:
     // Constructeur
     SituationJeu (const int nbJoueurs = 2);
 
-    void setUsines (const std::vector<Usine> &nouvellesUsines, const std::vector< std::vector<int> > nouvellesDistances);
+
+    // Usines
+    const std::vector<Usine>* usines () const;
+    void setUsines (const std::vector<Usine> &nouvellesUsines);
+
+    const std::vector< std::vector<int> >* distances () const;
+    void setDistances (const std::vector< std::vector<int> > nouvellesDistances);
+
 
 
     // Actions
