@@ -7,7 +7,7 @@
 
 #include <vector>
 
-#include "Partie.h"
+#include "partie/Partie.h"
 #include "SituationJeu.h"
 
 
@@ -15,9 +15,17 @@ class Simulateur
 {
 
 public:
+
     Simulateur ();
 
     SituationJeu simulerAction (const SituationJeu &situationDepart, const Action actionAJouer);
+
+
+
+private:
+
+    SituationJeu m_situation;
+
 
 };
 

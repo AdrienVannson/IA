@@ -25,7 +25,7 @@ SOURCES += main.cpp\
     partie/Partie.cpp \
     partie/PartieDetaillee.cpp \
     partie/Tour.cpp \
-    partie/Simulateur.cpp \
+    $$PATH_JEU/Simulateur.cpp \
     $$PATH_JEU/Action.cpp \
     $$PATH_JEU/SituationJeu.cpp \
     $$PATH_JEU/WidgetPartie.cpp
@@ -35,7 +35,7 @@ HEADERS  += UI/MainWindow.h \
     partie/Partie.h \
     partie/PartieDetaillee.h \
     partie/Tour.h \
-    partie/Simulateur.h \
+    $$PATH_JEU/Simulateur.h \
     $$PATH_JEU/Action.h \
     $$PATH_JEU/SituationJeu.h \
     $$PATH_JEU/WidgetPartie.h
