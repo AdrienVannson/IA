@@ -7,6 +7,8 @@
 
 #include <vector>
 
+#include "Action.h"
+
 
 class SituationJeu
 {
@@ -39,11 +41,23 @@ public:
     void setUsines (const std::vector<Usine> &nouvellesUsines, const std::vector< std::vector<int> > nouvellesDistances);
 
 
+    // Actions
+    const std::vector<Action>* actions () const;
+
+    void ajouterAction (const Action &nouvelleAction);
+    void supprimerLesActions ();
+
+
+
 private:
 
-    // Usines
+    // Plateau
     std::vector<Usine> m_usines;
     std::vector< std::vector<int> > m_distances; // Matrice 2D représentant les distances entre chaque usine
+
+
+    // Actions à jouer
+    std::vector<Action> m_actions;
 
 
 };
