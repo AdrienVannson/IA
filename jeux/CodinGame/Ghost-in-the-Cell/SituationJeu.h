@@ -29,6 +29,7 @@ public:
         int m_nbUnites;
         int m_production;
         int m_proprietaire;
+        int nbToursBloquesRestants; // Si l'usine a reçu une bombe, elle ne peut plus produire pendant 5 tours
     };
 
 
