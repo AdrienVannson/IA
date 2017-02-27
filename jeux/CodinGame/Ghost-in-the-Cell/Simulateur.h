@@ -24,6 +24,17 @@ public:
 
 private:
 
+    // Fonctions de jeu
+    void avancerTroupes ();
+    void executerAction (const Action &action);
+    void produireUnites ();
+    void combattre ();
+    void exploserBombes ();
+    bool verifierFin ();
+
+
+
+    // Situation
     SituationJeu m_situation;
 
 
