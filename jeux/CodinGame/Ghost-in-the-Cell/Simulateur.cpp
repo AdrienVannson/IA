@@ -36,7 +36,9 @@ SituationJeu Simulateur::simulerAction (const SituationJeu &situationDepart, con
 
 void Simulateur::avancerTroupes ()
 {
-
+    for (SituationJeu::Troupe &troupe : *m_situation.troupes()) {
+        troupe.nbToursRestants--;
+    }
 }
 
 void Simulateur::executerAction (const Action &action)
