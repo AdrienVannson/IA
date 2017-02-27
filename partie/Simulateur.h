@@ -19,8 +19,6 @@ public:
 
     SituationJeu simulerAction (const SituationJeu &situationDepart, const Action actionAJouer);
 
-    Partie* simulerPartie (const SituationJeu &situationDepart);
-
 };
 
 #endif // SIMULATEUR_H
