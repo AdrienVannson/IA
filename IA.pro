@@ -6,7 +6,7 @@
 
 
 # Inclusion du jeu
-PATH_JEU = jeux/tron-battle
+PATH_JEU = jeux/CodinGame/Ghost-in-the-Cell
 
 INCLUDEPATH = $$PATH_JEU
 
