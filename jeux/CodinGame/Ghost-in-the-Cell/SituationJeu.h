@@ -68,6 +68,11 @@ public:
     void supprimerLesActions ();
 
 
+    // Fin de la partie
+    bool estFini () const;
+    void setEstFini (const bool nouveauEstFini);
+
+
 
 private:
 
@@ -82,6 +87,10 @@ private:
 
     // Actions à jouer
     std::vector<Action> m_actions;
+
+
+    // Fin de la partie
+    bool m_estFini;
 
 
 };

@@ -66,3 +66,18 @@ void SituationJeu::supprimerLesActions ()
 {
     m_actions.clear();
 }
+
+
+/*
+ * Fin de la partie
+ */
+
+bool SituationJeu::estFini () const
+{
+    return m_estFini;
+}
+
+void SituationJeu::setEstFini (const bool nouveauEstFini)
+{
+    m_estFini = nouveauEstFini;
+}
