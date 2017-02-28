@@ -43,15 +43,19 @@ void Simulateur::avancerTroupes ()
 
 void Simulateur::executerAction (const Action &action)
 {
+    if (action.type() == Action::ATTENTE) {
+        return;
+    }
+
+
+    const int source = action.information(0);
+    SituationJeu::Usine &usineSource = (*m_situation.usines())[source];
+
+    if (usineSource.m_proprietaire != action.idJoueur()) { // Impossible d'effectuer une action sur une usine adverse
+        return;
+    }
+
     if (action.type() == Action::DEPLACEMENT) {
-
-        const int source = action.information(0);
-
-        SituationJeu::Usine &usineSource = (*m_situation.usines())[source];
-
-        if (usineSource.m_proprietaire != action.idJoueur()) { // Impossible de déplacer les troupes adverses
-            return;
-        }
 
         const int cible = action.information(1);
         int nbEnvois = action.information(2);
@@ -76,12 +80,6 @@ void Simulateur::executerAction (const Action &action)
             return;
         }
 
-        const int source = action.information(0);
-
-        if ((*m_situation.usines())[source].m_proprietaire != action.idJoueur()) { // Impossible de lancer une bombe depuis une usine ennemie
-            return;
-        }
-
         const int cible = action.information(1);
 
         SituationJeu::Troupe nouvelleBombe;
@@ -94,6 +92,11 @@ void Simulateur::executerAction (const Action &action)
 
     }
     else if (action.type() == Action::AMELIORATION) {
+
+        if (usineSource.m_nbUnites >= 10 && usineSource.m_production < 3) {
+            usineSource.m_nbUnites -= 10;
+            usineSource.m_production++;
+        }
 
     }
 }
