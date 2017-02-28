@@ -26,6 +26,13 @@ public:
 
     struct Usine
     {
+        Usine () :
+            m_nbUnites (0),
+            m_production (0),
+            m_proprietaire (-1),
+            m_nbToursBloquesRestants (0)
+        {}
+
         int m_nbUnites;
         int m_production;
         int m_proprietaire;
