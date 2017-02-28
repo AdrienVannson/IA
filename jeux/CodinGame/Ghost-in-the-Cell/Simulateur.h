@@ -5,6 +5,8 @@
 #ifndef SIMULATEUR_H
 #define SIMULATEUR_H
 
+#include <algorithm>
+#include <stack>
 #include <vector>
 
 #include "partie/Partie.h"

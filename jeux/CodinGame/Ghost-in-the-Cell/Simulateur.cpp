@@ -124,7 +124,35 @@ void Simulateur::combattre ()
 
 void Simulateur::exploserBombes ()
 {
+    std::stack<int> iBombesASupprimer;
 
+    for (unsigned int iTroupe=0; iTroupe<m_situation.troupes()->size(); iTroupe++) {
+        const SituationJeu::Troupe &troupe = (*m_situation.troupes())[iTroupe];
+
+        if (troupe.m_estBombe && troupe.m_nbToursRestants == 0) {
+
+            SituationJeu::Usine &usine = (*m_situation.usines())[troupe.m_cible];
+
+            int degats = std::max(usine.m_nbUnites/2, 10);
+
+            usine.m_nbUnites -= degats;
+
+            if (usine.m_nbUnites < 0) {
+                usine.m_nbUnites = 0;
+            }
+
+            usine.m_nbToursBloquesRestants = 5;
+
+            iBombesASupprimer.push(iTroupe);
+        }
+
+    }
+
+    while (iBombesASupprimer.size()) { // Suppression des bombes à supprimer
+        const int iASupprimer = iBombesASupprimer.top();
+        m_situation.troupes()->erase(m_situation.troupes()->begin() + iASupprimer);
+        iBombesASupprimer.pop();
+    }
 }
 
 bool Simulateur::verifierFin ()
