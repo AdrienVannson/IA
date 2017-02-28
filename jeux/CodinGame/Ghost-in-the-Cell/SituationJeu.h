@@ -68,6 +68,11 @@ public:
     void addTroupe (const Troupe &nouvelleTroupe);
 
 
+    // Bombes restantes
+    int nbBombesRestantes (const int idJoueur) const;
+    void utiliserBombe (const int idJoueur);
+
+
     // Actions
     const std::vector<Action>* actions () const;
 
@@ -92,6 +97,11 @@ private:
 
     // Troupes
     std::vector<Troupe> m_troupes;
+
+
+    // Bombes restantes par joueur
+    std::vector<int> m_nbBombesRestantes;
+
 
 
     // Actions à jouer

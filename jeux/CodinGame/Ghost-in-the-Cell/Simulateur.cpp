@@ -50,7 +50,6 @@ void Simulateur::executerAction (const Action &action)
         SituationJeu::Usine &usineSource = (*m_situation.usines())[source];
 
         if (usineSource.m_proprietaire != action.idJoueur()) { // Impossible de déplacer les troupes adverses
-            m_situation.setIdVainqueur(!action.idJoueur());
             return;
         }
 
@@ -73,10 +72,13 @@ void Simulateur::executerAction (const Action &action)
     }
     else if (action.type() == Action::BOMBE) {
 
+        if (m_situation.nbBombesRestantes(action.idJoueur()) <= 0) { // Impossible de lancer plus de deux bombes
+            return;
+        }
+
         const int source = action.information(0);
 
         if ((*m_situation.usines())[source].m_proprietaire != action.idJoueur()) { // Impossible de lancer une bombe depuis une usine ennemie
-            m_situation.setIdVainqueur(!action.idJoueur());
             return;
         }
 
@@ -86,6 +88,9 @@ void Simulateur::executerAction (const Action &action)
         nouvelleBombe.m_cible = cible;
         nouvelleBombe.m_estBombe = true;
         nouvelleBombe.m_nbToursRestants = m_situation.distance(source, cible);
+
+        m_situation.addTroupe(nouvelleBombe);
+        m_situation.utiliserBombe(action.idJoueur());
 
     }
     else if (action.type() == Action::AMELIORATION) {

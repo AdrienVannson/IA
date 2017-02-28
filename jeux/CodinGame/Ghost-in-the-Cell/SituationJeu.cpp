@@ -4,7 +4,9 @@
 SituationJeu::SituationJeu (const int nbJoueurs) :
     m_idVainqueur(-1)
 {
-
+    for (int iJoueur=0; iJoueur<nbJoueurs; iJoueur++) {
+        m_nbBombesRestantes.push_back(2);
+    }
 }
 
 
@@ -62,6 +64,21 @@ std::vector<SituationJeu::Troupe>* SituationJeu::troupes ()
 void SituationJeu::addTroupe (const Troupe &nouvelleTroupe)
 {
     m_troupes.push_back(nouvelleTroupe);
+}
+
+
+/*
+ * Bombes restantes
+ */
+
+int SituationJeu::nbBombesRestantes (const int idJoueur) const
+{
+    m_nbBombesRestantes[idJoueur];
+}
+
+void SituationJeu::utiliserBombe (const int idJoueur)
+{
+    m_nbBombesRestantes[idJoueur]--;
 }
 
 
