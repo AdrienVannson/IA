@@ -1,7 +1,8 @@
 #include "SituationJeu.h"
 
 
-SituationJeu::SituationJeu (const int nbJoueurs)
+SituationJeu::SituationJeu (const int nbJoueurs) :
+    m_idVainqueur(-1)
 {
 
 }
@@ -80,10 +81,18 @@ void SituationJeu::supprimerLesActions ()
 
 bool SituationJeu::estFini () const
 {
-    return m_estFini;
+    return m_idVainqueur != -1;
 }
 
-void SituationJeu::setEstFini (const bool nouveauEstFini)
+
+int SituationJeu::idVainqueur () const
 {
-    m_estFini = nouveauEstFini;
+    return m_idVainqueur;
 }
+
+
+void SituationJeu::setIdVainqueur (const int nouvelIdVainqueur)
+{
+    m_idVainqueur = nouvelIdVainqueur;
+}
+

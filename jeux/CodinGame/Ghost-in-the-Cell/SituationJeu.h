@@ -19,7 +19,7 @@ public:
      * Constantes
      */
 
-    static const int NEUTRE = 0;
+    static const int NEUTRE = -1;
 
 
 
@@ -69,7 +69,9 @@ public:
 
     // Fin de la partie
     bool estFini () const;
-    void setEstFini (const bool nouveauEstFini);
+
+    int idVainqueur () const;
+    void setIdVainqueur (const int nouvelIdVainqueur);
 
 
 
@@ -89,7 +91,7 @@ private:
 
 
     // Fin de la partie
-    bool m_estFini;
+    int m_idVainqueur; // -1 si la partie n'est pas terminée, l'ID du joueur sinon
 
 
 };
