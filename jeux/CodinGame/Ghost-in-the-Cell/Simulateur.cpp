@@ -13,6 +13,8 @@ SituationJeu Simulateur::simulerAction (const SituationJeu &situationDepart, con
 
     if (m_situation.actions()->size() == 2) { // Si tous les joueurs ont joué, simulation du tour
 
+        m_situation.incrementerNbToursEcoules();
+
         avancerTroupes();
 
         for (const Action &action : *m_situation.actions()) {
@@ -127,5 +129,34 @@ void Simulateur::exploserBombes ()
 
 bool Simulateur::verifierFin ()
 {
+    std::array<int, 2> nbUnitesParJoueur = {0, 0};
+    std::array<bool, 2> peutProduire = {false, false};
 
+    for (const SituationJeu::Usine &usine : *m_situation.usines()) {
+        nbUnitesParJoueur[usine.m_proprietaire] += usine.m_nbUnites;
+
+        if (usine.m_production > 0) {
+            peutProduire[usine.m_production] = true;
+        }
+    }
+
+    if (m_situation.nbToursEcoules() >= 200) {
+
+        if (nbUnitesParJoueur[0] > nbUnitesParJoueur[1]) {
+            m_situation.setIdVainqueur(0);
+        }
+        else {
+            m_situation.setIdVainqueur(1);
+        }
+
+    }
+    else {
+
+        for (int idJoueur=0; idJoueur<2; idJoueur++) {
+            if (nbUnitesParJoueur[idJoueur] == 0 && !peutProduire[idJoueur]) {
+                m_situation.setIdVainqueur(!idJoueur);
+            }
+        }
+
+    }
 }

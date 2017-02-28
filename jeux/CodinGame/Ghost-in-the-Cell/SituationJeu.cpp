@@ -2,11 +2,27 @@
 
 
 SituationJeu::SituationJeu (const int nbJoueurs) :
-    m_idVainqueur(-1)
+    m_idVainqueur(-1),
+    m_nbToursEcoules (0)
 {
     for (int iJoueur=0; iJoueur<nbJoueurs; iJoueur++) {
         m_nbBombesRestantes.push_back(2);
     }
+}
+
+
+/*
+ * Nombre de tours écoulés
+ */
+
+int SituationJeu::nbToursEcoules () const
+{
+    return m_nbToursEcoules;
+}
+
+void SituationJeu::incrementerNbToursEcoules ()
+{
+    m_nbToursEcoules++;
 }
 
 

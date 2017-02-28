@@ -50,6 +50,11 @@ public:
     SituationJeu (const int nbJoueurs = 2);
 
 
+    // Nombre de tours écoulés
+    int nbToursEcoules () const;
+    void incrementerNbToursEcoules ();
+
+
     // Usines
     std::vector<Usine>* usines ();
     const std::vector<Usine>* usines () const;
@@ -89,6 +94,10 @@ public:
 
 
 private:
+
+    // Nombre de tours écoulés
+    int m_nbToursEcoules;
+
 
     // Plateau
     std::vector<Usine> m_usines;
