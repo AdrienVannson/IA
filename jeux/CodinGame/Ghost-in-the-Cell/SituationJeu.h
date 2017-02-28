@@ -40,6 +40,7 @@ public:
 
         bool m_estBombe; // Sinon, troupe classique
         int m_nbUnites; // Si c'est une troupe
+        int m_idJoueur; // Si c'est une troupe
 
         int m_cible; // ID de l'usine que la troupe rejoint
         int m_nbToursRestants; // Nombre de tours restants avant l'arrivée à l'usine

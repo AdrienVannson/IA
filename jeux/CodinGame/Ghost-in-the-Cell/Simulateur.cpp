@@ -72,6 +72,7 @@ void Simulateur::executerAction (const Action &action)
         nouvelleTroupe.m_cible = cible;
         nouvelleTroupe.m_nbUnites = nbEnvois;
         nouvelleTroupe.m_nbToursRestants = m_situation.distance(source, cible);
+        nouvelleTroupe.m_idJoueur = action.idJoueur();
 
         m_situation.addTroupe(nouvelleTroupe);
 
@@ -88,6 +89,7 @@ void Simulateur::executerAction (const Action &action)
         nouvelleBombe.m_cible = cible;
         nouvelleBombe.m_estBombe = true;
         nouvelleBombe.m_nbToursRestants = m_situation.distance(source, cible);
+        nouvelleBombe.m_idJoueur = action.idJoueur();
 
         m_situation.addTroupe(nouvelleBombe);
         m_situation.utiliserBombe(action.idJoueur());
@@ -119,7 +121,37 @@ void Simulateur::produireUnites ()
 
 void Simulateur::combattre ()
 {
+    std::stack<int> iTroupesASupprimer;
 
+    for (unsigned int iTroupe=0; iTroupe<m_situation.troupes()->size(); iTroupe++) {
+        const SituationJeu::Troupe &troupe = (*m_situation.troupes())[iTroupe];
+
+        if (!troupe.m_estBombe && troupe.m_nbToursRestants == 0) {
+            SituationJeu::Usine &usine = (*m_situation.usines())[troupe.m_cible];
+
+            int signe = 1;
+            if (troupe.m_idJoueur != usine.m_proprietaire) {
+                signe = -1;
+            }
+
+            usine.m_nbUnites += signe * troupe.m_nbUnites;
+
+            iTroupesASupprimer.push(iTroupe);
+        }
+    }
+
+    for (SituationJeu::Usine &usine : *m_situation.usines()) {
+        if (usine.m_production < 0) {
+            usine.m_production = -usine.m_production;
+            usine.m_proprietaire = !usine.m_production;
+        }
+    }
+
+    while (iTroupesASupprimer.size()) { // Suppression des troupes à supprimer
+        const int iASupprimer = iTroupesASupprimer.top();
+        m_situation.troupes()->erase(m_situation.troupes()->begin() + iASupprimer);
+        iTroupesASupprimer.pop();
+    }
 }
 
 void Simulateur::exploserBombes ()
