@@ -73,6 +73,20 @@ void Simulateur::executerAction (const Action &action)
     }
     else if (action.type() == Action::BOMBE) {
 
+        const int source = action.information(0);
+
+        if ((*m_situation.usines())[source].m_proprietaire != action.idJoueur()) { // Impossible de lancer une bombe depuis une usine ennemie
+            m_situation.setIdVainqueur(!action.idJoueur());
+            return;
+        }
+
+        const int cible = action.information(1);
+
+        SituationJeu::Troupe nouvelleBombe;
+        nouvelleBombe.m_cible = cible;
+        nouvelleBombe.m_estBombe = true;
+        nouvelleBombe.m_nbToursRestants = m_situation.distance(source, cible);
+
     }
     else if (action.type() == Action::AMELIORATION) {
 
