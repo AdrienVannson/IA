@@ -187,7 +187,7 @@ void Simulateur::exploserBombes ()
     }
 }
 
-bool Simulateur::verifierFin ()
+void Simulateur::verifierFin ()
 {
     std::array<int, 2> nbUnitesParJoueur = {0, 0};
     std::array<bool, 2> peutProduire = {false, false};

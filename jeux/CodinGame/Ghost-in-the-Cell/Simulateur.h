@@ -32,7 +32,7 @@ private:
     void produireUnites ();
     void combattre ();
     void exploserBombes ();
-    bool verifierFin ();
+    void verifierFin();
 
 
 

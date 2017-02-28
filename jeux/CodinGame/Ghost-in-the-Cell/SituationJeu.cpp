@@ -2,8 +2,8 @@
 
 
 SituationJeu::SituationJeu (const int nbJoueurs) :
-    m_idVainqueur(-1),
-    m_nbToursEcoules (0)
+    m_nbToursEcoules (0),
+    m_idVainqueur(-1)
 {
     for (int iJoueur=0; iJoueur<nbJoueurs; iJoueur++) {
         m_nbBombesRestantes.push_back(2);
@@ -89,7 +89,7 @@ void SituationJeu::addTroupe (const Troupe &nouvelleTroupe)
 
 int SituationJeu::nbBombesRestantes (const int idJoueur) const
 {
-    m_nbBombesRestantes[idJoueur];
+    return m_nbBombesRestantes[idJoueur];
 }
 
 void SituationJeu::utiliserBombe (const int idJoueur)
