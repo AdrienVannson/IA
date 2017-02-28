@@ -20,12 +20,31 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     // Création d'une fausse partie (TODEL)
+    Simulateur simulateur;
     Partie *partie = new Partie;
 
     SituationJeu sitPrecedante;
 
-    for (int iTour=0; iTour<15; iTour++) {
-        SituationJeu nouvelleSituation(sitPrecedante);
+    for (int iTour=0; iTour<100; iTour++) {
+        const int idJoueur = iTour % 2;
+
+        Action action;
+        action.setType(Action::DEPLACEMENT);
+        action.setIdJoueur(idJoueur);
+
+        for (unsigned int iUsine=0; iUsine<sitPrecedante.usines()->size(); iUsine++) {
+            const SituationJeu::Usine &usine = (*sitPrecedante.usines())[iUsine];
+
+            if (usine.m_proprietaire == idJoueur) {
+                action.setInformation(iUsine, 0);
+            }
+
+            if (usine.m_production == !idJoueur) {
+                action.setInformation(iUsine, 1);
+            }
+        }
+
+        SituationJeu nouvelleSituation = simulateur.simulerAction(sitPrecedante, action);
 
         Tour tour;
         tour.setSituationJeu(nouvelleSituation);

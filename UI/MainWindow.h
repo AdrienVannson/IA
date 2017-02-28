@@ -7,6 +7,7 @@
 #include <QMenuBar>
 #include <QPushButton>
 
+#include "Simulateur.h"
 #include "partie/Partie.h"
 #include "WidgetPartie.h"
 

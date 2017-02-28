@@ -138,4 +138,3 @@ void SituationJeu::setIdVainqueur (const int nouvelIdVainqueur)
 {
     m_idVainqueur = nouvelIdVainqueur;
 }
-
