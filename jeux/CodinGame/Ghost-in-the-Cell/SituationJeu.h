@@ -29,16 +29,20 @@ public:
         int m_nbUnites;
         int m_production;
         int m_proprietaire;
-        int nbToursBloquesRestants; // Si l'usine a reçu une bombe, elle ne peut plus produire pendant 5 tours
+        int m_nbToursBloquesRestants; // Si l'usine a reçu une bombe, elle ne peut plus produire pendant 5 tours
     };
 
     struct Troupe
     {
-        bool estBombe; // Sinon, troupe classique
-        int nbUnites; // Si c'est une troupe
+        Troupe () :
+            m_estBombe (false)
+        {}
 
-        int cible; // ID de l'usine que la troupe rejoint
-        int nbToursRestants; // Nombre de tours restants avant l'arrivée à l'usine
+        bool m_estBombe; // Sinon, troupe classique
+        int m_nbUnites; // Si c'est une troupe
+
+        int m_cible; // ID de l'usine que la troupe rejoint
+        int m_nbToursRestants; // Nombre de tours restants avant l'arrivée à l'usine
     };
 
 
@@ -52,6 +56,8 @@ public:
     void setUsines (const std::vector<Usine> &nouvellesUsines);
 
     const std::vector< std::vector<int> >* distances () const;
+    int distance (const int usineA, const int usineB) const;
+
     void setDistances (const std::vector< std::vector<int> > nouvellesDistances);
 
 
@@ -59,11 +65,13 @@ public:
     const std::vector<Troupe>* troupes () const;
     std::vector<Troupe>* troupes ();
 
+    void addTroupe (const Troupe &nouvelleTroupe);
+
 
     // Actions
     const std::vector<Action>* actions () const;
 
-    void ajouterAction (const Action &nouvelleAction);
+    void addAction (const Action &nouvelleAction);
     void supprimerLesActions ();
 
 

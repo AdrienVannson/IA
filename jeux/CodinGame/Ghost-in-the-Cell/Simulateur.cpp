@@ -9,7 +9,7 @@ Simulateur::Simulateur ()
 SituationJeu Simulateur::simulerAction (const SituationJeu &situationDepart, const Action actionAJouer)
 {
     m_situation = situationDepart;
-    m_situation.ajouterAction(actionAJouer);
+    m_situation.addAction(actionAJouer);
 
     if (m_situation.actions()->size() == 2) { // Si tous les joueurs ont joué, simulation du tour
 
@@ -37,21 +37,54 @@ SituationJeu Simulateur::simulerAction (const SituationJeu &situationDepart, con
 void Simulateur::avancerTroupes ()
 {
     for (SituationJeu::Troupe &troupe : *m_situation.troupes()) {
-        troupe.nbToursRestants--;
+        troupe.m_nbToursRestants--;
     }
 }
 
 void Simulateur::executerAction (const Action &action)
 {
+    if (action.type() == Action::DEPLACEMENT) {
 
+        const int source = action.information(0);
+
+        SituationJeu::Usine &usineSource = (*m_situation.usines())[source];
+
+        if (usineSource.m_proprietaire != action.idJoueur()) { // Impossible de déplacer les troupes adverses
+            m_situation.setIdVainqueur(!action.idJoueur());
+            return;
+        }
+
+        const int cible = action.information(1);
+        int nbEnvois = action.information(2);
+
+        if (usineSource.m_nbUnites < nbEnvois) {
+            nbEnvois = usineSource.m_nbUnites;
+        }
+
+        usineSource.m_nbUnites -= nbEnvois;
+
+        SituationJeu::Troupe nouvelleTroupe;
+        nouvelleTroupe.m_cible = cible;
+        nouvelleTroupe.m_nbUnites = nbEnvois;
+        nouvelleTroupe.m_nbToursRestants = m_situation.distance(source, cible);
+
+        m_situation.addTroupe(nouvelleTroupe);
+
+    }
+    else if (action.type() == Action::BOMBE) {
+
+    }
+    else if (action.type() == Action::AMELIORATION) {
+
+    }
 }
 
 void Simulateur::produireUnites ()
 {
     for (SituationJeu::Usine &usine : *m_situation.usines()) {
 
-        if (usine.nbToursBloquesRestants > 0) {
-            usine.nbToursBloquesRestants--;
+        if (usine.m_nbToursBloquesRestants > 0) {
+            usine.m_nbToursBloquesRestants--;
         }
         else if (usine.m_proprietaire != SituationJeu::NEUTRE) {
             usine.m_nbUnites += usine.m_production;

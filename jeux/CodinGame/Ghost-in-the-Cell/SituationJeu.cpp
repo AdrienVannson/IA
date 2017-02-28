@@ -34,6 +34,11 @@ const std::vector< std::vector<int> >* SituationJeu::distances () const
     return &m_distances;
 }
 
+int SituationJeu::distance (const int usineA, const int usineB) const
+{
+    return m_distances[usineA][usineB];
+}
+
 void SituationJeu::setDistances (const std::vector< std::vector<int> > nouvellesDistances)
 {
     m_distances = nouvellesDistances;
@@ -54,6 +59,11 @@ std::vector<SituationJeu::Troupe>* SituationJeu::troupes ()
     return &m_troupes;
 }
 
+void SituationJeu::addTroupe (const Troupe &nouvelleTroupe)
+{
+    m_troupes.push_back(nouvelleTroupe);
+}
+
 
 /*
  * Actions
@@ -64,7 +74,7 @@ const std::vector<Action>* SituationJeu::actions () const
     return &m_actions;
 }
 
-void SituationJeu::ajouterAction (const Action &nouvelleAction)
+void SituationJeu::addAction (const Action &nouvelleAction)
 {
     m_actions.push_back(nouvelleAction);
 }
