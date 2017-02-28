@@ -19,9 +19,7 @@ public:
      * Constantes
      */
 
-    static const int ADVERSAIRE = -1;
     static const int NEUTRE = 0;
-    static const int MOI = 1;
 
 
 
