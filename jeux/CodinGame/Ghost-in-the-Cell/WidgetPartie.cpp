@@ -126,6 +126,8 @@ void WidgetPartie::afficherTourActuel ()
     }
 
     // Troupes
+    m_modeleTroupes->removeRows(0, m_modeleTroupes->rowCount());
+
     for (unsigned int iTroupe=0; iTroupe<situationActuelle.troupes()->size(); iTroupe++) {
         const SituationJeu::Troupe &troupe = (*situationActuelle.troupes())[iTroupe];
 
