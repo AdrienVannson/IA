@@ -26,6 +26,7 @@ SituationJeu Simulateur::simulerAction (const SituationJeu &situationDepart, con
         exploserBombes();
         verifierFin();
 
+        m_situation.supprimerLesActions();
     }
 
     return m_situation;

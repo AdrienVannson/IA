@@ -8,6 +8,10 @@ WidgetPartie::WidgetPartie(QWidget *parent) :
     m_layout = new QVBoxLayout;
     setLayout(m_layout);
 
+    // Affichage du tour
+    m_affichageITour = new QLabel;
+    m_layout->addWidget(m_affichageITour);
+
     // Usines
     m_modeleUsines = new QStandardItemModel(5, 3);
 
@@ -56,6 +60,8 @@ void WidgetPartie::tourSuivant ()
 
 void WidgetPartie::afficherTourActuel ()
 {
+    m_affichageITour->setText(QString::number(m_iTourActuel));
+
     const SituationJeu &situationActuelle = (*m_partie->tours())[m_iTourActuel].situationJeu();
 
     for (unsigned int idUsine=0; idUsine<situationActuelle.usines()->size(); idUsine++) {

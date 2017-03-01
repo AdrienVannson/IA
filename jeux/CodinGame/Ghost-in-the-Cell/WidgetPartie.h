@@ -41,6 +41,9 @@ private:
 
 
     QVBoxLayout *m_layout;
+
+    QLabel *m_affichageITour;
+
     QStandardItemModel *m_modeleUsines;
 
 
