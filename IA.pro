@@ -25,19 +25,23 @@ SOURCES += main.cpp\
     partie/Partie.cpp \
     partie/PartieDetaillee.cpp \
     partie/Tour.cpp \
+    partie/Joueur.cpp \
     $$PATH_JEU/Simulateur.cpp \
     $$PATH_JEU/Action.cpp \
     $$PATH_JEU/SituationJeu.cpp \
-    $$PATH_JEU/WidgetPartie.cpp
+    $$PATH_JEU/WidgetPartie.cpp \
+    $$PATH_JEU/InformationsTourJoueur.cpp
 
 HEADERS  += UI/MainWindow.h \
     partie/PartieManager.h \
     partie/Partie.h \
     partie/PartieDetaillee.h \
     partie/Tour.h \
+    partie/Joueur.h \
     $$PATH_JEU/Simulateur.h \
     $$PATH_JEU/Action.h \
     $$PATH_JEU/SituationJeu.h \
-    $$PATH_JEU/WidgetPartie.h
+    $$PATH_JEU/WidgetPartie.h \
+    $$PATH_JEU/InformationsTourJoueur.h
 
 FORMS    +=
