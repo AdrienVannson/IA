@@ -3,6 +3,9 @@
 
 #include <QTimer>
 #include <QWidget>
+#include <QVBoxLayout>
+
+#include <QtWidgets>
 
 #include "partie/Partie.h"
 
@@ -14,7 +17,7 @@ class WidgetPartie : public QWidget
 public:
     explicit WidgetPartie (QWidget *parent = 0);
 
-    // QSize minimumSizeHint() const;
+    QSize minimumSizeHint() const;
 
 
     void afficherPartie (const Partie *partie);
@@ -35,6 +38,10 @@ private:
 
     const Partie *m_partie;
     int m_iTourActuel;
+
+
+    QVBoxLayout *m_layout;
+    QStandardItemModel *m_modeleUsines;
 
 
     // Timer pour passer au tour suivant
