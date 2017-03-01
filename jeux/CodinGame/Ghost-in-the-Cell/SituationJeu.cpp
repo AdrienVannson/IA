@@ -11,6 +11,38 @@ SituationJeu::SituationJeu (const int nbJoueurs) :
 }
 
 
+void SituationJeu::initialiserAleatoirement ()
+{
+    Usine usine;
+
+    m_usines.push_back(usine);
+
+    usine.m_production = 1;
+    m_usines.push_back(usine);
+    m_usines.push_back(usine);
+
+
+    usine.m_nbUnites = 10;
+
+    usine.m_proprietaire = 0;
+    m_usines.push_back(usine);
+
+    usine.m_proprietaire = 1;
+    m_usines.push_back(usine);
+
+
+    std::vector< std::vector<int> > distances = {{
+        {0, 3, 3, 3, 3},
+        {3, 0, 3, 3, 3},
+        {3, 3, 0, 3, 3},
+        {3, 3, 3, 0, 3},
+        {3, 3, 3, 3, 0}
+    }};
+
+    m_distances = distances;
+}
+
+
 /*
  * Nombre de tours écoulés
  */

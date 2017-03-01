@@ -57,6 +57,8 @@ public:
     // Constructeur
     SituationJeu (const int nbJoueurs = 2);
 
+    void initialiserAleatoirement ();
+
 
     // Nombre de tours écoulés
     int nbToursEcoules () const;
