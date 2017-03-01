@@ -26,11 +26,11 @@ public:
 
     struct Usine
     {
-        Usine () :
-            m_nbUnites (0),
-            m_production (0),
-            m_proprietaire (-1),
-            m_nbToursBloquesRestants (0)
+        Usine (const int nbUnites=0, const int production=0, const int proprietaire=-1, const int nbToursBloquesRestants=0) :
+            m_nbUnites (nbUnites),
+            m_production (production),
+            m_proprietaire (proprietaire),
+            m_nbToursBloquesRestants (nbToursBloquesRestants)
         {}
 
         int m_nbUnites;

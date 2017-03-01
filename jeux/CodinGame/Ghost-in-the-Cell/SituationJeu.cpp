@@ -15,28 +15,31 @@ void SituationJeu::initialiserAleatoirement ()
 {
     Usine usine;
 
-    m_usines.push_back(usine);
+    m_usines.push_back( Usine(0, 0, -1, 0) );
 
-    usine.m_production = 1;
-    m_usines.push_back(usine);
-    m_usines.push_back(usine);
+    m_usines.push_back( Usine(16, 1, 0, 0) );
+    m_usines.push_back( Usine(16, 1, 1, 0) );
 
+    m_usines.push_back( Usine(0, 0, -1, 0) );
+    m_usines.push_back( Usine(0, 0, -1, 0) );
 
-    usine.m_nbUnites = 10;
+    m_usines.push_back( Usine(5, 1, -1, 0) );
+    m_usines.push_back( Usine(5, 1, -1, 0) );
 
-    usine.m_proprietaire = 0;
-    m_usines.push_back(usine);
-
-    usine.m_proprietaire = 1;
-    m_usines.push_back(usine);
+    m_usines.push_back( Usine(0, 0, -1, 0) );
+    m_usines.push_back( Usine(0, 0, -1, 0) );
 
 
     std::vector< std::vector<int> > distances = {{
-        {0, 3, 3, 3, 3},
-        {3, 0, 3, 3, 3},
-        {3, 3, 0, 3, 3},
-        {3, 3, 3, 0, 3},
-        {3, 3, 3, 3, 0}
+        {0, 1, 1, 4, 4, 2, 2, 3, 3},
+        {1, 0, 4, 4, 5, 4, 2, 2, 5},
+        {1, 4, 0, 5, 4, 2, 4, 5, 2},
+        {4, 4, 5, 0, 9, 1, 7, 1, 8},
+        {4, 5, 4, 9, 0, 7, 1, 8, 1},
+        {2, 4, 2, 1, 7, 0, 6, 3, 6},
+        {2, 2, 4, 7, 1, 6, 0, 6, 3},
+        {3, 2, 5, 1, 8, 3, 6, 0, 7},
+        {3, 5, 2, 8, 1, 6, 3, 7, 0}
     }};
 
     m_distances = distances;
