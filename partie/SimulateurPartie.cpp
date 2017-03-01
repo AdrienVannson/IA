@@ -10,12 +10,12 @@ Partie* SimulateurPartie::simulerPartie (const SituationJeu &sitDepart, std::vec
     Partie *partie = new Partie;
     partie->addTour(Tour(sitDepart));
 
-    int iJoueur = 0;
+    int idJoueur = 0;
 
     while (!partie->dernierTour()->situationJeu().estFini()) {
         Tour *tour = partie->dernierTour();
 
-        const Action &action = joueurs[iJoueur++]->jouerAction(InformationsTourJoueur());
+        const Action &action = joueurs[idJoueur++]->jouerAction(InformationsTourJoueur(tour->situationJeu(), idJoueur));
         tour->setAction(action);
 
         Tour nouveauTour;
