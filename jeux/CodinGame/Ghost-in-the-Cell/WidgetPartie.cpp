@@ -13,7 +13,7 @@ WidgetPartie::WidgetPartie(QWidget *parent) :
     m_layout->addWidget(m_affichageITour);
 
     // Usines
-    m_modeleUsines = new QStandardItemModel(5, 3);
+    m_modeleUsines = new QStandardItemModel;
 
     QStringList intitulesColonnes;
     intitulesColonnes.append(QString("ID"));
@@ -23,11 +23,27 @@ WidgetPartie::WidgetPartie(QWidget *parent) :
 
     m_modeleUsines->setHorizontalHeaderLabels(intitulesColonnes);
 
+    QTableView *vueUsines = new QTableView;
+    vueUsines->setModel(m_modeleUsines);
+    m_layout->addWidget(vueUsines);
 
-    QTableView *vue = new QTableView;
-    vue->setModel(m_modeleUsines);
 
-    m_layout->addWidget(vue);
+    // Troupes
+    m_modeleTroupes = new QStandardItemModel();
+
+    intitulesColonnes.clear();
+    intitulesColonnes.append(QString("Nb d'unités"));
+    intitulesColonnes.append(QString("Cible"));
+    intitulesColonnes.append(QString("Nb tours restants"));
+    intitulesColonnes.append(QString("Type"));
+
+    m_modeleTroupes->setHorizontalHeaderLabels(intitulesColonnes);
+
+    QTableView *vueTroupes = new QTableView;
+    vueTroupes->setModel(m_modeleTroupes);
+    m_layout->addWidget(vueTroupes);
+
+
 
 
     // Timer
@@ -60,13 +76,16 @@ void WidgetPartie::tourSuivant ()
 
 void WidgetPartie::afficherTourActuel ()
 {
-    m_affichageITour->setText(QString::number(m_iTourActuel));
-
     const SituationJeu &situationActuelle = (*m_partie->tours())[m_iTourActuel].situationJeu();
 
+    // Tour actuel
+    m_affichageITour->setText(QString::number(m_iTourActuel));
+
+    // Usines
     for (unsigned int idUsine=0; idUsine<situationActuelle.usines()->size(); idUsine++) {
         const SituationJeu::Usine &usine = (*situationActuelle.usines())[idUsine];
 
+        // Couleur
         QBrush brosse;
 
         switch (usine.m_proprietaire) {
@@ -104,5 +123,49 @@ void WidgetPartie::afficherTourActuel ()
         QStandardItem *itemNbToursBloquesRestants = new QStandardItem(QString::number(usine.m_nbToursBloquesRestants));
         itemNbToursBloquesRestants->setBackground(brosse);
         m_modeleUsines->setItem(idUsine, 3, itemNbToursBloquesRestants);
+    }
+
+    // Troupes
+    for (unsigned int iTroupe=0; iTroupe<situationActuelle.troupes()->size(); iTroupe++) {
+        const SituationJeu::Troupe &troupe = (*situationActuelle.troupes())[iTroupe];
+
+        // Couleur
+        QBrush brosse;
+
+        switch (troupe.m_idJoueur) {
+
+        case SituationJeu::NEUTRE:
+            brosse = QBrush(QColor(0, 0, 0, 30));
+            break;
+
+        case 0:
+            brosse = QBrush(QColor(0, 0, 255, 90));
+            break;
+
+        case 1:
+            brosse = QBrush(QColor(0, 255, 0, 90));
+            break;
+
+        }
+
+        // Nombre d'unités
+        QStandardItem *itemNbUnites = new QStandardItem(QString::number(troupe.m_nbUnites));
+        itemNbUnites->setBackground(brosse);
+        m_modeleTroupes->setItem(iTroupe, 0, itemNbUnites);
+
+        // Cible
+        QStandardItem *itemCible = new QStandardItem(QString::number(troupe.m_cible));
+        itemCible->setBackground(brosse);
+        m_modeleTroupes->setItem(iTroupe, 1, itemCible);
+
+        // Nombre de tours restants
+        QStandardItem *itemNbToursRestants = new QStandardItem(QString::number(troupe.m_nbToursRestants));
+        itemNbToursRestants->setBackground(brosse);
+        m_modeleTroupes->setItem(iTroupe, 2, itemNbToursRestants);
+
+        // Type
+        QStandardItem *itemType = new QStandardItem(troupe.m_estBombe ? "Bombe" : "Troupe");
+        itemType->setBackground(brosse);
+        m_modeleTroupes->setItem(iTroupe, 3, itemType);
     }
 }

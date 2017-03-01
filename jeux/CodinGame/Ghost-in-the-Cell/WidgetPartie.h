@@ -45,6 +45,7 @@ private:
     QLabel *m_affichageITour;
 
     QStandardItemModel *m_modeleUsines;
+    QStandardItemModel *m_modeleTroupes;
 
 
     // Timer pour passer au tour suivant
