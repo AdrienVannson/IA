@@ -21,8 +21,6 @@ SituationJeu Simulateur::simulerAction (const SituationJeu &situationDepart, con
 
     if (m_situation.actions()->size() == 2) { // Si tous les joueurs ont joué, simulation du tour
 
-        m_situation.incrementerNbToursEcoules();
-
         avancerTroupes();
 
         for (const Action &action : *m_situation.actions()) {
@@ -36,6 +34,8 @@ SituationJeu Simulateur::simulerAction (const SituationJeu &situationDepart, con
 
         m_situation.supprimerLesActions();
     }
+
+    m_situation.incrementerNbToursEcoules();
 
     return m_situation;
 }
@@ -75,7 +75,6 @@ void Simulateur::executerAction (const Action &action)
             nbEnvois = usineSource.m_nbUnites;
         }
 
-        usineSource.m_nbUnites -= nbEnvois;
 
         SituationJeu::Troupe nouvelleTroupe;
         nouvelleTroupe.m_cible = cible;
@@ -207,7 +206,7 @@ void Simulateur::verifierFin ()
         }
     }
 
-    if (m_situation.nbToursEcoules() >= 200) {
+    if (m_situation.nbToursEcoules() >= 400) {
 
         if (nbUnitesParJoueur[0] > nbUnitesParJoueur[1]) {
             m_situation.setIdVainqueur(0);
