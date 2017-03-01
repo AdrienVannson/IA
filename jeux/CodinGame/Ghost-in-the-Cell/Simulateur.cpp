@@ -137,14 +137,12 @@ void Simulateur::combattre ()
 
             usine.m_nbUnites += signe * troupe.m_nbUnites;
 
-            iTroupesASupprimer.push(iTroupe);
-        }
-    }
+            if (usine.m_nbUnites < 0) {
+                usine.m_nbUnites = -usine.m_nbUnites;
+                usine.m_proprietaire = troupe.m_idJoueur;
+            }
 
-    for (SituationJeu::Usine &usine : *m_situation.usines()) {
-        if (usine.m_production < 0) {
-            usine.m_production = -usine.m_production;
-            usine.m_proprietaire = !usine.m_production;
+            iTroupesASupprimer.push(iTroupe);
         }
     }
 
