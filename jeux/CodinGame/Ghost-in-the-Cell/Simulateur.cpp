@@ -1,12 +1,20 @@
 #include "Simulateur.h"
 
+/*
+ * Membres statiques
+ */
+
+SituationJeu Simulateur::m_situation;
+
+
+
 Simulateur::Simulateur ()
 {
 
 }
 
 
-SituationJeu Simulateur::simulerAction (const SituationJeu &situationDepart, const Action actionAJouer)
+SituationJeu Simulateur::simulerAction (const SituationJeu &situationDepart, const Action &actionAJouer)
 {
     m_situation = situationDepart;
     m_situation.addAction(actionAJouer);

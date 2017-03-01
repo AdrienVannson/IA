@@ -20,24 +20,24 @@ public:
 
     Simulateur ();
 
-    SituationJeu simulerAction (const SituationJeu &situationDepart, const Action actionAJouer);
+    static SituationJeu simulerAction (const SituationJeu &situationDepart, const Action &actionAJouer);
 
 
 
 private:
 
     // Fonctions de jeu
-    void avancerTroupes ();
-    void executerAction (const Action &action);
-    void produireUnites ();
-    void combattre ();
-    void exploserBombes ();
-    void verifierFin();
+    static void avancerTroupes ();
+    static void executerAction (const Action &action);
+    static void produireUnites ();
+    static void combattre ();
+    static void exploserBombes ();
+    static void verifierFin ();
 
 
 
     // Situation
-    SituationJeu m_situation;
+    static SituationJeu m_situation;
 
 
 };

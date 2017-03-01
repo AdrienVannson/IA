@@ -1,8 +1,8 @@
 #include "Tour.h"
 
-Tour::Tour()
+Tour::Tour (const SituationJeu &situationDepart)
 {
-
+    m_situationJeu = situationDepart;
 }
 
 

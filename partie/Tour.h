@@ -13,7 +13,7 @@ class Tour
 {
 
 public:
-    Tour ();
+    Tour (const SituationJeu &situationDepart=SituationJeu());
 
     SituationJeu situationJeu () const;
     void setSituationJeu (const SituationJeu &nouvelleSituationJeu);
