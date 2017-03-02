@@ -13,32 +13,71 @@ SituationJeu::SituationJeu (const int nbJoueurs) :
 
 void SituationJeu::initialiser ()
 {
-    m_usines.push_back( Usine(0, 0, -1, 0) );
+    const int iPlateau = rand() % 2; // Tirage au sort du plateau à utiliser
 
-    m_usines.push_back( Usine(16, 1, 0, 0) );
-    m_usines.push_back( Usine(16, 1, 1, 0) );
+    std::vector< std::vector<int> > distances;
 
-    m_usines.push_back( Usine(0, 0, -1, 0) );
-    m_usines.push_back( Usine(0, 0, -1, 0) );
+    if (iPlateau == 0) {
+        m_usines.push_back( Usine(0, 0, -1, 0) );
 
-    m_usines.push_back( Usine(5, 1, -1, 0) );
-    m_usines.push_back( Usine(5, 1, -1, 0) );
+        m_usines.push_back( Usine(16, 1, 0, 0) );
+        m_usines.push_back( Usine(16, 1, 1, 0) );
 
-    m_usines.push_back( Usine(0, 0, -1, 0) );
-    m_usines.push_back( Usine(0, 0, -1, 0) );
+        m_usines.push_back( Usine(0, 0, -1, 0) );
+        m_usines.push_back( Usine(0, 0, -1, 0) );
+
+        m_usines.push_back( Usine(5, 1, -1, 0) );
+        m_usines.push_back( Usine(5, 1, -1, 0) );
+
+        m_usines.push_back( Usine(0, 0, -1, 0) );
+        m_usines.push_back( Usine(0, 0, -1, 0) );
 
 
-    std::vector< std::vector<int> > distances = {{
-        {0, 1, 1, 4, 4, 2, 2, 3, 3},
-        {1, 0, 4, 4, 5, 4, 2, 2, 5},
-        {1, 4, 0, 5, 4, 2, 4, 5, 2},
-        {4, 4, 5, 0, 9, 1, 7, 1, 8},
-        {4, 5, 4, 9, 0, 7, 1, 8, 1},
-        {2, 4, 2, 1, 7, 0, 6, 3, 6},
-        {2, 2, 4, 7, 1, 6, 0, 6, 3},
-        {3, 2, 5, 1, 8, 3, 6, 0, 7},
-        {3, 5, 2, 8, 1, 6, 3, 7, 0}
-    }};
+        distances = {{
+            {0, 1, 1, 4, 4, 2, 2, 3, 3},
+            {1, 0, 4, 4, 5, 4, 2, 2, 5},
+            {1, 4, 0, 5, 4, 2, 4, 5, 2},
+            {4, 4, 5, 0, 9, 1, 7, 1, 8},
+            {4, 5, 4, 9, 0, 7, 1, 8, 1},
+            {2, 4, 2, 1, 7, 0, 6, 3, 6},
+            {2, 2, 4, 7, 1, 6, 0, 6, 3},
+            {3, 2, 5, 1, 8, 3, 6, 0, 7},
+            {3, 5, 2, 8, 1, 6, 3, 7, 0}
+        }};
+    }
+    else if (iPlateau == 1) {
+        m_usines.push_back( Usine(0, 0, -1, 0) );
+
+        m_usines.push_back( Usine(29, 2, 0, 0) );
+        m_usines.push_back( Usine(29, 2, 1, 0) );
+
+        m_usines.push_back( Usine(3, 3, -1, 0) );
+        m_usines.push_back( Usine(3, 3, -1, 0) );
+
+        m_usines.push_back( Usine(0, 3, -1, 0) );
+        m_usines.push_back( Usine(0, 3, -1, 0) );
+
+        m_usines.push_back( Usine(5, 2, -1, 0) );
+        m_usines.push_back( Usine(5, 2, -1, 0) );
+
+        m_usines.push_back( Usine(3, 1, -1, 0) );
+        m_usines.push_back( Usine(3, 1, -1, 0) );
+
+
+        distances = {{
+            { 0, 3, 3, 4, 4, 7, 7, 8, 8, 7, 7 },
+            { 3, 0, 7, 2, 8, 3, 11, 4, 12, 4, 10 },
+            { 3, 7, 0, 8, 2, 11, 3, 12, 4, 10, 4 },
+            { 4, 2, 8, 0, 10, 2, 12, 4, 13, 1, 13 },
+            { 4, 8, 2, 10, 0, 12, 2, 13, 4, 13, 1 },
+            { 7, 3, 11, 2, 12, 0, 15, 1, 16, 2, 14 },
+            { 7, 11, 3, 12, 2, 15, 0, 16, 1, 14, 2 },
+            { 8, 4, 12, 4, 13, 1, 16, 0, 17, 4, 15 },
+            { 8, 12, 4, 13, 4, 16, 1, 17, 0, 15, 4 },
+            { 7, 4, 10, 1, 13, 2, 14, 4, 15, 0, 15 },
+            { 7, 10, 4, 13, 1, 14, 2, 15, 4, 15, 0 }
+        }};
+    }
 
     m_distances = distances;
 }

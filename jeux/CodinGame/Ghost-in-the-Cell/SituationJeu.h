@@ -5,6 +5,7 @@
 #ifndef SITUATIONJEU_H
 #define SITUATIONJEU_H
 
+#include <stdlib.h>
 #include <vector>
 
 #include "Action.h"
