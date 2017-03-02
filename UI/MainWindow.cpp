@@ -5,7 +5,7 @@ MainWindow::MainWindow (QWidget *parent) :
 {
     // Timer d'entrainement
     m_timerEntrainement = new QTimer (this);
-    m_timerEntrainement->setInterval(500);
+    m_timerEntrainement->setInterval(50);
     m_timerEntrainement->setSingleShot(true);
 
     connect(m_timerEntrainement, SIGNAL(timeout()), this, SLOT(entrainerJoueur()));
