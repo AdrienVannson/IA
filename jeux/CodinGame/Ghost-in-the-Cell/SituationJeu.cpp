@@ -11,7 +11,7 @@ SituationJeu::SituationJeu (const int nbJoueurs) :
 }
 
 
-void SituationJeu::initialiserAleatoirement ()
+void SituationJeu::initialiser ()
 {
     Usine usine;
 

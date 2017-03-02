@@ -24,35 +24,7 @@ MainWindow::MainWindow (QWidget *parent) :
     Partie *partie = new Partie;
 
     SituationJeu sitPrecedante;
-
-    SituationJeu::Usine usine;
-
-    sitPrecedante.usines()->push_back(usine);
-
-    usine.m_production = 1;
-    sitPrecedante.usines()->push_back(usine);
-    sitPrecedante.usines()->push_back(usine);
-
-
-    usine.m_nbUnites = 10;
-
-    usine.m_proprietaire = 0;
-    sitPrecedante.usines()->push_back(usine);
-
-    usine.m_proprietaire = 1;
-    sitPrecedante.usines()->push_back(usine);
-
-
-    std::vector< std::vector<int> > distances = {{
-        {0, 3, 3, 3, 3},
-        {3, 0, 3, 3, 3},
-        {3, 3, 0, 3, 3},
-        {3, 3, 3, 0, 3},
-        {3, 3, 3, 3, 0}
-    }};
-
-    sitPrecedante.setDistances(distances);
-
+    sitPrecedante.initialiser();
 
 
     for (int iTour=0; iTour<100; iTour++) {
