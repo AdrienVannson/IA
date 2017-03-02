@@ -23,6 +23,7 @@ double JoueurManager::getRatioVictoire (Joueur* joueur, const int nbParties) con
     }
 
     int nbVictoires = 0;
+    int nbEgalites = 0;
 
     for (int iPartie=0; iPartie<nbParties; iPartie++) {
         SituationJeu situationDepart;
@@ -33,13 +34,17 @@ double JoueurManager::getRatioVictoire (Joueur* joueur, const int nbParties) con
         joueurs.push_back(joueur);
 
         Partie *partie = SimulateurPartie::simulerPartie(situationDepart, joueurs);
+        const int resultat = partie->dernierTour()->situationJeu().idVainqueur();
 
-        if (partie->dernierTour()->situationJeu().idVainqueur() == 1) {
+        if (resultat == 1) {
             nbVictoires++;
+        }
+        else if (resultat == -2) { // Égalité
+            nbEgalites++;
         }
 
         delete partie;
     }
 
-    return (double)nbVictoires / (double)nbParties;
+    return (double)(nbVictoires*2 + nbEgalites) / (double)(2*nbParties);
 }

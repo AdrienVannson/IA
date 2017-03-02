@@ -129,7 +129,7 @@ private:
 
 
     // Fin de la partie
-    int m_idVainqueur; // -1 si la partie n'est pas terminée, l'ID du joueur sinon
+    int m_idVainqueur; // -1 si la partie n'est pas terminée, -2 si égalité, l'ID du joueur sinon
 
 
 };

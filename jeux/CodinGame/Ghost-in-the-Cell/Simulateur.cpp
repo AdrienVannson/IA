@@ -213,8 +213,11 @@ void Simulateur::verifierFin ()
         if (nbUnitesParJoueur[0] > nbUnitesParJoueur[1]) {
             m_situation.setIdVainqueur(0);
         }
-        else {
+        else if (nbUnitesParJoueur[0] < nbUnitesParJoueur[1]) {
             m_situation.setIdVainqueur(1);
+        }
+        else {
+            m_situation.setIdVainqueur(-2);
         }
 
     }
