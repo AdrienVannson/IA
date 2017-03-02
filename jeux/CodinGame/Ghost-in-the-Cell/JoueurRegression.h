@@ -1,6 +1,8 @@
 #ifndef JOUEURREGRESSION_H
 #define JOUEURREGRESSION_H
 
+#include <QDebug>
+
 #include <array>
 
 #include "partie/Joueur.h"
@@ -12,18 +14,22 @@ class JoueurRegression : public Joueur
 
 public:
 
+    static const int NB_COEFFICIENTS = 2;
+
+
+
     JoueurRegression ();
 
     Action jouerAction (const InformationsTourJoueur &informations);
 
     void entrainer (JoueurManager *joueurManager);
 
+    const std::array<double, NB_COEFFICIENTS>* coefficients () const;
+
 
 private:
 
-    static const int NB_COEFFICIENTS = 2;
-
-    std::array<int, NB_COEFFICIENTS> m_coefficients;
+    std::array<double, NB_COEFFICIENTS> m_coefficients;
 
 
 };

@@ -50,5 +50,33 @@ Action JoueurRegression::jouerAction (const InformationsTourJoueur &informations
 
 void JoueurRegression::entrainer (JoueurManager *joueurManager)
 {
+    for (int i=0; i<10; i++) { // Nombre d'itérations de l'entrainement
+        qDebug() << "Iteration:" << i;
 
+        for (int iCoefficient=0; iCoefficient<NB_COEFFICIENTS; iCoefficient++) {
+            double meilleurDelta = 0;
+            double meilleurScore = - 1000 * 1000 * 1000;
+
+            for (int delta=-1; delta<=1; delta++) {
+
+                m_coefficients[iCoefficient] += delta;
+                const double score = joueurManager->getRatioVictoire(this, 10+i);
+                m_coefficients[iCoefficient] -= delta;
+
+                if (score > meilleurScore) {
+                    meilleurScore = score;
+                    meilleurDelta = delta;
+                }
+            }
+
+            m_coefficients[iCoefficient] += meilleurDelta;
+        }
+
+    }
+}
+
+
+const std::array<double, JoueurRegression::NB_COEFFICIENTS>* JoueurRegression::coefficients () const
+{
+    return &m_coefficients;
 }
