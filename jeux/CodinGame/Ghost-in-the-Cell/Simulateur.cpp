@@ -208,6 +208,12 @@ void Simulateur::verifierFin ()
         }
     }
 
+    for (const SituationJeu::Troupe &troupe : *m_situation.troupes()) {
+        if (!troupe.m_estBombe) {
+            nbUnitesParJoueur[troupe.m_idJoueur] += troupe.m_nbUnites;
+        }
+    }
+
     if (m_situation.nbToursEcoules() >= 400) {
 
         if (nbUnitesParJoueur[0] > nbUnitesParJoueur[1]) {
