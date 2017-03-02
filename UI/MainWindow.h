@@ -10,6 +10,7 @@
 #include <QTimer>
 
 #include "JoueurNaif.h"
+#include "JoueurRegression.h"
 #include "Simulateur.h"
 #include "partie/JoueurManager.h"
 #include "partie/Partie.h"

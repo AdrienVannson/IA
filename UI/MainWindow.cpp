@@ -10,6 +10,9 @@ MainWindow::MainWindow (QWidget *parent) :
 
     connect(m_timerEntrainement, SIGNAL(timeout()), this, SLOT(entrainerJoueur()));
 
+    // Ajout d'un joueur naïf
+    m_joueurManager.addJoueur(new JoueurNaif);
+
 
     showMaximized();
 
@@ -86,11 +89,10 @@ MainWindow::~MainWindow ()
 
 void MainWindow::entrainerJoueur ()
 {
-    Joueur *joueur = new JoueurNaif;
+    JoueurRegression *joueur = new JoueurRegression (&m_joueurManager);
+    joueur->entrainer();
 
-    const double score = m_joueurManager.getRatioVictoire(joueur, 100);
-    qDebug() << score;
-
+    qDebug() << m_joueurManager.getRatioVictoire(joueur, 100);
     m_joueurManager.addJoueur(joueur);
 
     m_timerEntrainement->start();
