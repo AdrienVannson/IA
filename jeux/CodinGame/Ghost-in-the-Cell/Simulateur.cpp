@@ -75,6 +75,8 @@ void Simulateur::executerAction (const Action &action)
             nbEnvois = usineSource.m_nbUnites;
         }
 
+        usineSource.m_nbUnites -= nbEnvois;
+
 
         SituationJeu::Troupe nouvelleTroupe;
         nouvelleTroupe.m_cible = cible;
