@@ -59,8 +59,8 @@ MainWindow::~MainWindow ()
 
 void MainWindow::entrainerJoueur ()
 {
-    JoueurRegression *joueur = new JoueurRegression (&m_joueurManager);
-    joueur->entrainer();
+    JoueurRegression *joueur = new JoueurRegression;
+    joueur->entrainer(&m_joueurManager);
 
     qDebug() << m_joueurManager.getRatioVictoire(joueur, 100);
     m_joueurManager.addJoueur(joueur);

@@ -1,8 +1,7 @@
 #include "JoueurRegression.h"
 
-JoueurRegression::JoueurRegression (JoueurManager *joueurManager)
+JoueurRegression::JoueurRegression ()
 {
-    m_joueurManager = joueurManager;
 }
 
 
@@ -43,7 +42,7 @@ Action JoueurRegression::jouerAction (const InformationsTourJoueur &informations
 }
 
 
-void JoueurRegression::entrainer ()
+void JoueurRegression::entrainer (JoueurManager *joueurManager)
 {
 
 }

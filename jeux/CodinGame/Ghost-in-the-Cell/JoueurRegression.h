@@ -10,16 +10,15 @@ class JoueurRegression : public Joueur
 
 public:
 
-    JoueurRegression (JoueurManager *joueurManager);
+    JoueurRegression ();
 
     Action jouerAction (const InformationsTourJoueur &informations);
 
-    void entrainer ();
+    void entrainer (JoueurManager *joueurManager);
 
 
 private:
 
-    JoueurManager *m_joueurManager;
 
 };
 
