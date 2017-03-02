@@ -15,7 +15,8 @@ Partie* SimulateurPartie::simulerPartie (const SituationJeu &sitDepart, std::vec
     while (!partie->dernierTour()->situationJeu().estFini()) {
         Tour *tour = partie->dernierTour();
 
-        const Action &action = joueurs[idJoueur]->jouerAction(InformationsTourJoueur(tour->situationJeu(), idJoueur));
+        Action action = joueurs[idJoueur]->jouerAction(InformationsTourJoueur(tour->situationJeu(), idJoueur));
+        action.setIdJoueur(idJoueur);
         tour->setAction(action);
 
         Tour nouveauTour;
