@@ -1,6 +1,8 @@
 #ifndef JOUEURREGRESSION_H
 #define JOUEURREGRESSION_H
 
+#include <array>
+
 #include "partie/Joueur.h"
 #include "partie/JoueurManager.h"
 
@@ -18,6 +20,10 @@ public:
 
 
 private:
+
+    static const int NB_COEFFICIENTS = 2;
+
+    std::array<int, NB_COEFFICIENTS> m_coefficients;
 
 
 };

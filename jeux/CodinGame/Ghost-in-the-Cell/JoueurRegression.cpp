@@ -2,6 +2,9 @@
 
 JoueurRegression::JoueurRegression ()
 {
+    for (int iCoefficient=0; iCoefficient<NB_COEFFICIENTS; iCoefficient++) {
+        m_coefficients[iCoefficient] = ((double)(rand() % 2000) / 10.0) - 100;
+    }
 }
 
 
@@ -22,7 +25,10 @@ Action JoueurRegression::jouerAction (const InformationsTourJoueur &informations
         for (unsigned int idCible=0; idCible<usines->size(); idCible++) {
             const SituationJeu::Usine &cible = (*usines)[idCible];
 
-            const double score = (double) (rand() % 1000) / 1000.0;
+            double score = 0;
+
+            score += m_coefficients[0];
+            score += m_coefficients[1] * informations.situationJeu()->distance(idSource, idCible);
 
             if (score > scoreMax) {
                 scoreMax = score;
