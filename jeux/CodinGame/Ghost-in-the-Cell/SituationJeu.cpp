@@ -13,8 +13,6 @@ SituationJeu::SituationJeu (const int nbJoueurs) :
 
 void SituationJeu::initialiser ()
 {
-    Usine usine;
-
     m_usines.push_back( Usine(0, 0, -1, 0) );
 
     m_usines.push_back( Usine(16, 1, 0, 0) );
