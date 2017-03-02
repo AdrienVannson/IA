@@ -2,5 +2,8 @@
 
 Joueur::Joueur ()
 {
+}
 
+Joueur::~Joueur ()
+{
 }

@@ -2,7 +2,13 @@
 
 JoueurManager::JoueurManager ()
 {
+}
 
+JoueurManager::~JoueurManager ()
+{
+    for (std::pair<Joueur*, double> paire : m_joueurs) {
+        delete paire.first;
+    }
 }
 
 void JoueurManager::addJoueur (Joueur *nouveauJoueur)

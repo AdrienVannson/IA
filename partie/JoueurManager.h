@@ -13,6 +13,7 @@ class JoueurManager
 
 public:
     JoueurManager ();
+    ~JoueurManager ();
 
     void addJoueur (Joueur* nouveauJoueur);
 
@@ -20,7 +21,7 @@ public:
 
 
 private:
-    std::vector<std::pair<Joueur*, double> > m_joueurs; // Joueur ; score
+    std::vector< std::pair<Joueur*, double> > m_joueurs; // Joueur ; score
 
 };
 

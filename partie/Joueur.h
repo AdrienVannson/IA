@@ -14,6 +14,7 @@ class Joueur
 
 public:
     Joueur ();
+    virtual ~Joueur ();
 
     virtual Action jouerAction (const InformationsTourJoueur &informations) = 0;
 
