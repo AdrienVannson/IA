@@ -203,8 +203,8 @@ void Simulateur::verifierFin ()
     for (const SituationJeu::Usine &usine : *m_situation.usines()) {
         nbUnitesParJoueur[usine.m_proprietaire] += usine.m_nbUnites;
 
-        if (usine.m_production > 0) {
-            peutProduire[usine.m_production] = true;
+        if (usine.m_proprietaire != SituationJeu::NEUTRE && usine.m_production > 0) {
+            peutProduire[usine.m_proprietaire] = true;
         }
     }
 
