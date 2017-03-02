@@ -3,7 +3,7 @@
 JoueurRegression::JoueurRegression ()
 {
     for (int iCoefficient=0; iCoefficient<NB_COEFFICIENTS; iCoefficient++) {
-        m_coefficients[iCoefficient] = ((double)(rand() % 2000) / 10.0) - 100;
+        m_coefficients[iCoefficient] = ((double)(rand() % 1000) / 10.0) - 50;
     }
 }
 
@@ -50,7 +50,7 @@ Action JoueurRegression::jouerAction (const InformationsTourJoueur &informations
 
 void JoueurRegression::entrainer (JoueurManager *joueurManager)
 {
-    for (int i=0; i<10; i++) { // Nombre d'itérations de l'entrainement
+    for (int i=0; i<200; i++) { // Nombre d'itérations de l'entrainement
         qDebug() << "Iteration:" << i;
 
         for (int iCoefficient=0; iCoefficient<NB_COEFFICIENTS; iCoefficient++) {
