@@ -37,8 +37,8 @@ MainWindow::MainWindow (QWidget *parent) :
     sitDepart.initialiser();
 
     std::vector<Joueur*> joueurs;
-    joueurs.push_back(new JoueurRegression(0));
-    joueurs.push_back(new JoueurRegression(0));
+    joueurs.push_back(new JoueurNaif);
+    joueurs.push_back(new JoueurNaif);
 
     Partie *partie = SimulateurPartie::simulerPartie(sitDepart, joueurs);
 
