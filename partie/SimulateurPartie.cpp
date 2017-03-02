@@ -23,7 +23,7 @@ Partie* SimulateurPartie::simulerPartie (const SituationJeu &sitDepart, std::vec
 
         partie->addTour(nouveauTour);
 
-        idJoueur++;
+        idJoueur = (idJoueur+1) % joueurs.size();
     }
 
     return partie;

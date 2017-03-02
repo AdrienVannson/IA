@@ -3,6 +3,14 @@
 MainWindow::MainWindow (QWidget *parent) :
     QMainWindow(parent)
 {
+    // Timer d'entrainement
+    m_timerEntrainement = new QTimer (this);
+    m_timerEntrainement->setInterval(500);
+    m_timerEntrainement->setSingleShot(true);
+
+    connect(m_timerEntrainement, SIGNAL(timeout()), this, SLOT(entrainerJoueur()));
+
+
     showMaximized();
 
     // Menu
@@ -17,6 +25,8 @@ MainWindow::MainWindow (QWidget *parent) :
     // Contenu de la fenêtre
     QPushButton *boutton = new QPushButton("Commencer l'entrainement");
     setCentralWidget(boutton);
+
+    connect(boutton, SIGNAL(clicked(bool)), m_timerEntrainement, SLOT(start()));
 
 
     // Création d'une fausse partie (TODEL)
@@ -71,4 +81,17 @@ MainWindow::MainWindow (QWidget *parent) :
 MainWindow::~MainWindow ()
 {
 
+}
+
+
+void MainWindow::entrainerJoueur ()
+{
+    Joueur *joueur = new JoueurNaif;
+
+    const double score = m_joueurManager.getRatioVictoire(joueur, 100);
+    qDebug() << score;
+
+    m_joueurManager.addJoueur(joueur);
+
+    m_timerEntrainement->start();
 }

@@ -32,7 +32,8 @@ SOURCES += main.cpp\
     $$PATH_JEU/WidgetPartie.cpp \
     $$PATH_JEU/InformationsTourJoueur.cpp \
     partie/SimulateurPartie.cpp \
-    partie/JoueurManager.cpp
+    partie/JoueurManager.cpp \
+    jeux/CodinGame/Ghost-in-the-Cell/JoueurNaif.cpp
 
 HEADERS  += UI/MainWindow.h \
     partie/PartieManager.h \
@@ -46,6 +47,7 @@ HEADERS  += UI/MainWindow.h \
     $$PATH_JEU/WidgetPartie.h \
     $$PATH_JEU/InformationsTourJoueur.h \
     partie/SimulateurPartie.h \
-    partie/JoueurManager.h
+    partie/JoueurManager.h \
+    jeux/CodinGame/Ghost-in-the-Cell/JoueurNaif.h
 
 FORMS    +=

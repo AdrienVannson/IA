@@ -12,6 +12,10 @@ void JoueurManager::addJoueur (Joueur *nouveauJoueur)
 
 double JoueurManager::getRatioVictoire (Joueur* joueur, const int nbParties) const
 {
+    if (m_joueurs.size() == 0) {
+        return 0.5;
+    }
+
     int nbVictoires = 0;
 
     for (int iPartie=0; iPartie<nbParties; iPartie++) {
