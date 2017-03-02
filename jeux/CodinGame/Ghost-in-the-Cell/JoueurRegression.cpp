@@ -29,6 +29,9 @@ Action JoueurRegression::jouerAction (const InformationsTourJoueur &informations
 
             score += m_coefficients[0];
             score += m_coefficients[1] * informations.situationJeu()->distance(idSource, idCible);
+            score += m_coefficients[2] * (cible.m_proprietaire == -1);
+            score += m_coefficients[3] * (cible.m_proprietaire == 0);
+            score += m_coefficients[4] * (cible.m_proprietaire == 1);
 
             if (score > scoreMax) {
                 scoreMax = score;
@@ -60,7 +63,7 @@ void JoueurRegression::entrainer (JoueurManager *joueurManager)
             for (int delta=-1; delta<=1; delta++) {
 
                 m_coefficients[iCoefficient] += delta;
-                const double score = joueurManager->getRatioVictoire(this, 10+i);
+                const double score = joueurManager->getRatioVictoire(this, 20+i/3);
                 m_coefficients[iCoefficient] -= delta;
 
                 if (score > meilleurScore) {
