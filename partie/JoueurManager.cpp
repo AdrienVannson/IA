@@ -32,7 +32,6 @@ double JoueurManager::getRatioVictoire (Joueur* joueur, const int nbParties) con
 
     for (int iPartie=0; iPartie<nbParties; iPartie++) {
         SituationJeu situationDepart;
-        situationDepart.initialiser();
 
         std::vector<Joueur*> joueurs;
         joueurs.push_back(m_joueurs[iPartie % m_joueurs.size()].first);

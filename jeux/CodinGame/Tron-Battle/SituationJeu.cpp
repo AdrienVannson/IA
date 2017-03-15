@@ -25,6 +25,11 @@ bool SituationJeu::estFini () const
     return m_estPartieFinie;
 }
 
+int SituationJeu::idVainqueur () const
+{
+    return -1;
+}
+
 
 
 // Convertions

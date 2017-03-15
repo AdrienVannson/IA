@@ -36,6 +36,7 @@ public:
 
     // Fin de la partie
     bool estFini () const;
+    int idVainqueur () const;
 
 
     // Convertions
