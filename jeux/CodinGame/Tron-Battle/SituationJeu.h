@@ -60,7 +60,7 @@ public:
 
 private:
 
-    // Description des cellules en binaire: 00 = vide, 01 = bleu, 10 = rouge
+    // Description des cellules en binaire: 00 = vide, 01 = bleu, 10 = rouge, etc...
     std::array<Cellule, NB_CELLULES> m_cellules;
     std::vector<int> m_positionsJoueurs;
 
