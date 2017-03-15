@@ -40,7 +40,7 @@ private:
 
     QGraphicsScene *m_scene;
 
-    const Partie *m_partie;
+    Partie m_partie;
     int m_iTourActuel;
 
 

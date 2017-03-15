@@ -20,7 +20,7 @@ QSize WidgetPartie::minimumSizeHint() const
 
 void WidgetPartie::afficherPartie (const Partie *partie)
 {
-    m_partie = partie;
+    m_partie = *partie;
     m_iTourActuel = 0;
     afficherTourActuel();
 
@@ -29,7 +29,7 @@ void WidgetPartie::afficherPartie (const Partie *partie)
 
 void WidgetPartie::tourSuivant ()
 {
-    m_iTourActuel = (m_iTourActuel+1) % m_partie->tours()->size();
+    m_iTourActuel = (m_iTourActuel+1) % m_partie.tours()->size();
     afficherTourActuel();
 }
 
@@ -67,7 +67,7 @@ void WidgetPartie::afficherTourActuel ()
 
 
     // Affichage des cellules
-    const SituationJeu &sitJeu = (*m_partie->tours())[m_iTourActuel].situationJeu();
+    const SituationJeu &sitJeu = (*m_partie.tours())[m_iTourActuel].situationJeu();
 
     for (int iLigne=0; iLigne<SituationJeu::NB_LIGNES; iLigne++) {
         for (int iColonne=0; iColonne<SituationJeu::NB_COLONNES; iColonne++) {

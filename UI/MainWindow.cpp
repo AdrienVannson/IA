@@ -40,6 +40,7 @@ MainWindow::MainWindow (QWidget *parent) :
     // Affichage des parties
     WidgetPartie *widgetPartie = new WidgetPartie;
     widgetPartie->afficherPartie(partie);
+    delete partie;
 
     QDockWidget *dockPartie = new QDockWidget("Partie", this);
     dockPartie->setWidget(widgetPartie);
