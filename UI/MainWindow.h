@@ -9,6 +9,7 @@
 
 #include "Simulateur.h"
 #include "partie/JoueursManager.h"
+#include "partie/PartiesManager.h"
 #include "partie/Partie.h"
 #include "WidgetPartie.h"
 
@@ -24,6 +25,7 @@ public:
 
 private:
 
+    PartiesManager m_partiesManager;
     JoueursManager m_joueursManager;
 
 };

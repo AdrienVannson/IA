@@ -52,6 +52,10 @@ MainWindow::MainWindow (QWidget *parent) :
     }
 
 
+    m_partiesManager.addPartie(partie1);
+    m_partiesManager.addPartie(partie2);
+
+
     // Affichage des parties
     WidgetPartie *widgetPartie = new WidgetPartie;
     widgetPartie->afficherPartie(partie1);
