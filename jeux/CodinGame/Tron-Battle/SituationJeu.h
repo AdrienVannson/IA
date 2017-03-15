@@ -34,6 +34,10 @@ public:
     SituationJeu (const int nbJoueurs = 2);
 
 
+    // Fin de la partie
+    bool estFini () const;
+
+
     // Convertions
     static int positionCellule (const int iLigne, const int iColonne);
 
@@ -58,6 +62,8 @@ private:
     // Description des cellules en binaire: 00 = vide, 01 = bleu, 10 = rouge
     std::array<Cellule, NB_CELLULES> m_cellules;
     std::vector<int> m_positionsJoueurs;
+
+    bool m_estPartieFinie;
 
 
 };

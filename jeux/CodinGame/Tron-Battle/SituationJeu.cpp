@@ -1,7 +1,8 @@
 #include "SituationJeu.h"
 
 
-SituationJeu::SituationJeu (const int nbJoueurs)
+SituationJeu::SituationJeu (const int nbJoueurs) :
+    m_estPartieFinie(false)
 {
     // Initialisation: toutes les cellules sont noires
     for (int iCellule=0; iCellule<NB_CELLULES; iCellule++) {
@@ -12,6 +13,16 @@ SituationJeu::SituationJeu (const int nbJoueurs)
     for (int iJoueur=0; iJoueur<nbJoueurs; iJoueur++) {
         m_positionsJoueurs.push_back(0);
     }
+}
+
+
+/*
+ * Fin de la partie
+ */
+
+bool SituationJeu::estFini () const
+{
+    return m_estPartieFinie;
 }
 
 
