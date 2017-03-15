@@ -3,13 +3,6 @@
 MainWindow::MainWindow (QWidget *parent) :
     QMainWindow(parent)
 {
-    // Timer d'entrainement
-    m_timerEntrainement = new QTimer (this);
-    m_timerEntrainement->setInterval(50);
-    m_timerEntrainement->setSingleShot(true);
-
-    connect(m_timerEntrainement, SIGNAL(timeout()), this, SLOT(entrainerJoueur()));
-
     // Ajout d'un joueur naïf
     m_joueurManager.addJoueur(new JoueurNaif);
 
@@ -26,10 +19,8 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     // Contenu de la fenêtre
-    QPushButton *boutton = new QPushButton("Commencer l'entrainement");
+    QPushButton *boutton = new QPushButton("Bienvenue");
     setCentralWidget(boutton);
-
-    connect(boutton, SIGNAL(clicked(bool)), m_timerEntrainement, SLOT(start()));
 
 
     // Création d'une fausse partie (TODEL)
@@ -54,26 +45,4 @@ MainWindow::MainWindow (QWidget *parent) :
 MainWindow::~MainWindow ()
 {
 
-}
-
-
-void MainWindow::entrainerJoueur ()
-{
-    JoueurRegression *joueur = new JoueurRegression;
-    joueur->entrainer(&m_joueurManager);
-
-    qDebug() << m_joueurManager.getRatioVictoire(joueur, 1000);
-
-    const std::array<double, JoueurRegression::NB_COEFFICIENTS>* coefficients = joueur->coefficients();
-
-    std::vector<double> coefs;
-    for (const double coef : *coefficients) {
-        coefs.push_back(coef);
-    }
-
-    qDebug() << coefs;
-
-    m_joueurManager.addJoueur(joueur);
-
-    m_timerEntrainement->start();
 }
