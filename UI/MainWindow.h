@@ -8,7 +8,7 @@
 #include <QPushButton>
 
 #include "Simulateur.h"
-#include "partie/JoueurManager.h"
+#include "partie/JoueursManager.h"
 #include "partie/Partie.h"
 #include "WidgetPartie.h"
 
@@ -24,7 +24,7 @@ public:
 
 private:
 
-    JoueurManager m_joueurManager;
+    JoueursManager m_joueursManager;
 
 };
 

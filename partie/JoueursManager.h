@@ -1,5 +1,5 @@
-#ifndef JOUEURMANAGER_H
-#define JOUEURMANAGER_H
+#ifndef JOUEURSMANAGER_H
+#define JOUEURSMANAGER_H
 
 #include <utility>
 #include <vector>
@@ -8,12 +8,12 @@
 #include "SimulateurPartie.h"
 
 
-class JoueurManager
+class JoueursManager
 {
 
 public:
-    JoueurManager ();
-    ~JoueurManager ();
+    JoueursManager ();
+    ~JoueursManager ();
 
     void addJoueur (Joueur* nouveauJoueur);
 
@@ -25,4 +25,4 @@ private:
 
 };
 
-#endif // JOUEURMANAGER_H
+#endif // JOUEURSMANAGER_H

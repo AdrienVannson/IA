@@ -1,17 +1,17 @@
-#include "JoueurManager.h"
+#include "JoueursManager.h"
 
-JoueurManager::JoueurManager ()
+JoueursManager::JoueursManager ()
 {
 }
 
-JoueurManager::~JoueurManager ()
+JoueursManager::~JoueursManager ()
 {
     for (std::pair<Joueur*, double> paire : m_joueurs) {
         delete paire.first;
     }
 }
 
-void JoueurManager::addJoueur (Joueur *nouveauJoueur)
+void JoueursManager::addJoueur (Joueur *nouveauJoueur)
 {
     m_joueurs.push_back( std::make_pair(nouveauJoueur, -1) );
 
@@ -21,7 +21,7 @@ void JoueurManager::addJoueur (Joueur *nouveauJoueur)
     }
 }
 
-double JoueurManager::getRatioVictoire (Joueur* joueur, const int nbParties) const
+double JoueursManager::getRatioVictoire (Joueur* joueur, const int nbParties) const
 {
     if (m_joueurs.size() == 0) {
         return 0.5;
