@@ -6,7 +6,7 @@
 
 
 # Inclusion du jeu
-PATH_JEU = jeux/CodinGame/Ghost-in-the-Cell
+PATH_JEU = jeux/CodinGame/Tron-Battle
 
 INCLUDEPATH = $$PATH_JEU
 
@@ -32,9 +32,7 @@ SOURCES += main.cpp\
     $$PATH_JEU/WidgetPartie.cpp \
     $$PATH_JEU/InformationsTourJoueur.cpp \
     partie/SimulateurPartie.cpp \
-    partie/JoueurManager.cpp \
-    jeux/CodinGame/Ghost-in-the-Cell/JoueurNaif.cpp \
-    $$PATH_JEU/JoueurRegression.cpp
+    partie/JoueurManager.cpp
 
 HEADERS  += UI/MainWindow.h \
     partie/PartieManager.h \
@@ -48,8 +46,6 @@ HEADERS  += UI/MainWindow.h \
     $$PATH_JEU/WidgetPartie.h \
     $$PATH_JEU/InformationsTourJoueur.h \
     partie/SimulateurPartie.h \
-    partie/JoueurManager.h \
-    jeux/CodinGame/Ghost-in-the-Cell/JoueurNaif.h \
-    $$PATH_JEU/JoueurRegression.h
+    partie/JoueurManager.h
 
 FORMS    +=
