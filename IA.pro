@@ -21,11 +21,11 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
     UI/MainWindow.cpp \
-    partie/PartieManager.cpp \
     partie/Partie.cpp \
     partie/PartieDetaillee.cpp \
     partie/Tour.cpp \
     partie/Joueur.cpp \
+    partie/PartiesManager.cpp \
     partie/SimulateurPartie.cpp \
     partie/JoueurManager.cpp \
     $$PATH_JEU/Simulateur.cpp \
@@ -35,13 +35,13 @@ SOURCES += main.cpp\
     $$PATH_JEU/InformationsTourJoueur.cpp
 
 HEADERS  += UI/MainWindow.h \
-    partie/PartieManager.h \
     partie/Partie.h \
     partie/PartieDetaillee.h \
     partie/Tour.h \
     partie/Joueur.h \
     partie/SimulateurPartie.h \
     partie/JoueurManager.h \
+    partie/PartiesManager.h \
     $$PATH_JEU/Simulateur.h \
     $$PATH_JEU/Action.h \
     $$PATH_JEU/SituationJeu.h \

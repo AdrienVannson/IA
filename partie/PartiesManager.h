@@ -4,19 +4,19 @@
  * Les parties ajoutées ne peuvent plus être modifiées par la suite
  */
 
-#ifndef PARTIEMANAGER_H
-#define PARTIEMANAGER_H
+#ifndef PARTIESMANAGER_H
+#define PARTIESMANAGER_H
 
 #include <vector>
 
 #include "Partie.h"
 
 
-class PartieManager
+class PartiesManager
 {
 
 public:
-    PartieManager ();
+    PartiesManager ();
 
     std::vector<Partie*> parties () const;
     void addPartie (Partie *nouvellePartie);
@@ -27,4 +27,4 @@ private:
 
 };
 
-#endif // PARTIEMANAGER_H
+#endif // PARTIESMANAGER_H
