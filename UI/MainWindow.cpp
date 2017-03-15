@@ -62,7 +62,7 @@ void MainWindow::entrainerJoueur ()
     JoueurRegression *joueur = new JoueurRegression;
     joueur->entrainer(&m_joueurManager);
 
-    qDebug() << m_joueurManager.getRatioVictoire(joueur, 100);
+    qDebug() << m_joueurManager.getRatioVictoire(joueur, 1000);
 
     const std::array<double, JoueurRegression::NB_COEFFICIENTS>* coefficients = joueur->coefficients();
 

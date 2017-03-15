@@ -14,7 +14,7 @@ class JoueurRegression : public Joueur
 
 public:
 
-    static const int NB_COEFFICIENTS = 5;
+    static const int NB_COEFFICIENTS = 11;
 
 
 

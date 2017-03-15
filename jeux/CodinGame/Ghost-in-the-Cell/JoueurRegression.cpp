@@ -3,7 +3,7 @@
 JoueurRegression::JoueurRegression ()
 {
     for (int iCoefficient=0; iCoefficient<NB_COEFFICIENTS; iCoefficient++) {
-        m_coefficients[iCoefficient] = ((double)(rand() % 1000) / 10.0) - 50;
+        m_coefficients[iCoefficient] = (rand() % 20) - 10;
     }
 }
 
@@ -32,6 +32,13 @@ Action JoueurRegression::jouerAction (const InformationsTourJoueur &informations
             score += m_coefficients[2] * (cible.m_proprietaire == -1);
             score += m_coefficients[3] * (cible.m_proprietaire == 0);
             score += m_coefficients[4] * (cible.m_proprietaire == 1);
+            score += m_coefficients[5] * cible.m_nbUnites;
+            score += m_coefficients[6] * cible.m_production;
+            score += m_coefficients[7] * cible.m_nbUnites * (cible.m_proprietaire == 1);
+            score += m_coefficients[8] * cible.m_production * (cible.m_proprietaire == 1);
+            score += m_coefficients[9] * source.m_nbUnites;
+            score += m_coefficients[10] * source.m_production;
+
 
             if (score > scoreMax) {
                 scoreMax = score;
@@ -53,7 +60,7 @@ Action JoueurRegression::jouerAction (const InformationsTourJoueur &informations
 
 void JoueurRegression::entrainer (JoueurManager *joueurManager)
 {
-    for (int i=0; i<200; i++) { // Nombre d'itérations de l'entrainement
+    for (int i=0; i<300; i++) { // Nombre d'itérations de l'entrainement
         qDebug() << "Iteration:" << i;
 
         for (int iCoefficient=0; iCoefficient<NB_COEFFICIENTS; iCoefficient++) {
@@ -63,7 +70,13 @@ void JoueurRegression::entrainer (JoueurManager *joueurManager)
             for (int delta=-1; delta<=1; delta++) {
 
                 m_coefficients[iCoefficient] += delta;
-                const double score = joueurManager->getRatioVictoire(this, 20+i/3);
+
+                int nbMatchs = 20+i/10;
+                if (i > 280) {
+                    nbMatchs = 100;
+                }
+
+                const double score = joueurManager->getRatioVictoire(this, nbMatchs);
                 m_coefficients[iCoefficient] -= delta;
 
                 if (score > meilleurScore) {
