@@ -3,10 +3,6 @@
 MainWindow::MainWindow (QWidget *parent) :
     QMainWindow(parent)
 {
-    // Ajout d'un joueur naïf
-    m_joueurManager.addJoueur(new JoueurNaif);
-
-
     showMaximized();
 
     // Menu
@@ -23,19 +19,8 @@ MainWindow::MainWindow (QWidget *parent) :
     setCentralWidget(boutton);
 
 
-    // Création d'une fausse partie (TODEL)
-    SituationJeu sitDepart;
-    sitDepart.initialiser();
-
-    std::vector<Joueur*> joueurs;
-    joueurs.push_back(new JoueurNaif);
-    joueurs.push_back(new JoueurNaif);
-
-    Partie *partie = SimulateurPartie::simulerPartie(sitDepart, joueurs);
-
-    // Affichage d'une partie
+    // Affichage des parties
     WidgetPartie *widgetPartie = new WidgetPartie;
-    widgetPartie->afficherPartie(partie);
 
     QDockWidget *dockPartie = new QDockWidget("Partie", this);
     dockPartie->setWidget(widgetPartie);
