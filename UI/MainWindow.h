@@ -12,6 +12,7 @@
 #include "partie/PartiesManager.h"
 #include "partie/Partie.h"
 #include "WidgetPartie.h"
+#include "PartiesManagerWidget.h"
 
 
 class MainWindow : public QMainWindow
@@ -26,6 +27,8 @@ public:
 private:
 
     PartiesManager m_partiesManager;
+    PartiesManagerWidget *m_partiesManagerWidget;
+
     JoueursManager m_joueursManager;
 
 };

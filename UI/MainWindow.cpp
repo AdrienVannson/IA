@@ -15,8 +15,8 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     // Contenu de la fenêtre
-    QPushButton *boutton = new QPushButton("Bienvenue");
-    setCentralWidget(boutton);
+    m_partiesManagerWidget = new PartiesManagerWidget;
+    setCentralWidget(m_partiesManagerWidget);
 
 
     // Création d'une fausse partie (TODEL)
