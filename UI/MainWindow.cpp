@@ -16,6 +16,8 @@ MainWindow::MainWindow (QWidget *parent) :
 
     // Contenu de la fenêtre
     m_partiesManagerWidget = new PartiesManagerWidget;
+    m_partiesManagerWidget->setPartiesManager(&m_partiesManager);
+
     setCentralWidget(m_partiesManagerWidget);
 
 
@@ -54,6 +56,8 @@ MainWindow::MainWindow (QWidget *parent) :
 
     m_partiesManager.addPartie(partie1);
     m_partiesManager.addPartie(partie2);
+
+    m_partiesManagerWidget->actualiser();
 
 
     // Affichage des parties

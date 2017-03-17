@@ -18,7 +18,7 @@ class PartiesManager
 public:
     PartiesManager ();
 
-    std::vector<Partie*> parties () const;
+    const std::vector<Partie*>* parties () const;
     void addPartie (Partie *nouvellePartie);
 
 

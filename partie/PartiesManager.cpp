@@ -7,9 +7,9 @@ PartiesManager::PartiesManager ()
 
 
 // Parties
-std::vector<Partie*> PartiesManager::parties () const
+const std::vector<Partie*>* PartiesManager::parties () const
 {
-    return m_parties;
+    return &m_parties;
 }
 
 void PartiesManager::addPartie (Partie *nouvellePartie)
