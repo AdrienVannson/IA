@@ -2,8 +2,8 @@
  * Partie décrite par plusieurs informations supplémentaires
  */
 
-#ifndef PARTIEDETAILLEE_H
-#define PARTIEDETAILLEE_H
+#ifndef PARTIEDECRITE_H
+#define PARTIEDECRITE_H
 
 #include <string>
 #include <vector>
@@ -11,11 +11,11 @@
 #include "Partie.h"
 
 
-class PartieDetaillee
+class PartieDecrite
 {
 
 public:
-    PartieDetaillee ();
+    PartieDecrite ();
 
     int id () const;
 
@@ -41,4 +41,4 @@ private:
 
 };
 
-#endif // PARTIEDETAILLEE_H
+#endif // PARTIEDECRITE_H

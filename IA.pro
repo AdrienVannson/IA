@@ -22,7 +22,6 @@ TEMPLATE = app
 SOURCES += main.cpp\
     UI/MainWindow.cpp \
     partie/Partie.cpp \
-    partie/PartieDetaillee.cpp \
     partie/Tour.cpp \
     partie/Joueur.cpp \
     partie/PartiesManager.cpp \
@@ -33,11 +32,11 @@ SOURCES += main.cpp\
     $$PATH_JEU/WidgetPartie.cpp \
     $$PATH_JEU/InformationsTourJoueur.cpp \
     partie/JoueursManager.cpp \
-    UI/PartiesManagerWidget.cpp
+    UI/PartiesManagerWidget.cpp \
+    partie/PartieDecrite.cpp
 
 HEADERS  += UI/MainWindow.h \
     partie/Partie.h \
-    partie/PartieDetaillee.h \
     partie/Tour.h \
     partie/Joueur.h \
     partie/SimulateurPartie.h \
@@ -48,6 +47,7 @@ HEADERS  += UI/MainWindow.h \
     $$PATH_JEU/WidgetPartie.h \
     $$PATH_JEU/InformationsTourJoueur.h \
     partie/JoueursManager.h \
-    UI/PartiesManagerWidget.h
+    UI/PartiesManagerWidget.h \
+    partie/PartieDecrite.h
 
 FORMS    +=
