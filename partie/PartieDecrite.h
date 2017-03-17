@@ -11,7 +11,7 @@
 #include "Partie.h"
 
 
-class PartieDecrite
+class PartieDecrite : public Partie
 {
 
 public:
