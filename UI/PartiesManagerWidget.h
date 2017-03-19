@@ -18,12 +18,23 @@ public:
     void setPartiesManager (const PartiesManager *partiesManager);
 
 
+
 signals:
+
+    void partieSelectionnee (const int id);
+
 
 
 public slots:
 
     void actualiser ();
+
+
+
+private slots:
+
+    void _selectionnerPartie (const QModelIndex &index); // Appelé lorsqu'une partie est sélectionnée
+
 
 
 private:

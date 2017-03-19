@@ -11,6 +11,8 @@ PartiesManagerWidget::PartiesManagerWidget (QWidget *parent) :
     QTreeView *tree = new QTreeView();
     tree->setModel(m_model);
 
+    connect(tree, SIGNAL(clicked(QModelIndex)), this, SLOT(_selectionnerPartie(QModelIndex)));
+
     layout->addWidget(tree);
 
     setLayout(layout);
@@ -34,4 +36,12 @@ void PartiesManagerWidget::actualiser ()
 
         iPartie++;
     }
+}
+
+
+void PartiesManagerWidget::_selectionnerPartie (const QModelIndex &index)
+{
+    const int idPartie = m_model->data(index).toInt();
+
+    emit partieSelectionnee(idPartie);
 }
