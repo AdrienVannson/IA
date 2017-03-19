@@ -10,6 +10,7 @@ PartiesManagerWidget::PartiesManagerWidget (QWidget *parent) :
 
     QTreeView *tree = new QTreeView();
     tree->setModel(m_model);
+    tree->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     connect(tree, SIGNAL(clicked(QModelIndex)), this, SLOT(_selectionnerPartie(QModelIndex)));
 
