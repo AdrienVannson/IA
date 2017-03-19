@@ -68,9 +68,22 @@ MainWindow::MainWindow (QWidget *parent) :
     QDockWidget *dockPartie = new QDockWidget("Partie", this);
     dockPartie->setWidget(widgetPartie);
     addDockWidget(Qt::RightDockWidgetArea, dockPartie);
+
+
+    // Connexion
+    connect(m_partiesManagerWidget, &PartiesManagerWidget::partieSelectionnee, this, &MainWindow::afficherPartie);
+    connect(this, &MainWindow::partieAffichee, widgetPartie, &WidgetPartie::afficherPartie);
 }
 
 MainWindow::~MainWindow ()
 {
 
+}
+
+
+void MainWindow::afficherPartie (const int idPartie)
+{
+    Partie *partie = m_partiesManager.getPartie(idPartie);
+
+    emit partieAffichee(partie);
 }

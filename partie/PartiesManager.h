@@ -19,6 +19,7 @@ public:
     PartiesManager ();
 
     const std::vector<Partie*>* parties () const;
+    Partie* getPartie (const int idPartie);
     void addPartie (Partie *nouvellePartie);
 
 

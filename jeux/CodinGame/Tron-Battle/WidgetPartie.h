@@ -18,10 +18,11 @@ public:
     QSize minimumSizeHint() const;
 
 
-    void afficherPartie (const Partie *partie);
 
 
 public slots:
+
+    void afficherPartie (const Partie *partie);
 
     void tourSuivant ();
 
