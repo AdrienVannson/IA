@@ -22,9 +22,13 @@ public:
 
     static SituationJeu simulerAction (const SituationJeu &situationDepart, const Action &actionAJouer);
 
+    static void jouerAction (const Action &action);
+
 
 
 private:
+
+    static SituationJeu m_situationJeu;
 
 
 };

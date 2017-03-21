@@ -16,6 +16,18 @@ SituationJeu::SituationJeu (const int nbJoueurs) :
 }
 
 
+
+/*
+ * Nombre de joueurs
+ */
+
+int SituationJeu::nbJoueurs () const
+{
+    return m_positionsJoueurs.size();
+}
+
+
+
 /*
  * Fin de la partie
  */
@@ -32,7 +44,10 @@ int SituationJeu::idVainqueur () const
 
 
 
-// Convertions
+/*
+ * Convertions
+ */
+
 int SituationJeu::positionCellule (const int iLigne, const int iColonne)
 {
     return iLigne*NB_COLONNES + iColonne;
@@ -40,7 +55,10 @@ int SituationJeu::positionCellule (const int iLigne, const int iColonne)
 
 
 
-// Couleurs des cellules
+/*
+ * Couleurs des cellules
+ */
+
 SituationJeu::Cellule SituationJeu::cellule (const int iCellule) const
 {
     return m_cellules[iCellule];
@@ -64,7 +82,10 @@ void SituationJeu::setCellule (const int iLigne, const int iColonne, const Cellu
 
 
 
-// Position des joueurs
+/*
+ * Position des joueurs
+ */
+
 int SituationJeu::positionJoueur (const int iJoueur) const
 {
     return m_positionsJoueurs[iJoueur];
@@ -78,4 +99,25 @@ void SituationJeu::setPositionJoueur (const int iJoueur, const int nouvellePosit
 void SituationJeu::setPositionJoueur (const int iJoueur, const int nouvelleLigne, const int nouvelleColonne)
 {
     setPositionJoueur(iJoueur, positionCellule(nouvelleLigne, nouvelleColonne));
+}
+
+
+
+/*
+ * Actions jouées
+ */
+
+const std::vector<Action>* SituationJeu::actionJouees () const
+{
+    return &m_actionsJouees;
+}
+
+std::vector<Action>* SituationJeu::actionJouees ()
+{
+    return &m_actionsJouees;
+}
+
+void SituationJeu::addAction (const Action &nouvelleAction)
+{
+    m_actionsJouees.push_back(nouvelleAction);
 }

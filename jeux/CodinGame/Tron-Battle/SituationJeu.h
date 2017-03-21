@@ -8,6 +8,8 @@
 #include <array>
 #include <vector>
 
+#include "Action.h"
+
 
 class SituationJeu
 {
@@ -34,6 +36,10 @@ public:
     SituationJeu (const int nbJoueurs = 2);
 
 
+    // Nombre de joueurs
+    int nbJoueurs () const;
+
+
     // Fin de la partie
     bool estFini () const;
     int idVainqueur () const;
@@ -58,11 +64,20 @@ public:
     void setPositionJoueur (const int iJoueur, const int nouvelleLigne, const int nouvelleColonne);
 
 
+    // Actions jouées
+    const std::vector<Action>* actionJouees () const;
+    std::vector<Action>* actionJouees ();
+
+    void addAction (const Action &nouvelleAction);
+
+
+
 private:
 
     // Description des cellules en binaire: 00 = vide, 01 = bleu, 10 = rouge, etc...
     std::array<Cellule, NB_CELLULES> m_cellules;
     std::vector<int> m_positionsJoueurs;
+    std::vector<Action> m_actionsJouees;
 
     bool m_estPartieFinie;
 
