@@ -9,6 +9,7 @@
 #include <stack>
 #include <vector>
 
+#include "Action.h"
 #include "partie/Partie.h"
 #include "SituationJeu.h"
 
@@ -27,6 +28,9 @@ public:
 
 
 private:
+
+    static const int NB_DEPLACEMENTS = 4;
+    static int DELTAS_DEPLACEMENTS[NB_DEPLACEMENTS];
 
     static SituationJeu m_situationJeu;
 

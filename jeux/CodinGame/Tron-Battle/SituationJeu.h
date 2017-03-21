@@ -24,11 +24,11 @@ public:
 
     enum Cellule
     {
-        VIDE = 0,
-        JOUEUR_1 = 1,
-        JOUEUR_2 = 2,
-        JOUEUR_3 = 4,
-        JOUEUR_4 = 8
+        VIDE = -1,
+        JOUEUR_1 = 0,
+        JOUEUR_2 = 1,
+        JOUEUR_3 = 2,
+        JOUEUR_4 = 3
     };
 
 
