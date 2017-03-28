@@ -7,7 +7,7 @@
 
 #include <vector>
 
-#include "Joueur.h"
+#include "Joueur/Joueur.h"
 #include "Partie.h"
 #include "Simulateur.h"
 
@@ -16,6 +16,7 @@ class SimulateurPartie
 {
 
 public:
+
     SimulateurPartie ();
 
     static Partie* simulerPartie (const SituationJeu &sitDepart, std::vector<Joueur*> &joueurs);

@@ -23,7 +23,7 @@ SOURCES += main.cpp\
     UI/MainWindow.cpp \
     partie/Partie.cpp \
     partie/Tour.cpp \
-    partie/Joueur.cpp \
+    partie/Joueur/Joueur.cpp \
     partie/PartiesManager.cpp \
     partie/SimulateurPartie.cpp \
     $$PATH_JEU/Simulateur.cpp \
@@ -33,12 +33,13 @@ SOURCES += main.cpp\
     $$PATH_JEU/InformationsTourJoueur.cpp \
     partie/JoueursManager.cpp \
     UI/PartiesManagerWidget.cpp \
-    partie/PartieDecrite.cpp
+    partie/PartieDecrite.cpp \
+    partie/Joueur/JoueurFactory.cpp
 
 HEADERS  += UI/MainWindow.h \
     partie/Partie.h \
     partie/Tour.h \
-    partie/Joueur.h \
+    partie/Joueur/Joueur.h \
     partie/SimulateurPartie.h \
     partie/PartiesManager.h \
     $$PATH_JEU/Simulateur.h \
@@ -48,6 +49,7 @@ HEADERS  += UI/MainWindow.h \
     $$PATH_JEU/InformationsTourJoueur.h \
     partie/JoueursManager.h \
     UI/PartiesManagerWidget.h \
-    partie/PartieDecrite.h
+    partie/PartieDecrite.h \
+    partie/Joueur/JoueurFactory.h
 
 FORMS    +=

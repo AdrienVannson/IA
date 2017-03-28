@@ -4,7 +4,7 @@
 #include <utility>
 #include <vector>
 
-#include "Joueur.h"
+#include "Joueur/Joueur.h"
 #include "SimulateurPartie.h"
 
 
