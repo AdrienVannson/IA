@@ -7,7 +7,8 @@ HEADERS  += \
     $$PATH_JEU/WidgetPartie.h \
     $$PATH_JEU/InformationsTourJoueur.h \
     $$PATH_JEU/Joueurs/Glouton1/Glouton1.h \
-    $$PATH_JEU/Joueurs/Glouton1/Glouton1Factory.h
+    $$PATH_JEU/Joueurs/Glouton1/Glouton1Factory.h \
+    $$PWD/InformationsTourJoueurFactory.h
 
 
 SOURCES += \
@@ -17,4 +18,5 @@ SOURCES += \
     $$PATH_JEU/WidgetPartie.cpp \
     $$PATH_JEU/InformationsTourJoueur.cpp \
     $$PATH_JEU/Joueurs/Glouton1/Glouton1.cpp \
-    $$PATH_JEU/Joueurs/Glouton1/Glouton1Factory.cpp
+    $$PATH_JEU/Joueurs/Glouton1/Glouton1Factory.cpp \
+    $$PWD/InformationsTourJoueurFactory.cpp

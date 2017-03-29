@@ -59,6 +59,22 @@ int SituationJeu::positionCellule (const int iLigne, const int iColonne)
 }
 
 
+int SituationJeu::ligneCellule (const int iCellule)
+{
+    return iCellule / NB_COLONNES;
+}
+
+int SituationJeu::colonneCellule (const int iCellule)
+{
+    return iCellule % NB_COLONNES;
+}
+
+std::pair<int, int> SituationJeu::coordonneesCellule (const int iCellule)
+{
+    return std::make_pair(ligneCellule(iCellule), colonneCellule(iCellule));
+}
+
+
 
 /*
  * Couleurs des cellules

@@ -6,6 +6,7 @@
 #define SITUATIONJEU_H
 
 #include <array>
+#include <utility>
 #include <vector>
 
 #include "Action.h"
@@ -49,6 +50,10 @@ public:
 
     // Convertions
     static int positionCellule (const int iLigne, const int iColonne);
+
+    static int ligneCellule (const int iCellule);
+    static int colonneCellule (const int iCellule);
+    static std::pair<int, int> coordonneesCellule (const int iCellule);
 
 
     // Couleurs des cellules

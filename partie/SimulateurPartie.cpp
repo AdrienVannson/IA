@@ -13,9 +13,11 @@ Partie* SimulateurPartie::simulerPartie (const SituationJeu &sitDepart, std::vec
     int idJoueur = 0;
 
     while (!partie->dernierTour()->situationJeu().estFini()) {
+        const InformationsTourJoueur &informations = InformationsTourJoueurFactory::creerInformationsTourJoueur(*partie, idJoueur);
+
         Tour *tour = partie->dernierTour();
 
-        Action action = joueurs[idJoueur]->jouerAction(InformationsTourJoueur()); // TODO: donner les informations aux joueurs
+        Action action = joueurs[idJoueur]->jouerAction(informations);
         action.setIdJoueur(idJoueur);
         tour->setAction(action);
 

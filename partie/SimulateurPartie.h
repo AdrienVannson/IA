@@ -10,6 +10,7 @@
 #include "Joueur/Joueur.h"
 #include "Partie.h"
 #include "Simulateur.h"
+#include "InformationsTourJoueurFactory.h"
 
 
 class SimulateurPartie
