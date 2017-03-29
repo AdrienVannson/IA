@@ -10,5 +10,8 @@ Glouton1::~Glouton1 ()
 
 Action Glouton1::jouerAction (const InformationsTourJoueur &informations)
 {
-    return Action ();
+    Action action;
+    action.setDirection(Action::GAUCHE);
+
+    return action;
 }
