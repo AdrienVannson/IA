@@ -5,8 +5,8 @@ SituationJeu Simulateur::m_situationJeu;
 int Simulateur::DELTAS_DEPLACEMENTS[Simulateur::NB_DEPLACEMENTS] = {
    -1,
    1,
-   -SituationJeu::NB_LIGNES,
-   SituationJeu::NB_LIGNES
+   -SituationJeu::NB_COLONNES,
+   SituationJeu::NB_COLONNES
 };
 
 
