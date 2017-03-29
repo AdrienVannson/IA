@@ -8,7 +8,7 @@ WidgetPartie::WidgetPartie(QWidget *parent) :
     setScene(m_scene);
 
     m_timer = new QTimer(this);
-    m_timer->setInterval(1000);
+    m_timer->setInterval(250);
     connect(m_timer, SIGNAL(timeout()), this, SLOT(tourSuivant()));
 }
 
