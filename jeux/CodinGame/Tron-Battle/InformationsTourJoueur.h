@@ -5,6 +5,9 @@
 #ifndef INFORMATIONSTOURJOUEUR_H
 #define INFORMATIONSTOURJOUEUR_H
 
+#include <utility>
+#include <vector>
+
 #include "SituationJeu.h"
 
 
@@ -15,8 +18,8 @@ public:
 
     InformationsTourJoueur ();
 
-
-private:
+    int m_idJoueur;
+    std::vector< std::pair< std::pair<int, int>, std::pair<int, int> > > m_joueurs;
 
 
 };
