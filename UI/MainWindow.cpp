@@ -73,6 +73,23 @@ MainWindow::MainWindow (QWidget *parent) :
     // Connexion
     connect(m_partiesManagerWidget, &PartiesManagerWidget::partieSelectionnee, this, &MainWindow::afficherPartie);
     connect(this, &MainWindow::partieAffichee, widgetPartie, &WidgetPartie::afficherPartie);
+
+
+    // Simulation d'une partie
+    Glouton1Factory fabrique;
+
+    std::vector<Joueur*> joueurs;
+
+    joueurs.push_back(fabrique.creerJoueur());
+    joueurs.push_back(fabrique.creerJoueur());
+
+    Partie* partie = SimulateurPartie::simulerPartie(SituationJeu(joueurs.size()), joueurs);
+    m_partiesManager.addPartie(partie);
+
+    m_partiesManagerWidget->actualiser();
+
+    delete joueurs[0];
+    delete joueurs[1];
 }
 
 MainWindow::~MainWindow ()

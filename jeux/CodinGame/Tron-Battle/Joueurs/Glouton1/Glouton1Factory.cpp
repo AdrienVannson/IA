@@ -5,7 +5,7 @@ Glouton1Factory::Glouton1Factory ()
 
 }
 
-Joueur* Glouton1Factory::getJoueur () const
+Joueur* Glouton1Factory::creerJoueur () const
 {
     return new Glouton1 ();
 }

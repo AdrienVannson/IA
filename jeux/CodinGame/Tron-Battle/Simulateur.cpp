@@ -45,7 +45,7 @@ void Simulateur::jouerAction (const Action &action)
         m_situationJeu.setCellule(nouvellePosition, (SituationJeu::Cellule)idJoueur);
     }
     else { // Élimination du joueur
-
+        m_situationJeu.setIdVainqueur(!idJoueur); // TODO : multijoueurs
     }
 
 }

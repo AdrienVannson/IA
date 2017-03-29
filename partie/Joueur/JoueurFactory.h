@@ -12,7 +12,7 @@ public:
 
     JoueurFactory ();
 
-    virtual Joueur* getJoueur () const = 0;
+    virtual Joueur* creerJoueur () const = 0;
 
 
 };

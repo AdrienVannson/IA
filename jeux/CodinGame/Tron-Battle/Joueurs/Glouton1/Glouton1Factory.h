@@ -13,7 +13,7 @@ public:
 
     Glouton1Factory ();
 
-    Joueur* getJoueur () const;
+    Joueur* creerJoueur () const;
 
 
 };

@@ -44,6 +44,8 @@ public:
     bool estFini () const;
     int idVainqueur () const;
 
+    void setIdVainqueur (const int idVainqueur);
+
 
     // Convertions
     static int positionCellule (const int iLigne, const int iColonne);
@@ -78,7 +80,7 @@ private:
     std::vector<int> m_positionsJoueurs;
     std::vector<Action> m_actionsJouees;
 
-    bool m_estPartieFinie;
+    int m_idVainqueur;
 
 
 };

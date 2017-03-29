@@ -14,6 +14,9 @@
 #include "WidgetPartie.h"
 #include "PartiesManagerWidget.h"
 
+// Simulation d'une partie, TODEL
+#include "Joueurs/Glouton1/Glouton1Factory.h"
+
 
 class MainWindow : public QMainWindow
 {

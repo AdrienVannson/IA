@@ -2,7 +2,7 @@
 
 
 SituationJeu::SituationJeu (const int nbJoueurs) :
-    m_estPartieFinie(false)
+    m_idVainqueur (-1)
 {
     // Initialisation: toutes les cellules sont noires
     for (int iCellule=0; iCellule<NB_CELLULES; iCellule++) {
@@ -34,12 +34,17 @@ int SituationJeu::nbJoueurs () const
 
 bool SituationJeu::estFini () const
 {
-    return m_estPartieFinie;
+    return m_idVainqueur != -1;
 }
 
 int SituationJeu::idVainqueur () const
 {
-    return -1;
+    return m_idVainqueur;
+}
+
+void SituationJeu::setIdVainqueur (const int idVainqueur)
+{
+    m_idVainqueur = idVainqueur;
 }
 
 
