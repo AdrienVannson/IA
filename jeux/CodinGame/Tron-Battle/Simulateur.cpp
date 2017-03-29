@@ -38,11 +38,21 @@ void Simulateur::jouerAction (const Action &action)
 {
     const int idJoueur = action.idJoueur();
 
-    const int nouvellePosition = m_situationJeu.positionJoueur(idJoueur) + DELTAS_DEPLACEMENTS[action.direction()];
+    const int positionDepart = m_situationJeu.positionJoueur(idJoueur);
+    const Action::Direction direction = action.direction();
+    const int nouvellePosition = positionDepart + DELTAS_DEPLACEMENTS[action.direction()];
 
-    if (m_situationJeu.cellule(nouvellePosition)) { // Action valide
+
+    // Vérification de la validité de l'action
+    if (!(direction == Action::HAUT && positionDepart < SituationJeu::NB_COLONNES) &&
+        !(direction == Action::BAS && positionDepart >= SituationJeu::NB_CELLULES - SituationJeu::NB_COLONNES) &&
+        !(direction == Action::GAUCHE && positionDepart % SituationJeu::NB_COLONNES == 0) &&
+        !(direction == Action::DROITE && positionDepart % SituationJeu::NB_COLONNES == SituationJeu::NB_COLONNES-1) &&
+        m_situationJeu.cellule(nouvellePosition) == SituationJeu::VIDE) {
+
         m_situationJeu.setPositionJoueur(idJoueur, nouvellePosition);
         m_situationJeu.setCellule(nouvellePosition, (SituationJeu::Cellule)idJoueur);
+
     }
     else { // Élimination du joueur
         m_situationJeu.setIdVainqueur(!idJoueur); // TODO : multijoueurs
