@@ -21,49 +21,8 @@ MainWindow::MainWindow (QWidget *parent) :
     setCentralWidget(m_partiesManagerWidget);
 
 
-    // Création d'une fausse partie (TODEL)
-    Partie *partie1 = new Partie;
-    SituationJeu sitPrecedante;
-
-    for (int iTour=0; iTour<15; iTour++) {
-        SituationJeu nouvelleSituation(sitPrecedante);
-
-        nouvelleSituation.setCellule(iTour, 1 + 2*iTour, SituationJeu::JOUEUR_1);
-
-        Tour tour;
-        tour.setSituationJeu(nouvelleSituation);
-        partie1->addTour(tour);
-
-        sitPrecedante = nouvelleSituation;
-    }
-
-
-    Partie *partie2 = new Partie;
-    sitPrecedante = SituationJeu ();
-
-    for (int iTour=0; iTour<15; iTour++) {
-        SituationJeu nouvelleSituation(sitPrecedante);
-
-        nouvelleSituation.setCellule(15-iTour, iTour, iTour%2 ? SituationJeu::JOUEUR_1 : SituationJeu::JOUEUR_2);
-
-        Tour tour;
-        tour.setSituationJeu(nouvelleSituation);
-        partie2->addTour(tour);
-
-        sitPrecedante = nouvelleSituation;
-    }
-
-
-    m_partiesManager.addPartie(partie1);
-    m_partiesManager.addPartie(partie2);
-
-    m_partiesManagerWidget->actualiser();
-
-
     // Affichage des parties
     WidgetPartie *widgetPartie = new WidgetPartie;
-    widgetPartie->afficherPartie(partie1);
-
 
     QDockWidget *dockPartie = new QDockWidget("Partie", this);
     dockPartie->setWidget(widgetPartie);
@@ -75,27 +34,31 @@ MainWindow::MainWindow (QWidget *parent) :
     connect(this, &MainWindow::partieAffichee, widgetPartie, &WidgetPartie::afficherPartie);
 
 
-    // Simulation d'une partie
+
+    // Simulation de plusieurs parties
     Glouton1Factory fabrique;
 
-    std::vector<Joueur*> joueurs;
+    for (int iPartie=0; iPartie<100; iPartie++) {
+        std::vector<Joueur*> joueurs;
 
-    joueurs.push_back(fabrique.creerJoueur());
-    joueurs.push_back(fabrique.creerJoueur());
+        joueurs.push_back(fabrique.creerJoueur());
+        joueurs.push_back(fabrique.creerJoueur());
 
-    SituationJeu situationDepart (joueurs.size());
+        SituationJeu situationDepart (joueurs.size());
 
-    for (unsigned int iJoueur=0; iJoueur<joueurs.size(); iJoueur++) {
-        situationDepart.setPositionJoueur(iJoueur, rand()%(SituationJeu::NB_CELLULES));
+        for (unsigned int iJoueur=0; iJoueur<joueurs.size(); iJoueur++) {
+            situationDepart.setPositionJoueur(iJoueur, rand()%(SituationJeu::NB_CELLULES));
+        }
+
+        Partie* partie = SimulateurPartie::simulerPartie(situationDepart, joueurs);
+        m_partiesManager.addPartie(partie);
+
+        for (unsigned int iJoueur=0; iJoueur<joueurs.size(); iJoueur++) {
+            delete joueurs[iJoueur];
+        }
     }
 
-    Partie* partie = SimulateurPartie::simulerPartie(situationDepart, joueurs);
-    m_partiesManager.addPartie(partie);
-
     m_partiesManagerWidget->actualiser();
-
-    delete joueurs[0];
-    delete joueurs[1];
 }
 
 MainWindow::~MainWindow ()
