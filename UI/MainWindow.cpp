@@ -41,8 +41,9 @@ MainWindow::MainWindow (QWidget *parent) :
     for (int iPartie=0; iPartie<100; iPartie++) {
         std::vector<Joueur*> joueurs;
 
-        joueurs.push_back(fabrique.creerJoueur());
-        joueurs.push_back(fabrique.creerJoueur());
+        for (int iJoueur=0; iJoueur<iPartie%3+2; iJoueur++) {
+            joueurs.push_back(fabrique.creerJoueur());
+        }
 
         SituationJeu situationDepart (joueurs.size());
 
