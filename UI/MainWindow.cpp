@@ -83,7 +83,13 @@ MainWindow::MainWindow (QWidget *parent) :
     joueurs.push_back(fabrique.creerJoueur());
     joueurs.push_back(fabrique.creerJoueur());
 
-    Partie* partie = SimulateurPartie::simulerPartie(SituationJeu(joueurs.size()), joueurs);
+    SituationJeu situationDepart (joueurs.size());
+
+    for (unsigned int iJoueur=0; iJoueur<joueurs.size(); iJoueur++) {
+        situationDepart.setPositionJoueur(iJoueur, rand()%(SituationJeu::NB_CELLULES));
+    }
+
+    Partie* partie = SimulateurPartie::simulerPartie(situationDepart, joueurs);
     m_partiesManager.addPartie(partie);
 
     m_partiesManagerWidget->actualiser();
