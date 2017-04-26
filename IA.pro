@@ -29,7 +29,8 @@ SOURCES += main.cpp\
     UI/JoueursManagerWidget.cpp \
     partie/ActionGenerale.cpp \
     partie/SituationJeuGenerale.cpp \
-    UI/WidgetPartieGeneral.cpp
+    UI/WidgetPartieGeneral.cpp \
+    UI/JouerPartieWidget.cpp
 
 HEADERS  += UI/MainWindow.h \
     partie/Partie.h \
@@ -44,4 +45,5 @@ HEADERS  += UI/MainWindow.h \
     UI/JoueursManagerWidget.h \
     partie/ActionGenerale.h \
     partie/SituationJeuGenerale.h \
-    UI/WidgetPartieGeneral.h
+    UI/WidgetPartieGeneral.h \
+    UI/JouerPartieWidget.h

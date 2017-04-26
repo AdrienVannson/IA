@@ -35,7 +35,6 @@ void PartiesManagerWidget::actualiser ()
     for (const Partie *partie : *m_partiesManager->parties()) {
         m_model->setItem(iPartie, 0, new QStandardItem(QString::number(iPartie)));
 
-
         iPartie++;
     }
 }

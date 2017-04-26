@@ -6,6 +6,7 @@
 #define SITUATIONJEU_H
 
 #include <array>
+#include <cstdio>
 #include <utility>
 #include <vector>
 

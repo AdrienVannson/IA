@@ -1,9 +1,16 @@
-#include "UI/MainWindow.h"
 #include <QApplication>
+
+#include <cstdio>
+
+#include "UI/MainWindow.h"
+
 
 int main (int argc, char *argv[])
 {
-    QApplication application(argc, argv);
+    srand(42);
+
+    QApplication application (argc, argv);
+
     MainWindow fenetrePrincipale;
     fenetrePrincipale.show();
 

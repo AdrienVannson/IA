@@ -20,4 +20,5 @@ Partie* PartiesManager::getPartie (const int idPartie)
 void PartiesManager::addPartie (Partie *nouvellePartie)
 {
     m_parties.push_back(nouvellePartie);
+    emit updated ();
 }

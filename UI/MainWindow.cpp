@@ -5,6 +5,9 @@ MainWindow::MainWindow (QWidget *parent) :
 {
     showMaximized();
 
+    m_joueursManager = new JoueursManager;
+    m_partiesManager = new PartiesManager;
+
     // Menu
     QMenu *menuFichier = menuBar()->addMenu(tr("Fichier"));
 
@@ -22,7 +25,8 @@ MainWindow::MainWindow (QWidget *parent) :
 
     // Affichage des parties
     m_partiesManagerWidget = new PartiesManagerWidget;
-    m_partiesManagerWidget->setPartiesManager(&m_partiesManager);
+    m_partiesManagerWidget->setPartiesManager(m_partiesManager);
+    connect(m_partiesManager, &PartiesManager::updated, m_partiesManagerWidget, &PartiesManagerWidget::actualiser);
 
     QDockWidget *dockParties = new QDockWidget("Parties", this);
     dockParties->setWidget(m_partiesManagerWidget);
@@ -31,7 +35,7 @@ MainWindow::MainWindow (QWidget *parent) :
 
     // Affichage des joueurs
     m_joueursManagerWidget = new JoueursManagerWidget;
-    m_joueursManagerWidget->setJoueursManager(&m_joueursManager);
+    m_joueursManagerWidget->setJoueursManager(m_joueursManager);
 
     QDockWidget *dockJoueurs = new QDockWidget("Joueurs", this);
     dockJoueurs->setWidget(m_joueursManagerWidget);
@@ -43,7 +47,7 @@ MainWindow::MainWindow (QWidget *parent) :
 
     QDockWidget *dockPartie = new QDockWidget("Partie", this);
     dockPartie->setWidget(widgetPartie);
-    addDockWidget(Qt::RightDockWidgetArea, dockPartie);
+    addDockWidget(Qt::LeftDockWidgetArea, dockPartie);
 
 
     // Connexion
@@ -57,18 +61,18 @@ MainWindow::MainWindow (QWidget *parent) :
 
     for (int iJoueur=0; iJoueur<4; iJoueur++) {
         Joueur *joueur = fabrique.creerJoueur();
-        m_joueursManager.addJoueur(joueur);
+        m_joueursManager->addJoueur(joueur);
     }
 
     m_joueursManagerWidget->actualiser();
 
 
     // Création de parties
-    for (int iPartie=0; iPartie<100; iPartie++) {
+    for (int iPartie=0; iPartie<10; iPartie++) {
         std::vector<Joueur*> joueurs;
 
         for (int iJoueur=0; iJoueur<iPartie%3+2; iJoueur++) {
-            joueurs.push_back( m_joueursManager.getJoueur(iJoueur) );
+            joueurs.push_back( m_joueursManager->getJoueur(iJoueur) );
         }
 
         SituationJeu situationDepart (joueurs.size());
@@ -78,7 +82,7 @@ MainWindow::MainWindow (QWidget *parent) :
         }
 
         Partie* partie = SimulateurPartie::simulerPartie(situationDepart, joueurs);
-        m_partiesManager.addPartie(partie);
+        m_partiesManager->addPartie(partie);
 
         for (unsigned int iJoueur=0; iJoueur<joueurs.size(); iJoueur++) {
             delete joueurs[iJoueur];
@@ -86,6 +90,14 @@ MainWindow::MainWindow (QWidget *parent) :
     }
 
     m_partiesManagerWidget->actualiser();
+
+
+    // Création de parties à la demande
+    JouerPartieWidget *jouerPartieWidget = new JouerPartieWidget (m_joueursManager, m_partiesManager);
+
+    QDockWidget *dockJouerPartie = new QDockWidget("Jouer une partie", this);
+    dockJouerPartie->setWidget(jouerPartieWidget);
+    addDockWidget(Qt::RightDockWidgetArea, dockJouerPartie);
 }
 
 MainWindow::~MainWindow ()
@@ -96,7 +108,7 @@ MainWindow::~MainWindow ()
 
 void MainWindow::afficherPartie (const int idPartie)
 {
-    Partie *partie = m_partiesManager.getPartie(idPartie);
+    Partie *partie = m_partiesManager->getPartie(idPartie);
 
     emit partieAffichee(partie);
 }
