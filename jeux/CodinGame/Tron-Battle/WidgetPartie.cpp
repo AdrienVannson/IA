@@ -1,36 +1,23 @@
 #include "WidgetPartie.h"
 
-WidgetPartie::WidgetPartie(QWidget *parent) :
-    QGraphicsView (parent),
-    m_iTourActuel(0)
-{
-    m_scene = new QGraphicsScene;
-    setScene(m_scene);
 
-    m_timer = new QTimer(this);
-    m_timer->setInterval(50);
-    connect(m_timer, SIGNAL(timeout()), this, SLOT(tourSuivant()));
+WidgetPartie::WidgetPartie(QWidget *parent) :
+    WidgetPartieGeneral (parent)
+{
+    m_vue = new QGraphicsView;
+
+    // Layout
+    QVBoxLayout *layout = new QVBoxLayout;
+    layout->addWidget(m_vue);
+    setLayout(layout);
+
+    m_scene = new QGraphicsScene;
+    m_vue->setScene(m_scene);
 }
 
 QSize WidgetPartie::minimumSizeHint() const
 {
     return QSize(ZOOM*SituationJeu::NB_COLONNES + 100, ZOOM*SituationJeu::NB_LIGNES + 100);
-}
-
-
-void WidgetPartie::afficherPartie (const Partie *partie)
-{
-    m_partie = *partie;
-    m_iTourActuel = 0;
-    afficherTourActuel();
-
-    m_timer->start();
-}
-
-void WidgetPartie::tourSuivant ()
-{
-    m_iTourActuel = (m_iTourActuel+1) % m_partie.tours()->size();
-    afficherTourActuel();
 }
 
 

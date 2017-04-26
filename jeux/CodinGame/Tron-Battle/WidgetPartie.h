@@ -3,12 +3,13 @@
 
 #include <QGraphicsSimpleTextItem>
 #include <QGraphicsView>
-#include <QTimer>
+#include <QVBoxLayout>
 
 #include "partie/Partie.h"
+#include "UI/WidgetPartieGeneral.h"
 
 
-class WidgetPartie : public QGraphicsView
+class WidgetPartie : public WidgetPartieGeneral
 {
     Q_OBJECT
 
@@ -18,35 +19,18 @@ public:
     QSize minimumSizeHint() const;
 
 
-
-
-public slots:
-
-    void afficherPartie (const Partie *partie);
-
-    void tourSuivant ();
-
-
-
 private:
 
     void afficherGrilleVide ();
     void afficherTourActuel ();
 
-    void afficherTour (const int iTour);
-
 
     static const int ZOOM = 25;
 
 
+    QGraphicsView *m_vue;
     QGraphicsScene *m_scene;
 
-    Partie m_partie;
-    int m_iTourActuel;
-
-
-    // Timer pour passer au tour suivant
-    QTimer *m_timer;
 
 };
 
