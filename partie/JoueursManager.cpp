@@ -22,10 +22,17 @@ void JoueursManager::addJoueur (const Joueur *nouveauJoueur)
     }
 }
 
+
+int JoueursManager::nbJoueurs () const
+{
+    return m_joueurs.size();
+}
+
 Joueur* JoueursManager::getJoueur (const int idJoueur) const
 {
     return m_joueurs[idJoueur].first->clone();
 }
+
 
 double JoueursManager::getRatioVictoire (Joueur* joueur, const int nbParties) const
 {

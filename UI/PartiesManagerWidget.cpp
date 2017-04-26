@@ -22,6 +22,7 @@ PartiesManagerWidget::PartiesManagerWidget (QWidget *parent) :
 void PartiesManagerWidget::setPartiesManager (const PartiesManager *partiesManager)
 {
     m_partiesManager = partiesManager;
+    actualiser();
 }
 
 

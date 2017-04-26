@@ -14,14 +14,23 @@ MainWindow::MainWindow (QWidget *parent) :
     menuFichier->addAction(actionQuitter);
 
 
-    // Contenu de la fenêtre
+    // Affichage des parties
     m_partiesManagerWidget = new PartiesManagerWidget;
     m_partiesManagerWidget->setPartiesManager(&m_partiesManager);
 
     setCentralWidget(m_partiesManagerWidget);
 
 
-    // Affichage des parties
+    // Affichage des joueurs
+    m_joueursManagerWidget = new JoueursManagerWidget;
+    m_joueursManagerWidget->setJoueursManager(&m_joueursManager);
+
+    QDockWidget *dockJoueurs = new QDockWidget("Joueurs", this);
+    dockJoueurs->setWidget(m_joueursManagerWidget);
+    addDockWidget(Qt::RightDockWidgetArea, dockJoueurs);
+
+
+    // Affichage d'une partie
     WidgetPartie *widgetPartie = new WidgetPartie;
 
     QDockWidget *dockPartie = new QDockWidget("Partie", this);
@@ -35,14 +44,23 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
 
-    // Simulation de plusieurs parties
+    // Création de joueurs
     Glouton1Factory fabrique;
 
+    for (int iJoueur=0; iJoueur<4; iJoueur++) {
+        Joueur *joueur = fabrique.creerJoueur();
+        m_joueursManager.addJoueur(joueur);
+    }
+
+    m_joueursManagerWidget->actualiser();
+
+
+    // Création de parties
     for (int iPartie=0; iPartie<100; iPartie++) {
         std::vector<Joueur*> joueurs;
 
         for (int iJoueur=0; iJoueur<iPartie%3+2; iJoueur++) {
-            joueurs.push_back(fabrique.creerJoueur());
+            joueurs.push_back( m_joueursManager.getJoueur(iJoueur) );
         }
 
         SituationJeu situationDepart (joueurs.size());

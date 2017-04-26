@@ -16,6 +16,8 @@ public:
     ~JoueursManager ();
 
     void addJoueur (const Joueur* nouveauJoueur);
+
+    int nbJoueurs () const;
     Joueur* getJoueur (const int idJoueur) const;
 
     double getRatioVictoire (Joueur* joueur, const int nbParties) const;
