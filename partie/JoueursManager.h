@@ -15,13 +15,14 @@ public:
     JoueursManager ();
     ~JoueursManager ();
 
-    void addJoueur (Joueur* nouveauJoueur);
+    void addJoueur (const Joueur* nouveauJoueur);
+    Joueur* getJoueur (const int idJoueur) const;
 
     double getRatioVictoire (Joueur* joueur, const int nbParties) const;
 
 
 private:
-    std::vector< std::pair<Joueur*, double> > m_joueurs; // Joueur ; score
+    std::vector< std::pair<const Joueur*, double> > m_joueurs; // Joueur ; score
 
 };
 

@@ -16,6 +16,8 @@ public:
     Joueur ();
     virtual ~Joueur ();
 
+    virtual Joueur* clone () const = 0;
+
     virtual Action jouerAction (const InformationsTourJoueur &informations) = 0;
 
 };

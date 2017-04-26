@@ -25,6 +25,11 @@ Glouton1::~Glouton1 ()
 {
 }
 
+Joueur* Glouton1::clone () const
+{
+    return new Glouton1 (*this);
+}
+
 Action Glouton1::jouerAction (const InformationsTourJoueur &informations)
 {
     for (unsigned int iJoueur=0; iJoueur<informations.m_joueurs.size(); iJoueur++) {

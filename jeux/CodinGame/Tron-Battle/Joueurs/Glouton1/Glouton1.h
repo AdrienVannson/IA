@@ -12,6 +12,8 @@ public:
     Glouton1 ();
     ~Glouton1 ();
 
+    Joueur* clone () const;
+
     Action jouerAction (const InformationsTourJoueur &informations);
 
 

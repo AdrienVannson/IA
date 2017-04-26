@@ -6,12 +6,13 @@ JoueursManager::JoueursManager ()
 
 JoueursManager::~JoueursManager ()
 {
-    for (std::pair<Joueur*, double> paire : m_joueurs) {
+    for (std::pair<const Joueur*, double> paire : m_joueurs) {
         delete paire.first;
     }
 }
 
-void JoueursManager::addJoueur (Joueur *nouveauJoueur)
+
+void JoueursManager::addJoueur (const Joueur *nouveauJoueur)
 {
     m_joueurs.push_back( std::make_pair(nouveauJoueur, -1) );
 
@@ -19,6 +20,11 @@ void JoueursManager::addJoueur (Joueur *nouveauJoueur)
         delete m_joueurs[0].first;
         m_joueurs.erase(m_joueurs.begin());
     }
+}
+
+Joueur* JoueursManager::getJoueur (const int idJoueur) const
+{
+    return m_joueurs[idJoueur].first->clone();
 }
 
 double JoueursManager::getRatioVictoire (Joueur* joueur, const int nbParties) const
@@ -34,7 +40,7 @@ double JoueursManager::getRatioVictoire (Joueur* joueur, const int nbParties) co
         SituationJeu situationDepart;
 
         std::vector<Joueur*> joueurs;
-        joueurs.push_back(m_joueurs[iPartie % m_joueurs.size()].first);
+        joueurs.push_back(m_joueurs[iPartie % m_joueurs.size()].first->clone());
         joueurs.push_back(joueur);
 
         Partie *partie = SimulateurPartie::simulerPartie(situationDepart, joueurs);
