@@ -6,22 +6,10 @@
 
 
 Action::Action() :
-    m_idJoueur (-1),
+    ActionGenerale (),
     m_direction(GAUCHE)
 {
 
-}
-
-
-// ID du joueur
-int Action::idJoueur () const
-{
-    return m_idJoueur;
-}
-
-void Action::setIdJoueur (const int nouvelIdJoueur)
-{
-    m_idJoueur = nouvelIdJoueur;
 }
 
 

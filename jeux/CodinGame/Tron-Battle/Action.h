@@ -5,16 +5,15 @@
 #ifndef ACTION_H
 #define ACTION_H
 
+#include "partie/ActionGenerale.h"
 
-class Action
+
+class Action : public ActionGenerale
 {
 
 public:
 
     Action ();
-
-    int idJoueur () const;
-    void setIdJoueur (const int nouvelIdJoueur);
 
 
     enum Direction {
@@ -29,9 +28,6 @@ public:
 
 
 private:
-
-    // ID du joueur ayant réalisé l'action
-    int m_idJoueur;
 
     Direction m_direction;
 
