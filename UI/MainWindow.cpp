@@ -89,8 +89,6 @@ MainWindow::MainWindow (QWidget *parent) :
         }
     }
 
-    m_partiesManagerWidget->actualiser();
-
 
     // Création de parties à la demande
     JouerPartieWidget *jouerPartieWidget = new JouerPartieWidget (m_joueursManager, m_partiesManager);
