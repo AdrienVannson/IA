@@ -11,11 +11,10 @@ SituationJeu::SituationJeu (const int nbJoueurs) :
 
     // Initialisation des positions des joueurs
     for (int iJoueur=0; iJoueur<nbJoueurs; iJoueur++) {
-        const int position = rand() % (NB_LIGNES*NB_COLONNES);
-        m_positionsJoueurs.push_back(position);
+        const int iCellule = rand() % (NB_LIGNES*NB_COLONNES);
+        m_positionsJoueurs.push_back(iCellule);
     }
 }
-
 
 
 

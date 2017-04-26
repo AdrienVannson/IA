@@ -21,6 +21,11 @@ SituationJeu Simulateur::simulerAction (const SituationJeu &situationDepart, con
     m_situationJeu = situationDepart;
     m_situationJeu.addAction(actionAJouer);
 
+
+    m_situationJeu.setCellule( m_situationJeu.positionJoueur(actionAJouer.idJoueur()),
+                               (SituationJeu::Cellule)actionAJouer.idJoueur() );
+
+
     if ((int)m_situationJeu.actionJouees()->size() == m_situationJeu.nbJoueurs()) {
 
         for (const Action &action : *m_situationJeu.actionJouees()) {
