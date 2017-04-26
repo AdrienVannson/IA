@@ -14,11 +14,19 @@ MainWindow::MainWindow (QWidget *parent) :
     menuFichier->addAction(actionQuitter);
 
 
+    // Boutton
+    QPushButton *boutton = new QPushButton ("Salut :)");
+    setCentralWidget(boutton);
+
+
+
     // Affichage des parties
     m_partiesManagerWidget = new PartiesManagerWidget;
     m_partiesManagerWidget->setPartiesManager(&m_partiesManager);
 
-    setCentralWidget(m_partiesManagerWidget);
+    QDockWidget *dockParties = new QDockWidget("Parties", this);
+    dockParties->setWidget(m_partiesManagerWidget);
+    addDockWidget(Qt::RightDockWidgetArea, dockParties);
 
 
     // Affichage des joueurs
