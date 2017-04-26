@@ -2,7 +2,7 @@
 
 
 SituationJeu::SituationJeu (const int nbJoueurs) :
-    m_idVainqueur (-1)
+    SituationJeuGenerale (nbJoueurs)
 {
     // Initialisation: toutes les cellules sont noires
     for (int iCellule=0; iCellule<NB_CELLULES; iCellule++) {
@@ -15,37 +15,6 @@ SituationJeu::SituationJeu (const int nbJoueurs) :
     }
 }
 
-
-
-/*
- * Nombre de joueurs
- */
-
-int SituationJeu::nbJoueurs () const
-{
-    return m_positionsJoueurs.size();
-}
-
-
-
-/*
- * Fin de la partie
- */
-
-bool SituationJeu::estFini () const
-{
-    return m_idVainqueur != -1;
-}
-
-int SituationJeu::idVainqueur () const
-{
-    return m_idVainqueur;
-}
-
-void SituationJeu::setIdVainqueur (const int idVainqueur)
-{
-    m_idVainqueur = idVainqueur;
-}
 
 
 

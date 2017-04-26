@@ -10,9 +10,10 @@
 #include <vector>
 
 #include "Action.h"
+#include "partie/SituationJeuGenerale.h"
 
 
-class SituationJeu
+class SituationJeu : public SituationJeuGenerale
 {
 
 public:
@@ -34,18 +35,7 @@ public:
 
 
     // Constructeur
-    SituationJeu (const int nbJoueurs = 2);
-
-
-    // Nombre de joueurs
-    int nbJoueurs () const;
-
-
-    // Fin de la partie
-    bool estFini () const;
-    int idVainqueur () const;
-
-    void setIdVainqueur (const int idVainqueur);
+    SituationJeu (const int nbJoueurs=2);
 
 
     // Convertions
@@ -84,8 +74,6 @@ private:
     std::array<Cellule, NB_CELLULES> m_cellules;
     std::vector<int> m_positionsJoueurs;
     std::vector<Action> m_actionsJouees;
-
-    int m_idVainqueur;
 
 
 };
