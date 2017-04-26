@@ -12,7 +12,7 @@ JoueursManagerWidget::JoueursManagerWidget (QWidget *parent) :
     tree->setModel(m_model);
     tree->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
-    connect(tree, SIGNAL(clicked(QModelIndex)), this, SLOT(_selectionnerJoueur(QModelIndex)));
+    connect(tree, &QTreeView::clicked, this, &JoueursManagerWidget::_selectionnerJoueur);
 
     layout->addWidget(tree);
 

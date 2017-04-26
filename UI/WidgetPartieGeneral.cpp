@@ -7,7 +7,7 @@ WidgetPartieGeneral::WidgetPartieGeneral (QWidget *parent) :
     // Timer
     m_timer = new QTimer(this);
     m_timer->setInterval(50);
-    connect(m_timer, SIGNAL(timeout()), this, SLOT(tourSuivant()));
+    connect(m_timer, &QTimer::timeout, this, &WidgetPartieGeneral::tourSuivant);
 }
 
 

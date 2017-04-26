@@ -9,7 +9,7 @@ MainWindow::MainWindow (QWidget *parent) :
     QMenu *menuFichier = menuBar()->addMenu(tr("Fichier"));
 
     QAction *actionQuitter = new QAction(tr("Quitter"), this);
-    connect(actionQuitter, SIGNAL(triggered(bool)), qApp, SLOT(quit()));
+    connect(actionQuitter, &QAction::triggered, qApp, &QApplication::quit);
 
     menuFichier->addAction(actionQuitter);
 
