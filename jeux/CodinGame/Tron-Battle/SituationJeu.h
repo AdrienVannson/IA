@@ -62,19 +62,10 @@ public:
     void setPositionJoueur (const int iJoueur, const int nouvelleLigne, const int nouvelleColonne);
 
 
-    // Actions jouées
-    const std::vector<Action>* actionJouees () const;
-    std::vector<Action>* actionJouees ();
-
-    void addAction (const Action &nouvelleAction);
-
-
-
 private:
 
     std::array<Cellule, NB_CELLULES> m_cellules;
     std::vector<int> m_positionsJoueurs;
-    std::vector<Action> m_actionsJouees;
 
 
 };

@@ -19,21 +19,11 @@ Simulateur::Simulateur ()
 SituationJeu Simulateur::simulerAction (const SituationJeu &situationDepart, const Action &actionAJouer)
 {
     m_situationJeu = situationDepart;
-    m_situationJeu.addAction(actionAJouer);
-
 
     m_situationJeu.setCellule( m_situationJeu.positionJoueur(actionAJouer.idJoueur()),
                                (SituationJeu::Cellule)actionAJouer.idJoueur() );
 
-
-    if ((int)m_situationJeu.actionJouees()->size() == m_situationJeu.nbJoueurs()) {
-
-        for (const Action &action : *m_situationJeu.actionJouees()) {
-            jouerAction(action);
-        }
-
-        m_situationJeu.actionJouees()->clear();
-    }
+    jouerAction(actionAJouer);
 
     return m_situationJeu;
 }

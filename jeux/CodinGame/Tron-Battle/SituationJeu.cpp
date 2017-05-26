@@ -90,24 +90,3 @@ void SituationJeu::setPositionJoueur (const int iJoueur, const int nouvelleLigne
 {
     setPositionJoueur(iJoueur, positionCellule(nouvelleLigne, nouvelleColonne));
 }
-
-
-
-/*
- * Actions jouées
- */
-
-const std::vector<Action>* SituationJeu::actionJouees () const
-{
-    return &m_actionsJouees;
-}
-
-std::vector<Action>* SituationJeu::actionJouees ()
-{
-    return &m_actionsJouees;
-}
-
-void SituationJeu::addAction (const Action &nouvelleAction)
-{
-    m_actionsJouees.push_back(nouvelleAction);
-}
