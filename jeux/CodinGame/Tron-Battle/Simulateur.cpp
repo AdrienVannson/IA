@@ -18,6 +18,11 @@ Simulateur::Simulateur ()
 
 SituationJeu Simulateur::simulerAction (const SituationJeu &situationDepart, const Action &actionAJouer)
 {
+    // Si le joueur est éliminé, on ne fait rien
+    if (situationDepart.estElimine(actionAJouer.idJoueur())) {
+        return situationDepart;
+    }
+
     m_situationJeu = situationDepart;
 
     m_situationJeu.setCellule( m_situationJeu.positionJoueur(actionAJouer.idJoueur()), actionAJouer.idJoueur() );
@@ -49,7 +54,27 @@ void Simulateur::jouerAction (const Action &action)
 
     }
     else { // Élimination du joueur
-        m_situationJeu.setIdVainqueur(!idJoueur); // TODO : multijoueurs
+        m_situationJeu.eliminerJoueur(idJoueur);
+
+        int idVainqueur = -1;
+
+        for (int iJoueur=0; iJoueur<m_situationJeu.nbJoueurs(); iJoueur++) {
+            if (!m_situationJeu.estElimine(iJoueur)) {
+
+                if (idVainqueur == -1) {
+                    idVainqueur = iJoueur;
+                }
+                else { // Plusieurs joueurs sont encore en vie (la partie continue)
+                    idVainqueur = -1;
+                    break;
+                }
+
+            }
+        }
+
+        if (idVainqueur != -1) {
+            m_situationJeu.setIdVainqueur(idVainqueur);
+        }
     }
 
 }

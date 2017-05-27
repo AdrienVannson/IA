@@ -26,6 +26,7 @@ public:
     static const int NB_CELLULES = NB_LIGNES * NB_COLONNES;
 
     static const int VIDE = -1;
+    static const int INVALIDE = -1;
 
 
     // Constructeur
@@ -49,10 +50,15 @@ public:
 
 
     // Position des joueurs
+    bool estElimine (const int idJoueur) const;
     int positionJoueur (const int iJoueur) const;
 
     void setPositionJoueur (const int iJoueur, const int nouvellePosition);
     void setPositionJoueur (const int iJoueur, const int nouvelleLigne, const int nouvelleColonne);
+
+
+    // Jeu
+    void eliminerJoueur (const int idJoueur);
 
 
 private:

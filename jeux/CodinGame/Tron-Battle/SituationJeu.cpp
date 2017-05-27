@@ -30,11 +30,17 @@ int SituationJeu::positionCellule (const int iLigne, const int iColonne)
 
 int SituationJeu::ligneCellule (const int iCellule)
 {
+    if (iCellule == INVALIDE) {
+        return INVALIDE;
+    }
     return iCellule / NB_COLONNES;
 }
 
 int SituationJeu::colonneCellule (const int iCellule)
 {
+    if (iCellule == INVALIDE) {
+        return INVALIDE;
+    }
     return iCellule % NB_COLONNES;
 }
 
@@ -76,6 +82,11 @@ void SituationJeu::setCellule (const int iLigne, const int iColonne, const int n
  * Position des joueurs
  */
 
+bool SituationJeu::estElimine (const int idJoueur) const
+{
+    return positionJoueur(idJoueur) == INVALIDE;
+}
+
 int SituationJeu::positionJoueur (const int iJoueur) const
 {
     return m_positionsJoueurs[iJoueur];
@@ -89,4 +100,20 @@ void SituationJeu::setPositionJoueur (const int iJoueur, const int nouvellePosit
 void SituationJeu::setPositionJoueur (const int iJoueur, const int nouvelleLigne, const int nouvelleColonne)
 {
     setPositionJoueur(iJoueur, positionCellule(nouvelleLigne, nouvelleColonne));
+}
+
+
+
+/*
+ * Jeu
+ */
+
+void SituationJeu::eliminerJoueur (const int idJoueur)
+{
+    setPositionJoueur(idJoueur, INVALIDE);
+    for (int iCellule=0; iCellule<NB_CELLULES; iCellule++) {
+        if (m_cellules[iCellule] == idJoueur) {
+            m_cellules[iCellule] = -1;
+        }
+    }
 }
