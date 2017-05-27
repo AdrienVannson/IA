@@ -21,9 +21,7 @@ public:
 
     Simulateur ();
 
-    static SituationJeu simulerAction (const SituationJeu &situationDepart, const Action &actionAJouer);
-
-    static void jouerAction (const Action &action);
+    static SituationJeu simulerAction (SituationJeu situation, const Action &actionAJouer);
 
 
 
@@ -31,8 +29,6 @@ private:
 
     static const int NB_DEPLACEMENTS = 4;
     static int DELTAS_DEPLACEMENTS[NB_DEPLACEMENTS];
-
-    static SituationJeu m_situationJeu;
 
 
 };
