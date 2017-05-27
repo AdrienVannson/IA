@@ -59,7 +59,7 @@ void WidgetPartie::afficherTourActuel ()
     for (int iLigne=0; iLigne<SituationJeu::NB_LIGNES; iLigne++) {
         for (int iColonne=0; iColonne<SituationJeu::NB_COLONNES; iColonne++) {
 
-            SituationJeu::Cellule cellule = sitJeu.cellule(iLigne, iColonne);
+            const int cellule = sitJeu.cellule(iLigne, iColonne);
 
             if (cellule == SituationJeu::VIDE) {
                 continue;
@@ -70,19 +70,19 @@ void WidgetPartie::afficherTourActuel ()
             // Sélection de la couleur correspondant au joueur
             switch (cellule) {
 
-            case SituationJeu::JOUEUR_1:
+            case 0:
                 couleur = QColor(255, 0, 0);
                 break;
 
-            case SituationJeu::JOUEUR_2:
+            case 1:
                 couleur = QColor(0, 255, 0);
                 break;
 
-            case SituationJeu::JOUEUR_3:
+            case 2:
                 couleur = QColor(0, 0, 255);
                 break;
 
-            case SituationJeu::JOUEUR_4:
+            case 3:
                 couleur = QColor(255, 255, 255);
                 break;
 

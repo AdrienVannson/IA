@@ -20,8 +20,7 @@ SituationJeu Simulateur::simulerAction (const SituationJeu &situationDepart, con
 {
     m_situationJeu = situationDepart;
 
-    m_situationJeu.setCellule( m_situationJeu.positionJoueur(actionAJouer.idJoueur()),
-                               (SituationJeu::Cellule)actionAJouer.idJoueur() );
+    m_situationJeu.setCellule( m_situationJeu.positionJoueur(actionAJouer.idJoueur()), actionAJouer.idJoueur() );
 
     jouerAction(actionAJouer);
 
@@ -46,7 +45,7 @@ void Simulateur::jouerAction (const Action &action)
         m_situationJeu.cellule(nouvellePosition) == SituationJeu::VIDE) {
 
         m_situationJeu.setPositionJoueur(idJoueur, nouvellePosition);
-        m_situationJeu.setCellule(nouvellePosition, (SituationJeu::Cellule)idJoueur);
+        m_situationJeu.setCellule(nouvellePosition, idJoueur);
 
     }
     else { // Élimination du joueur

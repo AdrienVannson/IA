@@ -25,14 +25,7 @@ public:
 
     static const int NB_CELLULES = NB_LIGNES * NB_COLONNES;
 
-    enum Cellule
-    {
-        VIDE = -1,
-        JOUEUR_1 = 0,
-        JOUEUR_2 = 1,
-        JOUEUR_3 = 2,
-        JOUEUR_4 = 3
-    };
+    static const int VIDE = -1;
 
 
     // Constructeur
@@ -48,11 +41,11 @@ public:
 
 
     // Couleurs des cellules
-    Cellule cellule (const int iCellule) const;
-    Cellule cellule (const int iLigne, const int iColonne) const;
+    int cellule (const int iCellule) const;
+    int cellule (const int iLigne, const int iColonne) const;
 
-    void setCellule (const int iCellule, const Cellule nouvelleCellule);
-    void setCellule (const int iLigne, const int iColonne, const Cellule nouvelleCellule);
+    void setCellule (const int iCellule, const int nouvelleValeur);
+    void setCellule (const int iLigne, const int iColonne, const int nouvelleValeur);
 
 
     // Position des joueurs
@@ -64,7 +57,7 @@ public:
 
 private:
 
-    std::array<Cellule, NB_CELLULES> m_cellules;
+    std::array<int, NB_CELLULES> m_cellules;
     std::vector<int> m_positionsJoueurs;
 
 

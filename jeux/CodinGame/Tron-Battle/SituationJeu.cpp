@@ -49,25 +49,25 @@ std::pair<int, int> SituationJeu::coordonneesCellule (const int iCellule)
  * Couleurs des cellules
  */
 
-SituationJeu::Cellule SituationJeu::cellule (const int iCellule) const
+int SituationJeu::cellule (const int iCellule) const
 {
     return m_cellules[iCellule];
 }
 
-SituationJeu::Cellule SituationJeu::cellule (const int iLigne, const int iColonne) const
+int SituationJeu::cellule (const int iLigne, const int iColonne) const
 {
     return cellule(positionCellule(iLigne, iColonne));
 }
 
 
-void SituationJeu::setCellule (const int iCellule, const Cellule nouvelleCellule)
+void SituationJeu::setCellule (const int iCellule, const int nouvelleValeur)
 {
-    m_cellules[iCellule] = nouvelleCellule;
+    m_cellules[iCellule] = nouvelleValeur;
 }
 
-void SituationJeu::setCellule (const int iLigne, const int iColonne, const Cellule nouvelleCellule)
+void SituationJeu::setCellule (const int iLigne, const int iColonne, const int nouvelleValeur)
 {
-    setCellule(positionCellule(iLigne, iColonne), nouvelleCellule);
+    setCellule(positionCellule(iLigne, iColonne), nouvelleValeur);
 }
 
 
