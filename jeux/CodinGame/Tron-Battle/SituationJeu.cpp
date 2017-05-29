@@ -79,13 +79,8 @@ void SituationJeu::setCellule (const int iLigne, const int iColonne, const int n
 
 
 /*
- * Position des joueurs
+ * Joueurs
  */
-
-bool SituationJeu::estElimine (const int idJoueur) const
-{
-    return positionJoueur(idJoueur) == INVALIDE;
-}
 
 int SituationJeu::positionJoueur (const int iJoueur) const
 {
@@ -103,10 +98,10 @@ void SituationJeu::setPositionJoueur (const int iJoueur, const int nouvelleLigne
 }
 
 
-
-/*
- * Jeu
- */
+bool SituationJeu::estElimine (const int idJoueur) const
+{
+    return positionJoueur(idJoueur) == INVALIDE;
+}
 
 void SituationJeu::eliminerJoueur (const int idJoueur)
 {

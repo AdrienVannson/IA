@@ -49,15 +49,13 @@ public:
     void setCellule (const int iLigne, const int iColonne, const int nouvelleValeur);
 
 
-    // Position des joueurs
-    bool estElimine (const int idJoueur) const;
+    // Joueurs
     int positionJoueur (const int iJoueur) const;
 
     void setPositionJoueur (const int iJoueur, const int nouvellePosition);
     void setPositionJoueur (const int iJoueur, const int nouvelleLigne, const int nouvelleColonne);
 
-
-    // Jeu
+    bool estElimine (const int idJoueur) const;
     void eliminerJoueur (const int idJoueur);
 
 
