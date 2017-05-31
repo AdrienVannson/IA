@@ -61,7 +61,7 @@ public:
 
 private:
 
-    std::array<int, NB_CELLULES> m_cellules;
+    std::array<short, NB_CELLULES> m_cellules;
     std::vector<int> m_positionsJoueurs;
 
 
