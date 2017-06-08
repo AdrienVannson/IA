@@ -11,12 +11,12 @@
 #include "partie/PartiesManager.h"
 
 
-class JouerPartieWidget : public QWidget
+class WJouerPartie : public QWidget
 {
 
 public:
 
-    explicit JouerPartieWidget (JoueursManager *joueurManager, PartiesManager *partiesManager, QWidget *parent = 0);
+    explicit WJouerPartie (JoueursManager *joueurManager, PartiesManager *partiesManager, QWidget *parent = 0);
 
 
 public slots:

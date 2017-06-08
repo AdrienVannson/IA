@@ -16,7 +16,7 @@
 #include "WidgetPartie.h"
 #include "PartiesManagerWidget.h"
 #include "JoueursManagerWidget.h"
-#include "JouerPartieWidget.h"
+#include "WJouerPartie.h"
 
 // Simulation d'une partie, TODEL
 #include "Joueurs/Glouton1/Glouton1Factory.h"

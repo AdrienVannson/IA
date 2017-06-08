@@ -1,6 +1,6 @@
-#include "JouerPartieWidget.h"
+#include "WJouerPartie.h"
 
-JouerPartieWidget::JouerPartieWidget (JoueursManager *joueurManager, PartiesManager *partiesManager, QWidget *parent) :
+WJouerPartie::WJouerPartie (JoueursManager *joueurManager, PartiesManager *partiesManager, QWidget *parent) :
     QWidget (parent),
     m_joueursManager (joueurManager),
     m_partiesManager (partiesManager)
@@ -14,13 +14,13 @@ JouerPartieWidget::JouerPartieWidget (JoueursManager *joueurManager, PartiesMana
     layout->addWidget(m_saisieID2);
 
     QPushButton *bouttonValidation = new QPushButton ("Jouer la partie");
-    connect(bouttonValidation, &QPushButton::clicked, this, &JouerPartieWidget::simulerPartie);
+    connect(bouttonValidation, &QPushButton::clicked, this, &WJouerPartie::simulerPartie);
     layout->addWidget(bouttonValidation);
 
     setLayout(layout);
 }
 
-void JouerPartieWidget::simulerPartie ()
+void WJouerPartie::simulerPartie ()
 {
     std::vector<Joueur*> joueurs;
     joueurs.push_back( m_joueursManager->getJoueur(m_saisieID1->text().toInt()) );

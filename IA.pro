@@ -30,7 +30,7 @@ SOURCES += main.cpp\
     partie/ActionGenerale.cpp \
     partie/SituationJeuGenerale.cpp \
     UI/WidgetPartieGeneral.cpp \
-    UI/JouerPartieWidget.cpp
+    UI/WJouerPartie.cpp
 
 HEADERS  += UI/MainWindow.h \
     partie/Partie.h \
@@ -46,4 +46,4 @@ HEADERS  += UI/MainWindow.h \
     partie/ActionGenerale.h \
     partie/SituationJeuGenerale.h \
     UI/WidgetPartieGeneral.h \
-    UI/JouerPartieWidget.h
+    UI/WJouerPartie.h

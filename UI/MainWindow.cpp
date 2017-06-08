@@ -91,10 +91,10 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     // Création de parties à la demande
-    JouerPartieWidget *jouerPartieWidget = new JouerPartieWidget (m_joueursManager, m_partiesManager);
+    WJouerPartie *wJouerPartie = new WJouerPartie (m_joueursManager, m_partiesManager);
 
     QDockWidget *dockJouerPartie = new QDockWidget("Jouer une partie", this);
-    dockJouerPartie->setWidget(jouerPartieWidget);
+    dockJouerPartie->setWidget(wJouerPartie);
     addDockWidget(Qt::RightDockWidgetArea, dockJouerPartie);
 }
 
