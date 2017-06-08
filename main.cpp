@@ -1,7 +1,5 @@
 #include <QApplication>
 
-#include <cstdio>
-
 #include "UI/MainWindow.h"
 
 
