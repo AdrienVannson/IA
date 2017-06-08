@@ -5,6 +5,7 @@
 #include <QDockWidget>
 #include <QMainWindow>
 #include <QMenuBar>
+#include <QMessageBox>
 #include <QPushButton>
 
 #include <cstdlib>
@@ -34,6 +35,8 @@ public:
 
 
 public slots:
+
+    void afficherAPropos ();
 
     void afficherPartie (const int idPartie);
 

@@ -4,17 +4,24 @@ MainWindow::MainWindow (QWidget *parent) :
     QMainWindow(parent)
 {
     showMaximized();
+    setWindowTitle("VIA");
 
     m_joueursManager = new JoueursManager;
     m_partiesManager = new PartiesManager;
 
     // Menu
-    QMenu *menuFichier = menuBar()->addMenu(tr("Fichier"));
+    QMenu *menuFichier = menuBar()->addMenu("Fichier");
 
-    QAction *actionQuitter = new QAction(tr("Quitter"), this);
+    QAction *actionQuitter = new QAction("Quitter", this);
     connect(actionQuitter, &QAction::triggered, qApp, &QApplication::quit);
-
     menuFichier->addAction(actionQuitter);
+
+
+    QMenu *menuAide = menuBar()->addMenu("Aide");
+
+    QAction *actionAPropos = new QAction("À propos", this);
+    connect(actionAPropos, &QAction::triggered, this, &MainWindow::afficherAPropos);
+    menuAide->addAction(actionAPropos);
 
 
     // Boutton
@@ -103,6 +110,14 @@ MainWindow::~MainWindow ()
 
 }
 
+
+void MainWindow::afficherAPropos ()
+{
+    QMessageBox fenetreAPropos;
+    fenetreAPropos.setText("VIA\n\nLogiciel créé par Adrien VANNSON");
+    fenetreAPropos.setWindowTitle("À propos");
+    fenetreAPropos.exec();
+}
 
 void MainWindow::afficherPartie (const int idPartie)
 {
