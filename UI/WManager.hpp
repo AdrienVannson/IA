@@ -2,7 +2,6 @@
 #define WMANAGER_HPP
 
 #include <QWidget>
-#include <QPushButton>
 #include <QVBoxLayout>
 
 #include <utility>

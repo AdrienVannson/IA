@@ -27,7 +27,8 @@ void WManager<T, WT>::actualiser ()
     }
 
     for (std::pair<int, T*> infos : *m_manager->getObjets()) {
-        QPushButton *bouton = new QPushButton (QString::number(infos.first));
-        m_layout->addWidget(bouton);
+        WT *widget = new WT;
+        widget->setObjet(infos.second);
+        m_layout->addWidget(widget);
     }
 }
