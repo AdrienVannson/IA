@@ -19,7 +19,7 @@ template<class T>
 int Manager<T>::add (T* objet)
 {
     int nouvelId = m_objets.empty() ? 0 : m_objets[ m_objets.size()-1 ].first+1;
-    m_objets.push_back( make_pair(nouvelId, objet) );
+    m_objets.push_back( std::make_pair(nouvelId, objet) );
 
     return nouvelId;
 }
