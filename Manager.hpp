@@ -26,4 +26,7 @@ private:
 
 };
 
+
+#include "Manager.tpp"
+
 #endif // MANAGER_HPP
