@@ -11,14 +11,14 @@
 #include <cstdlib>
 
 #include "Simulateur.h"
-#include "partie/JoueursManager.h"
 #include "partie/PartiesManager.h"
 #include "partie/Partie.h"
 #include "WidgetPartie.h"
 #include "PartiesManagerWidget.h"
-#include "JoueursManagerWidget.h"
 #include "WJouerPartie.h"
 #include "Manager.hpp"
+#include "WManager.hpp"
+#include "WApercuJoueur.hpp"
 
 // Simulation d'une partie, TODEL
 #include "Joueurs/Glouton1/Glouton1Factory.h"
@@ -52,7 +52,7 @@ signals:
 private:
 
     Manager<Joueur> m_joueursManager;
-    JoueursManagerWidget *m_joueursManagerWidget;
+    WManager<Joueur, WApercuJoueur> *m_wJoueursManager;
 
     PartiesManager *m_partiesManager;
     PartiesManagerWidget *m_partiesManagerWidget;

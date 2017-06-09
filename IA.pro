@@ -31,7 +31,7 @@ SOURCES += main.cpp\
     partie/SituationJeuGenerale.cpp \
     UI/WidgetPartieGeneral.cpp \
     UI/WJouerPartie.cpp \
-    UI/WManager.cpp
+    UI/WApercuJoueur.cpp
 
 HEADERS  += UI/MainWindow.h \
     partie/Partie.h \
@@ -49,4 +49,5 @@ HEADERS  += UI/MainWindow.h \
     UI/WidgetPartieGeneral.h \
     UI/WJouerPartie.h \
     Manager.hpp \
-    UI/WManager.hpp
+    UI/WManager.hpp \
+    UI/WApercuJoueur.hpp

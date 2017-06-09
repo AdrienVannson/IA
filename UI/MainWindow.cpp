@@ -40,12 +40,12 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     // Affichage des joueurs
-    /*m_joueursManagerWidget = new JoueursManagerWidget;
-    m_joueursManagerWidget->setJoueursManager(m_joueursManager);
+    m_wJoueursManager = new WManager<Joueur, WApercuJoueur>;
+    m_wJoueursManager->setManager(&m_joueursManager);
 
     QDockWidget *dockJoueurs = new QDockWidget("Joueurs", this);
-    dockJoueurs->setWidget(m_joueursManagerWidget);
-    addDockWidget(Qt::RightDockWidgetArea, dockJoueurs);*/
+    dockJoueurs->setWidget(m_wJoueursManager);
+    addDockWidget(Qt::RightDockWidgetArea, dockJoueurs);
 
 
     // Affichage d'une partie
