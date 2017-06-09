@@ -20,8 +20,6 @@ public:
     int nbJoueurs () const;
     Joueur* getJoueur (const int idJoueur) const;
 
-    double getRatioVictoire (Joueur* joueur, const int nbParties) const;
-
 
 private:
     std::vector< std::pair<const Joueur*, double> > m_joueurs; // Joueur ; score
