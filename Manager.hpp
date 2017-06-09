@@ -16,6 +16,9 @@ public:
     int add (T* objet);
     int add (const T &objet);
 
+    const T* get (const int id) const;
+    T* get (const int id);
+
 
 private:
 

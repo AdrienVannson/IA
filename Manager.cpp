@@ -30,3 +30,16 @@ int Manager<T>::add (const T &objet)
     T* copie = new T (objet);
     return add(copie);
 }
+
+
+template<class T>
+const T* Manager<T>::get (const int id) const
+{
+    return m_objets[id].second;
+}
+
+template<class T>
+T* Manager<T>::get (const int id)
+{
+    return m_objets[id].second;
+}
