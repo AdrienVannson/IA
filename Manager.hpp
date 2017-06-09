@@ -16,8 +16,11 @@ public:
     int add (T* objet);
     int add (const T &objet);
 
+    const std::vector< std::pair<int, T*> >* getObjets () const;
+
     const T* get (const int id) const;
     T* get (const int id);
+
 
 
 private:

@@ -69,7 +69,7 @@ MainWindow::MainWindow (QWidget *parent) :
         m_joueursManager.add( fabrique.creerJoueur() );
     }
 
-    //m_joueursManagerWidget->actualiser();
+    m_wJoueursManager->actualiser();
 
 
     // Création de parties

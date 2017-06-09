@@ -33,6 +33,12 @@ int Manager<T>::add (const T &objet)
 
 
 template<class T>
+const std::vector< std::pair<int, T*> >* Manager<T>::getObjets () const
+{
+    return &m_objets;
+}
+
+template<class T>
 const T* Manager<T>::get (const int id) const
 {
     return m_objets[id].second;
