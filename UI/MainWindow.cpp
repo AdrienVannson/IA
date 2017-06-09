@@ -6,7 +6,6 @@ MainWindow::MainWindow (QWidget *parent) :
     showMaximized();
     setWindowTitle("VIA");
 
-    m_joueursManager = new JoueursManager;
     m_partiesManager = new PartiesManager;
 
     // Menu
@@ -41,12 +40,12 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     // Affichage des joueurs
-    m_joueursManagerWidget = new JoueursManagerWidget;
+    /*m_joueursManagerWidget = new JoueursManagerWidget;
     m_joueursManagerWidget->setJoueursManager(m_joueursManager);
 
     QDockWidget *dockJoueurs = new QDockWidget("Joueurs", this);
     dockJoueurs->setWidget(m_joueursManagerWidget);
-    addDockWidget(Qt::RightDockWidgetArea, dockJoueurs);
+    addDockWidget(Qt::RightDockWidgetArea, dockJoueurs);*/
 
 
     // Affichage d'une partie
@@ -67,11 +66,10 @@ MainWindow::MainWindow (QWidget *parent) :
     Glouton1Factory fabrique;
 
     for (int iJoueur=0; iJoueur<4; iJoueur++) {
-        Joueur *joueur = fabrique.creerJoueur();
-        m_joueursManager->addJoueur(joueur);
+        m_joueursManager.add( fabrique.creerJoueur() );
     }
 
-    m_joueursManagerWidget->actualiser();
+    //m_joueursManagerWidget->actualiser();
 
 
     // Création de parties
@@ -79,7 +77,8 @@ MainWindow::MainWindow (QWidget *parent) :
         std::vector<Joueur*> joueurs;
 
         for (int iJoueur=0; iJoueur<iPartie%3+2; iJoueur++) {
-            joueurs.push_back( m_joueursManager->getJoueur(iJoueur) );
+            Joueur *joueur = (m_joueursManager.get(iJoueur))->clone();
+            joueurs.push_back(joueur);
         }
 
         SituationJeu situationDepart (joueurs.size());
@@ -98,11 +97,11 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     // Création de parties à la demande
-    WJouerPartie *wJouerPartie = new WJouerPartie (m_joueursManager, m_partiesManager);
+    /*WJouerPartie *wJouerPartie = new WJouerPartie (m_joueursManager, m_partiesManager);
 
     QDockWidget *dockJouerPartie = new QDockWidget("Jouer une partie", this);
     dockJouerPartie->setWidget(wJouerPartie);
-    addDockWidget(Qt::RightDockWidgetArea, dockJouerPartie);
+    addDockWidget(Qt::RightDockWidgetArea, dockJouerPartie);*/
 }
 
 MainWindow::~MainWindow ()

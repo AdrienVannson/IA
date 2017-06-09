@@ -18,6 +18,7 @@
 #include "PartiesManagerWidget.h"
 #include "JoueursManagerWidget.h"
 #include "WJouerPartie.h"
+#include "Manager.hpp"
 
 // Simulation d'une partie, TODEL
 #include "Joueurs/Glouton1/Glouton1Factory.h"
@@ -50,7 +51,7 @@ signals:
 
 private:
 
-    JoueursManager *m_joueursManager;
+    Manager<Joueur> m_joueursManager;
     JoueursManagerWidget *m_joueursManagerWidget;
 
     PartiesManager *m_partiesManager;
