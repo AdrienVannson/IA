@@ -5,6 +5,7 @@ WApercuJoueur::WApercuJoueur (QWidget *parent) :
     m_joueur (0)
 {
     m_bouton = new QPushButton ("Ah...", this);
+    setMinimumHeight(42);
 }
 
 void WApercuJoueur::WApercuJoueur::setObjet (const Joueur *joueur)

@@ -7,6 +7,16 @@ WManager<T, WV>::WManager (QWidget *parent) :
 {
     m_layout = new QVBoxLayout;
     setLayout(m_layout);
+
+    QScrollArea *scrollArea = new QScrollArea;
+    scrollArea->setWidgetResizable(true);
+    m_layout->addWidget(scrollArea);
+
+    QWidget *widget = new QWidget;
+    scrollArea->setWidget(widget);
+
+    m_layoutObjets = new QVBoxLayout;
+    widget->setLayout(m_layoutObjets);
 }
 
 template<class T, class WT>
@@ -21,7 +31,7 @@ void WManager<T, WT>::actualiser ()
 {
     // Nettoyage du layout
     QLayoutItem *enfant;
-    while ((enfant = m_layout->takeAt(0))) {
+    while ((enfant = m_layoutObjets->takeAt(0))) {
         delete enfant->widget();
         delete enfant;
     }
@@ -29,6 +39,7 @@ void WManager<T, WT>::actualiser ()
     for (std::pair<int, T*> infos : *m_manager->getObjets()) {
         WT *widget = new WT;
         widget->setObjet(infos.second);
-        m_layout->addWidget(widget);
+
+        m_layoutObjets->addWidget(widget);
     }
 }
