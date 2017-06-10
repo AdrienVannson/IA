@@ -6,8 +6,6 @@ MainWindow::MainWindow (QWidget *parent) :
     showMaximized();
     setWindowTitle("VIA");
 
-    m_partiesManager = new PartiesManager;
-
     // Menu
     QMenu *menuFichier = menuBar()->addMenu("Fichier");
 
@@ -31,8 +29,8 @@ MainWindow::MainWindow (QWidget *parent) :
 
     // Affichage des parties
     m_partiesManagerWidget = new PartiesManagerWidget;
-    m_partiesManagerWidget->setPartiesManager(m_partiesManager);
-    connect(m_partiesManager, &PartiesManager::updated, m_partiesManagerWidget, &PartiesManagerWidget::actualiser);
+    // m_partiesManagerWidget->setPartiesManager(m_partiesManager);
+    // connect(m_partiesManager, &PartiesManager::updated, m_partiesManagerWidget, &PartiesManagerWidget::actualiser);
 
     QDockWidget *dockParties = new QDockWidget("Parties", this);
     dockParties->setWidget(m_partiesManagerWidget);
@@ -88,7 +86,7 @@ MainWindow::MainWindow (QWidget *parent) :
         }
 
         Partie* partie = SimulateurPartie::simulerPartie(situationDepart, joueurs);
-        m_partiesManager->addPartie(partie);
+        m_partiesManager.add(partie);
 
         for (unsigned int iJoueur=0; iJoueur<joueurs.size(); iJoueur++) {
             delete joueurs[iJoueur];
@@ -120,7 +118,7 @@ void MainWindow::afficherAPropos ()
 
 void MainWindow::afficherPartie (const int idPartie)
 {
-    Partie *partie = m_partiesManager->getPartie(idPartie);
+    Partie *partie = m_partiesManager.get(idPartie);
 
     emit partieAffichee(partie);
 }
