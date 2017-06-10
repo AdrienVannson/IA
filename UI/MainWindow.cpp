@@ -65,7 +65,7 @@ MainWindow::MainWindow (QWidget *parent) :
     // Création de joueurs
     Glouton1Factory fabrique;
 
-    for (int iJoueur=0; iJoueur<4; iJoueur++) {
+    for (int iJoueur=0; iJoueur<42; iJoueur++) {
         m_joueursManager.add( fabrique.creerJoueur() );
     }
 

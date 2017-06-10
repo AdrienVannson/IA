@@ -4,8 +4,12 @@ WApercuJoueur::WApercuJoueur (QWidget *parent) :
     QWidget (parent),
     m_joueur (0)
 {
+    QVBoxLayout *layout = new QVBoxLayout;
+
     m_bouton = new QPushButton ("Ah...", this);
-    setMinimumHeight(42);
+    layout->addWidget(m_bouton);
+
+    setLayout(layout);
 }
 
 void WApercuJoueur::WApercuJoueur::setObjet (const Joueur *joueur)

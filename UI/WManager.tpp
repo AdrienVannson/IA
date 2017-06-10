@@ -15,8 +15,8 @@ WManager<T, WV>::WManager (QWidget *parent) :
     QWidget *widget = new QWidget;
     scrollArea->setWidget(widget);
 
-    m_layoutObjets = new QVBoxLayout;
-    widget->setLayout(m_layoutObjets);
+    m_layoutLignes = new QVBoxLayout;
+    widget->setLayout(m_layoutLignes);
 }
 
 template<class T, class WT>
@@ -31,15 +31,32 @@ void WManager<T, WT>::actualiser ()
 {
     // Nettoyage du layout
     QLayoutItem *enfant;
-    while ((enfant = m_layoutObjets->takeAt(0))) {
+    while ((enfant = m_layoutLignes->takeAt(0))) {
         delete enfant->widget();
         delete enfant;
     }
 
+    if (m_manager->getObjets()->empty()) {
+        return;
+    }
+
+    const int nbChiffresMaxId = QString::number((*m_manager->getObjets())[ m_manager->getObjets()->size()-1 ].first).size();
+
     for (std::pair<int, T*> infos : *m_manager->getObjets()) {
+        QWidget *ligne = new QWidget;
+
+        QHBoxLayout *layoutLigne = new QHBoxLayout;
+        ligne->setLayout(layoutLigne);
+
+        QToolButton *wId = new QToolButton;
+        wId->setText( QString::number(infos.first).rightJustified(nbChiffresMaxId, '0') );
+        layoutLigne->addWidget(wId);
+
         WT *widget = new WT;
         widget->setObjet(infos.second);
 
-        m_layoutObjets->addWidget(widget);
+        layoutLigne->addWidget(widget);
+
+        m_layoutLignes->addWidget(ligne);
     }
 }

@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QPushButton>
+#include <QVBoxLayout>
 
 #include "partie/Joueur/Joueur.h"
 

@@ -3,7 +3,9 @@
 
 #include <QWidget>
 #include <QVBoxLayout>
+#include <QHBoxLayout>
 #include <QScrollArea>
+#include <QToolButton>
 
 #include <utility>
 
@@ -28,7 +30,7 @@ private:
     const Manager<T> *m_manager;
 
     QVBoxLayout *m_layout;
-    QVBoxLayout *m_layoutObjets;
+    QVBoxLayout *m_layoutLignes;
 
 };
 
