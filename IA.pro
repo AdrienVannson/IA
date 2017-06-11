@@ -53,3 +53,6 @@ HEADERS  += UI/MainWindow.h \
     UI/WManager.hpp \
     UI/WApercuJoueur.hpp \
     UI/WApercuPartie.hpp
+
+RESOURCES += \
+    resources/resources.qrc

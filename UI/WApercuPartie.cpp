@@ -3,7 +3,13 @@
 WApercuPartie::WApercuPartie (QWidget *parent) :
     QWidget (parent)
 {
-    QVBoxLayout *layout = new QVBoxLayout (this);
+    QHBoxLayout *layout = new QHBoxLayout (this);
+
+    QToolButton *boutonAfficher = new QToolButton;
+    boutonAfficher->setIcon(QIcon(":/icons/show.png"));
+
+    layout->addWidget(boutonAfficher);
+
 
     layout->addWidget( new QPushButton("Partie") );
 }

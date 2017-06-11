@@ -3,7 +3,9 @@
 
 #include <QWidget>
 #include <QPushButton>
-#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QIcon>
+#include <QToolButton>
 
 #include "partie/Partie.h"
 
