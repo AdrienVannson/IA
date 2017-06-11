@@ -13,11 +13,11 @@
 #include "Simulateur.h"
 #include "partie/Partie.h"
 #include "WidgetPartie.h"
-#include "PartiesManagerWidget.h"
 #include "WJouerPartie.h"
 #include "Manager.hpp"
 #include "WManager.hpp"
 #include "WApercuJoueur.hpp"
+#include "WApercuPartie.hpp"
 
 // Simulation d'une partie, TODEL
 #include "Joueurs/Glouton1/Glouton1Factory.h"
@@ -54,7 +54,7 @@ private:
     WManager<Joueur, WApercuJoueur> *m_wJoueursManager;
 
     Manager<Partie> m_partiesManager;
-    PartiesManagerWidget *m_partiesManagerWidget;
+    WManager<Partie, WApercuPartie> *m_wPartiesManager;
 
 };
 

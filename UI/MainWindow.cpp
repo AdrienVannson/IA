@@ -28,12 +28,14 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     // Affichage des parties
-    m_partiesManagerWidget = new PartiesManagerWidget;
+    m_wPartiesManager = new WManager<Partie, WApercuPartie>;
+    m_wPartiesManager->setManager(&m_partiesManager);
+
     // m_partiesManagerWidget->setPartiesManager(m_partiesManager);
     // connect(m_partiesManager, &PartiesManager::updated, m_partiesManagerWidget, &PartiesManagerWidget::actualiser);
 
     QDockWidget *dockParties = new QDockWidget("Parties", this);
-    dockParties->setWidget(m_partiesManagerWidget);
+    dockParties->setWidget(m_wPartiesManager);
     addDockWidget(Qt::RightDockWidgetArea, dockParties);
 
 
@@ -55,7 +57,7 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     // Connexion
-    connect(m_partiesManagerWidget, &PartiesManagerWidget::partieSelectionnee, this, &MainWindow::afficherPartie);
+    // connect(m_partiesManagerWidget, &PartiesManagerWidget::partieSelectionnee, this, &MainWindow::afficherPartie);
     connect(this, &MainWindow::partieAffichee, widgetPartie, &WidgetPartie::afficherPartie);
 
 
@@ -92,6 +94,8 @@ MainWindow::MainWindow (QWidget *parent) :
             delete joueurs[iJoueur];
         }
     }
+
+    m_wPartiesManager->actualiser();
 
 
     // Création de parties à la demande
