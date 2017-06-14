@@ -17,7 +17,7 @@ WApercuPartie::WApercuPartie (QWidget *parent) :
 }
 
 
-void WApercuPartie::setObjet (const Partie *partie)
+void WApercuPartie::setObjet (const PartieDecrite *partie)
 {
     m_partie = partie;
 }

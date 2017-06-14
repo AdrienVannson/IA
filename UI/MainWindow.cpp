@@ -28,7 +28,7 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     // Affichage des parties
-    m_wPartiesManager = new WManager<Partie, WApercuPartie>;
+    m_wPartiesManager = new WManager<PartieDecrite, WApercuPartie>;
     m_wPartiesManager->setManager(&m_partiesManager);
 
     // m_partiesManagerWidget->setPartiesManager(m_partiesManager);
@@ -87,8 +87,13 @@ MainWindow::MainWindow (QWidget *parent) :
             situationDepart.setPositionJoueur(iJoueur, rand()%(SituationJeu::NB_CELLULES));
         }
 
-        Partie* partie = SimulateurPartie::simulerPartie(situationDepart, joueurs);
-        m_partiesManager.add(partie);
+
+        Partie *partie = SimulateurPartie::simulerPartie(situationDepart, joueurs);
+
+        PartieDecrite* partieDecrite = new PartieDecrite(*partie);
+        m_partiesManager.add(partieDecrite);
+
+        delete partie;
 
         for (unsigned int iJoueur=0; iJoueur<joueurs.size(); iJoueur++) {
             delete joueurs[iJoueur];

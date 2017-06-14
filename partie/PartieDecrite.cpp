@@ -10,6 +10,12 @@ PartieDecrite::PartieDecrite () :
 
 }
 
+PartieDecrite::PartieDecrite (const Partie &partie) :
+    Partie (partie)
+{
+
+}
+
 
 // ID
 int PartieDecrite::id () const

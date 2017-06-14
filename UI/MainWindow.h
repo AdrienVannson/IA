@@ -11,7 +11,7 @@
 #include <cstdlib>
 
 #include "Simulateur.h"
-#include "partie/Partie.h"
+#include "partie/PartieDecrite.h"
 #include "WidgetPartie.h"
 #include "WJouerPartie.h"
 #include "Manager.hpp"
@@ -53,8 +53,8 @@ private:
     Manager<Joueur> m_joueursManager;
     WManager<Joueur, WApercuJoueur> *m_wJoueursManager;
 
-    Manager<Partie> m_partiesManager;
-    WManager<Partie, WApercuPartie> *m_wPartiesManager;
+    Manager<PartieDecrite> m_partiesManager;
+    WManager<PartieDecrite, WApercuPartie> *m_wPartiesManager;
 
 };
 

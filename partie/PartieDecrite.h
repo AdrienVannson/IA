@@ -15,7 +15,9 @@ class PartieDecrite : public Partie
 {
 
 public:
+
     PartieDecrite ();
+    PartieDecrite (const Partie &partie);
 
     int id () const;
 

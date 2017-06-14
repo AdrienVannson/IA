@@ -7,7 +7,7 @@
 #include <QIcon>
 #include <QToolButton>
 
-#include "partie/Partie.h"
+#include "partie/PartieDecrite.h"
 
 
 class WApercuPartie : public QWidget
@@ -19,7 +19,7 @@ public:
 
     explicit WApercuPartie (QWidget *parent=0);
 
-    void setObjet (const Partie *partie);
+    void setObjet (const PartieDecrite *partie);
 
 
 public slots:
@@ -29,12 +29,12 @@ public slots:
 
 signals:
 
-    void afficher (const Partie *partie);
+    void afficher (const PartieDecrite *partie);
 
 
 private:
 
-    const Partie *m_partie;
+    const PartieDecrite *m_partie;
 
 
 };
