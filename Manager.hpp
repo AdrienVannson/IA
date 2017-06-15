@@ -3,6 +3,7 @@
 
 #include <utility>
 #include <vector>
+#include <memory>
 
 
 template<class T>
@@ -10,22 +11,23 @@ class Manager
 {
 
 public:
+
     Manager ();
     ~Manager ();
 
-    int add (T* objet);
-    int add (const T &objet);
+    std::shared_ptr<T> add (T *object);
+    std::shared_ptr<T> addCopy (const T *object);
 
-    const std::vector< std::pair<int, T*> >* getObjets () const;
+    const std::vector< std::shared_ptr<T> >* getAll () const;
 
-    const T* get (const int id) const;
-    T* get (const int id);
+    std::shared_ptr<const T> get (const int pos) const;
+    std::shared_ptr<T> get (const int pos);
 
 
 
 private:
 
-    std::vector< std::pair<int, T*> > m_objets; // ID, pointeur vers l'objet
+    std::vector< std::shared_ptr<T> > m_objects;
 
 };
 

@@ -38,13 +38,13 @@ public slots:
 
     void afficherAPropos ();
 
-    void afficherPartie (const int idPartie);
+    // void afficherPartie (const int idPartie);
 
 
 
 signals:
 
-    void partieAffichee (Partie* partie);
+    // void partieAffichee (Partie* partie);
 
 
 

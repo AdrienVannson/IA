@@ -7,6 +7,8 @@
 #include <QIcon>
 #include <QToolButton>
 
+#include <memory>
+
 #include "partie/PartieDecrite.h"
 
 
@@ -19,7 +21,7 @@ public:
 
     explicit WApercuPartie (QWidget *parent=0);
 
-    void setObjet (const PartieDecrite *partie);
+    void setObject (const std::shared_ptr<const PartieDecrite> &partie);
 
 
 public slots:
@@ -29,12 +31,12 @@ public slots:
 
 signals:
 
-    void afficher (const PartieDecrite *partie);
+    // void afficher (const PartieDecrite *partie);
 
 
 private:
 
-    const PartieDecrite *m_partie;
+    std::shared_ptr<const PartieDecrite> m_partie;
 
 
 };

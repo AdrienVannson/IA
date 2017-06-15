@@ -36,27 +36,26 @@ void WManager<T, WT>::actualiser ()
         delete enfant;
     }
 
-    if (m_manager->getObjets()->empty()) {
+    if (m_manager->getAll()->empty()) {
         return;
     }
 
-    const int nbChiffresMaxId = QString::number((*m_manager->getObjets())[ m_manager->getObjets()->size()-1 ].first).size();
 
-    for (std::pair<int, T*> infos : *m_manager->getObjets()) {
+    int iObjet = 0;
+
+    for (const std::shared_ptr<const T> &objet : *m_manager->getAll()) {
         QWidget *ligne = new QWidget;
 
         QHBoxLayout *layoutLigne = new QHBoxLayout;
         ligne->setLayout(layoutLigne);
 
-        QToolButton *wId = new QToolButton;
-        wId->setText( QString::number(infos.first).rightJustified(nbChiffresMaxId, '0') );
-        layoutLigne->addWidget(wId);
-
         WT *widget = new WT;
-        widget->setObjet(infos.second);
+        widget->setObject(objet);
 
         layoutLigne->addWidget(widget);
 
         m_layoutLignes->addWidget(ligne);
+
+        iObjet++;
     }
 }

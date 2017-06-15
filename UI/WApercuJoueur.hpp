@@ -5,6 +5,8 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
+#include <memory>
+
 #include "partie/Joueur/Joueur.h"
 
 
@@ -16,12 +18,12 @@ public:
 
     explicit WApercuJoueur (QWidget *parent=0);
 
-    void setObjet (const Joueur *joueur);
+    void setObject (const std::shared_ptr<const Joueur> &joueur);
 
 
 private:
 
-    const Joueur *m_joueur;
+    std::shared_ptr<const Joueur> m_joueur;
 
     QPushButton *m_bouton;
 

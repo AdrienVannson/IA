@@ -3,49 +3,43 @@
 template<class T>
 Manager<T>::Manager ()
 {
-
 }
 
 template<class T>
 Manager<T>::~Manager ()
 {
-    for (std::pair<int, T*> objet : m_objets) {
-        delete objet.second;
-    }
 }
 
 
 template<class T>
-int Manager<T>::add (T* objet)
+std::shared_ptr<T> Manager<T>::add (T* object)
 {
-    int nouvelId = m_objets.empty() ? 0 : m_objets[ m_objets.size()-1 ].first+1;
-    m_objets.push_back( std::make_pair(nouvelId, objet) );
-
-    return nouvelId;
+    m_objects.push_back( std::shared_ptr<T> (object) );
+    return m_objects[ m_objects.size()-1 ];
 }
 
 template<class T>
-int Manager<T>::add (const T &objet)
+std::shared_ptr<T> Manager<T>::addCopy (const T* object)
 {
-    T* copie = new T (objet);
-    return add(copie);
+    T* copy = new T (*object);
+    return add(copy);
 }
 
 
 template<class T>
-const std::vector< std::pair<int, T*> >* Manager<T>::getObjets () const
+const std::vector< std::shared_ptr<T> >* Manager<T>::getAll () const
 {
-    return &m_objets;
+    return &m_objects;
 }
 
 template<class T>
-const T* Manager<T>::get (const int id) const
+std::shared_ptr<const T> Manager<T>::get (const int pos) const
 {
-    return m_objets[id].second;
+    return m_objects[pos];
 }
 
 template<class T>
-T* Manager<T>::get (const int id)
+std::shared_ptr<T> Manager<T>::get (const int pos)
 {
-    return m_objets[id].second;
+    return m_objects[pos];
 }

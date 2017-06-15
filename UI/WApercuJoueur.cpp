@@ -1,8 +1,7 @@
 #include "WApercuJoueur.hpp"
 
 WApercuJoueur::WApercuJoueur (QWidget *parent) :
-    QWidget (parent),
-    m_joueur (0)
+    QWidget (parent)
 {
     QVBoxLayout *layout = new QVBoxLayout;
 
@@ -12,7 +11,7 @@ WApercuJoueur::WApercuJoueur (QWidget *parent) :
     setLayout(layout);
 }
 
-void WApercuJoueur::WApercuJoueur::setObjet (const Joueur *joueur)
+void WApercuJoueur::WApercuJoueur::setObject (const std::shared_ptr<const Joueur> &joueur)
 {
     m_joueur = joueur;
     m_bouton->setText("Joueur");

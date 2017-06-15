@@ -58,7 +58,7 @@ MainWindow::MainWindow (QWidget *parent) :
 
     // Connexion
     // connect(m_partiesManagerWidget, &PartiesManagerWidget::partieSelectionnee, this, &MainWindow::afficherPartie);
-    connect(this, &MainWindow::partieAffichee, widgetPartie, &WidgetPartie::afficherPartie);
+    // connect(this, &MainWindow::partieAffichee, widgetPartie, &WidgetPartie::afficherPartie);
 
 
 
@@ -125,9 +125,9 @@ void MainWindow::afficherAPropos ()
     fenetreAPropos.exec();
 }
 
-void MainWindow::afficherPartie (const int idPartie)
+/*void MainWindow::afficherPartie (const int idPartie)
 {
     Partie *partie = m_partiesManager.get(idPartie);
 
     emit partieAffichee(partie);
-}
+}*/

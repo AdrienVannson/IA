@@ -17,7 +17,7 @@ WApercuPartie::WApercuPartie (QWidget *parent) :
 }
 
 
-void WApercuPartie::setObjet (const PartieDecrite *partie)
+void WApercuPartie::setObject (const std::shared_ptr<const PartieDecrite> &partie)
 {
     m_partie = partie;
 }
@@ -25,5 +25,5 @@ void WApercuPartie::setObjet (const PartieDecrite *partie)
 
 void WApercuPartie::emettreAfficher ()
 {
-    emit afficher(m_partie);
+    // emit afficher(m_partie);
 }
