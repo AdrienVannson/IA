@@ -31,7 +31,7 @@ public slots:
 
 signals:
 
-    // void afficher (const PartieDecrite *partie);
+    void afficher (std::shared_ptr<const PartieDecrite> partie);
 
 
 private:
