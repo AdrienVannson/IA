@@ -32,7 +32,8 @@ SOURCES += main.cpp\
     UI/WidgetPartieGeneral.cpp \
     UI/WJouerPartie.cpp \
     UI/WApercuJoueur.cpp \
-    UI/WApercuPartie.cpp
+    UI/WApercuPartie.cpp \
+    EventsManager.cpp
 
 HEADERS  += UI/MainWindow.h \
     partie/Partie.h \
@@ -52,7 +53,8 @@ HEADERS  += UI/MainWindow.h \
     Manager.hpp \
     UI/WManager.hpp \
     UI/WApercuJoueur.hpp \
-    UI/WApercuPartie.hpp
+    UI/WApercuPartie.hpp \
+    EventsManager.hpp
 
 RESOURCES += \
     resources/resources.qrc

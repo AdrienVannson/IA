@@ -25,5 +25,5 @@ void WApercuPartie::setObject (const std::shared_ptr<const PartieDecrite> &parti
 
 void WApercuPartie::emettreAfficher ()
 {
-    emit afficher(m_partie);
+    emit show (m_partie);
 }
