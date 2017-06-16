@@ -1,9 +1,7 @@
 #include "WJouerPartie.h"
 
-WJouerPartie::WJouerPartie (JoueursManager *joueurManager, PartiesManager *partiesManager, QWidget *parent) :
-    QWidget (parent),
-    m_joueursManager (joueurManager),
-    m_partiesManager (partiesManager)
+WJouerPartie::WJouerPartie (QWidget *parent) :
+    QWidget (parent)
 {
     QVBoxLayout *layout = new QVBoxLayout;
 
@@ -22,12 +20,12 @@ WJouerPartie::WJouerPartie (JoueursManager *joueurManager, PartiesManager *parti
 
 void WJouerPartie::simulerPartie ()
 {
-    std::vector<Joueur*> joueurs;
+    /*std::vector<Joueur*> joueurs;
     joueurs.push_back( m_joueursManager->getJoueur(m_saisieID1->text().toInt()) );
     joueurs.push_back( m_joueursManager->getJoueur(m_saisieID2->text().toInt()) );
 
     Partie *partie = SimulateurPartie::simulerPartie(SituationJeu(2), joueurs);
     m_partiesManager->addPartie(partie);
 
-    delete joueurs[0], joueurs[1];
+    delete joueurs[0], joueurs[1];*/
 }

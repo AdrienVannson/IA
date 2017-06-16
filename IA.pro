@@ -20,13 +20,9 @@ SOURCES += main.cpp\
     partie/Partie.cpp \
     partie/Tour.cpp \
     partie/Joueur/Joueur.cpp \
-    partie/PartiesManager.cpp \
     partie/SimulateurPartie.cpp \
-    partie/JoueursManager.cpp \
-    UI/PartiesManagerWidget.cpp \
     partie/PartieDecrite.cpp \
     partie/Joueur/JoueurFactory.cpp \
-    UI/JoueursManagerWidget.cpp \
     partie/ActionGenerale.cpp \
     partie/SituationJeuGenerale.cpp \
     UI/WidgetPartieGeneral.cpp \
@@ -40,12 +36,8 @@ HEADERS  += UI/MainWindow.h \
     partie/Tour.h \
     partie/Joueur/Joueur.h \
     partie/SimulateurPartie.h \
-    partie/PartiesManager.h \
-    partie/JoueursManager.h \
-    UI/PartiesManagerWidget.h \
     partie/PartieDecrite.h \
     partie/Joueur/JoueurFactory.h \
-    UI/JoueursManagerWidget.h \
     partie/ActionGenerale.h \
     partie/SituationJeuGenerale.h \
     UI/WidgetPartieGeneral.h \
