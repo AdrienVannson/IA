@@ -10,6 +10,7 @@
 #include <memory>
 
 #include "partie/PartieDecrite.h"
+#include "EventsManager.hpp"
 
 
 class WApercuPartie : public QWidget
@@ -20,6 +21,7 @@ class WApercuPartie : public QWidget
 public:
 
     explicit WApercuPartie (QWidget *parent=0);
+    ~WApercuPartie ();
 
     void setObject (const std::shared_ptr<const PartieDecrite> &partie);
 

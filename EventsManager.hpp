@@ -5,6 +5,8 @@
 
 #include "UI/WApercuPartie.hpp"
 
+class WApercuPartie;
+
 
 class EventsManager : public QObject
 {

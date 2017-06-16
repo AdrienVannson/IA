@@ -15,7 +15,7 @@ void EventsManager::add (const WApercuPartie *wApercuPartie)
 
 void EventsManager::remove (const WApercuPartie *wApercuPartie)
 {
-
+    disconnect(wApercuPartie, &WApercuPartie::show, this, &EventsManager::showGame);
 }
 
 
