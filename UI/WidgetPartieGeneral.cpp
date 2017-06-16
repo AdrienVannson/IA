@@ -8,10 +8,12 @@ WidgetPartieGeneral::WidgetPartieGeneral (QWidget *parent) :
     m_timer = new QTimer(this);
     m_timer->setInterval(50);
     connect(m_timer, &QTimer::timeout, this, &WidgetPartieGeneral::tourSuivant);
+
+    EventsManager::getInstance()->add(this);
 }
 
 
-void WidgetPartieGeneral::afficherPartie (const Partie *partie)
+void WidgetPartieGeneral::showGame (const std::shared_ptr<const PartieDecrite> &partie)
 {
     m_partie = *partie;
     m_iTourActuel = 0;

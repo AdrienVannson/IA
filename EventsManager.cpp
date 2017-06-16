@@ -19,7 +19,18 @@ void EventsManager::remove (const WApercuPartie *wApercuPartie)
 }
 
 
-void EventsManager::showGame (std::shared_ptr<const PartieDecrite> partie)
+void EventsManager::add (WidgetPartieGeneral *wPartie)
+{
+    m_widgetPartie = wPartie;
+}
+
+void EventsManager::remove (WidgetPartieGeneral *wPartie)
 {
 
+}
+
+
+void EventsManager::showGame (std::shared_ptr<const PartieDecrite> partie)
+{
+    m_widgetPartie->showGame(partie);
 }

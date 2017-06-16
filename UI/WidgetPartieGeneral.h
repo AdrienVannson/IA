@@ -4,7 +4,10 @@
 #include <QWidget>
 #include <QTimer>
 
-#include "partie/Partie.h"
+#include <memory>
+
+#include "partie/PartieDecrite.h"
+#include "EventsManager.hpp"
 
 
 class WidgetPartieGeneral : public QWidget
@@ -19,7 +22,7 @@ public:
 
 public slots:
 
-    void afficherPartie (const Partie *partie);
+    void showGame (const std::shared_ptr<const PartieDecrite> &partie);
     void tourSuivant ();
 
 
