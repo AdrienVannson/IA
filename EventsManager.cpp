@@ -1,5 +1,9 @@
 #include "EventsManager.hpp"
 
+EventsManager::EventsManager () :
+    m_widgetPartie (0)
+{
+}
 
 EventsManager* EventsManager::getInstance ()
 {
@@ -26,11 +30,15 @@ void EventsManager::add (WidgetPartieGeneral *wPartie)
 
 void EventsManager::remove (WidgetPartieGeneral *wPartie)
 {
-
+    if (wPartie == m_widgetPartie) {
+        m_widgetPartie = 0;
+    }
 }
 
 
 void EventsManager::showGame (std::shared_ptr<const PartieDecrite> partie)
 {
-    m_widgetPartie->showGame(partie);
+    if (m_widgetPartie != 0) {
+        m_widgetPartie->showGame(partie);
+    }
 }

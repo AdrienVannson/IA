@@ -32,9 +32,10 @@ public slots:
 
 private:
 
-    EventsManager () {}
+    EventsManager ();
     EventsManager (const EventsManager &) = delete;
     void operator= (const EventsManager &) = delete;
+
 
     WidgetPartieGeneral *m_widgetPartie;
 
