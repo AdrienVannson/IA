@@ -19,7 +19,7 @@ class ExternalPlayer : public Joueur
 
 public:
 
-    ExternalPlayer ();
+    ExternalPlayer (const std::string &chemin="");
     ~ExternalPlayer ();
 
     Joueur* clone () const;
@@ -30,12 +30,12 @@ public:
 
     Action jouerAction (const InformationsTourJoueur &informations);
 
-
-    std::string m_chemin;
+    void setChemin (const std::string &chemin);
 
 
 private:
 
+    std::string m_chemin;
     spawn *m_prog;
 
 };

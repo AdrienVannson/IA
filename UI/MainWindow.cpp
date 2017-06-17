@@ -65,11 +65,8 @@ MainWindow::MainWindow (QWidget *parent) :
     // Création de joueurs
     Glouton1Factory fabriqueGlouton1;
 
-    ExternalPlayer *joueur1 = new ExternalPlayer;
-    joueur1->m_chemin = "/media/adrien/DATA_LINUX/Documents/Projets/IA/IA/players/minmax";
-
-    ExternalPlayer *joueur2 = new ExternalPlayer;
-    joueur2->m_chemin = "/media/adrien/DATA_LINUX/Documents/Projets/IA/IA/players/MCTS";
+    ExternalPlayer *joueur1 = new ExternalPlayer ("/media/adrien/DATA_LINUX/Documents/Projets/IA/IA/players/minmax");
+    ExternalPlayer *joueur2 = new ExternalPlayer ("/media/adrien/DATA_LINUX/Documents/Projets/IA/IA/players/MCTS");
 
     m_joueursManager.add(joueur1);
     m_joueursManager.add(joueur2);

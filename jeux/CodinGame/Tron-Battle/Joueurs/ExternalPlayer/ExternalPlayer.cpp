@@ -83,9 +83,9 @@ public:
  */
 
 
-ExternalPlayer::ExternalPlayer ()
+ExternalPlayer::ExternalPlayer (const std::string &chemin) :
+    m_chemin (chemin)
 {
-
 }
 
 ExternalPlayer::~ExternalPlayer ()
@@ -141,4 +141,9 @@ Action ExternalPlayer::jouerAction (const InformationsTourJoueur &informations)
     }
 
     return action;
+}
+
+void ExternalPlayer::setChemin (const std::string &chemin)
+{
+    m_chemin = chemin;
 }
