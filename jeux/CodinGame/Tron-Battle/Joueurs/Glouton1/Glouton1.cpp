@@ -9,11 +9,6 @@ Glouton1::~Glouton1 ()
 {
 }
 
-Joueur* Glouton1::clone () const
-{
-    return new Glouton1 (*this);
-}
-
 void Glouton1::startGame ()
 {
     for (int iLigne=0; iLigne<NB_LIGNES; iLigne++) {

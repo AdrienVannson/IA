@@ -22,8 +22,6 @@ public:
     ExternalPlayer (const std::string &chemin="");
     ~ExternalPlayer ();
 
-    Joueur* clone () const;
-
 
     void startGame ();
     void endGame ();

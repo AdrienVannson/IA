@@ -93,12 +93,6 @@ ExternalPlayer::~ExternalPlayer ()
 }
 
 
-Joueur* ExternalPlayer::clone () const
-{
-    return new ExternalPlayer (*this);
-}
-
-
 void ExternalPlayer::startGame ()
 {
     const char* const argv[] = {m_chemin.c_str(), (const char*)0};

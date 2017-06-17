@@ -16,8 +16,6 @@ public:
     Joueur ();
     virtual ~Joueur ();
 
-    virtual Joueur* clone () const = 0;
-
 
     virtual void startGame (); // Appelé au début du jeu
     virtual void endGame (); // Appelé à la fin du jeu
