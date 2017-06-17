@@ -63,10 +63,18 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     // Création de joueurs
-    ExternalPlayerFactory fabriqueExternalPlayer;
-    m_joueursManager.add( fabriqueExternalPlayer.creerJoueur() );
-
     Glouton1Factory fabriqueGlouton1;
+
+    ExternalPlayer *joueur1 = new ExternalPlayer;
+    joueur1->m_chemin = "/media/adrien/DATA_LINUX/Documents/Projets/IA/IA/players/minmax";
+
+    ExternalPlayer *joueur2 = new ExternalPlayer;
+    joueur2->m_chemin = "/media/adrien/DATA_LINUX/Documents/Projets/IA/IA/players/MCTS";
+
+    m_joueursManager.add(joueur1);
+    m_joueursManager.add(joueur2);
+
+
     for (int iJoueur=0; iJoueur<10; iJoueur++) {
         m_joueursManager.add( fabriqueGlouton1.creerJoueur() );
     }
@@ -115,6 +123,10 @@ MainWindow::MainWindow (QWidget *parent) :
     }
 
     Partie *partie = SimulateurPartie::simulerPartie(situationDepart, joueurs);
+
+    for (unsigned int iJoueur=0; iJoueur<joueurs.size(); iJoueur++) {
+        joueurs[iJoueur]->endGame();
+    }
 
     PartieDecrite* partieDecrite = new PartieDecrite(*partie);
     m_partiesManager.add(partieDecrite);
