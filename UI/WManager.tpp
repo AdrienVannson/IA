@@ -10,6 +10,7 @@ WManager<T, WV>::WManager (QWidget *parent) :
 
     QScrollArea *scrollArea = new QScrollArea;
     scrollArea->setWidgetResizable(true);
+    scrollArea->setMinimumWidth(240);
     m_layout->addWidget(scrollArea);
 
     QWidget *widget = new QWidget;
