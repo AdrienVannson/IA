@@ -10,11 +10,11 @@
 #include <memory>
 #include <exception>
 
-#include "partie/Joueur/Joueur.h"
+#include "partie/Joueur/Player.hpp"
 
 class spawn;
 
-class ExternalPlayer : public Joueur
+class ExternalPlayer : public Player
 {
 
 public:

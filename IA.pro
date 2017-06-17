@@ -17,9 +17,7 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
     UI/MainWindow.cpp \
-    partie/Partie.cpp \
     partie/Tour.cpp \
-    partie/Joueur/Joueur.cpp \
     partie/SimulateurPartie.cpp \
     partie/PartieDecrite.cpp \
     partie/Joueur/JoueurFactory.cpp \
@@ -29,12 +27,12 @@ SOURCES += main.cpp\
     UI/WJouerPartie.cpp \
     UI/WApercuJoueur.cpp \
     UI/WApercuPartie.cpp \
-    EventsManager.cpp
+    EventsManager.cpp \
+    partie/Partie.cpp
 
 HEADERS  += UI/MainWindow.h \
     partie/Partie.h \
     partie/Tour.h \
-    partie/Joueur/Joueur.h \
     partie/SimulateurPartie.h \
     partie/PartieDecrite.h \
     partie/Joueur/JoueurFactory.h \
@@ -46,7 +44,8 @@ HEADERS  += UI/MainWindow.h \
     UI/WManager.hpp \
     UI/WApercuJoueur.hpp \
     UI/WApercuPartie.hpp \
-    EventsManager.hpp
+    EventsManager.hpp \
+    partie/Joueur/Player.hpp
 
 RESOURCES += \
     resources/resources.qrc

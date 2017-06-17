@@ -7,7 +7,7 @@
 
 #include <memory>
 
-#include "partie/Joueur/Joueur.h"
+#include "partie/Joueur/Player.hpp"
 
 
 class WApercuJoueur : public QWidget
@@ -18,12 +18,12 @@ public:
 
     explicit WApercuJoueur (QWidget *parent=0);
 
-    void setObject (const std::shared_ptr<const Joueur> &joueur);
+    void setObject (const std::shared_ptr<const Player> &joueur);
 
 
 private:
 
-    std::shared_ptr<const Joueur> m_joueur;
+    std::shared_ptr<const Player> m_joueur;
 
     QPushButton *m_bouton;
 

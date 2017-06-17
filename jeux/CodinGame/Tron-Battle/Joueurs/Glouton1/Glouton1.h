@@ -1,10 +1,10 @@
 #ifndef GLOUTON1_H
 #define GLOUTON1_H
 
-#include "partie/Joueur/Joueur.h"
+#include "partie/Joueur/Player.hpp"
 
 
-class Glouton1 : public Joueur
+class Glouton1 : public Player
 {
 
 public:

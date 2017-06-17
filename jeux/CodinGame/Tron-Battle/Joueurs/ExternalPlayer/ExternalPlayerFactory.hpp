@@ -12,7 +12,7 @@ public:
 
     ExternalPlayerFactory ();
 
-    Joueur* creerJoueur () const;
+    Player* creerJoueur () const;
 
 
 };

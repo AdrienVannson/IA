@@ -40,7 +40,7 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     // Affichage des joueurs
-    m_wJoueursManager = new WManager<Joueur, WApercuJoueur>;
+    m_wJoueursManager = new WManager<Player, WApercuJoueur>;
     m_wJoueursManager->setManager(&m_joueursManager);
 
     QDockWidget *dockJoueurs = new QDockWidget("Joueurs", this);
@@ -81,10 +81,10 @@ MainWindow::MainWindow (QWidget *parent) :
 
     // Création de parties
     for (int iPartie=0; iPartie<10; iPartie++) {
-        std::vector< std::shared_ptr<Joueur> > joueurs;
+        std::vector< std::shared_ptr<Player> > joueurs;
 
         for (int iJoueur=0; iJoueur<iPartie%3+2; iJoueur++) {
-            std::shared_ptr<Joueur> joueur = m_joueursManager.get(iJoueur);
+            std::shared_ptr<Player> joueur = m_joueursManager.get(iJoueur);
             joueur->startGame();
             joueurs.push_back(joueur);
         }
@@ -103,7 +103,7 @@ MainWindow::MainWindow (QWidget *parent) :
 
         delete partie;
 
-        for (std::shared_ptr<Joueur> &joueur : joueurs) {
+        for (std::shared_ptr<Player> &joueur : joueurs) {
             joueur->endGame();
         }
     }

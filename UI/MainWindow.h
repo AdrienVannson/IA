@@ -51,8 +51,8 @@ signals:
 
 private:
 
-    Manager<Joueur> m_joueursManager;
-    WManager<Joueur, WApercuJoueur> *m_wJoueursManager;
+    Manager<Player> m_joueursManager;
+    WManager<Player, WApercuJoueur> *m_wJoueursManager;
 
     Manager<PartieDecrite> m_partiesManager;
     WManager<PartieDecrite, WApercuPartie> *m_wPartiesManager;

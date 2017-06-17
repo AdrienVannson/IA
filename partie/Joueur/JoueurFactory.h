@@ -2,7 +2,7 @@
 #define JOUEURFACTORY_H
 
 
-#include "Joueur.h"
+#include "Player.hpp"
 
 
 class JoueurFactory
@@ -12,7 +12,7 @@ public:
 
     JoueurFactory ();
 
-    virtual Joueur* creerJoueur () const = 0;
+    virtual Player* creerJoueur () const = 0;
 
 
 };

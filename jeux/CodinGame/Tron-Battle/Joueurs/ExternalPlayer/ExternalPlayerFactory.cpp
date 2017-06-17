@@ -5,7 +5,7 @@ ExternalPlayerFactory::ExternalPlayerFactory()
 
 }
 
-Joueur* ExternalPlayerFactory::creerJoueur () const
+Player* ExternalPlayerFactory::creerJoueur () const
 {
     return new ExternalPlayer ();
 }
