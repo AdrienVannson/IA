@@ -75,7 +75,7 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     // Création de parties
-    for (int iPartie=0; iPartie<10; iPartie++) {
+    /*for (int iPartie=0; iPartie<10; iPartie++) {
         std::vector<Joueur*> joueurs;
 
         for (int iJoueur=0; iJoueur<iPartie%3+2; iJoueur++) {
@@ -100,7 +100,27 @@ MainWindow::MainWindow (QWidget *parent) :
         for (unsigned int iJoueur=0; iJoueur<joueurs.size(); iJoueur++) {
             delete joueurs[iJoueur];
         }
+    }*/
+
+    std::vector<Joueur*> joueurs;
+
+    joueurs.push_back(m_joueursManager.get(0).get());
+    joueurs.push_back(m_joueursManager.get(1).get());
+
+    SituationJeu situationDepart (joueurs.size());
+
+    for (unsigned int iJoueur=0; iJoueur<joueurs.size(); iJoueur++) {
+        joueurs[iJoueur]->startGame();
+        situationDepart.setPositionJoueur(iJoueur, rand()%(SituationJeu::NB_CELLULES));
     }
+
+    Partie *partie = SimulateurPartie::simulerPartie(situationDepart, joueurs);
+
+    PartieDecrite* partieDecrite = new PartieDecrite(*partie);
+    m_partiesManager.add(partieDecrite);
+
+    delete partie;
+
 
     m_wPartiesManager->actualiser();
 
