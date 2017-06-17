@@ -5,6 +5,7 @@
 #ifndef SIMULATEURPARTIE_H
 #define SIMULATEURPARTIE_H
 
+#include <memory>
 #include <vector>
 
 #include "Joueur/Joueur.h"
@@ -20,7 +21,7 @@ public:
 
     SimulateurPartie ();
 
-    static Partie* simulerPartie (const SituationJeu &sitDepart, std::vector<Joueur*> &joueurs);
+    static Partie* simulerPartie (const SituationJeu &sitDepart, std::vector< std::shared_ptr<Joueur> > &joueurs);
 
 };
 

@@ -65,26 +65,27 @@ MainWindow::MainWindow (QWidget *parent) :
     // Création de joueurs
     Glouton1Factory fabriqueGlouton1;
 
+    for (int iJoueur=0; iJoueur<10; iJoueur++) {
+        m_joueursManager.add( fabriqueGlouton1.creerJoueur() );
+    }
+
+
     ExternalPlayer *joueur1 = new ExternalPlayer ("/media/adrien/DATA_LINUX/Documents/Projets/IA/IA/players/minmax");
     ExternalPlayer *joueur2 = new ExternalPlayer ("/media/adrien/DATA_LINUX/Documents/Projets/IA/IA/players/MCTS");
 
     m_joueursManager.add(joueur1);
     m_joueursManager.add(joueur2);
 
-
-    for (int iJoueur=0; iJoueur<10; iJoueur++) {
-        m_joueursManager.add( fabriqueGlouton1.creerJoueur() );
-    }
-
     m_wJoueursManager->actualiser();
 
 
     // Création de parties
-    /*for (int iPartie=0; iPartie<10; iPartie++) {
-        std::vector<Joueur*> joueurs;
+    for (int iPartie=0; iPartie<10; iPartie++) {
+        std::vector< std::shared_ptr<Joueur> > joueurs;
 
         for (int iJoueur=0; iJoueur<iPartie%3+2; iJoueur++) {
-            Joueur *joueur = (m_joueursManager.get(iJoueur))->clone();
+            std::shared_ptr<Joueur> joueur = m_joueursManager.get(iJoueur);
+            joueur->startGame();
             joueurs.push_back(joueur);
         }
 
@@ -102,33 +103,10 @@ MainWindow::MainWindow (QWidget *parent) :
 
         delete partie;
 
-        for (unsigned int iJoueur=0; iJoueur<joueurs.size(); iJoueur++) {
-            delete joueurs[iJoueur];
+        for (std::shared_ptr<Joueur> &joueur : joueurs) {
+            joueur->endGame();
         }
-    }*/
-
-    std::vector<Joueur*> joueurs;
-
-    joueurs.push_back(m_joueursManager.get(0).get());
-    joueurs.push_back(m_joueursManager.get(1).get());
-
-    SituationJeu situationDepart (joueurs.size());
-
-    for (unsigned int iJoueur=0; iJoueur<joueurs.size(); iJoueur++) {
-        joueurs[iJoueur]->startGame();
-        situationDepart.setPositionJoueur(iJoueur, rand()%(SituationJeu::NB_CELLULES));
     }
-
-    Partie *partie = SimulateurPartie::simulerPartie(situationDepart, joueurs);
-
-    for (unsigned int iJoueur=0; iJoueur<joueurs.size(); iJoueur++) {
-        joueurs[iJoueur]->endGame();
-    }
-
-    PartieDecrite* partieDecrite = new PartieDecrite(*partie);
-    m_partiesManager.add(partieDecrite);
-
-    delete partie;
 
 
     m_wPartiesManager->actualiser();

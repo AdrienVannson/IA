@@ -14,6 +14,8 @@ public:
 
     Joueur* clone () const;
 
+    void startGame ();
+
     Action jouerAction (const InformationsTourJoueur &informations);
 
 

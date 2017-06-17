@@ -3,6 +3,19 @@
 
 Glouton1::Glouton1 ()
 {
+}
+
+Glouton1::~Glouton1 ()
+{
+}
+
+Joueur* Glouton1::clone () const
+{
+    return new Glouton1 (*this);
+}
+
+void Glouton1::startGame ()
+{
     for (int iLigne=0; iLigne<NB_LIGNES; iLigne++) {
         for (int iColonne=0; iColonne<NB_COLONNES; iColonne++) {
             estOccupe[iLigne][iColonne] = false;
@@ -19,15 +32,6 @@ Glouton1::Glouton1 ()
         estOccupe[iLigne][0] = true;
         estOccupe[iLigne][NB_COLONNES-1] = true;
     }
-}
-
-Glouton1::~Glouton1 ()
-{
-}
-
-Joueur* Glouton1::clone () const
-{
-    return new Glouton1 (*this);
 }
 
 Action Glouton1::jouerAction (const InformationsTourJoueur &informations)
