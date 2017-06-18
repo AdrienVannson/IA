@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     EventsManager.cpp \
     partie/Partie.cpp \
     GameRunner.cpp \
-    WGameRunner.cpp
+    WGameRunner.cpp \
+    GameRunnerThread.cpp
 
 HEADERS  += \
     partie/Partie.h \
@@ -50,7 +51,8 @@ HEADERS  += \
     partie/Joueur/Player.hpp \
     UI/MainWindow.hpp \
     GameRunner.hpp \
-    WGameRunner.hpp
+    WGameRunner.hpp \
+    GameRunnerThread.hpp
 
 RESOURCES += \
     resources/resources.qrc

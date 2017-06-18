@@ -2,31 +2,21 @@
 
 GameRunner::GameRunner()
 {
-
 }
 
 void GameRunner::runGame (std::vector< std::shared_ptr<Player> > &players)
 {
-    for (std::shared_ptr<Player> &player : players) {
-        player->startGame();
-    }
+    qRegisterMetaType< std::shared_ptr<Partie> >("std::shared_ptr<Partie>");
 
+    GameRunnerThread *gameRunnerThread = new GameRunnerThread (this);
+    gameRunnerThread->setPlayers(players);
+    connect(gameRunnerThread, &GameRunnerThread::simulationDone, this, &GameRunner::handleResults);
+    connect(gameRunnerThread, &GameRunnerThread::finished, gameRunnerThread, &QObject::deleteLater);
+    gameRunnerThread->start();
+}
 
-    SituationJeu situationDepart (players.size());
-
-    for (unsigned int iPlayer=0; iPlayer<players.size(); iPlayer++) {
-        situationDepart.setPositionJoueur(iPlayer, rand()%(SituationJeu::NB_CELLULES));
-    }
-
-
-    Partie *partie = SimulateurPartie::simulerPartie(situationDepart, players);
-    std::shared_ptr<PartieDecrite> partieDecrite (new PartieDecrite(*partie));
-    delete partie;
-
-
-    for (std::shared_ptr<Player> &player : players) {
-        player->endGame();
-    }
-
+void GameRunner::handleResults (std::shared_ptr<Partie> partie)
+{
+    std::shared_ptr<PartieDecrite> partieDecrite (new PartieDecrite(*partie.get()));
     emit gameRunned(partieDecrite);
 }

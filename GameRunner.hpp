@@ -9,6 +9,7 @@
 #include "partie/SimulateurPartie.h"
 #include "partie/PartieDecrite.h"
 #include "partie/Joueur/Player.hpp"
+#include "GameRunnerThread.hpp"
 
 
 class GameRunner : public QObject
@@ -21,6 +22,11 @@ public:
     GameRunner ();
 
     void runGame (std::vector< std::shared_ptr<Player> > &players);
+
+
+public slots:
+
+    void handleResults (std::shared_ptr<Partie> partie);
 
 
 signals:
