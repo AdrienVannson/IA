@@ -16,6 +16,7 @@ public:
     ~Manager ();
 
     std::shared_ptr<T> add (T *object);
+    std::shared_ptr<T> add (const std::shared_ptr<T> &object);
     std::shared_ptr<T> addCopy (const T *object);
 
     const std::vector< std::shared_ptr<T> >* getAll () const;

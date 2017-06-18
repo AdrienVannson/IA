@@ -18,6 +18,8 @@
 #include "WManager.hpp"
 #include "WApercuJoueur.hpp"
 #include "WApercuPartie.hpp"
+#include "GameRunner.hpp"
+#include "WGameRunner.hpp"
 
 // Simulation d'une partie, TODEL
 #include "Joueurs/Glouton1/Glouton1Factory.h"
@@ -36,6 +38,9 @@ public:
 
 public slots:
 
+    void addGame (const std::shared_ptr<PartieDecrite> &game);
+
+    // UI
     void afficherAPropos ();
 
     void addDockGame ();
@@ -48,6 +53,9 @@ private:
 
     Manager<PartieDecrite> m_partiesManager;
     WManager<PartieDecrite, WApercuPartie> *m_wPartiesManager;
+
+    GameRunner m_gameRunner;
+    WGameRunner *m_wGameRunner;
 
 };
 

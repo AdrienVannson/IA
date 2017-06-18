@@ -19,6 +19,13 @@ std::shared_ptr<T> Manager<T>::add (T* object)
 }
 
 template<class T>
+std::shared_ptr<T> Manager<T>::add (const std::shared_ptr<T> &object)
+{
+    m_objects.push_back(object);
+    return m_objects[ m_objects.size()-1 ];
+}
+
+template<class T>
 std::shared_ptr<T> Manager<T>::addCopy (const T* object)
 {
     T* copy = new T (*object);

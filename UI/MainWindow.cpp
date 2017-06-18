@@ -38,9 +38,6 @@ MainWindow::MainWindow (QWidget *parent) :
     m_wPartiesManager = new WManager<PartieDecrite, WApercuPartie>;
     m_wPartiesManager->setManager(&m_partiesManager);
 
-    // m_partiesManagerWidget->setPartiesManager(m_partiesManager);
-    // connect(m_partiesManager, &PartiesManager::updated, m_partiesManagerWidget, &PartiesManagerWidget::actualiser);
-
     QDockWidget *dockParties = new QDockWidget("Parties", this);
     dockParties->setWidget(m_wPartiesManager);
     addDockWidget(Qt::RightDockWidgetArea, dockParties);
@@ -55,60 +52,43 @@ MainWindow::MainWindow (QWidget *parent) :
     addDockWidget(Qt::RightDockWidgetArea, dockJoueurs);
 
 
+    // Création de parties
+    m_wGameRunner = new WGameRunner (&m_gameRunner);
+    connect(&m_gameRunner, &GameRunner::gameRunned, this, &MainWindow::addGame);
+
+
     // Affichage d'une partie
     addDockGame();
 
 
-    // Connexion
-    // connect(m_partiesManagerWidget, &PartiesManagerWidget::partieSelectionnee, this, &MainWindow::afficherPartie);
-    // connect(this, &MainWindow::partieAffichee, widgetPartie, &WidgetPartie::afficherPartie);
-
-
 
     // Création de joueurs
-    Glouton1Factory fabriqueGlouton1;
-
-    for (int iJoueur=0; iJoueur<10; iJoueur++) {
-        m_joueursManager.add( fabriqueGlouton1.creerJoueur() );
-    }
-
-
     ExternalPlayer *joueur1 = new ExternalPlayer ("/media/adrien/DATA_LINUX/Documents/Projets/IA/IA/players/minmax");
     ExternalPlayer *joueur2 = new ExternalPlayer ("/media/adrien/DATA_LINUX/Documents/Projets/IA/IA/players/MCTS");
 
     m_joueursManager.add(joueur1);
     m_joueursManager.add(joueur2);
 
+
+    Glouton1Factory fabriqueGlouton1;
+
+    for (int iJoueur=0; iJoueur<10; iJoueur++) {
+        m_joueursManager.add( fabriqueGlouton1.creerJoueur() );
+    }
+
     m_wJoueursManager->actualiser();
 
 
     // Création de parties
-    for (int iPartie=0; iPartie<10; iPartie++) {
-        std::vector< std::shared_ptr<Player> > joueurs;
+    for (int iPartie=0; iPartie<1; iPartie++) {
+        std::vector< std::shared_ptr<Player> > players;
 
-        for (int iJoueur=0; iJoueur<iPartie%3+2; iJoueur++) {
-            std::shared_ptr<Player> joueur = m_joueursManager.get(iJoueur);
-            joueur->startGame();
-            joueurs.push_back(joueur);
+        for (int iPlayer=0; iPlayer<iPartie%3+2; iPlayer++) {
+            std::shared_ptr<Player> player = m_joueursManager.get(iPlayer);
+            players.push_back(player);
         }
 
-        SituationJeu situationDepart (joueurs.size());
-
-        for (unsigned int iJoueur=0; iJoueur<joueurs.size(); iJoueur++) {
-            situationDepart.setPositionJoueur(iJoueur, rand()%(SituationJeu::NB_CELLULES));
-        }
-
-
-        Partie *partie = SimulateurPartie::simulerPartie(situationDepart, joueurs);
-
-        PartieDecrite* partieDecrite = new PartieDecrite(*partie);
-        m_partiesManager.add(partieDecrite);
-
-        delete partie;
-
-        for (std::shared_ptr<Player> &joueur : joueurs) {
-            joueur->endGame();
-        }
+        m_gameRunner.runGame(players);
     }
 
 
@@ -126,6 +106,13 @@ MainWindow::MainWindow (QWidget *parent) :
 MainWindow::~MainWindow ()
 {
 
+}
+
+
+void MainWindow::addGame (const std::shared_ptr<PartieDecrite> &game)
+{
+    m_partiesManager.add(game);
+    m_wPartiesManager->actualiser();
 }
 
 

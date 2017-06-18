@@ -28,7 +28,9 @@ SOURCES += main.cpp\
     UI/WApercuJoueur.cpp \
     UI/WApercuPartie.cpp \
     EventsManager.cpp \
-    partie/Partie.cpp
+    partie/Partie.cpp \
+    GameRunner.cpp \
+    WGameRunner.cpp
 
 HEADERS  += \
     partie/Partie.h \
@@ -46,7 +48,9 @@ HEADERS  += \
     UI/WApercuPartie.hpp \
     EventsManager.hpp \
     partie/Joueur/Player.hpp \
-    UI/MainWindow.hpp
+    UI/MainWindow.hpp \
+    GameRunner.hpp \
+    WGameRunner.hpp
 
 RESOURCES += \
     resources/resources.qrc
