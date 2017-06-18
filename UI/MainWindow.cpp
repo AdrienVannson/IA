@@ -9,16 +9,23 @@ MainWindow::MainWindow (QWidget *parent) :
     // Menu
     QMenu *menuFichier = menuBar()->addMenu("Fichier");
 
-    QAction *actionQuitter = new QAction("Quitter", this);
-    connect(actionQuitter, &QAction::triggered, qApp, &QApplication::quit);
-    menuFichier->addAction(actionQuitter);
+        QAction *actionQuitter = new QAction("Quitter", this);
+        connect(actionQuitter, &QAction::triggered, qApp, &QApplication::quit);
+        menuFichier->addAction(actionQuitter);
+
+
+    QMenu *menuAffichage = menuBar()->addMenu("Affichage");
+
+        QAction *actionAddDockGame = new QAction("Partie", this);
+        connect(actionAddDockGame, &QAction::triggered, this, &MainWindow::addDockGame);
+        menuAffichage->addAction(actionAddDockGame);
 
 
     QMenu *menuAide = menuBar()->addMenu("Aide");
 
-    QAction *actionAPropos = new QAction("À propos", this);
-    connect(actionAPropos, &QAction::triggered, this, &MainWindow::afficherAPropos);
-    menuAide->addAction(actionAPropos);
+        QAction *actionAPropos = new QAction("À propos", this);
+        connect(actionAPropos, &QAction::triggered, this, &MainWindow::afficherAPropos);
+        menuAide->addAction(actionAPropos);
 
 
     // Boutton
@@ -49,11 +56,7 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     // Affichage d'une partie
-    WidgetPartie *widgetPartie = new WidgetPartie;
-
-    QDockWidget *dockPartie = new QDockWidget("Partie", this);
-    dockPartie->setWidget(widgetPartie);
-    addDockWidget(Qt::LeftDockWidgetArea, dockPartie);
+    addDockGame();
 
 
     // Connexion
@@ -132,6 +135,15 @@ void MainWindow::afficherAPropos ()
     fenetreAPropos.setText("VIA\n\nLogiciel créé par Adrien VANNSON");
     fenetreAPropos.setWindowTitle("À propos");
     fenetreAPropos.exec();
+}
+
+void MainWindow::addDockGame ()
+{
+    WidgetPartie *widgetPartie = new WidgetPartie;
+
+    QDockWidget *dockPartie = new QDockWidget("Partie", this);
+    dockPartie->setWidget(widgetPartie);
+    addDockWidget(Qt::LeftDockWidgetArea, dockPartie);
 }
 
 /*void MainWindow::afficherPartie (const int idPartie)

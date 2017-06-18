@@ -39,6 +39,8 @@ public slots:
 
     void afficherAPropos ();
 
+    void addDockGame ();
+
     // void afficherPartie (const int idPartie);
 
 
