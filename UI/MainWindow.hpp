@@ -34,21 +34,11 @@ public:
     ~MainWindow();
 
 
-
 public slots:
 
     void afficherAPropos ();
 
     void addDockGame ();
-
-    // void afficherPartie (const int idPartie);
-
-
-
-signals:
-
-    // void partieAffichee (Partie* partie);
-
 
 
 private:

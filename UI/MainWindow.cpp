@@ -145,10 +145,3 @@ void MainWindow::addDockGame ()
     dockPartie->setWidget(widgetPartie);
     addDockWidget(Qt::LeftDockWidgetArea, dockPartie);
 }
-
-/*void MainWindow::afficherPartie (const int idPartie)
-{
-    Partie *partie = m_partiesManager.get(idPartie);
-
-    emit partieAffichee(partie);
-}*/
