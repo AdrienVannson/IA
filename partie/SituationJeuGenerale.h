@@ -12,6 +12,10 @@ public:
     // Nombre de joueurs
     int nbJoueurs () const;
 
+    // Joueur devant jouer le coup suivant
+    int iPlayer () const;
+    void setIPlayer (const int iPlayer);
+
     // Fin de la partie
     bool estFini () const;
     int idVainqueur () const;
@@ -21,6 +25,7 @@ public:
 
 private:
 
+    int m_iPlayer;
     int m_nbJoueurs;
     int m_idVainqueur;
 

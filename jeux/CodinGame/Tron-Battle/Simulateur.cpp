@@ -15,16 +15,18 @@ Simulateur::Simulateur ()
 
 SituationJeu Simulateur::simulerAction (SituationJeu situation, const Action &action)
 {
+    const int iPlayer = situation.iPlayer();
+    const int iNextPlayer = iPlayer == situation.nbJoueurs()-1 ? 0 : iPlayer + 1;
+    situation.setIPlayer(iNextPlayer);
+
     // Si le joueur est éliminé, on ne fait rien
-    if (situation.estElimine(action.idJoueur())) {
+    if (situation.estElimine(iPlayer)) {
         return situation;
     }
 
-    situation.setCellule( situation.positionJoueur(action.idJoueur()), action.idJoueur() );
+    situation.setCellule(situation.positionJoueur(iPlayer), iPlayer);
 
-    const int idJoueur = action.idJoueur();
-
-    const int positionDepart = situation.positionJoueur(idJoueur);
+    const int positionDepart = situation.positionJoueur(iPlayer);
     const Action::Direction direction = action.direction();
     const int nouvellePosition = positionDepart + DELTAS_DEPLACEMENTS[action.direction()];
 
@@ -36,12 +38,11 @@ SituationJeu Simulateur::simulerAction (SituationJeu situation, const Action &ac
         !(direction == Action::DROITE && positionDepart % SituationJeu::NB_COLONNES == SituationJeu::NB_COLONNES-1) &&
         situation.cellule(nouvellePosition) == SituationJeu::VIDE) {
 
-        situation.setPositionJoueur(idJoueur, nouvellePosition);
-        situation.setCellule(nouvellePosition, idJoueur);
-
+        situation.setPositionJoueur(iPlayer, nouvellePosition);
+        situation.setCellule(nouvellePosition, iPlayer);
     }
     else { // Élimination du joueur
-        situation.eliminerJoueur(idJoueur);
+        situation.eliminerJoueur(iPlayer);
 
         int idVainqueur = -1;
 

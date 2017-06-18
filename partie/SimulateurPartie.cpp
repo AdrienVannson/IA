@@ -10,23 +10,20 @@ Partie* SimulateurPartie::simulerPartie (const SituationJeu &sitDepart, std::vec
     Partie *partie = new Partie;
     partie->addTour(Tour(sitDepart));
 
-    int idJoueur = 0;
-
     while (!partie->dernierTour()->situationJeu().estFini()) {
-        const InformationsTourJoueur &informations = InformationsTourJoueurFactory::creerInformationsTourJoueur(*partie, idJoueur);
 
         Tour *tour = partie->dernierTour();
+        const int iJoueur = tour->situationJeu().iPlayer();
 
-        Action action = joueurs[idJoueur]->jouerAction(informations);
-        action.setIdJoueur(idJoueur);
+        const InformationsTourJoueur &informations = InformationsTourJoueurFactory::creerInformationsTourJoueur(*partie, iJoueur);
+
+        Action action = joueurs[iJoueur]->jouerAction(informations);
         tour->setAction(action);
 
         Tour nouveauTour;
         nouveauTour.setSituationJeu(Simulateur::simulerAction(tour->situationJeu(), action));
 
         partie->addTour(nouveauTour);
-
-        idJoueur = (idJoueur+1) % joueurs.size();
     }
 
     return partie;
