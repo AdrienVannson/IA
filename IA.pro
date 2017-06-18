@@ -30,7 +30,7 @@ SOURCES += main.cpp\
     EventsManager.cpp \
     partie/Partie.cpp
 
-HEADERS  += UI/MainWindow.h \
+HEADERS  += \
     partie/Partie.h \
     partie/Tour.h \
     partie/SimulateurPartie.h \
@@ -45,7 +45,8 @@ HEADERS  += UI/MainWindow.h \
     UI/WApercuJoueur.hpp \
     UI/WApercuPartie.hpp \
     EventsManager.hpp \
-    partie/Joueur/Player.hpp
+    partie/Joueur/Player.hpp \
+    UI/MainWindow.hpp
 
 RESOURCES += \
     resources/resources.qrc
