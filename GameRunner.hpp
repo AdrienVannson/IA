@@ -5,6 +5,7 @@
 
 #include <vector>
 #include <memory>
+#include <queue>
 
 #include "partie/SimulateurPartie.h"
 #include "partie/PartieDecrite.h"
@@ -32,6 +33,14 @@ public slots:
 signals:
 
     void gameRunned (std::shared_ptr<PartieDecrite> game);
+
+
+private:
+
+    void runPendingGames ();
+
+    bool m_isGamePlaying;
+    std::queue< std::vector<std::shared_ptr<Player>> > m_pendingGames;
 
 
 };

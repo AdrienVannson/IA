@@ -80,7 +80,7 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     // Création de parties
-    for (int iPartie=0; iPartie<1; iPartie++) {
+    for (int iPartie=0; iPartie<10; iPartie++) {
         std::vector< std::shared_ptr<Player> > players;
 
         for (int iPlayer=0; iPlayer<iPartie%3+2; iPlayer++) {
