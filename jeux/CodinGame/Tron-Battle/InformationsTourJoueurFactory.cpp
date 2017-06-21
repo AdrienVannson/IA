@@ -6,7 +6,7 @@ InformationsTourJoueurFactory::InformationsTourJoueurFactory ()
 }
 
 InformationsTourJoueur InformationsTourJoueurFactory::creerInformationsTourJoueur
-    (const Partie &partie, const int idJoueur)
+    (const Game &partie, const int idJoueur)
 {
     const GameSituation &premiereSituation = (*partie.tours())[0].situationJeu();
     const GameSituation &derniereSituation = (*partie.tours())[partie.tours()->size()-1].situationJeu();

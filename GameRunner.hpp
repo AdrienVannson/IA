@@ -27,7 +27,7 @@ public:
 
 public slots:
 
-    void handleResults (std::shared_ptr<Partie> partie);
+    void handleResults (std::shared_ptr<Game> partie);
 
 
 signals:

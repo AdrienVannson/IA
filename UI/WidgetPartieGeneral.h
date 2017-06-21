@@ -32,7 +32,7 @@ protected:
     virtual void afficherTourActuel () = 0;
 
 
-    Partie m_partie;
+    Game m_partie;
     int m_iTourActuel;
 
 

@@ -10,8 +10,8 @@ PartieDecrite::PartieDecrite () :
 
 }
 
-PartieDecrite::PartieDecrite (const Partie &partie) :
-    Partie (partie)
+PartieDecrite::PartieDecrite (const Game &partie) :
+    Game (partie)
 {
 
 }

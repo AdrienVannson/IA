@@ -26,14 +26,13 @@ SOURCES += main.cpp\
     UI/WApercuJoueur.cpp \
     UI/WApercuPartie.cpp \
     EventsManager.cpp \
-    partie/Partie.cpp \
     GameRunner.cpp \
     WGameRunner.cpp \
     GameRunnerThread.cpp \
-    partie/AbstractGameSituation.cpp
+    partie/AbstractGameSituation.cpp \
+    partie/Game.cpp
 
 HEADERS  += \
-    partie/Partie.h \
     partie/Tour.h \
     partie/SimulateurPartie.h \
     partie/PartieDecrite.h \
@@ -50,7 +49,8 @@ HEADERS  += \
     GameRunner.hpp \
     WGameRunner.hpp \
     GameRunnerThread.hpp \
-    partie/AbstractGameSituation.hpp
+    partie/AbstractGameSituation.hpp \
+    partie/Game.hpp
 
 RESOURCES += \
     resources/resources.qrc

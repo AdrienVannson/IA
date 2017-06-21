@@ -24,12 +24,12 @@ void GameRunnerThread::run ()
     }
 
 
-    Partie *partie = SimulateurPartie::simulerPartie(situationDepart, m_players);
+    Game *partie = SimulateurPartie::simulerPartie(situationDepart, m_players);
 
 
     for (std::shared_ptr<Player> &player : m_players) {
         player->endGame();
     }
 
-    emit (simulationDone( std::shared_ptr<Partie>(partie) ));
+    emit (simulationDone( std::shared_ptr<Game>(partie) ));
 }

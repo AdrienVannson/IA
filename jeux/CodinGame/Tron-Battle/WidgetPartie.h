@@ -5,7 +5,7 @@
 #include <QGraphicsView>
 #include <QVBoxLayout>
 
-#include "partie/Partie.h"
+#include "partie/Game.hpp"
 #include "UI/WidgetPartieGeneral.h"
 
 

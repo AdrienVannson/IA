@@ -5,9 +5,9 @@ SimulateurPartie::SimulateurPartie ()
 
 }
 
-Partie* SimulateurPartie::simulerPartie (const GameSituation &sitDepart, std::vector< std::shared_ptr<Player> > &joueurs)
+Game* SimulateurPartie::simulerPartie (const GameSituation &sitDepart, std::vector< std::shared_ptr<Player> > &joueurs)
 {
-    Partie *partie = new Partie;
+    Game *partie = new Game;
     partie->addTour(Tour(sitDepart));
 
     while (!partie->dernierTour()->situationJeu().estFini()) {

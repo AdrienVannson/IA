@@ -2,19 +2,20 @@
  * Décrit une partie
  */
 
-#ifndef PARTIE_H
-#define PARTIE_H
+#ifndef GAME_HPP
+#define GAME_HPP
 
 #include <vector>
 
 #include "Tour.h"
 
 
-class Partie
+class Game
 {
 
 public:
-    Partie ();
+
+    Game ();
 
     const std::vector<Tour>* tours () const;
     Tour* dernierTour ();
@@ -27,4 +28,4 @@ private:
 
 };
 
-#endif // PARTIE_H
+#endif // GAME_HPP

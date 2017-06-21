@@ -2,7 +2,7 @@
 #define INFORMATIONSTOURJOUEURFACTORY_H
 
 #include "InformationsTourJoueur.h"
-#include "partie/Partie.h"
+#include "partie/Game.hpp"
 
 
 class InformationsTourJoueurFactory
@@ -12,7 +12,7 @@ public:
 
     InformationsTourJoueurFactory ();
 
-    static InformationsTourJoueur creerInformationsTourJoueur (const Partie &partie, const int idJoueur);
+    static InformationsTourJoueur creerInformationsTourJoueur (const Game &partie, const int idJoueur);
 
 };
 
