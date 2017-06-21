@@ -1,6 +1,6 @@
-#include "Simulateur.h"
+#include "Referee.hpp"
 
-int Simulateur::DELTAS_DEPLACEMENTS[Simulateur::NB_DEPLACEMENTS] = {
+int Referee::DELTAS_DEPLACEMENTS[Referee::NB_DEPLACEMENTS] = {
    -1,
    1,
    -GameSituation::NB_COLONNES,
@@ -8,12 +8,12 @@ int Simulateur::DELTAS_DEPLACEMENTS[Simulateur::NB_DEPLACEMENTS] = {
 };
 
 
-Simulateur::Simulateur ()
+Referee::Referee ()
 {
 }
 
 
-GameSituation Simulateur::simulerAction (GameSituation situation, const Action &action)
+GameSituation Referee::simulerAction (GameSituation situation, const Action &action)
 {
     const int iPlayer = situation.iPlayer();
     const int iNextPlayer = iPlayer == situation.nbJoueurs()-1 ? 0 : iPlayer + 1;

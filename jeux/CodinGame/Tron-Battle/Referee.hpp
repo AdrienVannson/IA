@@ -2,8 +2,8 @@
  * Permet de simuler les parties d'un jeu
  */
 
-#ifndef SIMULATEUR_H
-#define SIMULATEUR_H
+#ifndef REFEREE_HPP
+#define REFEREE_HPP
 
 #include <algorithm>
 #include <stack>
@@ -14,12 +14,12 @@
 #include "GameSituation.hpp"
 
 
-class Simulateur
+class Referee
 {
 
 public:
 
-    Simulateur ();
+    Referee ();
 
     static GameSituation simulerAction (GameSituation situation, const Action &actionAJouer);
 
@@ -33,4 +33,4 @@ private:
 
 };
 
-#endif // SIMULATEUR_H
+#endif // REFEREE_HPP

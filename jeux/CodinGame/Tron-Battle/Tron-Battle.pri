@@ -1,7 +1,6 @@
 
 
 HEADERS  += \
-    $$PWD/Simulateur.h \
     $$PWD/InformationsTourJoueur.h \
     $$PWD/Joueurs/Glouton1/Glouton1.h \
     $$PWD/Joueurs/Glouton1/Glouton1Factory.h \
@@ -10,11 +9,11 @@ HEADERS  += \
     $$PWD/Joueurs/ExternalPlayer/ExternalPlayerFactory.hpp \
     $$PWD/GameSituation.hpp \
     $$PWD/Action.hpp \
-    $$PWD/WGame.hpp
+    $$PWD/WGame.hpp \
+    $$PWD/Referee.hpp
 
 
 SOURCES += \
-    $$PWD/Simulateur.cpp \
     $$PWD/Action.cpp \
     $$PWD/InformationsTourJoueur.cpp \
     $$PWD/Joueurs/Glouton1/Glouton1.cpp \
@@ -23,4 +22,5 @@ SOURCES += \
     $$PWD/Joueurs/ExternalPlayer/ExternalPlayer.cpp \
     $$PWD/Joueurs/ExternalPlayer/ExternalPlayerFactory.cpp \
     $$PWD/GameSituation.cpp \
-    $$PWD/WGame.cpp
+    $$PWD/WGame.cpp \
+    $$PWD/Referee.cpp

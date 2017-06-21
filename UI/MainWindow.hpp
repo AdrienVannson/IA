@@ -10,7 +10,7 @@
 
 #include <cstdlib>
 
-#include "Simulateur.h"
+#include "Referee.hpp"
 #include "partie/PartieDecrite.h"
 #include "WGame.hpp"
 #include "WJouerPartie.h"
