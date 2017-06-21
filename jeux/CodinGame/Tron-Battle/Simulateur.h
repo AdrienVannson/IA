@@ -9,7 +9,7 @@
 #include <stack>
 #include <vector>
 
-#include "Action.h"
+#include "Action.hpp"
 #include "partie/Game.hpp"
 #include "GameSituation.hpp"
 

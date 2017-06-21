@@ -2,8 +2,8 @@
  * Décrit une action réalisée par un joueur
  */
 
-#ifndef ACTION_H
-#define ACTION_H
+#ifndef ACTION_HPP
+#define ACTION_HPP
 
 
 class Action
@@ -31,4 +31,4 @@ private:
 
 };
 
-#endif // ACTION_H
+#endif // ACTION_HPP

@@ -5,7 +5,7 @@
 #ifndef TOUR_H
 #define TOUR_H
 
-#include "Action.h"
+#include "Action.hpp"
 #include "GameSituation.hpp"
 
 

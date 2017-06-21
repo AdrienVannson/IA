@@ -2,7 +2,6 @@
 
 HEADERS  += \
     $$PWD/Simulateur.h \
-    $$PWD/Action.h \
     $$PWD/WidgetPartie.h \
     $$PWD/InformationsTourJoueur.h \
     $$PWD/Joueurs/Glouton1/Glouton1.h \
@@ -10,7 +9,8 @@ HEADERS  += \
     $$PWD/InformationsTourJoueurFactory.h \
     $$PWD/Joueurs/ExternalPlayer/ExternalPlayer.hpp \
     $$PWD/Joueurs/ExternalPlayer/ExternalPlayerFactory.hpp \
-    $$PWD/GameSituation.hpp
+    $$PWD/GameSituation.hpp \
+    $$PWD/Action.hpp
 
 
 SOURCES += \

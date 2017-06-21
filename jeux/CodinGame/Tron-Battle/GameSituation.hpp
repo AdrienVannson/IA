@@ -10,7 +10,7 @@
 #include <utility>
 #include <vector>
 
-#include "Action.h"
+#include "Action.hpp"
 #include "partie/AbstractGameSituation.hpp"
 
 
