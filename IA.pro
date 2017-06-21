@@ -21,7 +21,6 @@ SOURCES += main.cpp\
     partie/SimulateurPartie.cpp \
     partie/PartieDecrite.cpp \
     partie/Joueur/JoueurFactory.cpp \
-    partie/ActionGenerale.cpp \
     UI/WidgetPartieGeneral.cpp \
     UI/WJouerPartie.cpp \
     UI/WApercuJoueur.cpp \
@@ -39,7 +38,6 @@ HEADERS  += \
     partie/SimulateurPartie.h \
     partie/PartieDecrite.h \
     partie/Joueur/JoueurFactory.h \
-    partie/ActionGenerale.h \
     UI/WidgetPartieGeneral.h \
     UI/WJouerPartie.h \
     Manager.hpp \

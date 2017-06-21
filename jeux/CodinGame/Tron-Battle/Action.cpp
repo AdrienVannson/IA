@@ -6,7 +6,6 @@
 
 
 Action::Action() :
-    ActionGenerale (),
     m_direction(GAUCHE)
 {
 

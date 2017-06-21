@@ -5,10 +5,8 @@
 #ifndef ACTION_H
 #define ACTION_H
 
-#include "partie/ActionGenerale.h"
 
-
-class Action : public ActionGenerale
+class Action
 {
 
 public:
