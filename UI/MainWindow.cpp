@@ -126,7 +126,7 @@ void MainWindow::afficherAPropos ()
 
 void MainWindow::addDockGame ()
 {
-    WidgetPartie *widgetPartie = new WidgetPartie;
+    WGame *widgetPartie = new WGame;
 
     QDockWidget *dockPartie = new QDockWidget("Partie", this);
     dockPartie->setWidget(widgetPartie);

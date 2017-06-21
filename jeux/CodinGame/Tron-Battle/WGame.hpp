@@ -1,5 +1,5 @@
-#ifndef WIDGETPARTIE_H
-#define WIDGETPARTIE_H
+#ifndef WGAME_HPP
+#define WGAME_HPP
 
 #include <QGraphicsSimpleTextItem>
 #include <QGraphicsView>
@@ -9,12 +9,12 @@
 #include "UI/WidgetPartieGeneral.h"
 
 
-class WidgetPartie : public WidgetPartieGeneral
+class WGame : public WidgetPartieGeneral
 {
     Q_OBJECT
 
 public:
-    explicit WidgetPartie (QWidget *parent = 0);
+    explicit WGame (QWidget *parent = 0);
 
     QSize minimumSizeHint() const;
 
@@ -34,4 +34,4 @@ private:
 
 };
 
-#endif // WIDGETPARTIE_H
+#endif // WGAME_HPP

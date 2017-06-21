@@ -1,7 +1,7 @@
-#include "WidgetPartie.h"
+#include "WGame.hpp"
 
 
-WidgetPartie::WidgetPartie(QWidget *parent) :
+WGame::WGame(QWidget *parent) :
     WidgetPartieGeneral (parent)
 {
     m_vue = new QGraphicsView;
@@ -15,13 +15,13 @@ WidgetPartie::WidgetPartie(QWidget *parent) :
     m_vue->setScene(m_scene);
 }
 
-QSize WidgetPartie::minimumSizeHint() const
+QSize WGame::minimumSizeHint() const
 {
     return QSize(ZOOM*GameSituation::NB_COLONNES + 100, ZOOM*GameSituation::NB_LIGNES + 100);
 }
 
 
-void WidgetPartie::afficherGrilleVide ()
+void WGame::afficherGrilleVide ()
 {
     m_scene->clear();
 
@@ -42,7 +42,7 @@ void WidgetPartie::afficherGrilleVide ()
     }
 }
 
-void WidgetPartie::afficherTourActuel ()
+void WGame::afficherTourActuel ()
 {
     afficherGrilleVide();
 

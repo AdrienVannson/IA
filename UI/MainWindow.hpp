@@ -12,7 +12,7 @@
 
 #include "Simulateur.h"
 #include "partie/PartieDecrite.h"
-#include "WidgetPartie.h"
+#include "WGame.hpp"
 #include "WJouerPartie.h"
 #include "Manager.hpp"
 #include "WManager.hpp"
