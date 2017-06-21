@@ -11,10 +11,10 @@
 #include <vector>
 
 #include "Action.h"
-#include "partie/SituationJeuGenerale.h"
+#include "partie/AbstractGameSituation.hpp"
 
 
-class GameSituation : public SituationJeuGenerale
+class GameSituation : public AbstractGameSituation
 {
 
 public:

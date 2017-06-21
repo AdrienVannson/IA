@@ -2,7 +2,7 @@
 
 
 GameSituation::GameSituation (const int nbJoueurs) :
-    SituationJeuGenerale (nbJoueurs)
+    AbstractGameSituation (nbJoueurs)
 {
     // Initialisation: toutes les cellules sont noires
     for (int iCellule=0; iCellule<NB_CELLULES; iCellule++) {

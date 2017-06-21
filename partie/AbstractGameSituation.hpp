@@ -1,13 +1,13 @@
-#ifndef SITUATIONJEUGENERALE_H
-#define SITUATIONJEUGENERALE_H
+#ifndef ABSTRACTGAMESITUATION_HPP
+#define ABSTRACTGAMESITUATION_HPP
 
 
-class SituationJeuGenerale
+class AbstractGameSituation
 {
 
 public:
 
-    SituationJeuGenerale (const int nbJoueurs=2);
+    AbstractGameSituation (const int nbJoueurs=2);
 
     // Nombre de joueurs
     int nbJoueurs () const;
@@ -32,4 +32,4 @@ private:
 
 };
 
-#endif // SITUATIONJEUGENERALE_H
+#endif // ABSTRACTGAMESITUATION_HPP

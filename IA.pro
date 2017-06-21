@@ -22,7 +22,6 @@ SOURCES += main.cpp\
     partie/PartieDecrite.cpp \
     partie/Joueur/JoueurFactory.cpp \
     partie/ActionGenerale.cpp \
-    partie/SituationJeuGenerale.cpp \
     UI/WidgetPartieGeneral.cpp \
     UI/WJouerPartie.cpp \
     UI/WApercuJoueur.cpp \
@@ -31,7 +30,8 @@ SOURCES += main.cpp\
     partie/Partie.cpp \
     GameRunner.cpp \
     WGameRunner.cpp \
-    GameRunnerThread.cpp
+    GameRunnerThread.cpp \
+    partie/AbstractGameSituation.cpp
 
 HEADERS  += \
     partie/Partie.h \
@@ -40,7 +40,6 @@ HEADERS  += \
     partie/PartieDecrite.h \
     partie/Joueur/JoueurFactory.h \
     partie/ActionGenerale.h \
-    partie/SituationJeuGenerale.h \
     UI/WidgetPartieGeneral.h \
     UI/WJouerPartie.h \
     Manager.hpp \
@@ -52,7 +51,8 @@ HEADERS  += \
     UI/MainWindow.hpp \
     GameRunner.hpp \
     WGameRunner.hpp \
-    GameRunnerThread.hpp
+    GameRunnerThread.hpp \
+    partie/AbstractGameSituation.hpp
 
 RESOURCES += \
     resources/resources.qrc
