@@ -6,17 +6,17 @@
 #define TOUR_H
 
 #include "Action.h"
-#include "SituationJeu.h"
+#include "GameSituation.hpp"
 
 
 class Tour
 {
 
 public:
-    Tour (const SituationJeu &situationDepart=SituationJeu());
+    Tour (const GameSituation &situationDepart=GameSituation());
 
-    SituationJeu situationJeu () const;
-    void setSituationJeu (const SituationJeu &nouvelleSituationJeu);
+    GameSituation situationJeu () const;
+    void setSituationJeu (const GameSituation &nouvelleSituationJeu);
 
     Action action () const;
     void setAction (const Action &nouvelleAction);
@@ -25,7 +25,7 @@ public:
 private:
 
     // Situation du jeu lors du tour
-    SituationJeu m_situationJeu;
+    GameSituation m_situationJeu;
 
     // Action jouée par le joueur, qui permet d'obtenir la situation du tour suivant
     Action m_action;

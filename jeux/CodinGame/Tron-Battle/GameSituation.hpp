@@ -2,8 +2,8 @@
  * Décrit la situation du jeu
  */
 
-#ifndef SITUATIONJEU_H
-#define SITUATIONJEU_H
+#ifndef GAMESITUATION_HPP
+#define GAMESITUATION_HPP
 
 #include <array>
 #include <cstdio>
@@ -14,7 +14,7 @@
 #include "partie/SituationJeuGenerale.h"
 
 
-class SituationJeu : public SituationJeuGenerale
+class GameSituation : public SituationJeuGenerale
 {
 
 public:
@@ -30,7 +30,7 @@ public:
 
 
     // Constructeur
-    SituationJeu (const int nbJoueurs=2);
+    GameSituation (const int nbJoueurs=2);
 
 
     // Convertions
@@ -67,4 +67,4 @@ private:
 
 };
 
-#endif // SITUATIONJEU_H
+#endif // GAMESITUATION_HPP

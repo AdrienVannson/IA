@@ -3,8 +3,8 @@
 int Simulateur::DELTAS_DEPLACEMENTS[Simulateur::NB_DEPLACEMENTS] = {
    -1,
    1,
-   -SituationJeu::NB_COLONNES,
-   SituationJeu::NB_COLONNES
+   -GameSituation::NB_COLONNES,
+   GameSituation::NB_COLONNES
 };
 
 
@@ -13,7 +13,7 @@ Simulateur::Simulateur ()
 }
 
 
-SituationJeu Simulateur::simulerAction (SituationJeu situation, const Action &action)
+GameSituation Simulateur::simulerAction (GameSituation situation, const Action &action)
 {
     const int iPlayer = situation.iPlayer();
     const int iNextPlayer = iPlayer == situation.nbJoueurs()-1 ? 0 : iPlayer + 1;
@@ -32,11 +32,11 @@ SituationJeu Simulateur::simulerAction (SituationJeu situation, const Action &ac
 
 
     // Vérification de la validité de l'action
-    if (!(direction == Action::HAUT && positionDepart < SituationJeu::NB_COLONNES) &&
-        !(direction == Action::BAS && positionDepart >= SituationJeu::NB_CELLULES - SituationJeu::NB_COLONNES) &&
-        !(direction == Action::GAUCHE && positionDepart % SituationJeu::NB_COLONNES == 0) &&
-        !(direction == Action::DROITE && positionDepart % SituationJeu::NB_COLONNES == SituationJeu::NB_COLONNES-1) &&
-        situation.cellule(nouvellePosition) == SituationJeu::VIDE) {
+    if (!(direction == Action::HAUT && positionDepart < GameSituation::NB_COLONNES) &&
+        !(direction == Action::BAS && positionDepart >= GameSituation::NB_CELLULES - GameSituation::NB_COLONNES) &&
+        !(direction == Action::GAUCHE && positionDepart % GameSituation::NB_COLONNES == 0) &&
+        !(direction == Action::DROITE && positionDepart % GameSituation::NB_COLONNES == GameSituation::NB_COLONNES-1) &&
+        situation.cellule(nouvellePosition) == GameSituation::VIDE) {
 
         situation.setPositionJoueur(iPlayer, nouvellePosition);
         situation.setCellule(nouvellePosition, iPlayer);

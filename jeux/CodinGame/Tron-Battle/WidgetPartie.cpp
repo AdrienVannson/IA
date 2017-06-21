@@ -17,7 +17,7 @@ WidgetPartie::WidgetPartie(QWidget *parent) :
 
 QSize WidgetPartie::minimumSizeHint() const
 {
-    return QSize(ZOOM*SituationJeu::NB_COLONNES + 100, ZOOM*SituationJeu::NB_LIGNES + 100);
+    return QSize(ZOOM*GameSituation::NB_COLONNES + 100, ZOOM*GameSituation::NB_LIGNES + 100);
 }
 
 
@@ -29,16 +29,16 @@ void WidgetPartie::afficherGrilleVide ()
 
 
     // Affichage de la grille de jeu
-    QRect rectanglePlateau(0, 0, ZOOM*SituationJeu::NB_COLONNES, ZOOM*SituationJeu::NB_LIGNES);
+    QRect rectanglePlateau(0, 0, ZOOM*GameSituation::NB_COLONNES, ZOOM*GameSituation::NB_LIGNES);
 
     m_scene->addRect(rectanglePlateau);
 
-    for (int iColonne=1; iColonne<SituationJeu::NB_COLONNES; iColonne++) {
-        m_scene->addLine(ZOOM*iColonne, 0, ZOOM*iColonne, ZOOM*SituationJeu::NB_LIGNES);
+    for (int iColonne=1; iColonne<GameSituation::NB_COLONNES; iColonne++) {
+        m_scene->addLine(ZOOM*iColonne, 0, ZOOM*iColonne, ZOOM*GameSituation::NB_LIGNES);
     }
 
-    for (int iLigne=1; iLigne<SituationJeu::NB_LIGNES; iLigne++) {
-        m_scene->addLine(0, ZOOM*iLigne, ZOOM*SituationJeu::NB_COLONNES, ZOOM*iLigne);
+    for (int iLigne=1; iLigne<GameSituation::NB_LIGNES; iLigne++) {
+        m_scene->addLine(0, ZOOM*iLigne, ZOOM*GameSituation::NB_COLONNES, ZOOM*iLigne);
     }
 }
 
@@ -54,14 +54,14 @@ void WidgetPartie::afficherTourActuel ()
 
 
     // Affichage des cellules
-    const SituationJeu &sitJeu = (*m_partie.tours())[m_iTourActuel].situationJeu();
+    const GameSituation &sitJeu = (*m_partie.tours())[m_iTourActuel].situationJeu();
 
-    for (int iLigne=0; iLigne<SituationJeu::NB_LIGNES; iLigne++) {
-        for (int iColonne=0; iColonne<SituationJeu::NB_COLONNES; iColonne++) {
+    for (int iLigne=0; iLigne<GameSituation::NB_LIGNES; iLigne++) {
+        for (int iColonne=0; iColonne<GameSituation::NB_COLONNES; iColonne++) {
 
             const int cellule = sitJeu.cellule(iLigne, iColonne);
 
-            if (cellule == SituationJeu::VIDE) {
+            if (cellule == GameSituation::VIDE) {
                 continue;
             }
 

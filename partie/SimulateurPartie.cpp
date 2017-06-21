@@ -5,7 +5,7 @@ SimulateurPartie::SimulateurPartie ()
 
 }
 
-Partie* SimulateurPartie::simulerPartie (const SituationJeu &sitDepart, std::vector< std::shared_ptr<Player> > &joueurs)
+Partie* SimulateurPartie::simulerPartie (const GameSituation &sitDepart, std::vector< std::shared_ptr<Player> > &joueurs)
 {
     Partie *partie = new Partie;
     partie->addTour(Tour(sitDepart));

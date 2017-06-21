@@ -8,7 +8,7 @@
 #include <utility>
 #include <vector>
 
-#include "SituationJeu.h"
+#include "GameSituation.hpp"
 
 
 class InformationsTourJoueur

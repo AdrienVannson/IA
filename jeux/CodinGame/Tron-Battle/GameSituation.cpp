@@ -1,7 +1,7 @@
-#include "SituationJeu.h"
+#include "GameSituation.hpp"
 
 
-SituationJeu::SituationJeu (const int nbJoueurs) :
+GameSituation::GameSituation (const int nbJoueurs) :
     SituationJeuGenerale (nbJoueurs)
 {
     // Initialisation: toutes les cellules sont noires
@@ -22,13 +22,13 @@ SituationJeu::SituationJeu (const int nbJoueurs) :
  * Convertions
  */
 
-int SituationJeu::positionCellule (const int iLigne, const int iColonne)
+int GameSituation::positionCellule (const int iLigne, const int iColonne)
 {
     return iLigne*NB_COLONNES + iColonne;
 }
 
 
-int SituationJeu::ligneCellule (const int iCellule)
+int GameSituation::ligneCellule (const int iCellule)
 {
     if (iCellule == INVALIDE) {
         return INVALIDE;
@@ -36,7 +36,7 @@ int SituationJeu::ligneCellule (const int iCellule)
     return iCellule / NB_COLONNES;
 }
 
-int SituationJeu::colonneCellule (const int iCellule)
+int GameSituation::colonneCellule (const int iCellule)
 {
     if (iCellule == INVALIDE) {
         return INVALIDE;
@@ -44,7 +44,7 @@ int SituationJeu::colonneCellule (const int iCellule)
     return iCellule % NB_COLONNES;
 }
 
-std::pair<int, int> SituationJeu::coordonneesCellule (const int iCellule)
+std::pair<int, int> GameSituation::coordonneesCellule (const int iCellule)
 {
     return std::make_pair(ligneCellule(iCellule), colonneCellule(iCellule));
 }
@@ -55,23 +55,23 @@ std::pair<int, int> SituationJeu::coordonneesCellule (const int iCellule)
  * Couleurs des cellules
  */
 
-int SituationJeu::cellule (const int iCellule) const
+int GameSituation::cellule (const int iCellule) const
 {
     return m_cellules[iCellule];
 }
 
-int SituationJeu::cellule (const int iLigne, const int iColonne) const
+int GameSituation::cellule (const int iLigne, const int iColonne) const
 {
     return cellule(positionCellule(iLigne, iColonne));
 }
 
 
-void SituationJeu::setCellule (const int iCellule, const int nouvelleValeur)
+void GameSituation::setCellule (const int iCellule, const int nouvelleValeur)
 {
     m_cellules[iCellule] = nouvelleValeur;
 }
 
-void SituationJeu::setCellule (const int iLigne, const int iColonne, const int nouvelleValeur)
+void GameSituation::setCellule (const int iLigne, const int iColonne, const int nouvelleValeur)
 {
     setCellule(positionCellule(iLigne, iColonne), nouvelleValeur);
 }
@@ -82,28 +82,28 @@ void SituationJeu::setCellule (const int iLigne, const int iColonne, const int n
  * Joueurs
  */
 
-int SituationJeu::positionJoueur (const int iJoueur) const
+int GameSituation::positionJoueur (const int iJoueur) const
 {
     return m_positionsJoueurs[iJoueur];
 }
 
-void SituationJeu::setPositionJoueur (const int iJoueur, const int nouvellePosition)
+void GameSituation::setPositionJoueur (const int iJoueur, const int nouvellePosition)
 {
     m_positionsJoueurs[iJoueur] = nouvellePosition;
 }
 
-void SituationJeu::setPositionJoueur (const int iJoueur, const int nouvelleLigne, const int nouvelleColonne)
+void GameSituation::setPositionJoueur (const int iJoueur, const int nouvelleLigne, const int nouvelleColonne)
 {
     setPositionJoueur(iJoueur, positionCellule(nouvelleLigne, nouvelleColonne));
 }
 
 
-bool SituationJeu::estElimine (const int idJoueur) const
+bool GameSituation::estElimine (const int idJoueur) const
 {
     return positionJoueur(idJoueur) == INVALIDE;
 }
 
-void SituationJeu::eliminerJoueur (const int idJoueur)
+void GameSituation::eliminerJoueur (const int idJoueur)
 {
     setPositionJoueur(idJoueur, INVALIDE);
     for (int iCellule=0; iCellule<NB_CELLULES; iCellule++) {

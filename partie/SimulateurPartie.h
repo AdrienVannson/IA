@@ -21,7 +21,7 @@ public:
 
     SimulateurPartie ();
 
-    static Partie* simulerPartie (const SituationJeu &sitDepart, std::vector< std::shared_ptr<Player> > &joueurs);
+    static Partie* simulerPartie (const GameSituation &sitDepart, std::vector< std::shared_ptr<Player> > &joueurs);
 
 };
 

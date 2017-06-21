@@ -17,10 +17,10 @@ void GameRunnerThread::run ()
     }
 
 
-    SituationJeu situationDepart (m_players.size());
+    GameSituation situationDepart (m_players.size());
 
     for (unsigned int iPlayer=0; iPlayer<m_players.size(); iPlayer++) {
-        situationDepart.setPositionJoueur(iPlayer, rand()%(SituationJeu::NB_CELLULES));
+        situationDepart.setPositionJoueur(iPlayer, rand()%(GameSituation::NB_CELLULES));
     }
 
 

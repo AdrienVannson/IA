@@ -11,7 +11,7 @@
 
 #include "Action.h"
 #include "partie/Partie.h"
-#include "SituationJeu.h"
+#include "GameSituation.hpp"
 
 
 class Simulateur
@@ -21,7 +21,7 @@ public:
 
     Simulateur ();
 
-    static SituationJeu simulerAction (SituationJeu situation, const Action &actionAJouer);
+    static GameSituation simulerAction (GameSituation situation, const Action &actionAJouer);
 
 
 
