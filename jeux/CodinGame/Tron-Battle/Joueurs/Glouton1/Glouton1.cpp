@@ -70,10 +70,6 @@ Action Glouton1::jouerAction (const InformationsTourJoueur &informations)
 
 bool Glouton1::estPossible (const int iLigne, const int iColonne) const
 {
-    if (iLigne < 0 || iLigne >= NB_LIGNES || iColonne < 0 || iColonne >= NB_COLONNES) {
-        return false;
-    }
-
     if (estOccupe[iLigne][iColonne]) {
         return false;
     }
