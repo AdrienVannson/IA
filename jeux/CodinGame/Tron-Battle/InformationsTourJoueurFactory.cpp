@@ -22,6 +22,10 @@ InformationsTourJoueur InformationsTourJoueurFactory::creerInformationsTourJoueu
         donnees.first = GameSituation::coordonneesCellule(premiereSituation.positionJoueur(idJoueur));
         donnees.second = GameSituation::coordonneesCellule(derniereSituation.positionJoueur(idJoueur));
 
+        if (donnees.second.first == -1) {
+            donnees.first = std::make_pair(-1, -1);
+        }
+
         informations.m_joueurs.push_back(donnees);
     }
 
