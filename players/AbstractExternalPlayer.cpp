@@ -102,6 +102,7 @@ void AbstractExternalPlayer::startGame ()
 void AbstractExternalPlayer::endGame ()
 {
     m_prog->send_eof();
+    kill(m_prog->child_pid, SIGTERM);
 }
 
 

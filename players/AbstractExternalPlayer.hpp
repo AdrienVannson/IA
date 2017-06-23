@@ -1,8 +1,6 @@
 #ifndef ABSTRACTEXTERNALPLAYER_HPP
 #define ABSTRACTEXTERNALPLAYER_HPP
 
-#include <QDebug> // TODEL
-
 #include <ext/stdio_filebuf.h>
 #include <sys/wait.h>
 #include <unistd.h>
