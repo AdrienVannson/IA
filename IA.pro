@@ -1,7 +1,7 @@
 # Inclusion du jeu
-PATH_JEU = jeux/CodinGame/Tron-Battle
+PATH_JEU = jeux/CodinGame/Wondev-Woman
 
-include($$PATH_JEU/Tron-Battle.pri)
+include($$PATH_JEU/Wondev-Woman.pri)
 
 
 INCLUDEPATH = $$PATH_JEU
