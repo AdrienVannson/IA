@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     WGameRunner.cpp \
     GameRunnerThread.cpp \
     partie/AbstractGameSituation.cpp \
-    partie/Game.cpp
+    partie/Game.cpp \
+    players/AbstractExternalPlayer.cpp
 
 HEADERS  += \
     partie/Tour.h \
@@ -50,7 +51,8 @@ HEADERS  += \
     WGameRunner.hpp \
     GameRunnerThread.hpp \
     partie/AbstractGameSituation.hpp \
-    partie/Game.hpp
+    partie/Game.hpp \
+    players/AbstractExternalPlayer.hpp
 
 RESOURCES += \
     resources/resources.qrc
