@@ -73,7 +73,7 @@ MainWindow::MainWindow (QWidget *parent) :
     Glouton1Factory fabriqueGlouton1;
 
     for (int iJoueur=0; iJoueur<10; iJoueur++) {
-        m_joueursManager.add( fabriqueGlouton1.creerJoueur() );
+        m_joueursManager.add( fabriqueGlouton1.getNewPlayer() );
     }
 
     m_wJoueursManager->actualiser();

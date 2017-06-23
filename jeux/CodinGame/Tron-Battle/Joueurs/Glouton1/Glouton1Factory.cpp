@@ -5,7 +5,7 @@ Glouton1Factory::Glouton1Factory ()
 
 }
 
-Player* Glouton1Factory::creerJoueur () const
+std::shared_ptr<Player> Glouton1Factory::getNewPlayer () const
 {
-    return new Glouton1 ();
+    return std::shared_ptr<Player> (new Glouton1 ());
 }

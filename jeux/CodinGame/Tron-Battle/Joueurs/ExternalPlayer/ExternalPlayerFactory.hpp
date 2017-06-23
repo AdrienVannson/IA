@@ -1,18 +1,18 @@
 #ifndef EXTERNALPLAYERFACTORY_HPP
 #define EXTERNALPLAYERFACTORY_HPP
 
-#include "partie/Joueur/JoueurFactory.h"
+#include "partie/Joueur/PlayerFactory.hpp"
 #include "ExternalPlayer.hpp"
 
 
-class ExternalPlayerFactory : public JoueurFactory
+class ExternalPlayerFactory : public PlayerFactory
 {
 
 public:
 
     ExternalPlayerFactory ();
 
-    Player* creerJoueur () const;
+    std::shared_ptr<Player> getNewPlayer () const;
 
 
 };

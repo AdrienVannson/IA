@@ -5,7 +5,7 @@ ExternalPlayerFactory::ExternalPlayerFactory()
 
 }
 
-Player* ExternalPlayerFactory::creerJoueur () const
+std::shared_ptr<Player> ExternalPlayerFactory::getNewPlayer () const
 {
-    return new ExternalPlayer ();
+    return std::shared_ptr<Player> (new ExternalPlayer ());
 }

@@ -2,18 +2,18 @@
 #define GLOUTON1FACTORY_H
 
 
-#include "partie/Joueur/JoueurFactory.h"
+#include "partie/Joueur/PlayerFactory.hpp"
 #include "Glouton1.h"
 
 
-class Glouton1Factory : public JoueurFactory
+class Glouton1Factory : public PlayerFactory
 {
 
 public:
 
     Glouton1Factory ();
 
-    Player* creerJoueur () const;
+    std::shared_ptr<Player> getNewPlayer () const;
 
 
 };
