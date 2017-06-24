@@ -22,7 +22,6 @@
 #include "WGameRunner.hpp"
 
 // Simulation d'une partie, TODEL
-#include "Joueurs/Glouton1/Glouton1Factory.h"
 #include "Joueurs/ExternalPlayer/ExternalPlayerFactory.hpp"
 
 

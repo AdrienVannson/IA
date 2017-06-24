@@ -70,12 +70,6 @@ MainWindow::MainWindow (QWidget *parent) :
     m_joueursManager.add(joueur2);
 
 
-    Glouton1Factory fabriqueGlouton1;
-
-    for (int iJoueur=0; iJoueur<10; iJoueur++) {
-        m_joueursManager.add( fabriqueGlouton1.getNewPlayer() );
-    }
-
     m_wJoueursManager->actualiser();
 
 
@@ -83,7 +77,7 @@ MainWindow::MainWindow (QWidget *parent) :
     for (int iPartie=0; iPartie<3; iPartie++) {
         std::vector< std::shared_ptr<Player> > players;
 
-        for (int iPlayer=0; iPlayer<iPartie%3+2; iPlayer++) {
+        for (int iPlayer=0; iPlayer<GameSituation::NB_JOUEURS; iPlayer++) {
             std::shared_ptr<Player> player = m_joueursManager.get(iPlayer);
             players.push_back(player);
         }
