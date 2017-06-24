@@ -17,10 +17,38 @@ void GameRunnerThread::run ()
     }
 
 
-    GameSituation situationDepart (m_players.size());
+    GameSituation situationDepart;
+
+    situationDepart.m_taille = 4;
+    situationDepart.m_nbUnitesJoueur = 2;
 
     for (unsigned int iPlayer=0; iPlayer<m_players.size(); iPlayer++) {
-        situationDepart.setPositionJoueur(iPlayer, rand()%(GameSituation::NB_CELLULES));
+
+        for (int iUnite=0; iUnite<situationDepart.m_nbUnitesJoueur; iUnite++) {
+
+            int iLigne, iColonne;
+            bool estValide;
+
+            do {
+                iLigne = rand() % situationDepart.m_taille;
+                iColonne = rand() % situationDepart.m_taille;
+
+                estValide = true;
+
+                for (unsigned int iJoueurVerifie=0; iJoueurVerifie<=iPlayer; iJoueurVerifie++) {
+                    for (int iUniteVerifiee=0; iUniteVerifiee<iUnite || iJoueurVerifie<iPlayer; iUniteVerifiee++) {
+                        if (situationDepart.m_positionsJoueurs[iJoueurVerifie][iUniteVerifiee].first == iLigne
+                         || situationDepart.m_positionsJoueurs[iJoueurVerifie][iUniteVerifiee].second == iColonne) {
+
+                            estValide = false;
+                            break;
+                        }
+                    }
+                }
+
+            } while (!estValide);
+
+        }
     }
 
 
