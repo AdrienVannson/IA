@@ -69,7 +69,7 @@ MainWindow::MainWindow (QWidget *parent) :
     m_joueursManager.add(joueur1);
     m_joueursManager.add(joueur2);*/
 
-    ExternalPlayer *joueur = new ExternalPlayer ("/media/adrien/DATA_LINUX/Documents/CodinGame/Wondev-Woman/Glouton");
+    ExternalPlayer *joueur = new ExternalPlayer ("/media/adrien/DATA_LINUX/Documents/CodinGame/Wondev-Woman/Glouton/Glouton");
     m_joueursManager.add(joueur);
 
 

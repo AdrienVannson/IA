@@ -36,9 +36,13 @@ void GameRunnerThread::run ()
                 estValide = true;
 
                 for (unsigned int iJoueurVerifie=0; iJoueurVerifie<=iPlayer; iJoueurVerifie++) {
-                    for (int iUniteVerifiee=0; iUniteVerifiee<iUnite || iJoueurVerifie<iPlayer; iUniteVerifiee++) {
+
+                    for (int iUniteVerifiee=0;
+                         iUniteVerifiee<iUnite || (iUniteVerifiee<situationDepart.m_nbUnitesJoueur && iJoueurVerifie<iPlayer);
+                         iUniteVerifiee++) {
+
                         if (situationDepart.m_positionsJoueurs[iJoueurVerifie][iUniteVerifiee].first == iLigne
-                         || situationDepart.m_positionsJoueurs[iJoueurVerifie][iUniteVerifiee].second == iColonne) {
+                         && situationDepart.m_positionsJoueurs[iJoueurVerifie][iUniteVerifiee].second == iColonne) {
 
                             estValide = false;
                             break;
