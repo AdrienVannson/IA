@@ -52,6 +52,8 @@ void GameRunnerThread::run ()
 
             } while (!estValide);
 
+            situationDepart.m_positionsJoueurs[iPlayer][iUnite] = std::make_pair(iLigne, iColonne);
+
         }
     }
 
