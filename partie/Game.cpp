@@ -15,6 +15,11 @@ Tour* Game::dernierTour ()
     return &m_tours[m_tours.size()-1];
 }
 
+Tour Game::lastTurn () const
+{
+    return m_tours[m_tours.size()-1];
+}
+
 
 void Game::addTour (const Tour &nouveauTour)
 {

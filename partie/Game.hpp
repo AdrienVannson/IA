@@ -19,6 +19,7 @@ public:
 
     const std::vector<Tour>* tours () const;
     Tour* dernierTour ();
+    Tour lastTurn () const;
 
     void addTour (const Tour &nouveauTour);
 
