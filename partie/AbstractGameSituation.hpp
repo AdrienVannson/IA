@@ -23,12 +23,11 @@ public:
     void setIdVainqueur (const int idVainqueur);
 
 
-private:
 
+    // Public members
     int m_iPlayer;
     int m_nbJoueurs;
     int m_idVainqueur;
-
 
 };
 
