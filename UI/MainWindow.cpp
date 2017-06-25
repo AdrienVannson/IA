@@ -69,8 +69,11 @@ MainWindow::MainWindow (QWidget *parent) :
     m_joueursManager.add(joueur1);
     m_joueursManager.add(joueur2);*/
 
-    ExternalPlayer *joueur = new ExternalPlayer ("/media/adrien/DATA_LINUX/Documents/CodinGame/Wondev-Woman/Glouton/Glouton");
-    m_joueursManager.add(joueur);
+
+    for (int iPlayer=0; iPlayer<5; iPlayer++) {
+        ExternalPlayer *player = new ExternalPlayer ("/media/adrien/DATA_LINUX/Documents/CodinGame/Wondev-Woman/Glouton/Glouton");
+        m_joueursManager.add(player);
+    }
 
 
     m_wJoueursManager->actualiser();
@@ -81,7 +84,7 @@ MainWindow::MainWindow (QWidget *parent) :
         std::vector< std::shared_ptr<Player> > players;
 
         for (int iPlayer=0; iPlayer<GameSituation::NB_JOUEURS; iPlayer++) {
-            std::shared_ptr<Player> player = m_joueursManager.get(0);
+            std::shared_ptr<Player> player = m_joueursManager.get(iPlayer);
             players.push_back(player);
         }
 

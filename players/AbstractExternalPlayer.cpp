@@ -84,7 +84,8 @@ public:
 
 
 AbstractExternalPlayer::AbstractExternalPlayer (const std::string &chemin) :
-    m_chemin (chemin)
+    m_chemin (chemin),
+    m_prog (0)
 {
 }
 
@@ -103,6 +104,8 @@ void AbstractExternalPlayer::endGame ()
 {
     m_prog->send_eof();
     kill(m_prog->child_pid, SIGTERM);
+
+    delete m_prog;
 }
 
 
