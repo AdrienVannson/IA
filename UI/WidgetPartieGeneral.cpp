@@ -20,6 +20,7 @@ void WidgetPartieGeneral::showGame (const std::shared_ptr<const PartieDecrite> &
     afficherTourActuel();
 
     m_timer->start();
+    updateGeometry();
 }
 
 void WidgetPartieGeneral::tourSuivant ()
