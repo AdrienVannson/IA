@@ -19,7 +19,7 @@ void GameRunnerThread::run ()
 
     GameSituation situationDepart;
 
-    situationDepart.m_taille = 4;
+    situationDepart.m_taille = 5 + rand()%3;
     situationDepart.m_nbUnitesJoueur = 2;
 
     for (unsigned int iPlayer=0; iPlayer<m_players.size(); iPlayer++) {
