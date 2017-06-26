@@ -20,11 +20,10 @@ void GameRunnerThread::run ()
     GameSituation situationDepart;
 
     situationDepart.m_taille = 5 + rand()%3;
-    situationDepart.m_nbUnitesJoueur = 2;
 
     for (unsigned int iPlayer=0; iPlayer<m_players.size(); iPlayer++) {
 
-        for (int iUnite=0; iUnite<situationDepart.m_nbUnitesJoueur; iUnite++) {
+        for (int iUnite=0; iUnite<GameSituation::NB_UNITES_JOUEUR; iUnite++) {
 
             int iLigne, iColonne;
             bool estValide;
@@ -38,7 +37,7 @@ void GameRunnerThread::run ()
                 for (unsigned int iJoueurVerifie=0; iJoueurVerifie<=iPlayer; iJoueurVerifie++) {
 
                     for (int iUniteVerifiee=0;
-                         iUniteVerifiee<iUnite || (iUniteVerifiee<situationDepart.m_nbUnitesJoueur && iJoueurVerifie<iPlayer);
+                         iUniteVerifiee<iUnite || (iUniteVerifiee<GameSituation::NB_UNITES_JOUEUR && iJoueurVerifie<iPlayer);
                          iUniteVerifiee++) {
 
                         if (situationDepart.m_positionsJoueurs[iJoueurVerifie][iUniteVerifiee].first == iLigne
