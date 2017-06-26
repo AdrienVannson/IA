@@ -2,7 +2,6 @@
 #define GAMERUNNERTHREAD_HPP
 
 #include <QThread>
-#include <QDebug> // TODEL
 
 #include <memory>
 
