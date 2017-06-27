@@ -71,7 +71,7 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     for (int iPlayer=0; iPlayer<5; iPlayer++) {
-        ExternalPlayer *player = new ExternalPlayer ("/media/adrien/DATA_LINUX/Documents/CodinGame/Wondev-Woman/Glouton/Glouton");
+        ExternalPlayer *player = new ExternalPlayer ("/media/adrien/DATA_LINUX/Documents/CodinGame/Wondev-Woman/MinMax/MinMax/prog");
         m_joueursManager.add(player);
     }
 

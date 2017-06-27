@@ -5,7 +5,7 @@ AbstractGameSituation::AbstractGameSituation (const int nbJoueurs) :
     m_nbJoueurs (nbJoueurs),
     m_estFini (false)
 {
-    fill(m_scores.begin(), m_scores.end(), 0);
+    std::fill(m_scores.begin(), m_scores.end(), 0);
 }
 
 

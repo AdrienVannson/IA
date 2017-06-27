@@ -21,6 +21,17 @@ void GameRunnerThread::run ()
 
     situationDepart.m_taille = 5 + rand()%3;
 
+    for (int iLigne=0; iLigne<GameSituation::TAILLE_MAX; iLigne++) {
+        for (int iColonne=0; iColonne<GameSituation::TAILLE_MAX; iColonne++) {
+
+            if (iLigne >= situationDepart.m_taille || iColonne >= situationDepart.m_taille) {
+                situationDepart.m_hauteursCellules[iLigne][iColonne] = GameSituation::HAUTEUR_MAX_CELLULE+1;
+            }
+
+        }
+    }
+
+
     for (unsigned int iPlayer=0; iPlayer<m_players.size(); iPlayer++) {
 
         for (int iUnite=0; iUnite<GameSituation::NB_UNITES_JOUEUR; iUnite++) {
