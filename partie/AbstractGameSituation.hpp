@@ -1,11 +1,18 @@
 #ifndef ABSTRACTGAMESITUATION_HPP
 #define ABSTRACTGAMESITUATION_HPP
 
+#include <algorithm>
+#include <array>
+#include <limits>
+
 
 class AbstractGameSituation
 {
 
 public:
+
+    static const int NB_MAX_JOUEURS = 4;
+
 
     AbstractGameSituation (const int nbJoueurs=2);
 
@@ -20,14 +27,14 @@ public:
     bool estFini () const;
     int idVainqueur () const;
 
-    void setIdVainqueur (const int idVainqueur);
-
 
 
     // Public members
     int m_iPlayer;
     int m_nbJoueurs;
-    int m_idVainqueur;
+
+    bool m_estFini;
+    std::array<int, NB_MAX_JOUEURS> m_scores;
 
 };
 

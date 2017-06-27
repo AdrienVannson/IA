@@ -3,9 +3,9 @@
 AbstractGameSituation::AbstractGameSituation (const int nbJoueurs) :
     m_iPlayer (0),
     m_nbJoueurs (nbJoueurs),
-    m_idVainqueur (-1)
+    m_estFini (false)
 {
-
+    fill(m_scores.begin(), m_scores.end(), 0);
 }
 
 
@@ -43,15 +43,20 @@ void AbstractGameSituation::setIPlayer (const int iPlayer)
 
 bool AbstractGameSituation::estFini () const
 {
-    return m_idVainqueur != -1;
+    return m_estFini;
 }
 
 int AbstractGameSituation::idVainqueur () const
 {
-    return m_idVainqueur;
-}
+    int iJoueurMax = -1;
+    int meilleurScore = std::numeric_limits<int>::min();
 
-void AbstractGameSituation::setIdVainqueur (const int idVainqueur)
-{
-    m_idVainqueur = idVainqueur;
+    for (int iJoueur=0; iJoueur<m_nbJoueurs; iJoueur++) {
+        if (m_scores[iJoueur] > meilleurScore) {
+            meilleurScore = m_scores[iJoueur];
+            iJoueurMax = iJoueur;
+        }
+    }
+
+    return iJoueurMax;
 }
