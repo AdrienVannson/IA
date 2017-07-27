@@ -16,9 +16,13 @@ MainWindow::MainWindow (QWidget *parent) :
 
     QMenu *menuAffichage = menuBar()->addMenu("Affichage");
 
-        QAction *actionAddDockGame = new QAction("Partie", this);
-        connect(actionAddDockGame, &QAction::triggered, this, &MainWindow::addGameDock);
-        menuAffichage->addAction(actionAddDockGame);
+        QAction *actionAddGameDock = new QAction("Partie", this);
+        connect(actionAddGameDock, &QAction::triggered, this, &MainWindow::addGameDock);
+        menuAffichage->addAction(actionAddGameDock);
+
+        QAction *actionAddGameRunnerDock = new QAction("Parties en attente", this);
+        connect(actionAddGameRunnerDock, &QAction::triggered, this, &MainWindow::addGameRunnerDock);
+        menuAffichage->addAction(actionAddGameRunnerDock);
 
 
     QMenu *menuAide = menuBar()->addMenu("Aide");
@@ -131,4 +135,13 @@ void MainWindow::addGameDock ()
     QDockWidget *dockPartie = new QDockWidget("Partie", this);
     dockPartie->setWidget(widgetPartie);
     addDockWidget(Qt::LeftDockWidgetArea, dockPartie);
+}
+
+void MainWindow::addGameRunnerDock ()
+{
+    WGameRunner *gameRunner = new WGameRunner (&m_gameRunner);
+
+    QDockWidget *dock = new QDockWidget("Parties en attente", this);
+    dock->setWidget(gameRunner);
+    addDockWidget(Qt::RightDockWidgetArea, dock);
 }

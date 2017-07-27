@@ -43,6 +43,7 @@ public slots:
     void afficherAPropos ();
 
     void addGameDock ();
+    void addGameRunnerDock ();
 
 
 private:
