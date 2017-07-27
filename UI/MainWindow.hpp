@@ -42,7 +42,7 @@ public slots:
     // UI
     void afficherAPropos ();
 
-    void addDockGame ();
+    void addGameDock ();
 
 
 private:

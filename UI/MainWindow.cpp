@@ -17,7 +17,7 @@ MainWindow::MainWindow (QWidget *parent) :
     QMenu *menuAffichage = menuBar()->addMenu("Affichage");
 
         QAction *actionAddDockGame = new QAction("Partie", this);
-        connect(actionAddDockGame, &QAction::triggered, this, &MainWindow::addDockGame);
+        connect(actionAddDockGame, &QAction::triggered, this, &MainWindow::addGameDock);
         menuAffichage->addAction(actionAddDockGame);
 
 
@@ -58,7 +58,7 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     // Affichage d'une partie
-    addDockGame();
+    addGameDock();
 
 
 
@@ -124,7 +124,7 @@ void MainWindow::afficherAPropos ()
     fenetreAPropos.exec();
 }
 
-void MainWindow::addDockGame ()
+void MainWindow::addGameDock ()
 {
     WGame *widgetPartie = new WGame;
 
