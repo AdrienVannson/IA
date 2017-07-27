@@ -2,6 +2,8 @@
 #define WGAMERUNNER_HPP
 
 #include <QWidget>
+#include <QLabel>
+#include <QVBoxLayout>
 
 #include "GameRunner.hpp"
 
@@ -15,9 +17,16 @@ public:
     explicit WGameRunner (GameRunner *gameRunnner, QWidget *parent=0);
 
 
+public slots:
+
+    void updateCount ();
+
+
 private:
 
     GameRunner *m_gameRunner;
+
+    QLabel *m_label;
 
 };
 

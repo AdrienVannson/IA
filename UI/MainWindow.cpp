@@ -60,8 +60,9 @@ MainWindow::MainWindow (QWidget *parent) :
     connect(&m_gameRunner, &GameRunner::gameRunned, this, &MainWindow::addGame);
 
 
-    // Affichage d'une partie
+    // Création des docks
     addGameDock();
+    addGameRunnerDock();
 
 
 
@@ -74,7 +75,8 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     for (int iPlayer=0; iPlayer<5; iPlayer++) {
-        ExternalPlayer *player = new ExternalPlayer ("/media/adrien/DATA_LINUX/Documents/CodinGame/Tron-Battle/Tron-IA/prog");
+        Player *player = new ExternalPlayer ("/media/adrien/DATA_LINUX/Documents/CodinGame/Tron-Battle/Tron-IA/prog");
+        //Player *player = new Glouton1;
         m_joueursManager.add(player);
     }
 
@@ -83,7 +85,7 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     // Création de parties
-    for (int iPartie=0; iPartie<1; iPartie++) {
+    for (int iPartie=0; iPartie<3; iPartie++) {
         std::vector< std::shared_ptr<Player> > players;
 
         for (int iPlayer=0; iPlayer<3; iPlayer++) {

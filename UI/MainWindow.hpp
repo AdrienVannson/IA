@@ -23,6 +23,7 @@
 
 // Simulation d'une partie, TODEL
 #include "Joueurs/ExternalPlayer/ExternalPlayerFactory.hpp"
+#include "Joueurs/Glouton1/Glouton1Factory.h"
 
 
 class MainWindow : public QMainWindow
