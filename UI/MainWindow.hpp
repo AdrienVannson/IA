@@ -55,7 +55,6 @@ private:
     WManager<PartieDecrite, WApercuPartie> *m_wPartiesManager;
 
     GameRunner m_gameRunner;
-    WGameRunner *m_wGameRunner;
 
 };
 

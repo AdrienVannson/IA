@@ -57,7 +57,6 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     // Création de parties
-    m_wGameRunner = new WGameRunner (&m_gameRunner);
     connect(&m_gameRunner, &GameRunner::gameRunned, this, &MainWindow::addGame);
 
 

@@ -26,7 +26,7 @@ SOURCES += main.cpp\
     UI/WApercuPartie.cpp \
     EventsManager.cpp \
     GameRunner.cpp \
-    WGameRunner.cpp \
+    UI/WGameRunner.cpp \
     GameRunnerThread.cpp \
     partie/AbstractGameSituation.cpp \
     partie/Game.cpp \
@@ -47,7 +47,7 @@ HEADERS  += \
     partie/Joueur/Player.hpp \
     UI/MainWindow.hpp \
     GameRunner.hpp \
-    WGameRunner.hpp \
+    UI/WGameRunner.hpp \
     GameRunnerThread.hpp \
     partie/AbstractGameSituation.hpp \
     partie/Game.hpp \
