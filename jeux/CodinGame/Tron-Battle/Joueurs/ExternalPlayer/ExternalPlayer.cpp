@@ -15,6 +15,8 @@ Action ExternalPlayer::jouerAction (const InformationsTourJoueur &informations)
 {
     std::string data;
 
+    qDebug() << "Nombre de joueurs :" << informations.m_joueurs.size();
+
     data.append(std::to_string(informations.m_joueurs.size()) + " " + std::to_string(informations.m_idJoueur) + "\n");
 
     for (unsigned int iJoueur=0; iJoueur<informations.m_joueurs.size(); iJoueur++) {

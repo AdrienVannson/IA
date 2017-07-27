@@ -19,6 +19,8 @@ void GameRunnerThread::run ()
 
     GameSituation situationDepart;
 
+    /* Wondev-Woman
+
     situationDepart.m_taille = 5 + rand()%3;
 
     for (int iLigne=0; iLigne<GameSituation::TAILLE_MAX; iLigne++) {
@@ -65,7 +67,7 @@ void GameRunnerThread::run ()
             situationDepart.m_positionsJoueurs[iPlayer][iUnite] = std::make_pair(iLigne, iColonne);
 
         }
-    }
+    }*/
 
 
     Game *partie = SimulateurPartie::simulerPartie(situationDepart, m_players);

@@ -71,7 +71,7 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     for (int iPlayer=0; iPlayer<5; iPlayer++) {
-        ExternalPlayer *player = new ExternalPlayer ("/media/adrien/DATA_LINUX/Documents/CodinGame/Wondev-Woman/MinMax/MinMax/prog");
+        ExternalPlayer *player = new ExternalPlayer ("/media/adrien/DATA_LINUX/Documents/CodinGame/Tron-Battle/Tron-IA/prog");
         m_joueursManager.add(player);
     }
 
@@ -83,7 +83,7 @@ MainWindow::MainWindow (QWidget *parent) :
     for (int iPartie=0; iPartie<3; iPartie++) {
         std::vector< std::shared_ptr<Player> > players;
 
-        for (int iPlayer=0; iPlayer<GameSituation::NB_JOUEURS; iPlayer++) {
+        for (int iPlayer=0; iPlayer<2+iPartie; iPlayer++) {
             std::shared_ptr<Player> player = m_joueursManager.get(iPlayer);
             players.push_back(player);
         }

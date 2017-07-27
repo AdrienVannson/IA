@@ -6,7 +6,7 @@ WidgetPartieGeneral::WidgetPartieGeneral (QWidget *parent) :
 {
     // Timer
     m_timer = new QTimer(this);
-    m_timer->setInterval(1000);
+    m_timer->setInterval(100);
     connect(m_timer, &QTimer::timeout, this, &WidgetPartieGeneral::tourSuivant);
 
     EventsManager::getInstance()->add(this);

@@ -1,6 +1,8 @@
 #ifndef EXTERNALPLAYER_HPP
 #define EXTERNALPLAYER_HPP
 
+#include <QDebug>
+
 #include "players/AbstractExternalPlayer.hpp"
 
 

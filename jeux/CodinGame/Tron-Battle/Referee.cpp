@@ -61,7 +61,8 @@ GameSituation Referee::simulerAction (GameSituation situation, const Action &act
         }
 
         if (idVainqueur != -1) {
-            situation.setIdVainqueur(idVainqueur);
+            //situation.setIdVainqueur(idVainqueur);
+            situation.m_estFini = true;
         }
     }
 
