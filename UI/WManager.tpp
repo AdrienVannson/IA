@@ -42,8 +42,6 @@ void WManager<T, WT>::actualiser ()
     }
 
 
-    int iObjet = 0;
-
     for (const std::shared_ptr<const T> &objet : *m_manager->getAll()) {
         QWidget *ligne = new QWidget;
 
@@ -56,7 +54,5 @@ void WManager<T, WT>::actualiser ()
         layoutLigne->addWidget(widget);
 
         m_layoutLignes->addWidget(ligne);
-
-        iObjet++;
     }
 }
