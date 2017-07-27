@@ -24,6 +24,8 @@ public:
 
     void runGame (std::vector< std::shared_ptr<Player> > &players);
 
+    int nbPendingGames () const;
+
 
 public slots:
 
@@ -32,6 +34,7 @@ public slots:
 
 signals:
 
+    void updated (); // Emit each time a game is added or finished
     void gameRunned (std::shared_ptr<PartieDecrite> game);
 
 

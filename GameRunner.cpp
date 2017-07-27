@@ -10,6 +10,13 @@ void GameRunner::runGame (std::vector< std::shared_ptr<Player> > &players)
 {
     m_pendingGames.push(players);
     runPendingGames();
+
+    emit updated();
+}
+
+int GameRunner::nbPendingGames () const
+{
+    return m_pendingGames.size();
 }
 
 void GameRunner::handleResults (std::shared_ptr<Game> partie)
@@ -31,6 +38,8 @@ void GameRunner::runPendingGames ()
 
     std::vector<std::shared_ptr<Player>> players = m_pendingGames.front();
     m_pendingGames.pop();
+
+    emit updated();
 
     GameRunnerThread *gameRunnerThread = new GameRunnerThread (this);
     gameRunnerThread->setPlayers(players);
