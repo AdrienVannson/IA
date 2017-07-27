@@ -16,7 +16,7 @@ void GameRunnerThread::run ()
         player->startGame();
     }
 
-    GameSituation situationDepart;
+    GameSituation situationDepart (m_players.size());
     situationDepart.init();
 
     Game *partie = SimulateurPartie::simulerPartie(situationDepart, m_players);
