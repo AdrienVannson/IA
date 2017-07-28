@@ -24,6 +24,10 @@ MainWindow::MainWindow (QWidget *parent) :
         connect(actionAddGameRunnerDock, &QAction::triggered, this, &MainWindow::addGameRunnerDock);
         menuAffichage->addAction(actionAddGameRunnerDock);
 
+        QAction *actionAddBatchRunnerDock = new QAction("Batch Run", this);
+        connect(actionAddBatchRunnerDock, &QAction::triggered, this, &MainWindow::addBatchRunnerDock);
+        menuAffichage->addAction(actionAddBatchRunnerDock);
+
 
     QMenu *menuAide = menuBar()->addMenu("Aide");
 
