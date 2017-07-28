@@ -19,7 +19,9 @@ public:
     std::shared_ptr<T> add (const std::shared_ptr<T> &object);
     std::shared_ptr<T> addCopy (const T *object);
 
-    const std::vector< std::shared_ptr<T> >* getAll () const;
+
+    const std::vector< std::shared_ptr<T> >& getAll () const;
+    std::vector< std::shared_ptr<T> >& getAll ();
 
     std::shared_ptr<const T> get (const int pos) const;
     std::shared_ptr<T> get (const int pos);

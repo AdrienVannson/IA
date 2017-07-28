@@ -34,9 +34,15 @@ std::shared_ptr<T> Manager<T>::addCopy (const T* object)
 
 
 template<class T>
-const std::vector< std::shared_ptr<T> >* Manager<T>::getAll () const
+const std::vector< std::shared_ptr<T> >& Manager<T>::getAll () const
 {
-    return &m_objects;
+    return m_objects;
+}
+
+template<class T>
+std::vector< std::shared_ptr<T> >& Manager<T>::getAll ()
+{
+    return m_objects;
 }
 
 template<class T>

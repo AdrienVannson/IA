@@ -37,12 +37,12 @@ void WManager<T, WT>::actualiser ()
         delete enfant;
     }
 
-    if (m_manager->getAll()->empty()) {
+    if (m_manager->getAll().empty()) {
         return;
     }
 
 
-    for (const std::shared_ptr<const T> &objet : *m_manager->getAll()) {
+    for (const std::shared_ptr<const T> &objet : m_manager->getAll()) {
         QWidget *ligne = new QWidget;
 
         QHBoxLayout *layoutLigne = new QHBoxLayout;
