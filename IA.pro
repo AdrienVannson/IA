@@ -31,7 +31,8 @@ SOURCES += main.cpp\
     players/AbstractExternalPlayer.cpp \
     partie/Joueur/PlayerFactory.cpp \
     partie/DescribedGame.cpp \
-    UI/WAbstractGame.cpp
+    UI/WAbstractGame.cpp \
+    tools/batchrunner/WBatchRunner.cpp
 
 HEADERS  += \
     partie/Tour.h \
@@ -52,7 +53,8 @@ HEADERS  += \
     players/AbstractExternalPlayer.hpp \
     partie/Joueur/PlayerFactory.hpp \
     partie/DescribedGame.hpp.h \
-    UI/WAbstractGame.hpp
+    UI/WAbstractGame.hpp \
+    tools/batchrunner/WBatchRunner.hpp
 
 RESOURCES += \
     resources/resources.qrc

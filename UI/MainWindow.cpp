@@ -60,25 +60,18 @@ MainWindow::MainWindow (QWidget *parent) :
     connect(&m_gameRunner, &GameRunner::gameRunned, this, &MainWindow::addGame);
 
 
-    // Création des docks
-    addGameDock();
-    addGameRunnerDock();
-
-
-
     // Création de joueurs
-    /*ExternalPlayer *joueur1 = new ExternalPlayer ("/media/adrien/DATA_LINUX/Documents/Projets/IA/IA/players/minmax");
-    ExternalPlayer *joueur2 = new ExternalPlayer ("/media/adrien/DATA_LINUX/Documents/Projets/IA/IA/players/MCTS");
-
-    m_joueursManager.add(joueur1);
-    m_joueursManager.add(joueur2);*/
-
-
-    for (int iPlayer=0; iPlayer<5; iPlayer++) {
+    for (int iPlayer=0; iPlayer<4; iPlayer++) {
         Player *player = new ExternalPlayer ("/media/adrien/DATA_LINUX/Documents/CodinGame/Tron-Battle/Tron-IA/prog");
         //Player *player = new Glouton1;
         m_joueursManager.add(player);
     }
+
+
+    // Création des docks
+    addGameDock();
+    addGameRunnerDock();
+    addBatchRunnerDock();
 
 
     m_wJoueursManager->actualiser();
@@ -144,5 +137,18 @@ void MainWindow::addGameRunnerDock ()
 
     QDockWidget *dock = new QDockWidget("Parties en attente", this);
     dock->setWidget(gameRunner);
+    addDockWidget(Qt::RightDockWidgetArea, dock);
+}
+
+void MainWindow::addBatchRunnerDock ()
+{
+    WBatchRunner *wBatchRunner = new WBatchRunner;
+
+    for (std::shared_ptr<Player> &player : m_joueursManager.getAll()) {
+        wBatchRunner->addPlayer(player);
+    }
+
+    QDockWidget *dock = new QDockWidget("Batch Run", this);
+    dock->setWidget(wBatchRunner);
     addDockWidget(Qt::RightDockWidgetArea, dock);
 }

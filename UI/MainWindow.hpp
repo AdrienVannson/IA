@@ -20,6 +20,7 @@
 #include "WApercuPartie.hpp"
 #include "GameRunner.hpp"
 #include "WGameRunner.hpp"
+#include "tools/batchrunner/WBatchRunner.hpp"
 
 // Simulation d'une partie, TODEL
 #include "Joueurs/ExternalPlayer/ExternalPlayerFactory.hpp"
@@ -45,6 +46,7 @@ public slots:
 
     void addGameDock ();
     void addGameRunnerDock ();
+    void addBatchRunnerDock ();
 
 
 private:
