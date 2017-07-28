@@ -13,7 +13,7 @@ WidgetPartieGeneral::WidgetPartieGeneral (QWidget *parent) :
 }
 
 
-void WidgetPartieGeneral::showGame (const std::shared_ptr<const PartieDecrite> &partie)
+void WidgetPartieGeneral::showGame (const std::shared_ptr<const DescribedGame> &partie)
 {
     m_partie = *partie;
     m_iTourActuel = 0;

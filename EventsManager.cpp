@@ -36,7 +36,7 @@ void EventsManager::remove (WidgetPartieGeneral *wPartie)
 }
 
 
-void EventsManager::showGame (std::shared_ptr<const PartieDecrite> partie)
+void EventsManager::showGame (std::shared_ptr<const DescribedGame> partie)
 {
     if (m_widgetPartie != 0) {
         m_widgetPartie->showGame(partie);

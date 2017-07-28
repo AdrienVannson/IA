@@ -2,8 +2,8 @@
  * Partie décrite par plusieurs informations supplémentaires
  */
 
-#ifndef PARTIEDECRITE_H
-#define PARTIEDECRITE_H
+#ifndef DESCRIBEDGAME_HPP
+#define DESCRIBEDGAME_HPP
 
 #include <string>
 #include <vector>
@@ -11,13 +11,13 @@
 #include "Game.hpp"
 
 
-class PartieDecrite : public Game
+class DescribedGame : public Game
 {
 
 public:
 
-    PartieDecrite ();
-    PartieDecrite (const Game &partie);
+    DescribedGame ();
+    DescribedGame (const Game &partie);
 
     int id () const;
 
@@ -43,4 +43,4 @@ private:
 
 };
 
-#endif // PARTIEDECRITE_H
+#endif // DESCRIBEDGAME_HPP

@@ -11,7 +11,7 @@
 #include <cstdlib>
 
 #include "Referee.hpp"
-#include "partie/PartieDecrite.h"
+#include "partie/DescribedGame.hpp.h"
 #include "WGame.hpp"
 #include "WJouerPartie.h"
 #include "Manager.hpp"
@@ -38,7 +38,7 @@ public:
 
 public slots:
 
-    void addGame (const std::shared_ptr<PartieDecrite> &game);
+    void addGame (const std::shared_ptr<DescribedGame> &game);
 
     // UI
     void afficherAPropos ();
@@ -52,8 +52,8 @@ private:
     Manager<Player> m_joueursManager;
     WManager<Player, WApercuJoueur> *m_wJoueursManager;
 
-    Manager<PartieDecrite> m_partiesManager;
-    WManager<PartieDecrite, WApercuPartie> *m_wPartiesManager;
+    Manager<DescribedGame> m_partiesManager;
+    WManager<DescribedGame, WApercuPartie> *m_wPartiesManager;
 
     GameRunner m_gameRunner;
 
