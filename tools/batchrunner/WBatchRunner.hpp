@@ -2,6 +2,9 @@
 #define WBATCHRUNNER_HPP
 
 #include <QWidget>
+#include <QVBoxLayout>
+#include <QPushButton>
+#include <QProgressBar>
 
 #include <memory>
 #include <vector>
@@ -24,6 +27,9 @@ public:
 private:
 
     std::vector< std::shared_ptr<Player> > m_players;
+
+    QPushButton *m_startButton;
+    QProgressBar *m_progressBar;
 
 
 };
