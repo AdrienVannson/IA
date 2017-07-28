@@ -19,7 +19,6 @@ SOURCES += main.cpp\
     UI/MainWindow.cpp \
     partie/Tour.cpp \
     partie/SimulateurPartie.cpp \
-    UI/WidgetPartieGeneral.cpp \
     UI/WJouerPartie.cpp \
     UI/WApercuJoueur.cpp \
     UI/WApercuPartie.cpp \
@@ -31,12 +30,12 @@ SOURCES += main.cpp\
     partie/Game.cpp \
     players/AbstractExternalPlayer.cpp \
     partie/Joueur/PlayerFactory.cpp \
-    partie/DescribedGame.cpp
+    partie/DescribedGame.cpp \
+    UI/WAbstractGame.cpp
 
 HEADERS  += \
     partie/Tour.h \
     partie/SimulateurPartie.h \
-    UI/WidgetPartieGeneral.h \
     UI/WJouerPartie.h \
     Manager.hpp \
     UI/WManager.hpp \
@@ -52,7 +51,8 @@ HEADERS  += \
     partie/Game.hpp \
     players/AbstractExternalPlayer.hpp \
     partie/Joueur/PlayerFactory.hpp \
-    partie/DescribedGame.hpp.h
+    partie/DescribedGame.hpp.h \
+    UI/WAbstractGame.hpp
 
 RESOURCES += \
     resources/resources.qrc

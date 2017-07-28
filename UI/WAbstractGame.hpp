@@ -1,5 +1,5 @@
-#ifndef WIDGETPARTIEGENERAL_H
-#define WIDGETPARTIEGENERAL_H
+#ifndef WABSTRACTGAME_HPP
+#define WABSTRACTGAME_HPP
 
 #include <QWidget>
 #include <QTimer>
@@ -10,13 +10,13 @@
 #include "EventsManager.hpp"
 
 
-class WidgetPartieGeneral : public QWidget
+class WAbstractGame : public QWidget
 {
     Q_OBJECT
 
 public:
 
-    explicit WidgetPartieGeneral (QWidget *parent = 0);
+    explicit WAbstractGame (QWidget *parent = 0);
 
 
 
@@ -44,4 +44,4 @@ private:
 
 };
 
-#endif // WIDGETPARTIEGENERAL_H
+#endif // WABSTRACTGAME_HPP

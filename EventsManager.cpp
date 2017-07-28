@@ -23,12 +23,12 @@ void EventsManager::remove (const WApercuPartie *wApercuPartie)
 }
 
 
-void EventsManager::add (WidgetPartieGeneral *wPartie)
+void EventsManager::add (WAbstractGame *wPartie)
 {
     m_widgetPartie = wPartie;
 }
 
-void EventsManager::remove (WidgetPartieGeneral *wPartie)
+void EventsManager::remove (WAbstractGame *wPartie)
 {
     if (wPartie == m_widgetPartie) {
         m_widgetPartie = 0;
