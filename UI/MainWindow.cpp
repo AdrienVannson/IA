@@ -73,25 +73,7 @@ MainWindow::MainWindow (QWidget *parent) :
     addGameRunnerDock();
     addBatchRunnerDock();
 
-
-    m_wJoueursManager->actualiser();
-
-
-    // Création de parties
-    for (int iPartie=0; iPartie<3; iPartie++) {
-        std::vector< std::shared_ptr<Player> > players;
-
-        for (int iPlayer=0; iPlayer<3; iPlayer++) {
-            std::shared_ptr<Player> player = m_joueursManager.get(iPlayer);
-            players.push_back(player);
-        }
-
-        m_gameRunner.runGame(players);
-    }
-
-
     m_wPartiesManager->actualiser();
-
 
     // Création de parties à la demande
     /*WJouerPartie *wJouerPartie = new WJouerPartie (m_joueursManager, m_partiesManager);
