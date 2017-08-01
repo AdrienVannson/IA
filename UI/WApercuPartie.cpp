@@ -14,14 +14,10 @@ WApercuPartie::WApercuPartie (QWidget *parent) :
 
 
     layout->addWidget( new QPushButton("Partie") );
-
-
-    EventsManager::getInstance()->add(this);
 }
 
 WApercuPartie::~WApercuPartie ()
 {
-    EventsManager::getInstance()->remove(this);
 }
 
 

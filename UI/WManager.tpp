@@ -1,8 +1,9 @@
 #include "WManager.hpp"
 
+
 template<class T, class WV>
 WManager<T, WV>::WManager (QWidget *parent) :
-    QWidget (parent),
+    WManagerQWidget (parent),
     m_manager (0)
 {
     m_layout = new QVBoxLayout;
@@ -50,6 +51,7 @@ void WManager<T, WT>::actualiser ()
 
         WT *widget = new WT;
         widget->setObject(objet);
+        emit widgetCreated(widget);
 
         layoutLigne->addWidget(widget);
 

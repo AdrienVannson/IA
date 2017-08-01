@@ -45,6 +45,7 @@ MainWindow::MainWindow (QWidget *parent) :
     // Affichage des parties
     m_wPartiesManager = new WManager<DescribedGame, WApercuPartie>;
     m_wPartiesManager->setManager(&m_partiesManager);
+    connect(m_wPartiesManager, &WManager<DescribedGame, WApercuPartie>::widgetCreated, this, &MainWindow::registerGameOverview);
 
     QDockWidget *dockParties = new QDockWidget("Parties", this);
     dockParties->setWidget(m_wPartiesManager);
@@ -99,6 +100,11 @@ void MainWindow::addGame (const std::shared_ptr<DescribedGame> &game)
     m_wPartiesManager->actualiser();
 }
 
+void MainWindow::registerGameOverview (QWidget *apercu)
+{
+    m_eventsManager.add(dynamic_cast<WApercuPartie*>(apercu));
+}
+
 
 void MainWindow::afficherAPropos ()
 {
@@ -111,6 +117,7 @@ void MainWindow::afficherAPropos ()
 void MainWindow::addGameDock ()
 {
     WGame *widgetPartie = new WGame;
+    m_eventsManager.add(widgetPartie);
 
     QDockWidget *dockPartie = new QDockWidget("Partie", this);
     dockPartie->setWidget(widgetPartie);

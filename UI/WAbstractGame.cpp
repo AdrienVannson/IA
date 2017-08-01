@@ -8,8 +8,6 @@ WAbstractGame::WAbstractGame (QWidget *parent) :
     m_timer = new QTimer(this);
     m_timer->setInterval(100);
     connect(m_timer, &QTimer::timeout, this, &WAbstractGame::tourSuivant);
-
-    EventsManager::getInstance()->add(this);
 }
 
 

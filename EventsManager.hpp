@@ -16,7 +16,8 @@ class EventsManager : public QObject
 
 public:
 
-    static EventsManager* getInstance ();
+    EventsManager ();
+
 
     void add (const WApercuPartie *wApercuPartie);
     void remove (const WApercuPartie *wApercuPartie);
@@ -31,11 +32,6 @@ public slots:
 
 
 private:
-
-    EventsManager ();
-    EventsManager (const EventsManager &) = delete;
-    void operator= (const EventsManager &) = delete;
-
 
     WAbstractGame *m_widgetPartie;
 

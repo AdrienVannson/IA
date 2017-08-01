@@ -5,12 +5,6 @@ EventsManager::EventsManager () :
 {
 }
 
-EventsManager* EventsManager::getInstance ()
-{
-    static EventsManager instance;
-    return &instance;
-}
-
 
 void EventsManager::add (const WApercuPartie *wApercuPartie)
 {

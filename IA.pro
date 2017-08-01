@@ -32,7 +32,8 @@ SOURCES += main.cpp\
     partie/Joueur/PlayerFactory.cpp \
     partie/DescribedGame.cpp \
     UI/WAbstractGame.cpp \
-    tools/batchrunner/WBatchRunner.cpp
+    tools/batchrunner/WBatchRunner.cpp \
+    UI/WManagerQWidget.cpp
 
 HEADERS  += \
     partie/Tour.h \
@@ -54,7 +55,8 @@ HEADERS  += \
     partie/Joueur/PlayerFactory.hpp \
     partie/DescribedGame.hpp.h \
     UI/WAbstractGame.hpp \
-    tools/batchrunner/WBatchRunner.hpp
+    tools/batchrunner/WBatchRunner.hpp \
+    UI/WManagerQWidget.hpp
 
 RESOURCES += \
     resources/resources.qrc

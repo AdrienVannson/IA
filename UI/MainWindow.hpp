@@ -21,6 +21,7 @@
 #include "GameRunner.hpp"
 #include "WGameRunner.hpp"
 #include "tools/batchrunner/WBatchRunner.hpp"
+#include "EventsManager.hpp"
 
 // Simulation d'une partie, TODEL
 #include "Joueurs/ExternalPlayer/ExternalPlayerFactory.hpp"
@@ -40,6 +41,7 @@ public:
 public slots:
 
     void addGame (const std::shared_ptr<DescribedGame> &game);
+    void registerGameOverview (QWidget *apercu);
 
     // UI
     void afficherAPropos ();
@@ -57,6 +59,7 @@ private:
     Manager<DescribedGame> m_partiesManager;
     WManager<DescribedGame, WApercuPartie> *m_wPartiesManager;
 
+    EventsManager m_eventsManager;
     GameRunner m_gameRunner;
 
 };

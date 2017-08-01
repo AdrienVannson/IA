@@ -10,10 +10,12 @@
 #include <utility>
 
 #include "Manager.hpp"
+#include "WManagerQWidget.hpp"
+
 
 
 template<class T, class WT> // La classe à gérer, et un widget représentant cette classe
-class WManager : public QWidget
+class WManager : public WManagerQWidget
 {
 
 public:
