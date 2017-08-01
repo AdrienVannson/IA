@@ -71,6 +71,7 @@ MainWindow::MainWindow (QWidget *parent) :
         //Player *player = new Glouton1;
         m_joueursManager.add(player);
     }
+    m_wJoueursManager->actualiser();
 
 
     // Création des docks
