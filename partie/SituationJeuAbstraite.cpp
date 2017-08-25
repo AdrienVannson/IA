@@ -1,6 +1,6 @@
-#include "AbstractGameSituation.hpp"
+#include "SituationJeuAbstraite.hpp"
 
-AbstractGameSituation::AbstractGameSituation (const int nbJoueurs) :
+SituationJeuAbstraite::SituationJeuAbstraite (const int nbJoueurs) :
     m_iPlayer (0),
     m_nbJoueurs (nbJoueurs),
     m_estFini (false)
@@ -14,7 +14,7 @@ AbstractGameSituation::AbstractGameSituation (const int nbJoueurs) :
  * Nombre de joueurs
  */
 
-int AbstractGameSituation::nbJoueurs () const
+int SituationJeuAbstraite::nbJoueurs () const
 {
     return m_nbJoueurs;
 }
@@ -25,12 +25,12 @@ int AbstractGameSituation::nbJoueurs () const
  * Joueur devant jouer le coup suivant
  */
 
-int AbstractGameSituation::iPlayer () const
+int SituationJeuAbstraite::iPlayer () const
 {
     return m_iPlayer;
 }
 
-void AbstractGameSituation::setIPlayer (const int iPlayer)
+void SituationJeuAbstraite::setIPlayer (const int iPlayer)
 {
     m_iPlayer = iPlayer;
 }
@@ -41,12 +41,12 @@ void AbstractGameSituation::setIPlayer (const int iPlayer)
  * Fin de la partie
  */
 
-bool AbstractGameSituation::estFini () const
+bool SituationJeuAbstraite::estFini () const
 {
     return m_estFini;
 }
 
-int AbstractGameSituation::idVainqueur () const
+int SituationJeuAbstraite::idVainqueur () const
 {
     int iJoueurMax = -1;
     int meilleurScore = std::numeric_limits<int>::min();

@@ -6,7 +6,7 @@
 #include <limits>
 
 
-class AbstractGameSituation
+class SituationJeuAbstraite
 {
 
 public:
@@ -14,7 +14,7 @@ public:
     static const int NB_MAX_JOUEURS = 4;
 
 
-    AbstractGameSituation (const int nbJoueurs=2);
+    SituationJeuAbstraite (const int nbJoueurs=2);
 
     // Nombre de joueurs
     int nbJoueurs () const;
