@@ -1,4 +1,4 @@
-#include "AbstractExternalPlayer.hpp"
+#include "JoueurExterneAbstrait.hpp"
 
 
 /*
@@ -83,24 +83,24 @@ public:
  */
 
 
-AbstractExternalPlayer::AbstractExternalPlayer (const std::string &chemin) :
+JoueurExterneAbstrait::JoueurExterneAbstrait (const std::string &chemin) :
     m_chemin (chemin),
     m_prog (0)
 {
 }
 
-AbstractExternalPlayer::~AbstractExternalPlayer ()
+JoueurExterneAbstrait::~JoueurExterneAbstrait ()
 {
 }
 
 
-void AbstractExternalPlayer::startGame ()
+void JoueurExterneAbstrait::startGame ()
 {
     const char* const argv[] = {m_chemin.c_str(), (const char*)0};
     m_prog = new spawn(argv);
 }
 
-void AbstractExternalPlayer::endGame ()
+void JoueurExterneAbstrait::endGame ()
 {
     m_prog->send_eof();
     kill(m_prog->child_pid, SIGTERM);
@@ -110,21 +110,21 @@ void AbstractExternalPlayer::endGame ()
 
 
 
-std::string AbstractExternalPlayer::getLine ()
+std::string JoueurExterneAbstrait::getLine ()
 {
     std::string output;
     std::getline(m_prog->stdout, output);
     return output;
 }
 
-void AbstractExternalPlayer::send (const std::string &data)
+void JoueurExterneAbstrait::send (const std::string &data)
 {
     m_prog->stdin << data;
     m_prog->stdin.flush();
 }
 
 
-void AbstractExternalPlayer::setChemin (const std::string &chemin)
+void JoueurExterneAbstrait::setChemin (const std::string &chemin)
 {
     m_chemin = chemin;
 }

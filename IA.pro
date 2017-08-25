@@ -27,13 +27,13 @@ SOURCES += main.cpp\
     UI/WGameRunner.cpp \
     GameRunnerThread.cpp \
     partie/AbstractGameSituation.cpp \
-    joueurs/AbstractExternalPlayer.cpp \
     tools/batchrunner/WBatchRunner.cpp \
     UI/WManagerQWidget.cpp \
     partie/Joueur/JoueurFactory.cpp \
     UI/WAbstractPartie.cpp \
     partie/Partie.cpp \
-    partie/PartieDecrite.cpp
+    partie/PartieDecrite.cpp \
+    joueurs/JoueurExterneAbstrait.cpp
 
 HEADERS  += \
     partie/Tour.h \
@@ -49,14 +49,14 @@ HEADERS  += \
     UI/WGameRunner.hpp \
     GameRunnerThread.hpp \
     partie/AbstractGameSituation.hpp \
-    joueurs/AbstractExternalPlayer.hpp \
     tools/batchrunner/WBatchRunner.hpp \
     UI/WManagerQWidget.hpp \
     partie/Joueur/Joueur.hpp \
     partie/Joueur/JoueurFactory.hpp \
     UI/WAbstractPartie.hpp \
     partie/Partie.hpp \
-    partie/PartieDecrite.hpp
+    partie/PartieDecrite.hpp \
+    joueurs/JoueurExterneAbstrait.hpp
 
 RESOURCES += \
     resources/resources.qrc

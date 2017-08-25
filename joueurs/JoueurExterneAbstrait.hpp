@@ -14,13 +14,13 @@
 class spawn;
 
 
-class AbstractExternalPlayer : public Joueur
+class JoueurExterneAbstrait : public Joueur
 {
 
 public:
 
-    AbstractExternalPlayer (const std::string &chemin="");
-    ~AbstractExternalPlayer ();
+    JoueurExterneAbstrait (const std::string &chemin="");
+    ~JoueurExterneAbstrait ();
 
 
     void startGame ();
