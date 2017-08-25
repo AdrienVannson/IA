@@ -1,18 +1,18 @@
 #include "Tour.h"
 
-Tour::Tour (const GameSituation &situationDepart)
+Tour::Tour (const SituationJeu &situationDepart)
 {
     m_situationJeu = situationDepart;
 }
 
 
 // Situation de jeu
-GameSituation Tour::situationJeu () const
+SituationJeu Tour::situationJeu () const
 {
     return m_situationJeu;
 }
 
-void Tour::setSituationJeu (const GameSituation &nouvelleSituationJeu)
+void Tour::setSituationJeu (const SituationJeu &nouvelleSituationJeu)
 {
     m_situationJeu = nouvelleSituationJeu;
 }
