@@ -9,12 +9,12 @@
 #include <exception>
 #include <string>
 
-#include "partie/Joueur/Player.hpp"
+#include "partie/Joueur/Joueur.hpp"
 
 class spawn;
 
 
-class AbstractExternalPlayer : public Player
+class AbstractExternalPlayer : public Joueur
 {
 
 public:

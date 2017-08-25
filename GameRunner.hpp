@@ -9,7 +9,7 @@
 
 #include "partie/SimulateurPartie.h"
 #include "partie/DescribedGame.hpp.h"
-#include "partie/Joueur/Player.hpp"
+#include "partie/Joueur/Joueur.hpp"
 #include "GameRunnerThread.hpp"
 
 
@@ -22,7 +22,7 @@ public:
 
     GameRunner ();
 
-    void runGame (std::vector< std::shared_ptr<Player> > &players);
+    void runGame (std::vector< std::shared_ptr<Joueur> > &players);
 
     int nbPendingGames () const;
 
@@ -43,7 +43,7 @@ private:
     void runPendingGames ();
 
     bool m_isGamePlaying;
-    std::queue< std::vector<std::shared_ptr<Player>> > m_pendingGames;
+    std::queue< std::vector<std::shared_ptr<Joueur>> > m_pendingGames;
 
 
 };

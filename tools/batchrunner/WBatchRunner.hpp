@@ -9,7 +9,7 @@
 #include <memory>
 #include <vector>
 
-#include "partie/Joueur/Player.hpp"
+#include "partie/Joueur/Joueur.hpp"
 
 
 class WBatchRunner : public QWidget
@@ -21,12 +21,12 @@ public:
 
     explicit WBatchRunner (QWidget *parent=0);
 
-    void addPlayer (const std::shared_ptr<Player> &player);
+    void addPlayer (const std::shared_ptr<Joueur> &player);
 
 
 private:
 
-    std::vector< std::shared_ptr<Player> > m_players;
+    std::vector< std::shared_ptr<Joueur> > m_players;
 
     QPushButton *m_startButton;
     QProgressBar *m_progressBar;

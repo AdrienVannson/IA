@@ -53,8 +53,8 @@ public slots:
 
 private:
 
-    Manager<Player> m_joueursManager;
-    WManager<Player, WApercuJoueur> *m_wJoueursManager;
+    Manager<Joueur> m_joueursManager;
+    WManager<Joueur, WApercuJoueur> *m_wJoueursManager;
 
     Manager<DescribedGame> m_partiesManager;
     WManager<DescribedGame, WApercuPartie> *m_wPartiesManager;

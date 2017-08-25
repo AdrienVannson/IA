@@ -44,7 +44,6 @@ HEADERS  += \
     UI/WApercuJoueur.hpp \
     UI/WApercuPartie.hpp \
     EventsManager.hpp \
-    partie/Joueur/Player.hpp \
     UI/MainWindow.hpp \
     GameRunner.hpp \
     UI/WGameRunner.hpp \
@@ -56,7 +55,8 @@ HEADERS  += \
     partie/DescribedGame.hpp.h \
     UI/WAbstractGame.hpp \
     tools/batchrunner/WBatchRunner.hpp \
-    UI/WManagerQWidget.hpp
+    UI/WManagerQWidget.hpp \
+    partie/Joueur/Joueur.hpp
 
 RESOURCES += \
     resources/resources.qrc

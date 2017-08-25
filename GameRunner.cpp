@@ -6,7 +6,7 @@ GameRunner::GameRunner() :
     qRegisterMetaType< std::shared_ptr<Game> >("std::shared_ptr<Game>");
 }
 
-void GameRunner::runGame (std::vector< std::shared_ptr<Player> > &players)
+void GameRunner::runGame (std::vector< std::shared_ptr<Joueur> > &players)
 {
     m_pendingGames.push(players);
     runPendingGames();
@@ -36,7 +36,7 @@ void GameRunner::runPendingGames ()
 
     m_isGamePlaying = true;
 
-    std::vector<std::shared_ptr<Player>> players = m_pendingGames.front();
+    std::vector<std::shared_ptr<Joueur>> players = m_pendingGames.front();
     m_pendingGames.pop();
 
     emit updated();

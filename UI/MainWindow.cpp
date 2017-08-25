@@ -53,7 +53,7 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     // Affichage des joueurs
-    m_wJoueursManager = new WManager<Player, WApercuJoueur>;
+    m_wJoueursManager = new WManager<Joueur, WApercuJoueur>;
     m_wJoueursManager->setManager(&m_joueursManager);
 
     QDockWidget *dockJoueurs = new QDockWidget("Joueurs", this);
@@ -67,8 +67,8 @@ MainWindow::MainWindow (QWidget *parent) :
 
     // Création de joueurs
     for (int iPlayer=0; iPlayer<4; iPlayer++) {
-        Player *player = new ExternalPlayer ("/media/adrien/DATA_LINUX/Documents/CodinGame/Tron-Battle/Tron-IA/prog");
-        //Player *player = new Glouton1;
+        Joueur *player = new ExternalPlayer ("/media/adrien/DATA_LINUX/Documents/CodinGame/Tron-Battle/Tron-IA/prog");
+        //Joueur *player = new Glouton1;
         m_joueursManager.add(player);
     }
     m_wJoueursManager->actualiser();
@@ -138,7 +138,7 @@ void MainWindow::addBatchRunnerDock ()
 {
     WBatchRunner *wBatchRunner = new WBatchRunner;
 
-    for (std::shared_ptr<Player> &player : m_joueursManager.getAll()) {
+    for (std::shared_ptr<Joueur> &player : m_joueursManager.getAll()) {
         wBatchRunner->addPlayer(player);
     }
 

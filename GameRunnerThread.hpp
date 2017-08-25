@@ -17,7 +17,7 @@ public:
 
     explicit GameRunnerThread (QObject *parent=0);
 
-    void setPlayers (const std::vector< std::shared_ptr<Player> > &players);
+    void setPlayers (const std::vector< std::shared_ptr<Joueur> > &players);
 
     void run ();
 
@@ -29,7 +29,7 @@ signals:
 
 private:
 
-    std::vector< std::shared_ptr<Player> > m_players;
+    std::vector< std::shared_ptr<Joueur> > m_players;
 
 
 };

@@ -1,7 +1,3 @@
-/*
- * Joueur pouvant jouer au jeu
- */
-
 #ifndef PLAYER_H
 #define PLAYER_H
 
@@ -9,13 +5,13 @@
 #include "InformationsTourJoueur.h"
 
 
-class Player
+class Joueur
 {
 
 public:
 
-    Player () {}
-    virtual ~Player () {}
+    Joueur () {}
+    virtual ~Joueur () {}
 
 
     virtual void startGame () {} // Appelé au début du jeu
