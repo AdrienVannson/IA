@@ -3,7 +3,7 @@
 GameRunner::GameRunner() :
     m_isGamePlaying (false)
 {
-    qRegisterMetaType< std::shared_ptr<Game> >("std::shared_ptr<Game>");
+    qRegisterMetaType< std::shared_ptr<Partie> >("std::shared_ptr<Partie>");
 }
 
 void GameRunner::runGame (std::vector< std::shared_ptr<Joueur> > &players)
@@ -19,9 +19,9 @@ int GameRunner::nbPendingGames () const
     return m_pendingGames.size();
 }
 
-void GameRunner::handleResults (std::shared_ptr<Game> partie)
+void GameRunner::handleResults (std::shared_ptr<Partie> partie)
 {
-    std::shared_ptr<DescribedGame> partieDecrite (new DescribedGame(*partie.get()));
+    std::shared_ptr<PartieDecrite> partieDecrite (new PartieDecrite(*partie.get()));
     emit gameRunned(partieDecrite);
 
     m_isGamePlaying = false;

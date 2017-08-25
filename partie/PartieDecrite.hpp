@@ -8,16 +8,16 @@
 #include <string>
 #include <vector>
 
-#include "Game.hpp"
+#include "Partie.hpp"
 
 
-class DescribedGame : public Game
+class PartieDecrite : public Partie
 {
 
 public:
 
-    DescribedGame ();
-    DescribedGame (const Game &partie);
+    PartieDecrite ();
+    PartieDecrite (const Partie &partie);
 
     int id () const;
 

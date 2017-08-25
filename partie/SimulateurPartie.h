@@ -9,7 +9,7 @@
 #include <vector>
 
 #include "Joueur/Joueur.hpp"
-#include "Game.hpp"
+#include "Partie.hpp"
 #include "Arbitre.hpp"
 #include "InformationsTourJoueurFactory.h"
 
@@ -21,7 +21,7 @@ public:
 
     SimulateurPartie ();
 
-    static Game* simulerPartie (const SituationJeu &sitDepart, std::vector< std::shared_ptr<Joueur> > &joueurs);
+    static Partie* simulerPartie (const SituationJeu &sitDepart, std::vector< std::shared_ptr<Joueur> > &joueurs);
 
 };
 

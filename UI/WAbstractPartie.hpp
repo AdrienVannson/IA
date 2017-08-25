@@ -6,7 +6,7 @@
 
 #include <memory>
 
-#include "partie/DescribedGame.hpp"
+#include "partie/PartieDecrite.hpp"
 #include "EventsManager.hpp"
 
 
@@ -22,7 +22,7 @@ public:
 
 public slots:
 
-    void showGame (const std::shared_ptr<const DescribedGame> &partie);
+    void showGame (const std::shared_ptr<const PartieDecrite> &partie);
     void tourSuivant ();
 
 
@@ -32,7 +32,7 @@ protected:
     virtual void afficherTourActuel () = 0;
 
 
-    Game m_partie;
+    Partie m_partie;
     int m_iTourActuel;
 
 

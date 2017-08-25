@@ -5,7 +5,7 @@
 
 #include <memory>
 
-#include "partie/Game.hpp"
+#include "partie/Partie.hpp"
 #include "partie/SimulateurPartie.h"
 
 
@@ -24,7 +24,7 @@ public:
 
 signals:
 
-    void simulationDone (std::shared_ptr<Game> partie);
+    void simulationDone (std::shared_ptr<Partie> partie);
 
 
 private:

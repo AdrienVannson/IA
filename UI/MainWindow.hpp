@@ -11,7 +11,7 @@
 #include <cstdlib>
 
 #include "Arbitre.hpp"
-#include "partie/DescribedGame.hpp"
+#include "partie/PartieDecrite.hpp"
 #include "WPartie.hpp"
 #include "WJouerPartie.h"
 #include "Manager.hpp"
@@ -40,7 +40,7 @@ public:
 
 public slots:
 
-    void addGame (const std::shared_ptr<DescribedGame> &game);
+    void addGame (const std::shared_ptr<PartieDecrite> &game);
     void registerGameOverview (QWidget *apercu);
 
     // UI
@@ -56,8 +56,8 @@ private:
     Manager<Joueur> m_joueursManager;
     WManager<Joueur, WApercuJoueur> *m_wJoueursManager;
 
-    Manager<DescribedGame> m_partiesManager;
-    WManager<DescribedGame, WApercuPartie> *m_wPartiesManager;
+    Manager<PartieDecrite> m_partiesManager;
+    WManager<PartieDecrite, WApercuPartie> *m_wPartiesManager;
 
     EventsManager m_eventsManager;
     GameRunner m_gameRunner;

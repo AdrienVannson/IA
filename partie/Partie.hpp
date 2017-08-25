@@ -10,12 +10,12 @@
 #include "Tour.h"
 
 
-class Game
+class Partie
 {
 
 public:
 
-    Game ();
+    Partie ();
 
     const std::vector<Tour>* tours () const;
     Tour* dernierTour ();
