@@ -10,7 +10,7 @@
 
 #include <cstdlib>
 
-#include "Referee.hpp"
+#include "Arbitre.hpp"
 #include "partie/DescribedGame.hpp.h"
 #include "WGame.hpp"
 #include "WJouerPartie.h"

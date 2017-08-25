@@ -10,7 +10,7 @@
 
 #include "Joueur/Player.hpp"
 #include "Game.hpp"
-#include "Referee.hpp"
+#include "Arbitre.hpp"
 #include "InformationsTourJoueurFactory.h"
 
 

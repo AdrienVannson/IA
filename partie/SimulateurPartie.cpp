@@ -21,7 +21,7 @@ Game* SimulateurPartie::simulerPartie (const SituationJeu &sitDepart, std::vecto
         tour->setAction(action);
 
         Tour nouveauTour;
-        nouveauTour.setSituationJeu(Referee::simulerAction(tour->situationJeu(), action));
+        nouveauTour.setSituationJeu(Arbitre::simulerAction(tour->situationJeu(), action));
 
         partie->addTour(nouveauTour);
     }
