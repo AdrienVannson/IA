@@ -28,7 +28,7 @@ SOURCES += main.cpp\
     GameRunnerThread.cpp \
     partie/AbstractGameSituation.cpp \
     partie/Game.cpp \
-    players/AbstractExternalPlayer.cpp \
+    joueurs/AbstractExternalPlayer.cpp \
     partie/Joueur/PlayerFactory.cpp \
     partie/DescribedGame.cpp \
     UI/WAbstractGame.cpp \
@@ -51,7 +51,7 @@ HEADERS  += \
     GameRunnerThread.hpp \
     partie/AbstractGameSituation.hpp \
     partie/Game.hpp \
-    players/AbstractExternalPlayer.hpp \
+    joueurs/AbstractExternalPlayer.hpp \
     partie/Joueur/PlayerFactory.hpp \
     partie/DescribedGame.hpp.h \
     UI/WAbstractGame.hpp \
