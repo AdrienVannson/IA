@@ -6,12 +6,12 @@
 #include "Joueur.hpp"
 
 
-class PlayerFactory
+class JoueurFactory
 {
 
 public:
 
-    PlayerFactory ();
+    JoueurFactory ();
 
     virtual std::shared_ptr<Joueur> getNewPlayer () const = 0;
 

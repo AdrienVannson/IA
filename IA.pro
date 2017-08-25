@@ -29,11 +29,11 @@ SOURCES += main.cpp\
     partie/AbstractGameSituation.cpp \
     partie/Game.cpp \
     joueurs/AbstractExternalPlayer.cpp \
-    partie/Joueur/PlayerFactory.cpp \
     partie/DescribedGame.cpp \
     UI/WAbstractGame.cpp \
     tools/batchrunner/WBatchRunner.cpp \
-    UI/WManagerQWidget.cpp
+    UI/WManagerQWidget.cpp \
+    partie/Joueur/JoueurFactory.cpp
 
 HEADERS  += \
     partie/Tour.h \
@@ -51,12 +51,12 @@ HEADERS  += \
     partie/AbstractGameSituation.hpp \
     partie/Game.hpp \
     joueurs/AbstractExternalPlayer.hpp \
-    partie/Joueur/PlayerFactory.hpp \
     partie/DescribedGame.hpp.h \
     UI/WAbstractGame.hpp \
     tools/batchrunner/WBatchRunner.hpp \
     UI/WManagerQWidget.hpp \
-    partie/Joueur/Joueur.hpp
+    partie/Joueur/Joueur.hpp \
+    partie/Joueur/JoueurFactory.hpp
 
 RESOURCES += \
     resources/resources.qrc
