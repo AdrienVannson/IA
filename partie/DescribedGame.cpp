@@ -1,4 +1,4 @@
-#include "DescribedGame.hpp.h"
+#include "DescribedGame.hpp"
 
 // Initialisation des membres statiques
 int DescribedGame::m_idSuivant = 0;

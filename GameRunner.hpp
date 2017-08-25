@@ -8,7 +8,7 @@
 #include <queue>
 
 #include "partie/SimulateurPartie.h"
-#include "partie/DescribedGame.hpp.h"
+#include "partie/DescribedGame.hpp"
 #include "partie/Joueur/Joueur.hpp"
 #include "GameRunnerThread.hpp"
 

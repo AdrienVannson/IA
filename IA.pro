@@ -51,12 +51,12 @@ HEADERS  += \
     partie/AbstractGameSituation.hpp \
     partie/Game.hpp \
     joueurs/AbstractExternalPlayer.hpp \
-    partie/DescribedGame.hpp.h \
     tools/batchrunner/WBatchRunner.hpp \
     UI/WManagerQWidget.hpp \
     partie/Joueur/Joueur.hpp \
     partie/Joueur/JoueurFactory.hpp \
-    UI/WAbstractPartie.hpp
+    UI/WAbstractPartie.hpp \
+    partie/DescribedGame.hpp
 
 RESOURCES += \
     resources/resources.qrc

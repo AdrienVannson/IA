@@ -6,7 +6,7 @@
 
 #include <memory>
 
-#include "partie/DescribedGame.hpp.h"
+#include "partie/DescribedGame.hpp"
 #include "EventsManager.hpp"
 
 
