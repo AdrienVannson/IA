@@ -10,13 +10,13 @@
 #include "EventsManager.hpp"
 
 
-class WAbstractGame : public QWidget
+class WAbstractPartie : public QWidget
 {
     Q_OBJECT
 
 public:
 
-    explicit WAbstractGame (QWidget *parent = 0);
+    explicit WAbstractPartie (QWidget *parent = 0);
 
 
 

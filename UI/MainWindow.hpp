@@ -12,7 +12,7 @@
 
 #include "Arbitre.hpp"
 #include "partie/DescribedGame.hpp.h"
-#include "WGame.hpp"
+#include "WPartie.hpp"
 #include "WJouerPartie.h"
 #include "Manager.hpp"
 #include "WManager.hpp"

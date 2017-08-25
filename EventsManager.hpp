@@ -4,10 +4,10 @@
 #include <QObject>
 
 #include "UI/WApercuPartie.hpp"
-#include "UI/WAbstractGame.hpp"
+#include "UI/WAbstractPartie.hpp"
 
 class WApercuPartie;
-class WAbstractGame;
+class WAbstractPartie;
 
 
 class EventsManager : public QObject
@@ -22,8 +22,8 @@ public:
     void add (const WApercuPartie *wApercuPartie);
     void remove (const WApercuPartie *wApercuPartie);
 
-    void add (WAbstractGame *wPartie);
-    void remove (WAbstractGame *wPartie);
+    void add (WAbstractPartie *wPartie);
+    void remove (WAbstractPartie *wPartie);
 
 
 public slots:
@@ -33,7 +33,7 @@ public slots:
 
 private:
 
-    WAbstractGame *m_widgetPartie;
+    WAbstractPartie *m_widgetPartie;
 
 };
 

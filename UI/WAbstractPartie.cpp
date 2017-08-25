@@ -1,17 +1,17 @@
-#include "WAbstractGame.hpp"
+#include "WAbstractPartie.hpp"
 
-WAbstractGame::WAbstractGame (QWidget *parent) :
+WAbstractPartie::WAbstractPartie (QWidget *parent) :
     QWidget (parent),
     m_iTourActuel (0)
 {
     // Timer
     m_timer = new QTimer(this);
     m_timer->setInterval(100);
-    connect(m_timer, &QTimer::timeout, this, &WAbstractGame::tourSuivant);
+    connect(m_timer, &QTimer::timeout, this, &WAbstractPartie::tourSuivant);
 }
 
 
-void WAbstractGame::showGame (const std::shared_ptr<const DescribedGame> &partie)
+void WAbstractPartie::showGame (const std::shared_ptr<const DescribedGame> &partie)
 {
     m_partie = *partie;
     m_iTourActuel = 0;
@@ -21,7 +21,7 @@ void WAbstractGame::showGame (const std::shared_ptr<const DescribedGame> &partie
     updateGeometry();
 }
 
-void WAbstractGame::tourSuivant ()
+void WAbstractPartie::tourSuivant ()
 {
     m_iTourActuel = (m_iTourActuel+1) % m_partie.tours()->size();
     afficherTourActuel();

@@ -117,7 +117,7 @@ void MainWindow::afficherAPropos ()
 
 void MainWindow::addGameDock ()
 {
-    WGame *widgetPartie = new WGame;
+    WPartie *widgetPartie = new WPartie;
     m_eventsManager.add(widgetPartie);
 
     QDockWidget *dockPartie = new QDockWidget("Partie", this);
