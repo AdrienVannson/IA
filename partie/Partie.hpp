@@ -7,7 +7,7 @@
 
 #include <vector>
 
-#include "Tour.h"
+#include "Tour.hpp"
 
 
 class Partie

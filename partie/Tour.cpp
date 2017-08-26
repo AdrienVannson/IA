@@ -1,4 +1,4 @@
-#include "Tour.h"
+#include "Tour.hpp"
 
 Tour::Tour (const SituationJeu &situationDepart)
 {
