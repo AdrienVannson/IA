@@ -23,9 +23,6 @@ public:
     ~JoueurExterneAbstrait ();
 
 
-    void startGame ();
-    void endGame ();
-
     void setChemin (const std::string &chemin);
 
 

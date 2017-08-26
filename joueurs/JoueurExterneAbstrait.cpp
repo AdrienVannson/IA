@@ -87,20 +87,11 @@ JoueurExterneAbstrait::JoueurExterneAbstrait (const std::string &chemin) :
     m_chemin (chemin),
     m_prog (0)
 {
-}
-
-JoueurExterneAbstrait::~JoueurExterneAbstrait ()
-{
-}
-
-
-void JoueurExterneAbstrait::startGame ()
-{
     const char* const argv[] = {m_chemin.c_str(), (const char*)0};
     m_prog = new spawn(argv);
 }
 
-void JoueurExterneAbstrait::endGame ()
+JoueurExterneAbstrait::~JoueurExterneAbstrait ()
 {
     m_prog->send_eof();
     kill(m_prog->child_pid, SIGTERM);
