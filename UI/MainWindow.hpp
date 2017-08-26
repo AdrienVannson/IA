@@ -22,6 +22,7 @@
 #include "WGameRunner.hpp"
 #include "tools/batchrunner/WBatchRunner.hpp"
 #include "EventsManager.hpp"
+#include "initialiser.hpp"
 
 // Simulation d'une partie, TODEL
 #include "Joueurs/ExternalPlayer/ExternalPlayerFactory.hpp"
@@ -36,6 +37,8 @@ public:
 
     explicit MainWindow (QWidget *parent = 0);
     ~MainWindow();
+
+    Manager<Joueur>* joueursManager ();
 
 
 public slots:

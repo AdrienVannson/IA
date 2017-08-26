@@ -65,21 +65,10 @@ MainWindow::MainWindow (QWidget *parent) :
     connect(&m_gameRunner, &GameRunner::gameRunned, this, &MainWindow::addGame);
 
 
-    // Création de joueurs
-    for (int iPlayer=0; iPlayer<4; iPlayer++) {
-        Joueur *player = new ExternalPlayer ("/media/adrien/DATA_LINUX/Documents/CodinGame/Tron-Battle/Tron-IA/prog");
-        //Joueur *player = new Glouton1;
-        m_joueursManager.add(player);
-    }
-    m_wJoueursManager->actualiser();
-
-
     // Création des docks
     addGameDock();
     addGameRunnerDock();
     addBatchRunnerDock();
-
-    m_wPartiesManager->actualiser();
 
     // Création de parties à la demande
     /*WJouerPartie *wJouerPartie = new WJouerPartie (m_joueursManager, m_partiesManager);
@@ -87,11 +76,23 @@ MainWindow::MainWindow (QWidget *parent) :
     QDockWidget *dockJouerPartie = new QDockWidget("Jouer une partie", this);
     dockJouerPartie->setWidget(wJouerPartie);
     addDockWidget(Qt::RightDockWidgetArea, dockJouerPartie);*/
+
+
+    // Initialisation
+    initialiser (this);
+
+    m_wJoueursManager->actualiser();
+    m_wPartiesManager->actualiser();
 }
 
 MainWindow::~MainWindow ()
 {
 
+}
+
+Manager<Joueur>* MainWindow::joueursManager ()
+{
+    return &m_joueursManager;
 }
 
 
