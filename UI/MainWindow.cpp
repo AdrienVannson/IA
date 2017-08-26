@@ -95,6 +95,16 @@ Manager<Joueur>* MainWindow::joueursManager ()
     return &m_joueursManager;
 }
 
+Manager<PartieDecrite>* MainWindow::partiesManager ()
+{
+    return &m_partiesManager;
+}
+
+GameRunner* MainWindow::gameRunner ()
+{
+    return &m_gameRunner;
+}
+
 
 void MainWindow::addGame (const std::shared_ptr<PartieDecrite> &game)
 {

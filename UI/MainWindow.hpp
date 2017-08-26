@@ -24,10 +24,6 @@
 #include "EventsManager.hpp"
 #include "initialiser.hpp"
 
-// Simulation d'une partie, TODEL
-#include "Joueurs/ExternalPlayer/ExternalPlayerFactory.hpp"
-#include "Joueurs/Glouton1/Glouton1Factory.h"
-
 
 class MainWindow : public QMainWindow
 {
@@ -39,6 +35,8 @@ public:
     ~MainWindow();
 
     Manager<Joueur>* joueursManager ();
+    Manager<PartieDecrite>* partiesManager ();
+    GameRunner* gameRunner ();
 
 
 public slots:
