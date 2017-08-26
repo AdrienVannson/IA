@@ -21,12 +21,8 @@ public:
 
     explicit WBatchRunner (QWidget *parent=0);
 
-    void addPlayer (const std::shared_ptr<Joueur> &player);
-
 
 private:
-
-    std::vector< std::shared_ptr<Joueur> > m_players;
 
     QPushButton *m_startButton;
     QProgressBar *m_progressBar;

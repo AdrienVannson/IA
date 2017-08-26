@@ -53,7 +53,7 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     // Affichage des joueurs
-    m_wJoueursManager = new WManager<Joueur, WApercuJoueur>;
+    m_wJoueursManager = new WManager<JoueurFactory, WApercuJoueur>;
     m_wJoueursManager->setManager(&m_joueursManager);
 
     QDockWidget *dockJoueurs = new QDockWidget("Joueurs", this);
@@ -90,7 +90,7 @@ MainWindow::~MainWindow ()
 
 }
 
-Manager<Joueur>* MainWindow::joueursManager ()
+Manager<JoueurFactory>* MainWindow::joueursManager ()
 {
     return &m_joueursManager;
 }
@@ -148,10 +148,6 @@ void MainWindow::addGameRunnerDock ()
 void MainWindow::addBatchRunnerDock ()
 {
     WBatchRunner *wBatchRunner = new WBatchRunner;
-
-    for (std::shared_ptr<Joueur> &player : m_joueursManager.getAll()) {
-        wBatchRunner->addPlayer(player);
-    }
 
     QDockWidget *dock = new QDockWidget("Batch Run", this);
     dock->setWidget(wBatchRunner);

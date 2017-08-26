@@ -23,6 +23,7 @@
 #include "tools/batchrunner/WBatchRunner.hpp"
 #include "EventsManager.hpp"
 #include "initialiser.hpp"
+#include "partie/Joueur/JoueurFactory.hpp"
 
 
 class MainWindow : public QMainWindow
@@ -34,7 +35,7 @@ public:
     explicit MainWindow (QWidget *parent = 0);
     ~MainWindow();
 
-    Manager<Joueur>* joueursManager ();
+    Manager<JoueurFactory>* joueursManager ();
     Manager<PartieDecrite>* partiesManager ();
     GameRunner* gameRunner ();
 
@@ -54,8 +55,8 @@ public slots:
 
 private:
 
-    Manager<Joueur> m_joueursManager;
-    WManager<Joueur, WApercuJoueur> *m_wJoueursManager;
+    Manager<JoueurFactory> m_joueursManager;
+    WManager<JoueurFactory, WApercuJoueur> *m_wJoueursManager;
 
     Manager<PartieDecrite> m_partiesManager;
     WManager<PartieDecrite, WApercuPartie> *m_wPartiesManager;

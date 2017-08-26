@@ -13,8 +13,3 @@ WBatchRunner::WBatchRunner(QWidget *parent) :
     m_progressBar->setValue(42);
     layout->addWidget(m_progressBar);
 }
-
-void WBatchRunner::addPlayer (const std::shared_ptr<Joueur> &player)
-{
-    m_players.push_back(player);
-}
