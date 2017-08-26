@@ -11,7 +11,7 @@
 #include "Joueur/Joueur.hpp"
 #include "Partie.hpp"
 #include "Arbitre.hpp"
-#include "InformationsTourJoueurFactory.h"
+#include "InfosFactory.hpp"
 
 
 class SimulateurPartie

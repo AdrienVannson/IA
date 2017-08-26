@@ -2,7 +2,7 @@
 #define PLAYER_H
 
 #include "Action.hpp"
-#include "InformationsTourJoueur.h"
+#include "InfosTour.hpp"
 
 
 class Joueur
@@ -17,7 +17,7 @@ public:
     virtual void startGame () {} // Appelé au début du jeu
     virtual void endGame () {} // Appelé à la fin du jeu
 
-    virtual Action jouerAction (const InformationsTourJoueur &informations) = 0;
+    virtual Action jouerAction (const InfosTour &informations) = 0;
 
 };
 

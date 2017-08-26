@@ -15,7 +15,7 @@ Partie* SimulateurPartie::simulerPartie (const SituationJeu &sitDepart, std::vec
         Tour *tour = partie->dernierTour();
         const int iJoueur = tour->situationJeu().iPlayer();
 
-        const InformationsTourJoueur &informations = InformationsTourJoueurFactory::creerInformationsTourJoueur(*partie, iJoueur);
+        const InfosTour &informations = InfosFactory::creerInfosTour(*partie, iJoueur);
 
         Action action = joueurs[iJoueur]->jouerAction(informations);
         tour->setAction(action);
