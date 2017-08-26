@@ -13,7 +13,7 @@ void GameRunnerThread::setPlayers (const std::vector< std::shared_ptr<Joueur> > 
 void GameRunnerThread::run ()
 {
     SituationJeu situationDepart (m_players.size());
-    situationDepart.init();
+    situationDepart.initialiser();
 
     Partie *partie = SimulateurPartie::simulerPartie(situationDepart, m_players);
 
