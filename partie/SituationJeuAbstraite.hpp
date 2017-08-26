@@ -2,8 +2,8 @@
 #define ABSTRACTGAMESITUATION_HPP
 
 #include <algorithm>
-#include <array>
 #include <limits>
+#include <vector>
 
 
 class SituationJeuAbstraite
@@ -11,12 +11,8 @@ class SituationJeuAbstraite
 
 public:
 
-    static const int NB_MAX_JOUEURS = 4;
-
-
     SituationJeuAbstraite (const int nbJoueurs=2);
 
-    // Nombre de joueurs
     int nbJoueurs () const;
 
     // Joueur devant jouer le coup suivant
@@ -31,10 +27,9 @@ public:
 
     // Public members
     int m_iPlayer;
-    int m_nbJoueurs;
 
     bool m_estFini;
-    std::array<int, NB_MAX_JOUEURS> m_scores;
+    std::vector<int> m_scores;
 
 };
 

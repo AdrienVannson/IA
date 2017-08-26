@@ -2,21 +2,16 @@
 
 SituationJeuAbstraite::SituationJeuAbstraite (const int nbJoueurs) :
     m_iPlayer (0),
-    m_nbJoueurs (nbJoueurs),
     m_estFini (false)
 {
+    m_scores.resize(nbJoueurs);
     std::fill(m_scores.begin(), m_scores.end(), 0);
 }
 
 
-
-/*
- * Nombre de joueurs
- */
-
 int SituationJeuAbstraite::nbJoueurs () const
 {
-    return m_nbJoueurs;
+    return m_scores.size();
 }
 
 
@@ -51,7 +46,7 @@ int SituationJeuAbstraite::idVainqueur () const
     int iJoueurMax = -1;
     int meilleurScore = std::numeric_limits<int>::min();
 
-    for (int iJoueur=0; iJoueur<m_nbJoueurs; iJoueur++) {
+    for (unsigned int iJoueur=0; iJoueur<m_scores.size(); iJoueur++) {
         if (m_scores[iJoueur] > meilleurScore) {
             meilleurScore = m_scores[iJoueur];
             iJoueurMax = iJoueur;
