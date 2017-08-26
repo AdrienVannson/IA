@@ -1,9 +1,7 @@
 #ifndef ABSTRACTGAMESITUATION_HPP
 #define ABSTRACTGAMESITUATION_HPP
 
-#include <algorithm>
 #include <limits>
-#include <vector>
 
 
 class SituationJeuAbstraite
@@ -19,17 +17,10 @@ public:
     int iPlayer () const;
     void setIPlayer (const int iPlayer);
 
-    // Fin de la partie
-    bool estFini () const;
-    int idVainqueur () const;
-
-
 
     // Public members
     int m_iPlayer;
-
-    bool m_estFini;
-    std::vector<int> m_scores;
+    int m_nbJoueurs;
 
 };
 
