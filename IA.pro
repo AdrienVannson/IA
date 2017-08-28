@@ -31,7 +31,6 @@ SOURCES += main.cpp\
     partie/Joueur/JoueurFactory.cpp \
     UI/WAbstractPartie.cpp \
     partie/Partie.cpp \
-    partie/PartieDecrite.cpp \
     joueurs/JoueurExterneAbstrait.cpp \
     partie/SituationJeuAbstraite.cpp \
     partie/Joueur/Joueur.cpp \
@@ -55,7 +54,6 @@ HEADERS  += \
     partie/Joueur/JoueurFactory.hpp \
     UI/WAbstractPartie.hpp \
     partie/Partie.hpp \
-    partie/PartieDecrite.hpp \
     joueurs/JoueurExterneAbstrait.hpp \
     partie/SituationJeuAbstraite.hpp \
     partie/Tour.hpp \

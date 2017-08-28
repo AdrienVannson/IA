@@ -9,7 +9,7 @@
 
 #include <memory>
 
-#include "partie/PartieDecrite.hpp"
+#include "partie/Partie.hpp"
 #include "EventsManager.hpp"
 
 
@@ -23,7 +23,7 @@ public:
     explicit WApercuPartie (QWidget *parent=0);
     ~WApercuPartie ();
 
-    void setObject (const std::shared_ptr<const PartieDecrite> &partie);
+    void setObject (const std::shared_ptr<const Partie> &partie);
 
 
 public slots:
@@ -33,12 +33,12 @@ public slots:
 
 signals:
 
-    void show (std::shared_ptr<const PartieDecrite> partie);
+    void show (std::shared_ptr<const Partie> partie);
 
 
 private:
 
-    std::shared_ptr<const PartieDecrite> m_partie;
+    std::shared_ptr<const Partie> m_partie;
 
 
 };

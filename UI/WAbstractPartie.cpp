@@ -11,7 +11,7 @@ WAbstractPartie::WAbstractPartie (QWidget *parent) :
 }
 
 
-void WAbstractPartie::showGame (const std::shared_ptr<const PartieDecrite> &partie)
+void WAbstractPartie::showGame (const std::shared_ptr<const Partie> &partie)
 {
     m_partie = *partie;
     m_iTourActuel = 0;

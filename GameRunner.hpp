@@ -8,7 +8,7 @@
 #include <queue>
 
 #include "partie/SimulateurPartie.h"
-#include "partie/PartieDecrite.hpp"
+#include "partie/Partie.hpp"
 #include "partie/Joueur/Joueur.hpp"
 #include "GameRunnerThread.hpp"
 
@@ -35,7 +35,7 @@ public slots:
 signals:
 
     void updated (); // Emit each time a game is added or finished
-    void gameRunned (std::shared_ptr<PartieDecrite> game);
+    void gameRunned (std::shared_ptr<Partie> game);
 
 
 private:

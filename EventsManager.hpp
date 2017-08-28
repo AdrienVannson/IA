@@ -28,7 +28,7 @@ public:
 
 public slots:
 
-    void showGame (std::shared_ptr<const PartieDecrite> partie);
+    void showGame (std::shared_ptr<const Partie> partie);
 
 
 private:

@@ -30,7 +30,7 @@ void EventsManager::remove (WAbstractPartie *wPartie)
 }
 
 
-void EventsManager::showGame (std::shared_ptr<const PartieDecrite> partie)
+void EventsManager::showGame (std::shared_ptr<const Partie> partie)
 {
     if (m_widgetPartie != 0) {
         m_widgetPartie->showGame(partie);

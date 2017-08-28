@@ -21,7 +21,7 @@ WApercuPartie::~WApercuPartie ()
 }
 
 
-void WApercuPartie::setObject (const std::shared_ptr<const PartieDecrite> &partie)
+void WApercuPartie::setObject (const std::shared_ptr<const Partie> &partie)
 {
     m_partie = partie;
 }

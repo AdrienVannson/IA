@@ -21,8 +21,7 @@ int GameRunner::nbPendingGames () const
 
 void GameRunner::handleResults (std::shared_ptr<Partie> partie)
 {
-    std::shared_ptr<PartieDecrite> partieDecrite (new PartieDecrite(*partie.get()));
-    emit gameRunned(partieDecrite);
+    emit gameRunned(partie);
 
     m_isGamePlaying = false;
     runPendingGames();
