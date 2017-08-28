@@ -14,5 +14,5 @@ WApercuJoueur::WApercuJoueur (QWidget *parent) :
 void WApercuJoueur::WApercuJoueur::setObject (const std::shared_ptr<const JoueurFactory> &joueur)
 {
     m_joueur = joueur;
-    m_bouton->setText("Joueur");
+    m_bouton->setText(QString(joueur->nom().c_str()));
 }
