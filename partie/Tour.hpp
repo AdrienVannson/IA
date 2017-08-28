@@ -1,7 +1,3 @@
-/*
- * Décrit un tour de jeu
- */
-
 #ifndef TOUR_H
 #define TOUR_H
 
