@@ -9,9 +9,7 @@ class SituationJeuAbstraite
 
 public:
 
-    SituationJeuAbstraite (const int nbJoueurs=2);
-
-    int nbJoueurs () const;
+    SituationJeuAbstraite ();
 
     // Joueur devant jouer le coup suivant
     int iPlayer () const;
@@ -20,7 +18,6 @@ public:
 
     // Public members
     int m_iPlayer;
-    int m_nbJoueurs;
 
 };
 

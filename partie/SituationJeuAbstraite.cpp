@@ -1,17 +1,9 @@
 #include "SituationJeuAbstraite.hpp"
 
-SituationJeuAbstraite::SituationJeuAbstraite (const int nbJoueurs) :
-    m_iPlayer (0),
-    m_nbJoueurs (nbJoueurs)
+SituationJeuAbstraite::SituationJeuAbstraite () :
+    m_iPlayer (0)
 {
 }
-
-
-int SituationJeuAbstraite::nbJoueurs () const
-{
-    return m_nbJoueurs;
-}
-
 
 
 /*
