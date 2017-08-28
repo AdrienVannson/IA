@@ -3,6 +3,8 @@
 
 #include "Action.hpp"
 #include "InfosTour.hpp"
+#include "InfosDebutPartie.hpp"
+#include "unused.hpp"
 
 
 class Joueur
@@ -10,9 +12,10 @@ class Joueur
 
 public:
 
-    Joueur () {}
-    virtual ~Joueur () {}
+    Joueur ();
+    virtual ~Joueur ();
 
+    virtual void debutPartie (const InfosDebutPartie &infos);
     virtual Action jouerAction (const InfosTour &informations) = 0;
 
 };

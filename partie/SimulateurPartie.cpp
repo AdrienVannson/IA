@@ -10,6 +10,11 @@ Partie* SimulateurPartie::simulerPartie (const SituationJeu &sitDepart, std::vec
     Partie *partie = new Partie;
     partie->addTour(Tour(sitDepart));
 
+    // Initialisation des joueurs
+    for (unsigned int iJoueur=0; iJoueur<joueurs.size(); iJoueur++) {
+        joueurs[iJoueur]->debutPartie( InfosFactory::creerInfosDebutPartie(*partie, iJoueur) );
+    }
+
     while (!partie->dernierTour()->situationJeu().estFini()) {
 
         Tour *tour = partie->dernierTour();
