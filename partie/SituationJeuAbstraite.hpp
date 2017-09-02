@@ -1,8 +1,6 @@
 #ifndef ABSTRACTGAMESITUATION_HPP
 #define ABSTRACTGAMESITUATION_HPP
 
-#include <limits>
-
 
 class SituationJeuAbstraite
 {
