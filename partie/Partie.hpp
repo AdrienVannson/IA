@@ -1,7 +1,3 @@
-/*
- * Décrit une partie
- */
-
 #ifndef GAME_HPP
 #define GAME_HPP
 
