@@ -3,14 +3,19 @@
 
 #include <QObject>
 
-#include <vector>
 #include <memory>
 #include <queue>
+#include <utility>
+#include <vector>
 
 #include "partie/SimulateurPartie.h"
 #include "partie/Partie.hpp"
 #include "partie/Joueur/Joueur.hpp"
 #include "GameRunnerThread.hpp"
+#include "unused.hpp"
+
+
+void callbackVide (std::shared_ptr<Partie> partie);
 
 
 class GameRunner : public QObject
@@ -22,7 +27,9 @@ public:
 
     GameRunner ();
 
-    void runGame (std::vector< std::shared_ptr<Joueur> > &players);
+    void runGame ( std::vector< std::shared_ptr<Joueur> > &players,
+                   void (*callback) (std::shared_ptr<Partie>)=callbackVide
+    );
 
     int nbPendingGames () const;
 
@@ -42,8 +49,9 @@ private:
 
     void runPendingGames ();
 
-    bool m_isGamePlaying;
-    std::queue< std::vector<std::shared_ptr<Joueur>> > m_pendingGames;
+    bool m_estPartieEnCours;
+    std::queue< std::pair<std::vector<std::shared_ptr<Joueur>>, void (*)(std::shared_ptr<Partie>)> > m_enAttente;
+    void (*m_callbackFinPartie) (std::shared_ptr<Partie>);
 
 
 };

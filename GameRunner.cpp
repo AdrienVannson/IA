@@ -1,14 +1,21 @@
 #include "GameRunner.hpp"
 
-GameRunner::GameRunner() :
-    m_isGamePlaying (false)
+void callbackVide (std::shared_ptr<Partie> partie)
+{
+    UNUSED(partie);
+}
+
+
+GameRunner::GameRunner () :
+    m_estPartieEnCours (false),
+    m_callbackFinPartie (0)
 {
     qRegisterMetaType< std::shared_ptr<Partie> >("std::shared_ptr<Partie>");
 }
 
-void GameRunner::runGame (std::vector< std::shared_ptr<Joueur> > &players)
+void GameRunner::runGame (std::vector< std::shared_ptr<Joueur> > &players, void (*callback) (std::shared_ptr<Partie>))
 {
-    m_pendingGames.push(players);
+    m_enAttente.push( std::make_pair(players, callback) );
     runPendingGames();
 
     emit updated();
@@ -16,32 +23,34 @@ void GameRunner::runGame (std::vector< std::shared_ptr<Joueur> > &players)
 
 int GameRunner::nbPendingGames () const
 {
-    return m_pendingGames.size();
+    return m_enAttente.size();
 }
 
 void GameRunner::handleResults (std::shared_ptr<Partie> partie)
 {
     emit gameRunned(partie);
+    m_callbackFinPartie (partie);
 
-    m_isGamePlaying = false;
+    m_estPartieEnCours = false;
     runPendingGames();
 }
 
 void GameRunner::runPendingGames ()
 {
-    if (m_isGamePlaying || m_pendingGames.empty()) {
+    if (m_estPartieEnCours || m_enAttente.empty()) {
         return;
     }
 
-    m_isGamePlaying = true;
+    m_estPartieEnCours = true;
 
-    std::vector<std::shared_ptr<Joueur>> players = m_pendingGames.front();
-    m_pendingGames.pop();
+    std::vector<std::shared_ptr<Joueur>> joueurs = m_enAttente.front().first;
+    m_callbackFinPartie = m_enAttente.front().second;
+    m_enAttente.pop();
 
     emit updated();
 
     GameRunnerThread *gameRunnerThread = new GameRunnerThread (this);
-    gameRunnerThread->setPlayers(players);
+    gameRunnerThread->setPlayers(joueurs);
     connect(gameRunnerThread, &GameRunnerThread::simulationDone, this, &GameRunner::handleResults);
     connect(gameRunnerThread, &GameRunnerThread::finished, gameRunnerThread, &QObject::deleteLater);
     gameRunnerThread->start();

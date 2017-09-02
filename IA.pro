@@ -33,8 +33,7 @@ SOURCES += main.cpp\
     partie/Partie.cpp \
     joueurs/JoueurExterneAbstrait.cpp \
     partie/SituationJeuAbstraite.cpp \
-    partie/Joueur/Joueur.cpp \
-    Foncteur.cpp
+    partie/Joueur/Joueur.cpp
 
 HEADERS  += \
     partie/SimulateurPartie.h \
@@ -57,8 +56,7 @@ HEADERS  += \
     joueurs/JoueurExterneAbstrait.hpp \
     partie/SituationJeuAbstraite.hpp \
     partie/Tour.hpp \
-    unused.hpp \
-    Foncteur.hpp
+    unused.hpp
 
 RESOURCES += \
     resources/resources.qrc
