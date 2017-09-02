@@ -1,7 +1,3 @@
-/*
- * Simule une partie complète entre deux joueurs
- */
-
 #ifndef SIMULATEURPARTIE_H
 #define SIMULATEURPARTIE_H
 
