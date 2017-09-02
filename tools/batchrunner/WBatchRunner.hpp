@@ -10,8 +10,6 @@
 #include <memory>
 #include <vector>
 
-#include "partie/Joueur/Joueur.hpp"
-
 
 class WBatchRunner : public QWidget
 {
