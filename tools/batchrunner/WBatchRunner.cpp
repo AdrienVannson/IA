@@ -1,7 +1,8 @@
 #include "WBatchRunner.hpp"
 
-WBatchRunner::WBatchRunner(QWidget *parent) :
-    QWidget(parent),
+WBatchRunner::WBatchRunner (MainWindow *mainWindow, QWidget *parent) :
+    QWidget (parent),
+    m_mainWindow (mainWindow),
     m_nbJoueurs (4)
 {
     m_layout = new QVBoxLayout;
@@ -17,7 +18,12 @@ WBatchRunner::WBatchRunner(QWidget *parent) :
 
 
     // Interface
+    m_champNbParties = new QLineEdit ("1");
+    m_champNbParties->setValidator( new QIntValidator(this) );
+    m_layout->addWidget(m_champNbParties);
+
     m_bouttonDemarrer = new QPushButton ("Démarrer");
+    connect(m_bouttonDemarrer, &QPushButton::clicked, this, &WBatchRunner::lancerParties);
     m_layout->addWidget(m_bouttonDemarrer);
 
     m_barreProgression = new QProgressBar;
@@ -42,5 +48,29 @@ void WBatchRunner::updateJoueurs ()
         m_layoutJoueurs->addWidget(champ);
 
         m_champsJoueurs.push_back(champ);
+    }
+}
+
+void WBatchRunner::lancerParties ()
+{
+    const int nbParties = m_champNbParties->text().toInt();
+
+    Manager<JoueurFactory>* joueurManager = m_mainWindow->joueursManager();
+
+
+    for (int iPartie=0; iPartie<nbParties; iPartie++) {
+        std::vector<std::shared_ptr<Joueur>> joueurs;
+
+        for (QLineEdit *champ : m_champsJoueurs) {
+            const int valeur = champ->text().toInt();
+
+            if (valeur < 0 || valeur >= (int)joueurManager->size()) {
+                continue;
+            }
+
+            joueurs.push_back( joueurManager->get(valeur)->getNewPlayer() );
+        }
+
+        m_mainWindow->gameRunner()->runGame(joueurs);
     }
 }

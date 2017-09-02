@@ -20,6 +20,8 @@ public:
     std::shared_ptr<T> addCopy (const T *object);
 
 
+    unsigned int size () const;
+
     const std::vector< std::shared_ptr<T> >& getAll () const;
     std::vector< std::shared_ptr<T> >& getAll ();
 

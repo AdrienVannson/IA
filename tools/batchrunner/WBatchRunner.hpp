@@ -10,6 +10,10 @@
 #include <memory>
 #include <vector>
 
+#include "UI/MainWindow.hpp"
+
+
+class MainWindow;
 
 class WBatchRunner : public QWidget
 {
@@ -18,7 +22,12 @@ class WBatchRunner : public QWidget
 
 public:
 
-    explicit WBatchRunner (QWidget *parent=0);
+    explicit WBatchRunner (MainWindow *mainWindow=0, QWidget *parent=0);
+
+
+public slots:
+
+    void lancerParties ();
 
 
 protected:
@@ -28,13 +37,17 @@ protected:
 
 private:
 
+    MainWindow *m_mainWindow;
+
+    // UI
+    int m_nbJoueurs;
+
     QVBoxLayout *m_layout;
     QVBoxLayout *m_layoutJoueurs;
 
-    int m_nbJoueurs;
-
     std::vector<QLineEdit*> m_champsJoueurs;
 
+    QLineEdit *m_champNbParties;
     QPushButton *m_bouttonDemarrer;
     QProgressBar *m_barreProgression;
 

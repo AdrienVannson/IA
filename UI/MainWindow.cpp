@@ -147,7 +147,7 @@ void MainWindow::addGameRunnerDock ()
 
 void MainWindow::addBatchRunnerDock ()
 {
-    WBatchRunner *wBatchRunner = new WBatchRunner;
+    WBatchRunner *wBatchRunner = new WBatchRunner (this);
 
     QDockWidget *dock = new QDockWidget("Batch Run", this);
     dock->setWidget(wBatchRunner);

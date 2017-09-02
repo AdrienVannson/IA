@@ -34,6 +34,12 @@ std::shared_ptr<T> Manager<T>::addCopy (const T* object)
 
 
 template<class T>
+unsigned int Manager<T>::size () const
+{
+    return m_objects.size();
+}
+
+template<class T>
 const std::vector< std::shared_ptr<T> >& Manager<T>::getAll () const
 {
     return m_objects;
