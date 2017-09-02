@@ -15,7 +15,6 @@ void GameRunnerThread::run ()
     SituationJeu situationDepart;
     situationDepart.initialiser(m_players.size());
 
-    Partie *partie = simulerPartie(situationDepart, m_players);
-
-    emit (simulationDone( std::shared_ptr<Partie>(partie) ));
+    std::shared_ptr<Partie> partie = simulerPartie(situationDepart, m_players);
+    emit (simulationDone(partie));
 }

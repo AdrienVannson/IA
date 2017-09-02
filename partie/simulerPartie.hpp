@@ -10,7 +10,7 @@
 #include "InfosFactory.hpp"
 
 
-Partie* simulerPartie (const SituationJeu &sitDepart, std::vector< std::shared_ptr<Joueur> > &joueurs);
+std::shared_ptr<Partie> simulerPartie (const SituationJeu &sitDepart, std::vector< std::shared_ptr<Joueur> > &joueurs);
 
 
 #endif // SIMULERPARTIE_HPP
