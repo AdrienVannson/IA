@@ -1,7 +1,7 @@
 # Inclusion du jeu
-PATH_JEU = jeux/CodinGame/Tron-Battle
+PATH_JEU = jeux/CodinGame/Coders-Strike-Back
 
-include($$PATH_JEU/Tron-Battle.pri)
+include($$PATH_JEU/Coders-Strike-Back.pri)
 
 
 INCLUDEPATH = $$PATH_JEU
