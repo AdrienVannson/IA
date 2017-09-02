@@ -18,7 +18,8 @@ WBatchRunner::WBatchRunner (MainWindow *mainWindow, QWidget *parent) :
 
 
     // Interface
-    m_champNbParties = new QLineEdit ("1");
+    m_champNbParties = new QLineEdit;
+    m_champNbParties->setPlaceholderText("Nombre de parties");
     m_champNbParties->setValidator( new QIntValidator(this) );
     m_layout->addWidget(m_champNbParties);
 
