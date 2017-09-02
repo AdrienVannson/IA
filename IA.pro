@@ -18,7 +18,6 @@ TEMPLATE = app
 SOURCES += main.cpp\
     UI/MainWindow.cpp \
     partie/Tour.cpp \
-    partie/SimulateurPartie.cpp \
     UI/WJouerPartie.cpp \
     UI/WApercuJoueur.cpp \
     UI/WApercuPartie.cpp \
@@ -33,10 +32,10 @@ SOURCES += main.cpp\
     partie/Partie.cpp \
     joueurs/JoueurExterneAbstrait.cpp \
     partie/SituationJeuAbstraite.cpp \
-    partie/Joueur/Joueur.cpp
+    partie/Joueur/Joueur.cpp \
+    partie/simulerPartie.cpp
 
 HEADERS  += \
-    partie/SimulateurPartie.h \
     UI/WJouerPartie.h \
     Manager.hpp \
     UI/WManager.hpp \
@@ -56,7 +55,8 @@ HEADERS  += \
     joueurs/JoueurExterneAbstrait.hpp \
     partie/SituationJeuAbstraite.hpp \
     partie/Tour.hpp \
-    unused.hpp
+    unused.hpp \
+    partie/simulerPartie.hpp
 
 RESOURCES += \
     resources/resources.qrc

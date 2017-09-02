@@ -8,7 +8,7 @@
 #include <utility>
 #include <vector>
 
-#include "partie/SimulateurPartie.h"
+#include "partie/simulerPartie.hpp"
 #include "partie/Partie.hpp"
 #include "partie/Joueur/Joueur.hpp"
 #include "GameRunnerThread.hpp"

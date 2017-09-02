@@ -6,7 +6,7 @@
 #include <memory>
 
 #include "partie/Partie.hpp"
-#include "partie/SimulateurPartie.h"
+#include "partie/simulerPartie.hpp"
 
 
 class GameRunnerThread : public QThread

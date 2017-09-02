@@ -1,11 +1,6 @@
-#include "SimulateurPartie.h"
+#include "simulerPartie.hpp"
 
-SimulateurPartie::SimulateurPartie ()
-{
-
-}
-
-Partie* SimulateurPartie::simulerPartie (const SituationJeu &sitDepart, std::vector< std::shared_ptr<Joueur> > &joueurs)
+Partie* simulerPartie (const SituationJeu &sitDepart, std::vector< std::shared_ptr<Joueur> > &joueurs)
 {
     Partie *partie = new Partie;
     partie->addTour(Tour(sitDepart));
