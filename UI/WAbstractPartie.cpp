@@ -19,10 +19,17 @@ void WAbstractPartie::showGame (const std::shared_ptr<const Partie> &partie)
 
     m_timer->start();
     updateGeometry();
+
+    afficherPartie(partie);
 }
 
 void WAbstractPartie::tourSuivant ()
 {
     m_iTourActuel = (m_iTourActuel+1) % m_partie.tours()->size();
     afficherTourActuel();
+}
+
+void WAbstractPartie::afficherPartie (const std::shared_ptr<const Partie> &partie)
+{
+    UNUSED(partie);
 }

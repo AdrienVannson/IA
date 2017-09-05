@@ -8,6 +8,7 @@
 
 #include "partie/Partie.hpp"
 #include "EventsManager.hpp"
+#include "unused.hpp"
 
 
 class WAbstractPartie : public QWidget
@@ -29,7 +30,8 @@ public slots:
 
 protected:
 
-    virtual void afficherTourActuel () = 0;
+    virtual void afficherPartie (const std::shared_ptr<const Partie> &partie);
+    virtual void afficherTourActuel () {}
 
 
     Partie m_partie;
