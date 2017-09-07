@@ -1,11 +1,13 @@
 #ifndef WMANAGER_HPP
 #define WMANAGER_HPP
 
-#include <QWidget>
+#include <QIntValidator>
+#include <QLineEdit>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QScrollArea>
 #include <QToolButton>
+#include <QPushButton>
 
 #include <utility>
 
@@ -31,6 +33,8 @@ private:
 
     const Manager<T> *m_manager;
 
+    QLineEdit *m_champPremierAffiche;
+    QLineEdit *m_champNbAffiches;
     QVBoxLayout *m_layout;
     QVBoxLayout *m_layoutLignes;
 
