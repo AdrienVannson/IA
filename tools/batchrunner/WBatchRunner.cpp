@@ -27,10 +27,6 @@ WBatchRunner::WBatchRunner (MainWindow *mainWindow, QWidget *parent) :
     connect(m_bouttonDemarrer, &QPushButton::clicked, this, &WBatchRunner::lancerParties);
     m_layout->addWidget(m_bouttonDemarrer);
 
-    m_barreProgression = new QProgressBar;
-    m_barreProgression->setValue(42);
-    m_layout->addWidget(m_barreProgression);
-
     updateJoueurs();
 }
 

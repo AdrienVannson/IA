@@ -3,7 +3,6 @@
 
 #include <QVBoxLayout>
 #include <QPushButton>
-#include <QProgressBar>
 #include <QLineEdit>
 #include <QIntValidator>
 
@@ -49,7 +48,6 @@ private:
 
     QLineEdit *m_champNbParties;
     QPushButton *m_bouttonDemarrer;
-    QProgressBar *m_barreProgression;
 
 
 };
