@@ -5,17 +5,26 @@ Partie::Partie ()
 
 }
 
-const std::vector<Tour>* Partie::tours () const
+
+// Tours
+std::vector<Tour>& Partie::tours ()
 {
-    return &m_tours;
+    return m_tours;
 }
 
-Tour* Partie::dernierTour ()
+const std::vector<Tour>& Partie::tours () const
 {
-    return &m_tours[m_tours.size()-1];
+    return m_tours;
 }
 
-Tour Partie::lastTurn () const
+
+// Dernier tour
+Tour& Partie::dernierTour ()
+{
+    return m_tours[m_tours.size()-1];
+}
+
+const Tour& Partie::dernierTour () const
 {
     return m_tours[m_tours.size()-1];
 }

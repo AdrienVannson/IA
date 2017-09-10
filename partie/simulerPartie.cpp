@@ -10,18 +10,18 @@ std::shared_ptr<Partie> simulerPartie (const SituationJeu &sitDepart, std::vecto
         joueurs[iJoueur]->debutPartie( InfosFactory::creerInfosDebutPartie(*partie, iJoueur) );
     }
 
-    while (!partie->dernierTour()->situationJeu().estFini()) {
+    while (!partie->dernierTour().situationJeu().estFini()) {
 
-        Tour *tour = partie->dernierTour();
-        const int iJoueur = tour->situationJeu().iPlayer();
+        Tour &tour = partie->dernierTour();
+        const int iJoueur = tour.situationJeu().iPlayer();
 
         const InfosTour &informations = InfosFactory::creerInfosTour(*partie, iJoueur);
 
         Action action = joueurs[iJoueur]->jouerAction(informations);
-        tour->setAction(action);
+        tour.setAction(action);
 
         Tour nouveauTour;
-        nouveauTour.setSituationJeu(Arbitre::simulerAction(tour->situationJeu(), action));
+        nouveauTour.setSituationJeu(Arbitre::simulerAction(tour.situationJeu(), action));
 
         partie->addTour(nouveauTour);
     }

@@ -13,9 +13,11 @@ public:
 
     Partie ();
 
-    const std::vector<Tour>* tours () const;
-    Tour* dernierTour ();
-    Tour lastTurn () const;
+    std::vector<Tour>& tours ();
+    const std::vector<Tour>& tours () const;
+
+    Tour& dernierTour ();
+    const Tour& dernierTour () const;
 
     void addTour (const Tour &nouveauTour);
 
