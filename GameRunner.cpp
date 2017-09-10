@@ -1,11 +1,5 @@
 #include "GameRunner.hpp"
 
-void callbackVide (std::shared_ptr<Partie> partie)
-{
-    UNUSED(partie);
-}
-
-
 GameRunner::GameRunner () :
     m_estPartieEnCours (false),
     m_callbackFinPartie (0)
@@ -13,7 +7,7 @@ GameRunner::GameRunner () :
     qRegisterMetaType< std::shared_ptr<Partie> >("std::shared_ptr<Partie>");
 }
 
-void GameRunner::runGame (std::vector< std::shared_ptr<Joueur> > &players, void (*callback) (std::shared_ptr<Partie>))
+void GameRunner::runGame (std::vector< std::shared_ptr<Joueur> > &players, CallbackFinSimulation *callback)
 {
     m_enAttente.push( std::make_pair(players, callback) );
     runPendingGames();
@@ -29,7 +23,9 @@ int GameRunner::nbPendingGames () const
 void GameRunner::handleResults (std::shared_ptr<Partie> partie)
 {
     emit gameRunned(partie);
-    m_callbackFinPartie (partie);
+
+    (*m_callbackFinPartie) (partie);
+    delete m_callbackFinPartie;
 
     m_estPartieEnCours = false;
     runPendingGames();

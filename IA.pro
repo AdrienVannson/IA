@@ -34,7 +34,8 @@ SOURCES += main.cpp\
     partie/SituationJeuAbstraite.cpp \
     partie/Joueur/Joueur.cpp \
     partie/simulerPartie.cpp \
-    partie/EvaluationAbstraite.cpp
+    partie/EvaluationAbstraite.cpp \
+    CallbackFinSimulation.cpp
 
 HEADERS  += \
     UI/WJouerPartie.h \
@@ -58,7 +59,8 @@ HEADERS  += \
     partie/Tour.hpp \
     unused.hpp \
     partie/simulerPartie.hpp \
-    partie/EvaluationAbstraite.hpp
+    partie/EvaluationAbstraite.hpp \
+    CallbackFinSimulation.hpp
 
 RESOURCES += \
     resources/resources.qrc
