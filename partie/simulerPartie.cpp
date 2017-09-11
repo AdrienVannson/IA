@@ -13,7 +13,7 @@ std::shared_ptr<Partie> simulerPartie (const SituationJeu &sitDepart, std::vecto
     while (!partie->dernierTour().situationJeu().estFini()) {
 
         Tour &tour = partie->dernierTour();
-        const int iJoueur = tour.situationJeu().iPlayer();
+        const int iJoueur = tour.situationJeu().iJoueur();
 
         const InfosTour &informations = InfosFactory::creerInfosTour(*partie, iJoueur);
 
