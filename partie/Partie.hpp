@@ -1,5 +1,5 @@
-#ifndef GAME_HPP
-#define GAME_HPP
+#ifndef PARTIE_HPP
+#define PARTIE_HPP
 
 #include <vector>
 
@@ -27,4 +27,4 @@ private:
 
 };
 
-#endif // GAME_HPP
+#endif // PARTIE_HPP
