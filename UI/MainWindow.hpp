@@ -7,6 +7,9 @@
 #include <QMenuBar>
 #include <QMessageBox>
 #include <QPushButton>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
+#include <QTabWidget>
 
 #include <cstdlib>
 
@@ -48,12 +51,16 @@ public slots:
     // UI
     void afficherAPropos ();
 
-    void addGameDock ();
+    void ajouterAffichagePartie ();
     void addGameRunnerDock ();
     void addBatchRunnerDock ();
 
 
 private:
+
+    QHBoxLayout *m_layout;
+
+    QTabWidget *m_ongletsParties;
 
     Manager<JoueurFactory> m_joueursManager;
     WManager<JoueurFactory, WApercuJoueur> *m_wJoueursManager;

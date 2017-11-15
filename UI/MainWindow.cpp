@@ -17,7 +17,7 @@ MainWindow::MainWindow (QWidget *parent) :
     QMenu *menuAffichage = menuBar()->addMenu("Affichage");
 
         QAction *actionAddGameDock = new QAction("Partie", this);
-        connect(actionAddGameDock, &QAction::triggered, this, &MainWindow::addGameDock);
+        connect(actionAddGameDock, &QAction::triggered, this, &MainWindow::ajouterAffichagePartie);
         menuAffichage->addAction(actionAddGameDock);
 
         QAction *actionAddGameRunnerDock = new QAction("Parties en attente", this);
@@ -36,10 +36,15 @@ MainWindow::MainWindow (QWidget *parent) :
         menuAide->addAction(actionAPropos);
 
 
-    // Boutton
-    QPushButton *boutton = new QPushButton ("Salut :)");
-    setCentralWidget(boutton);
+    // UI
+    QWidget *widgetCentral = new QWidget;
+    setCentralWidget(widgetCentral);
+    m_layout = new QHBoxLayout (widgetCentral);
 
+    m_ongletsParties = new QTabWidget;
+    // m_ongletsParties->setTabsClosable(true);
+    m_ongletsParties->setMovable(true);
+    m_layout->addWidget(m_ongletsParties);
 
 
     // Affichage des parties
@@ -66,7 +71,7 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     // Création des docks
-    addGameDock();
+    ajouterAffichagePartie();
     addGameRunnerDock();
     addBatchRunnerDock();
 
@@ -86,9 +91,7 @@ MainWindow::MainWindow (QWidget *parent) :
 }
 
 MainWindow::~MainWindow ()
-{
-
-}
+{}
 
 Manager<JoueurFactory>* MainWindow::joueursManager ()
 {
@@ -126,14 +129,11 @@ void MainWindow::afficherAPropos ()
     fenetreAPropos.exec();
 }
 
-void MainWindow::addGameDock ()
+void MainWindow::ajouterAffichagePartie ()
 {
     WPartie *widgetPartie = new WPartie;
     m_eventsManager.add(widgetPartie);
-
-    QDockWidget *dockPartie = new QDockWidget("Partie", this);
-    dockPartie->setWidget(widgetPartie);
-    addDockWidget(Qt::LeftDockWidgetArea, dockPartie);
+    m_ongletsParties->addTab(widgetPartie, "Partie");
 }
 
 void MainWindow::addGameRunnerDock ()
