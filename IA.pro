@@ -1,7 +1,7 @@
 # Inclusion du jeu
-PATH_JEU = jeux/CodinGame/Tron-Battle
+PATH_JEU = jeux/CodinGame/Mean-Max
 
-include($$PATH_JEU/Tron-Battle.pri)
+include($$PATH_JEU/Mean-Max.pri)
 
 
 INCLUDEPATH = $$PATH_JEU
