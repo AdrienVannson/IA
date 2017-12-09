@@ -1,7 +1,7 @@
 # Inclusion du jeu
-PATH_JEU = jeux/CodinGame/Mean-Max
+PATH_JEU = jeux/CodinGame/Coders-Strike-Back
 
-include($$PATH_JEU/Mean-Max.pri)
+include($$PATH_JEU/Coders-Strike-Back.pri)
 
 
 INCLUDEPATH = $$PATH_JEU
