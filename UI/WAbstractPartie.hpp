@@ -30,6 +30,7 @@ public slots:
 
 protected:
 
+    virtual void afficherPartie (const std::shared_ptr<const Partie> &partie);
     virtual void afficherTourActuel () {}
 
 
