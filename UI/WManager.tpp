@@ -27,7 +27,7 @@ WManager<T, WV>::WManager (QWidget *parent) :
     m_champNbAffiches->setText("10");
     layoutParametrage->addWidget(m_champNbAffiches);
 
-    QPushButton *valider = new QPushButton ("GO");
+    QPushButton *valider = new QPushButton ("Show");
     layoutParametrage->addWidget(valider);
     connect (valider, &QPushButton::clicked, this, &WManager::actualiser);
 
