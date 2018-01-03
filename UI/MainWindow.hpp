@@ -57,6 +57,8 @@ public slots:
     void addGameRunnerDock ();
     void addBatchRunnerDock ();
 
+    void fermerOnglerPartie (int index);
+
 
 private:
 

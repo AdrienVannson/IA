@@ -42,9 +42,10 @@ MainWindow::MainWindow (QWidget *parent) :
     m_layout = new QHBoxLayout (widgetCentral);
 
     m_ongletsParties = new QTabWidget;
-    // m_ongletsParties->setTabsClosable(true);
+    m_ongletsParties->setTabsClosable(true);
     m_ongletsParties->setMovable(true);
     m_layout->addWidget(m_ongletsParties);
+    connect(m_ongletsParties, &QTabWidget::tabCloseRequested, this, &MainWindow::fermerOnglerPartie);
 
 
     // Affichage des parties
@@ -122,7 +123,9 @@ void MainWindow::registerGameOverview (QWidget *apercu)
 
 void MainWindow::afficherPartie (std::shared_ptr<const Partie> partie)
 {
-    dynamic_cast<WAbstractPartie*>(m_ongletsParties->currentWidget())->showGame(partie);
+    if (m_ongletsParties->currentIndex() != -1) {
+        dynamic_cast<WAbstractPartie*>(m_ongletsParties->currentWidget())->showGame(partie);
+    }
 }
 
 
@@ -156,4 +159,9 @@ void MainWindow::addBatchRunnerDock ()
     QDockWidget *dock = new QDockWidget("Batch Run", this);
     dock->setWidget(wBatchRunner);
     addDockWidget(Qt::RightDockWidgetArea, dock);
+}
+
+void MainWindow::fermerOnglerPartie (int index)
+{
+    delete m_ongletsParties->widget(index);
 }
