@@ -10,6 +10,7 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QTabWidget>
+#include <QDebug>
 
 #include <cstdlib>
 
@@ -54,6 +55,8 @@ public slots:
     void ajouterAffichagePartie ();
     void addGameRunnerDock ();
     void addBatchRunnerDock ();
+
+    void setOngletPartieActif (int index);
 
 
 private:

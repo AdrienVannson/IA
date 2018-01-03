@@ -45,6 +45,7 @@ MainWindow::MainWindow (QWidget *parent) :
     // m_ongletsParties->setTabsClosable(true);
     m_ongletsParties->setMovable(true);
     m_layout->addWidget(m_ongletsParties);
+    connect(m_ongletsParties, &QTabWidget::currentChanged, this, &MainWindow::setOngletPartieActif);
 
 
     // Affichage des parties
@@ -152,4 +153,9 @@ void MainWindow::addBatchRunnerDock ()
     QDockWidget *dock = new QDockWidget("Batch Run", this);
     dock->setWidget(wBatchRunner);
     addDockWidget(Qt::RightDockWidgetArea, dock);
+}
+
+void MainWindow::setOngletPartieActif (int index)
+{
+    m_eventsManager.add(dynamic_cast<WAbstractPartie*>(m_ongletsParties->currentWidget()));
 }
