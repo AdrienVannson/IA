@@ -23,7 +23,7 @@ std::shared_ptr<Partie> simulerPartie (const SituationJeu &sitDepart, std::vecto
         Tour nouveauTour;
 
         SituationJeu nouvelleSituation = tour.situationJeu();
-        Arbitre::simulerAction(nouvelleSituation, action);
+        simulerAction(nouvelleSituation, action);
 
         nouveauTour.setSituationJeu(nouvelleSituation);
 

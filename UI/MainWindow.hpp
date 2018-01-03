@@ -14,7 +14,7 @@
 
 #include <cstdlib>
 
-#include "Arbitre.hpp"
+#include "arbitre.hpp"
 #include "partie/Partie.hpp"
 #include "WPartie.hpp"
 #include "WJouerPartie.h"

@@ -6,7 +6,7 @@
 
 #include "Joueur/Joueur.hpp"
 #include "Partie.hpp"
-#include "Arbitre.hpp"
+#include "arbitre.hpp"
 #include "InfosFactory.hpp"
 
 
