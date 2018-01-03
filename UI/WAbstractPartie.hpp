@@ -7,7 +7,6 @@
 #include <memory>
 
 #include "partie/Partie.hpp"
-#include "EventsManager.hpp"
 #include "unused.hpp"
 
 

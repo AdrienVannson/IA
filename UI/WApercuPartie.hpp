@@ -10,7 +10,6 @@
 #include <memory>
 
 #include "partie/Partie.hpp"
-#include "EventsManager.hpp"
 
 
 class WApercuPartie : public QWidget

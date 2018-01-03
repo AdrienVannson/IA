@@ -25,7 +25,6 @@
 #include "GameRunner.hpp"
 #include "WGameRunner.hpp"
 #include "tools/batchrunner/WBatchRunner.hpp"
-#include "EventsManager.hpp"
 #include "initialiser.hpp"
 #include "partie/Joueur/JoueurFactory.hpp"
 
@@ -49,14 +48,14 @@ public slots:
     void addGame (const std::shared_ptr<Partie> &game);
     void registerGameOverview (QWidget *apercu);
 
+    void afficherPartie (std::shared_ptr<const Partie> partie);
+
     // UI
     void afficherAPropos ();
 
     void ajouterAffichagePartie ();
     void addGameRunnerDock ();
     void addBatchRunnerDock ();
-
-    void setOngletPartieActif (int index);
 
 
 private:
@@ -71,7 +70,6 @@ private:
     Manager<Partie> m_partiesManager;
     WManager<Partie, WApercuPartie> *m_wPartiesManager;
 
-    EventsManager m_eventsManager;
     GameRunner m_gameRunner;
 
 };
