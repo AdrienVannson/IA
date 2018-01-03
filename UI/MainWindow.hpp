@@ -6,11 +6,7 @@
 #include <QMainWindow>
 #include <QMenuBar>
 #include <QMessageBox>
-#include <QPushButton>
-#include <QHBoxLayout>
-#include <QVBoxLayout>
 #include <QTabWidget>
-#include <QDebug>
 #include <QStatusBar>
 #include <QLabel>
 
