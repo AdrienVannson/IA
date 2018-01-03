@@ -4,7 +4,7 @@ MainWindow::MainWindow (QWidget *parent) :
     QMainWindow(parent)
 {
     showMaximized();
-    setWindowTitle("VIA");
+    setWindowTitle("IA");
 
     // Menu
     QMenu *menuFichier = menuBar()->addMenu("Fichier");
@@ -132,7 +132,7 @@ void MainWindow::afficherPartie (std::shared_ptr<const Partie> partie)
 void MainWindow::afficherAPropos ()
 {
     QMessageBox fenetreAPropos;
-    fenetreAPropos.setText("VIA\n\nLogiciel créé par Adrien VANNSON");
+    fenetreAPropos.setText("IA\n\nDéveloppement : VANNSON Adrien");
     fenetreAPropos.setWindowTitle("À propos");
     fenetreAPropos.exec();
 }
