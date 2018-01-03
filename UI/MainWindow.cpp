@@ -20,10 +20,6 @@ MainWindow::MainWindow (QWidget *parent) :
         connect(actionAddGameDock, &QAction::triggered, this, &MainWindow::ajouterAffichagePartie);
         menuAffichage->addAction(actionAddGameDock);
 
-        QAction *actionAddGameRunnerDock = new QAction("Parties en attente", this);
-        connect(actionAddGameRunnerDock, &QAction::triggered, this, &MainWindow::addGameRunnerDock);
-        menuAffichage->addAction(actionAddGameRunnerDock);
-
         QAction *actionAddBatchRunnerDock = new QAction("Batch Run", this);
         connect(actionAddBatchRunnerDock, &QAction::triggered, this, &MainWindow::addBatchRunnerDock);
         menuAffichage->addAction(actionAddBatchRunnerDock);
@@ -68,12 +64,16 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     // Création de parties
-    connect(&m_gameRunner, &GameRunner::gameRunned, this, &MainWindow::addGame);
+    m_gameRunner = new GameRunner (this);
+    m_wNbSimulations = new QLabel ();
+    statusBar()->addWidget(m_wNbSimulations);
+    updateNbSimulations();
 
+    connect(m_gameRunner, &GameRunner::gameRunned, this, &MainWindow::addGame);
+    connect(m_gameRunner, &GameRunner::updated, this, &MainWindow::updateNbSimulations);
 
     // Création des docks
     ajouterAffichagePartie();
-    addGameRunnerDock();
     addBatchRunnerDock();
 
     // Création de parties à la demande
@@ -106,7 +106,7 @@ Manager<Partie>* MainWindow::partiesManager ()
 
 GameRunner* MainWindow::gameRunner ()
 {
-    return &m_gameRunner;
+    return m_gameRunner;
 }
 
 
@@ -143,15 +143,6 @@ void MainWindow::ajouterAffichagePartie ()
     m_ongletsParties->addTab(widgetPartie, "Partie");
 }
 
-void MainWindow::addGameRunnerDock ()
-{
-    WGameRunner *gameRunner = new WGameRunner (&m_gameRunner);
-
-    QDockWidget *dock = new QDockWidget("Parties en attente", this);
-    dock->setWidget(gameRunner);
-    addDockWidget(Qt::RightDockWidgetArea, dock);
-}
-
 void MainWindow::addBatchRunnerDock ()
 {
     WBatchRunner *wBatchRunner = new WBatchRunner (this);
@@ -164,4 +155,9 @@ void MainWindow::addBatchRunnerDock ()
 void MainWindow::fermerOnglerPartie (int index)
 {
     delete m_ongletsParties->widget(index);
+}
+
+void MainWindow::updateNbSimulations ()
+{
+    m_wNbSimulations->setText("Simulations en attente : " + QString::number(m_gameRunner->nbPendingGames()));
 }

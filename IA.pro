@@ -22,7 +22,6 @@ SOURCES += main.cpp\
     UI/WApercuJoueur.cpp \
     UI/WApercuPartie.cpp \
     GameRunner.cpp \
-    UI/WGameRunner.cpp \
     GameRunnerThread.cpp \
     tools/batchrunner/WBatchRunner.cpp \
     UI/WManagerQWidget.cpp \
@@ -43,7 +42,6 @@ HEADERS  += \
     UI/WApercuPartie.hpp \
     UI/MainWindow.hpp \
     GameRunner.hpp \
-    UI/WGameRunner.hpp \
     GameRunnerThread.hpp \
     tools/batchrunner/WBatchRunner.hpp \
     UI/WManagerQWidget.hpp \

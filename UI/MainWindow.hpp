@@ -11,6 +11,8 @@
 #include <QVBoxLayout>
 #include <QTabWidget>
 #include <QDebug>
+#include <QStatusBar>
+#include <QLabel>
 
 #include <cstdlib>
 
@@ -23,7 +25,6 @@
 #include "WApercuJoueur.hpp"
 #include "WApercuPartie.hpp"
 #include "GameRunner.hpp"
-#include "WGameRunner.hpp"
 #include "tools/batchrunner/WBatchRunner.hpp"
 #include "initialiser.hpp"
 #include "partie/Joueur/JoueurFactory.hpp"
@@ -54,10 +55,10 @@ public slots:
     void afficherAPropos ();
 
     void ajouterAffichagePartie ();
-    void addGameRunnerDock ();
     void addBatchRunnerDock ();
 
     void fermerOnglerPartie (int index);
+    void updateNbSimulations ();
 
 
 private:
@@ -72,7 +73,8 @@ private:
     Manager<Partie> m_partiesManager;
     WManager<Partie, WApercuPartie> *m_wPartiesManager;
 
-    GameRunner m_gameRunner;
+    GameRunner *m_gameRunner;
+    QLabel *m_wNbSimulations;
 
 };
 

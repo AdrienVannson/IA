@@ -1,6 +1,7 @@
 #include "GameRunner.hpp"
 
-GameRunner::GameRunner () :
+GameRunner::GameRunner (QObject *parent) :
+    QObject (parent),
     m_estPartieEnCours (false),
     m_callbackFinPartie (0)
 {

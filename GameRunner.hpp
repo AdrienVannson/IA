@@ -23,7 +23,7 @@ class GameRunner : public QObject
 
 public:
 
-    GameRunner ();
+    GameRunner (QObject *parent=0);
 
     void runGame ( std::vector< std::shared_ptr<Joueur> > &players,
                    CallbackFinSimulation *callback=new CallbackFinSimulation()
