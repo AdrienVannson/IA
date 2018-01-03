@@ -63,8 +63,6 @@ public slots:
 
 private:
 
-    QHBoxLayout *m_layout;
-
     QTabWidget *m_ongletsParties;
 
     Manager<JoueurFactory> m_joueursManager;

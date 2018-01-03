@@ -32,15 +32,12 @@ MainWindow::MainWindow (QWidget *parent) :
         menuAide->addAction(actionAPropos);
 
 
-    // UI
-    QWidget *widgetCentral = new QWidget;
-    setCentralWidget(widgetCentral);
-    m_layout = new QHBoxLayout (widgetCentral);
-
+    // Parties
     m_ongletsParties = new QTabWidget;
     m_ongletsParties->setTabsClosable(true);
     m_ongletsParties->setMovable(true);
-    m_layout->addWidget(m_ongletsParties);
+
+    setCentralWidget(m_ongletsParties);
     connect(m_ongletsParties, &QTabWidget::tabCloseRequested, this, &MainWindow::fermerOnglerPartie);
 
 
