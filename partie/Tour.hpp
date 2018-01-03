@@ -1,5 +1,5 @@
-#ifndef TOUR_H
-#define TOUR_H
+#ifndef TOUR_HPP
+#define TOUR_HPP
 
 #include "Action.hpp"
 #include "SituationJeu.hpp"
@@ -32,4 +32,4 @@ private:
 
 };
 
-#endif // TOUR_H
+#endif // TOUR_HPP
