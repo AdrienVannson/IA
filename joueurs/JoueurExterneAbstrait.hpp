@@ -1,5 +1,5 @@
-#ifndef ABSTRACTEXTERNALPLAYER_HPP
-#define ABSTRACTEXTERNALPLAYER_HPP
+#ifndef JOUEUREXTERNEABSTRAIT_HPP
+#define JOUEUREXTERNEABSTRAIT_HPP
 
 #include <ext/stdio_filebuf.h>
 #include <sys/wait.h>
@@ -39,4 +39,4 @@ private:
 
 };
 
-#endif // ABSTRACTEXTERNALPLAYER_HPP
+#endif // JOUEUREXTERNEABSTRAIT_HPP
