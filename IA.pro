@@ -31,7 +31,6 @@ SOURCES += main.cpp\
     joueurs/JoueurExterneAbstrait.cpp \
     partie/Joueur/Joueur.cpp \
     partie/simulerPartie.cpp \
-    partie/EvaluationAbstraite.cpp \
     CallbackFinSimulation.cpp
 
 HEADERS  += \
@@ -53,7 +52,6 @@ HEADERS  += \
     partie/Tour.hpp \
     unused.hpp \
     partie/simulerPartie.hpp \
-    partie/EvaluationAbstraite.hpp \
     CallbackFinSimulation.hpp
 
 RESOURCES += \
