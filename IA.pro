@@ -1,16 +1,11 @@
 # Inclusion du jeu
-PATH_JEU = jeux/CodinGame/Coders-Strike-Back
+include(jeu.pri)
 
-include($$PATH_JEU/Coders-Strike-Back.pri)
-
-
-INCLUDEPATH = $$PATH_JEU
+INCLUDEPATH = $$DOSSIER_JEU
+include($$DOSSIER_JEU/$$FICHIER_JEU)
 
 
-
-QT       += core gui
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT += core gui widgets
 
 TARGET = IA
 TEMPLATE = app
