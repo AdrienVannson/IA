@@ -23,10 +23,9 @@ public:
     ~JoueurExterneAbstrait ();
 
 
-    void setChemin (const std::string &chemin);
-
-
 protected:
+
+    void demarrerProg ();
 
     std::string getLine ();
     void send (const std::string &data);

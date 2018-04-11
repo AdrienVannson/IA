@@ -86,36 +86,42 @@ public:
 JoueurExterneAbstrait::JoueurExterneAbstrait (const std::string &chemin) :
     m_chemin (chemin),
     m_prog (0)
-{
-    const char* const argv[] = {m_chemin.c_str(), (const char*)0};
-    m_prog = new spawn(argv);
-}
+{}
 
 JoueurExterneAbstrait::~JoueurExterneAbstrait ()
 {
-    m_prog->send_eof();
-    kill(m_prog->child_pid, SIGTERM);
+    if (m_prog) {
+        m_prog->send_eof();
+        kill(m_prog->child_pid, SIGTERM);
+        m_prog->wait(); // Évite les processus zombies
 
-    delete m_prog;
+        delete m_prog;
+    }
+}
+
+void JoueurExterneAbstrait::demarrerProg ()
+{
+    const char* const argv[] = {m_chemin.c_str(), (const char*)0};
+    m_prog = new spawn(argv);
 }
 
 
 
 std::string JoueurExterneAbstrait::getLine ()
 {
-    std::string output;
-    std::getline(m_prog->stdout, output);
+    cerr << "Lecture: " << m_prog->child_pid << endl;
+    string output;
+    getline(m_prog->stdout, output);
+    cerr << "Action recue (" << output.size() << "): " << output << endl;
     return output;
 }
 
-void JoueurExterneAbstrait::send (const std::string &data)
+void JoueurExterneAbstrait::send (const string &data)
 {
+    cerr << "Infos envoyees:" << endl;
+    cerr << data;
+    cerr << "Fin infos" << endl;
     m_prog->stdin << data;
     m_prog->stdin.flush();
-}
-
-
-void JoueurExterneAbstrait::setChemin (const std::string &chemin)
-{
-    m_chemin = chemin;
+    cerr << "Envoi OK" << endl;
 }

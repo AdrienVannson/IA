@@ -15,6 +15,8 @@
 #include "GameRunnerThread.hpp"
 #include "unused.hpp"
 
+using namespace std;
+
 
 class GameRunner : public QObject
 {
