@@ -1,34 +1,48 @@
 #include "JoueurExterneAbstrait.hpp"
 
-JoueurExterneAbstrait::JoueurExterneAbstrait (const string &chemin) :
-    m_chemin (chemin)
+Intermediaire::Intermediaire (QObject *parent) :
+    QObject (parent)
+{}
+
+void Intermediaire::recevoirDonnees (const string donnees)
 {
-    m_processus = new QProcess;
+    cerr << "ARRIVEE: " << donnees.size() << endl;
+    cerr << donnees << endl;
+    m_donnees = donnees;
 }
+
+void Intermediaire::envoyerDonnees (const string donnees)
+{
+    emit donneesEnvoyees(donnees);
+}
+
+void Intermediaire::lire ()
+{
+    emit doitLire();
+}
+
+
+JoueurExterneAbstrait::JoueurExterneAbstrait ()
+{}
 
 JoueurExterneAbstrait::~JoueurExterneAbstrait ()
-{
-    m_processus->kill();
-}
-
-void JoueurExterneAbstrait::demarrerProg ()
-{
-    m_processus->start(m_chemin.c_str());
-}
+{}
 
 string JoueurExterneAbstrait::getLine ()
 {
-    char buffer[1024];
-    qint64 longueurLue = m_processus->readLine(buffer, sizeof(buffer));
+    m_intermediaire.lire();
 
-    if (longueurLue == -1) {
-        cerr << "Error" << endl;
+    while (m_intermediaire.m_donnees.empty()) {
+        qApp->processEvents();
     }
 
-    return string (buffer);
+    string donnees = m_intermediaire.m_donnees;
+    m_intermediaire.m_donnees.clear();
+
+    return donnees;
 }
 
 void JoueurExterneAbstrait::send (const string &donnees)
 {
-    m_processus->write(donnees.c_str());
+    m_intermediaire.envoyerDonnees(donnees);
 }
