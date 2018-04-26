@@ -42,14 +42,19 @@ class JoueurExterneAbstrait : public Joueur
 {
 
 public:
-    JoueurExterneAbstrait ();
+    JoueurExterneAbstrait (const string chemin);
     ~JoueurExterneAbstrait ();
+
+    void executerProgramme ();
 
     Intermediaire m_intermediaire;
 
 protected:
     string getLine ();
     void send (const string &donnees);
+
+private:
+    string m_chemin;
 
 };
 

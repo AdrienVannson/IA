@@ -30,12 +30,18 @@ void Intermediaire::tuer ()
 }
 
 
-JoueurExterneAbstrait::JoueurExterneAbstrait ()
+JoueurExterneAbstrait::JoueurExterneAbstrait (const string chemin) :
+    m_chemin (chemin)
 {}
 
 JoueurExterneAbstrait::~JoueurExterneAbstrait ()
 {
     m_intermediaire.tuer();
+}
+
+void JoueurExterneAbstrait::executerProgramme ()
+{
+    m_intermediaire.demarrer(m_chemin);
 }
 
 string JoueurExterneAbstrait::getLine ()
