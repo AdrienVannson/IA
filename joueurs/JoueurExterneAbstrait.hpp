@@ -5,7 +5,6 @@
 #include <QProcess>
 #include <QEventLoop>
 
-#include <iostream>
 #include <string>
 
 #include "partie/Joueur/Joueur.hpp"
@@ -20,8 +19,10 @@ class Intermediaire : public QObject
 public:
     Intermediaire (QObject *parent=0);
 
+    void demarrer (const string &chemin);
     void envoyerDonnees (const string donnees);
     void lire ();
+    void tuer ();
 
     string m_donnees;
 
@@ -29,8 +30,10 @@ public slots:
     void recevoirDonnees (const string donnees);
 
 signals:
+    void debut (const string chemin);
     void donneesEnvoyees (const string donnees);
     void doitLire ();
+    void doitTuer ();
 
 };
 

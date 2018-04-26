@@ -4,10 +4,13 @@ Intermediaire::Intermediaire (QObject *parent) :
     QObject (parent)
 {}
 
+void Intermediaire::demarrer (const string &chemin)
+{
+    emit debut(chemin);
+}
+
 void Intermediaire::recevoirDonnees (const string donnees)
 {
-    cerr << "ARRIVEE: " << donnees.size() << endl;
-    cerr << donnees << endl;
     m_donnees = donnees;
 }
 
@@ -21,12 +24,19 @@ void Intermediaire::lire ()
     emit doitLire();
 }
 
+void Intermediaire::tuer ()
+{
+    emit doitTuer();
+}
+
 
 JoueurExterneAbstrait::JoueurExterneAbstrait ()
 {}
 
 JoueurExterneAbstrait::~JoueurExterneAbstrait ()
-{}
+{
+    m_intermediaire.tuer();
+}
 
 string JoueurExterneAbstrait::getLine ()
 {
