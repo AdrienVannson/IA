@@ -12,6 +12,27 @@
 using namespace std;
 
 
+class Communication : public QObject
+{
+    Q_OBJECT
+
+public:
+    Communication (QObject *parent=0);
+
+public slots:
+    void demarrer (const string chemin);
+    void envoyerDonnees (const string donnees);
+    void lireDonnees ();
+    void tuer ();
+
+signals:
+    void donneesRecues (const string donnees);
+
+public:
+    QProcess *m_processus;
+};
+
+
 class Intermediaire : public QObject
 {
     Q_OBJECT
