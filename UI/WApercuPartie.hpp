@@ -11,6 +11,8 @@
 
 #include "partie/Partie.hpp"
 
+using namespace std;
+
 
 class WApercuPartie : public QWidget
 {
@@ -22,7 +24,7 @@ public:
     explicit WApercuPartie (QWidget *parent=0);
     ~WApercuPartie ();
 
-    void setObject (const std::shared_ptr<const Partie> &partie);
+    void setObject (const shared_ptr<const Partie> &partie);
 
 
 public slots:
@@ -32,12 +34,12 @@ public slots:
 
 signals:
 
-    void show (std::shared_ptr<const Partie> partie);
+    void show (shared_ptr<const Partie> partie);
 
 
 private:
 
-    std::shared_ptr<const Partie> m_partie;
+    shared_ptr<const Partie> m_partie;
 
 
 };

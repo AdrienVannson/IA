@@ -56,7 +56,7 @@ void WBatchRunner::lancerParties ()
 
 
     for (int iPartie=0; iPartie<nbParties; iPartie++) {
-        std::vector<std::shared_ptr<Joueur>> joueurs;
+        vector<shared_ptr<Joueur>> joueurs;
 
         for (QLineEdit *champ : m_champsJoueurs) {
             const int valeur = champ->text().toInt();

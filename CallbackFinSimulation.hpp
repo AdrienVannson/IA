@@ -6,6 +6,8 @@
 #include "partie/Partie.hpp"
 #include "unused.hpp"
 
+using namespace std;
+
 
 class CallbackFinSimulation
 {
@@ -16,7 +18,7 @@ public:
     virtual ~CallbackFinSimulation ();
 
 
-    virtual void operator() (const std::shared_ptr<Partie> &partie);
+    virtual void operator() (const shared_ptr<Partie> &partie);
 
 
 };

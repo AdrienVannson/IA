@@ -1,8 +1,8 @@
 #include "simulerPartie.hpp"
 
-std::shared_ptr<Partie> simulerPartie (const SituationJeu &sitDepart, std::vector< std::shared_ptr<Joueur> > &joueurs)
+shared_ptr<Partie> simulerPartie (const SituationJeu &sitDepart, vector<shared_ptr<Joueur>> &joueurs)
 {
-    std::shared_ptr<Partie> partie (new Partie);
+    shared_ptr<Partie> partie (new Partie);
     partie->addTour(Tour(sitDepart));
 
     // Initialisation des joueurs

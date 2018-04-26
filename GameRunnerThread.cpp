@@ -5,7 +5,7 @@ GameRunnerThread::GameRunnerThread (QObject *parent) :
 {
 }
 
-void GameRunnerThread::setPlayers (const std::vector< std::shared_ptr<Joueur> > &players)
+void GameRunnerThread::setPlayers (const vector<shared_ptr<Joueur>> &players)
 {
     m_players = players;
 }
@@ -15,6 +15,6 @@ void GameRunnerThread::run ()
     SituationJeu situationDepart;
     situationDepart.initialiser(m_players.size());
 
-    std::shared_ptr<Partie> partie = simulerPartie(situationDepart, m_players);
+    shared_ptr<Partie> partie = simulerPartie(situationDepart, m_players);
     emit (simulationDone(partie));
 }

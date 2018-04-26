@@ -8,6 +8,8 @@
 #include "partie/Partie.hpp"
 #include "partie/simulerPartie.hpp"
 
+using namespace std;
+
 
 class GameRunnerThread : public QThread
 {
@@ -17,19 +19,19 @@ public:
 
     explicit GameRunnerThread (QObject *parent=0);
 
-    void setPlayers (const std::vector< std::shared_ptr<Joueur> > &players);
+    void setPlayers (const vector<shared_ptr<Joueur>> &players);
 
     void run ();
 
 
 signals:
 
-    void simulationDone (std::shared_ptr<Partie> partie);
+    void simulationDone (shared_ptr<Partie> partie);
 
 
 private:
 
-    std::vector< std::shared_ptr<Joueur> > m_players;
+    vector<shared_ptr<Joueur>> m_players;
 
 
 };

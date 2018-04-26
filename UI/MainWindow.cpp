@@ -107,7 +107,7 @@ GameRunner* MainWindow::gameRunner ()
 }
 
 
-void MainWindow::addGame (const std::shared_ptr<Partie> &game)
+void MainWindow::addGame (const shared_ptr<Partie> &game)
 {
     m_partiesManager.add(game);
     m_wPartiesManager->actualiser();
@@ -118,7 +118,7 @@ void MainWindow::registerGameOverview (QWidget *apercu)
     connect(dynamic_cast<WApercuPartie*>(apercu), &WApercuPartie::show, this, &MainWindow::afficherPartie);
 }
 
-void MainWindow::afficherPartie (std::shared_ptr<const Partie> partie)
+void MainWindow::afficherPartie (shared_ptr<const Partie> partie)
 {
     if (m_ongletsParties->currentIndex() != -1) {
         dynamic_cast<WAbstractPartie*>(m_ongletsParties->currentWidget())->showGame(partie);

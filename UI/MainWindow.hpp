@@ -25,6 +25,8 @@
 #include "initialiser.hpp"
 #include "partie/Joueur/JoueurFactory.hpp"
 
+using namespace std;
+
 
 class MainWindow : public QMainWindow
 {
@@ -42,10 +44,10 @@ public:
 
 public slots:
 
-    void addGame (const std::shared_ptr<Partie> &game);
+    void addGame (const shared_ptr<Partie> &game);
     void registerGameOverview (QWidget *apercu);
 
-    void afficherPartie (std::shared_ptr<const Partie> partie);
+    void afficherPartie (shared_ptr<const Partie> partie);
 
     // UI
     void afficherAPropos ();

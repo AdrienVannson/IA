@@ -1,16 +1,16 @@
 #include "JoueurFactory.hpp"
 
-JoueurFactory::JoueurFactory (const std::string &nom) :
+JoueurFactory::JoueurFactory (const string &nom) :
     m_nom (nom)
 {
 }
 
-std::string JoueurFactory::nom () const
+string JoueurFactory::nom () const
 {
     return m_nom;
 }
 
-void JoueurFactory::setNom (const std::string &nouveauNom)
+void JoueurFactory::setNom (const string &nouveauNom)
 {
     m_nom = nouveauNom;
 }

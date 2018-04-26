@@ -5,23 +5,25 @@
 
 #include "Joueur.hpp"
 
+using namespace std;
+
 
 class JoueurFactory
 {
 
 public:
 
-    JoueurFactory (const std::string &nom="");
+    JoueurFactory (const string &nom="");
 
-    virtual std::shared_ptr<Joueur> getNewPlayer () const = 0;
+    virtual shared_ptr<Joueur> getNewPlayer () const = 0;
 
-    std::string nom () const;
-    void setNom (const std::string &nouveauNom);
+    string nom () const;
+    void setNom (const string &nouveauNom);
 
 
 private:
 
-    std::string m_nom;
+    string m_nom;
 
 };
 

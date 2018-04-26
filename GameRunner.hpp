@@ -27,7 +27,7 @@ public:
 
     GameRunner (QObject *parent=0);
 
-    void runGame ( std::vector< std::shared_ptr<Joueur> > &players,
+    void runGame ( vector<shared_ptr<Joueur>> &players,
                    CallbackFinSimulation *callback=new CallbackFinSimulation()
     );
 
@@ -36,13 +36,13 @@ public:
 
 public slots:
 
-    void handleResults (std::shared_ptr<Partie> partie);
+    void handleResults (shared_ptr<Partie> partie);
 
 
 signals:
 
     void updated (); // Emit each time a game is added or finished
-    void gameRunned (std::shared_ptr<Partie> game);
+    void gameRunned (shared_ptr<Partie> game);
 
 
 private:
@@ -50,7 +50,7 @@ private:
     void runPendingGames ();
 
     bool m_estPartieEnCours;
-    std::queue< std::pair<std::vector<std::shared_ptr<Joueur>>, CallbackFinSimulation*> > m_enAttente;
+    queue< pair<vector<shared_ptr<Joueur>>, CallbackFinSimulation*> > m_enAttente;
     CallbackFinSimulation* m_callbackFinPartie;
 
 

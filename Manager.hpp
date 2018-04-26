@@ -5,6 +5,8 @@
 #include <vector>
 #include <memory>
 
+using namespace std;
+
 
 template<class T>
 class Manager
@@ -15,24 +17,24 @@ public:
     Manager ();
     ~Manager ();
 
-    std::shared_ptr<T> add (T *object);
-    std::shared_ptr<T> add (const std::shared_ptr<T> &object);
-    std::shared_ptr<T> addCopy (const T *object);
+    shared_ptr<T> add (T *object);
+    shared_ptr<T> add (const shared_ptr<T> &object);
+    shared_ptr<T> addCopy (const T *object);
 
 
     unsigned int size () const;
 
-    const std::vector< std::shared_ptr<T> >& getAll () const;
-    std::vector< std::shared_ptr<T> >& getAll ();
+    const vector< shared_ptr<T> >& getAll () const;
+    vector< shared_ptr<T> >& getAll ();
 
-    std::shared_ptr<const T> get (const int pos) const;
-    std::shared_ptr<T> get (const int pos);
+    shared_ptr<const T> get (const int pos) const;
+    shared_ptr<T> get (const int pos);
 
 
 
 private:
 
-    std::vector< std::shared_ptr<T> > m_objects;
+    vector<shared_ptr<T>> m_objects;
 
 };
 

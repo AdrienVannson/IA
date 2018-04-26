@@ -11,6 +11,8 @@
 
 #include "UI/MainWindow.hpp"
 
+using namespace std;
+
 
 class MainWindow;
 
@@ -44,7 +46,7 @@ private:
     QVBoxLayout *m_layout;
     QVBoxLayout *m_layoutJoueurs;
 
-    std::vector<QLineEdit*> m_champsJoueurs;
+    vector<QLineEdit*> m_champsJoueurs;
 
     QLineEdit *m_champNbParties;
     QPushButton *m_bouttonDemarrer;

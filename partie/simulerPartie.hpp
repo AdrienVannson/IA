@@ -9,8 +9,10 @@
 #include "arbitre.hpp"
 #include "InfosFactory.hpp"
 
+using namespace std;
 
-std::shared_ptr<Partie> simulerPartie (const SituationJeu &sitDepart, std::vector< std::shared_ptr<Joueur> > &joueurs);
+
+shared_ptr<Partie> simulerPartie (const SituationJeu &sitDepart, vector<shared_ptr<Joueur>> &joueurs);
 
 
 #endif // SIMULERPARTIE_HPP

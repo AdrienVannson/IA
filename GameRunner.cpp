@@ -5,12 +5,12 @@ GameRunner::GameRunner (QObject *parent) :
     m_estPartieEnCours (false),
     m_callbackFinPartie (0)
 {
-    qRegisterMetaType< std::shared_ptr<Partie> >("std::shared_ptr<Partie>");
+    qRegisterMetaType<shared_ptr<Partie>>("shared_ptr<Partie>");
 }
 
-void GameRunner::runGame (std::vector< std::shared_ptr<Joueur> > &players, CallbackFinSimulation *callback)
+void GameRunner::runGame (vector<shared_ptr<Joueur>> &players, CallbackFinSimulation *callback)
 {
-    m_enAttente.push( std::make_pair(players, callback) );
+    m_enAttente.push(make_pair(players, callback));
     runPendingGames();
 
     emit updated();
@@ -21,7 +21,7 @@ int GameRunner::nbPendingGames () const
     return m_enAttente.size();
 }
 
-void GameRunner::handleResults (std::shared_ptr<Partie> partie)
+void GameRunner::handleResults (shared_ptr<Partie> partie)
 {
     emit gameRunned(partie);
 
@@ -40,7 +40,7 @@ void GameRunner::runPendingGames ()
 
     m_estPartieEnCours = true;
 
-    std::vector<std::shared_ptr<Joueur>> joueurs = m_enAttente.front().first;
+    vector<shared_ptr<Joueur>> joueurs = m_enAttente.front().first;
     m_callbackFinPartie = m_enAttente.front().second;
     m_enAttente.pop();
 

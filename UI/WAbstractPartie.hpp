@@ -9,6 +9,8 @@
 #include "partie/Partie.hpp"
 #include "unused.hpp"
 
+using namespace std;
+
 
 class WAbstractPartie : public QWidget
 {
@@ -22,18 +24,18 @@ public:
 
 public slots:
 
-    void showGame (const std::shared_ptr<const Partie> &partie);
+    void showGame (const shared_ptr<const Partie> &partie);
     void tourSuivant ();
 
 
 
 protected:
 
-    virtual void afficherPartie (const std::shared_ptr<const Partie> &partie);
+    virtual void afficherPartie (const shared_ptr<const Partie> &partie);
     virtual void afficherTourActuel () {}
 
 
-    std::shared_ptr<const Partie> m_partie;
+    shared_ptr<const Partie> m_partie;
     int m_iTourActuel;
 
 

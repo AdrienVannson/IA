@@ -5,6 +5,8 @@
 
 #include "Tour.hpp"
 
+using namespace std;
+
 
 class Partie
 {
@@ -13,8 +15,8 @@ public:
 
     Partie ();
 
-    std::vector<Tour>& tours ();
-    const std::vector<Tour>& tours () const;
+    vector<Tour>& tours ();
+    const vector<Tour>& tours () const;
 
     Tour& dernierTour ();
     const Tour& dernierTour () const;
@@ -23,7 +25,7 @@ public:
 
 
 private:
-    std::vector<Tour> m_tours;
+    vector<Tour> m_tours;
 
 };
 

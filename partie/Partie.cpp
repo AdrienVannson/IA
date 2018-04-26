@@ -7,12 +7,12 @@ Partie::Partie ()
 
 
 // Tours
-std::vector<Tour>& Partie::tours ()
+vector<Tour>& Partie::tours ()
 {
     return m_tours;
 }
 
-const std::vector<Tour>& Partie::tours () const
+const vector<Tour>& Partie::tours () const
 {
     return m_tours;
 }
