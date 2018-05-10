@@ -1,23 +1,57 @@
 #include "WBatchRunner.hpp"
 
-WBatchRunner::WBatchRunner (MainWindow *mainWindow, QWidget *parent) :
+CallbackBatchRunner::CallbackBatchRunner (const int iJoueur1, const int iJoueur2) :
+    CallbackFinSimulation (),
+    m_iJoueur1 (iJoueur1),
+    m_iJoueur2 (iJoueur2)
+{}
+
+void CallbackBatchRunner::operator() (const shared_ptr<Partie> &partie)
+{
+    vector<int> scores = partie->dernierTour().situationJeu().scores();
+
+    if (scores[0] > scores[1]) {
+        emit victoire(m_iJoueur1, m_iJoueur2);
+    }
+    if (scores[0] < scores[1]) {
+        emit victoire(m_iJoueur2, m_iJoueur1);
+    }
+
+    // Égalité, ne rien faire
+}
+
+
+WBatchRunner::WBatchRunner (GameRunner *gameRunner, const vector<shared_ptr<JoueurFactory>> &joueurs, QWidget *parent) :
     QWidget (parent),
-    m_mainWindow (mainWindow),
-    m_nbJoueurs (4)
+    m_gameRunner (gameRunner),
+    m_joueurs (joueurs)
 {
     m_layout = new QVBoxLayout;
     setLayout(m_layout);
 
+    // Tableau d'affichage des résultats
+    m_tableau = new QTableWidget(joueurs.size(), joueurs.size());
+    m_layout->addWidget(m_tableau);
 
-    // Layout des joueurs
-    QWidget *widgetJoueurs = new QWidget;
-    m_layout->addWidget(widgetJoueurs);
+    for (int iJoueur1=0; iJoueur1<(int)joueurs.size(); iJoueur1++) {
+        m_nbVictoires.push_back(vector<int>());
 
-    m_layoutJoueurs = new QVBoxLayout;
-    widgetJoueurs->setLayout(m_layoutJoueurs);
+        for (int iJoueur2=0; iJoueur2<(int)joueurs.size(); iJoueur2++) {
+            m_nbVictoires.back().push_back(0);
 
+            QTableWidgetItem *item = new QTableWidgetItem;
 
-    // Interface
+            if (iJoueur1 == iJoueur2) {
+                item->setText("-");
+            }
+            else {
+                item->setText("?");
+            }
+
+            m_tableau->setItem(iJoueur1, iJoueur2, item);
+        }
+    }
+
     m_champNbParties = new QLineEdit;
     m_champNbParties->setPlaceholderText("Nombre de parties");
     m_champNbParties->setValidator( new QIntValidator(this) );
@@ -26,48 +60,35 @@ WBatchRunner::WBatchRunner (MainWindow *mainWindow, QWidget *parent) :
     m_bouttonDemarrer = new QPushButton ("Démarrer");
     connect(m_bouttonDemarrer, &QPushButton::clicked, this, &WBatchRunner::lancerParties);
     m_layout->addWidget(m_bouttonDemarrer);
-
-    updateJoueurs();
-}
-
-
-void WBatchRunner::updateJoueurs ()
-{
-    for (QLineEdit *champ : m_champsJoueurs) {
-        delete champ;
-    }
-    m_champsJoueurs.clear();
-
-    for (int iJoueur=0; iJoueur<m_nbJoueurs; iJoueur++) {
-        QLineEdit *champ = new QLineEdit ("-1");
-        champ->setValidator( new QIntValidator(this) );
-
-        m_layoutJoueurs->addWidget(champ);
-
-        m_champsJoueurs.push_back(champ);
-    }
 }
 
 void WBatchRunner::lancerParties ()
 {
     const int nbParties = m_champNbParties->text().toInt();
 
-    Manager<JoueurFactory>* joueurManager = m_mainWindow->joueursManager();
-
-
     for (int iPartie=0; iPartie<nbParties; iPartie++) {
-        vector<shared_ptr<Joueur>> joueurs;
 
-        for (QLineEdit *champ : m_champsJoueurs) {
-            const int valeur = champ->text().toInt();
+        for (int iJoueur1=0; iJoueur1<(int)m_joueurs.size(); iJoueur1++) {
+            for (int iJoueur2=0; iJoueur2<(int)m_joueurs.size(); iJoueur2++) {
+                if (iJoueur1 == iJoueur2) {
+                    continue;
+                }
 
-            if (valeur < 0 || valeur >= (int)joueurManager->size()) {
-                continue;
+                CallbackBatchRunner *callback = new CallbackBatchRunner (iJoueur1, iJoueur2);
+                connect(callback, &CallbackBatchRunner::victoire, this, &WBatchRunner::aGagne);
+
+                vector<shared_ptr<Joueur>> joueurs;
+                joueurs.push_back(m_joueurs[iJoueur1]->getNewPlayer());
+                joueurs.push_back(m_joueurs[iJoueur2]->getNewPlayer());
+
+                m_gameRunner->runGame(joueurs, callback);
             }
-
-            joueurs.push_back( joueurManager->get(valeur)->getNewPlayer() );
         }
-
-        m_mainWindow->gameRunner()->runGame(joueurs);
     }
+}
+
+void WBatchRunner::aGagne (const int iJoueur, const int iAdversaire)
+{
+    m_nbVictoires[iJoueur][iAdversaire]++;
+    m_tableau->item(iJoueur, iAdversaire)->setText(QString::number(m_nbVictoires[iJoueur][iAdversaire]));
 }

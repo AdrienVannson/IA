@@ -71,7 +71,6 @@ MainWindow::MainWindow (QWidget *parent) :
 
     // Création des docks
     ajouterAffichagePartie();
-    addBatchRunnerDock();
 
     // Création de parties à la demande
     /*WJouerPartie *wJouerPartie = new WJouerPartie (m_joueursManager, m_partiesManager);
@@ -142,7 +141,12 @@ void MainWindow::ajouterAffichagePartie ()
 
 void MainWindow::addBatchRunnerDock ()
 {
-    WBatchRunner *wBatchRunner = new WBatchRunner (this);
+    vector<shared_ptr<JoueurFactory>> joueurs;
+    joueurs.push_back(m_joueursManager.get(0));
+    joueurs.push_back(m_joueursManager.get(0));
+    joueurs.push_back(m_joueursManager.get(0));
+
+    WBatchRunner *wBatchRunner = new WBatchRunner (m_gameRunner, joueurs);
 
     QDockWidget *dock = new QDockWidget("Batch Run", this);
     dock->setWidget(wBatchRunner);
