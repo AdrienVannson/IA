@@ -50,10 +50,9 @@ public slots:
     void afficherPartie (shared_ptr<const Partie> partie);
 
     // UI
-    void afficherAPropos ();
+    void addDock (QWidget *widget, const QString &nom);
 
-    void ajouterAffichagePartie ();
-    void addBatchRunnerDock ();
+    void afficherAPropos ();
 
     void fermerOnglerPartie (int index);
     void updateNbSimulations ();

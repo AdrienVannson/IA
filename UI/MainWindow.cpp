@@ -13,18 +13,6 @@ MainWindow::MainWindow (QWidget *parent) :
         connect(actionQuitter, &QAction::triggered, qApp, &QApplication::quit);
         menuFichier->addAction(actionQuitter);
 
-
-    QMenu *menuAffichage = menuBar()->addMenu("Affichage");
-
-        QAction *actionAddGameDock = new QAction("Partie", this);
-        connect(actionAddGameDock, &QAction::triggered, this, &MainWindow::ajouterAffichagePartie);
-        menuAffichage->addAction(actionAddGameDock);
-
-        QAction *actionAddBatchRunnerDock = new QAction("Batch Run", this);
-        connect(actionAddBatchRunnerDock, &QAction::triggered, this, &MainWindow::addBatchRunnerDock);
-        menuAffichage->addAction(actionAddBatchRunnerDock);
-
-
     QMenu *menuAide = menuBar()->addMenu("Aide");
 
         QAction *actionAPropos = new QAction("À propos", this);
@@ -69,8 +57,8 @@ MainWindow::MainWindow (QWidget *parent) :
     connect(m_gameRunner, &GameRunner::gameRunned, this, &MainWindow::addGame);
     connect(m_gameRunner, &GameRunner::updated, this, &MainWindow::updateNbSimulations);
 
-    // Création des docks
-    ajouterAffichagePartie();
+    WPartie *widgetPartie = new WPartie;
+    m_ongletsParties->addTab(widgetPartie, "Partie");
 
     // Création de parties à la demande
     /*WJouerPartie *wJouerPartie = new WJouerPartie (m_joueursManager, m_partiesManager);
@@ -125,32 +113,19 @@ void MainWindow::afficherPartie (shared_ptr<const Partie> partie)
 }
 
 
+void MainWindow::addDock (QWidget *widget, const QString &nom)
+{
+    QDockWidget *dock = new QDockWidget(nom, this);
+    dock->setWidget(widget);
+    addDockWidget(Qt::RightDockWidgetArea, dock);
+}
+
 void MainWindow::afficherAPropos ()
 {
     QMessageBox fenetreAPropos;
     fenetreAPropos.setText("IA\n\nDéveloppement : VANNSON Adrien");
     fenetreAPropos.setWindowTitle("À propos");
     fenetreAPropos.exec();
-}
-
-void MainWindow::ajouterAffichagePartie ()
-{
-    WPartie *widgetPartie = new WPartie;
-    m_ongletsParties->addTab(widgetPartie, "Partie");
-}
-
-void MainWindow::addBatchRunnerDock ()
-{
-    vector<shared_ptr<JoueurFactory>> joueurs;
-    joueurs.push_back(m_joueursManager.get(0));
-    joueurs.push_back(m_joueursManager.get(0));
-    joueurs.push_back(m_joueursManager.get(0));
-
-    WBatchRunner *wBatchRunner = new WBatchRunner (m_gameRunner, joueurs);
-
-    QDockWidget *dock = new QDockWidget("Batch Run", this);
-    dock->setWidget(wBatchRunner);
-    addDockWidget(Qt::RightDockWidgetArea, dock);
 }
 
 void MainWindow::fermerOnglerPartie (int index)
