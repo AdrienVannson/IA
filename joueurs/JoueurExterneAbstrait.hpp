@@ -42,7 +42,6 @@ public:
 
     void demarrer (const string &chemin);
     void envoyerDonnees (const string donnees);
-    void lire ();
     void tuer ();
 
     string m_donnees;
@@ -53,7 +52,6 @@ public slots:
 signals:
     void debut (const string chemin);
     void donneesEnvoyees (const string donnees);
-    void doitLire ();
     void doitTuer ();
 
 };

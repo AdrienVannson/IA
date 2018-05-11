@@ -12,8 +12,10 @@ Communication::Communication (QObject *parent) :
 void Communication::demarrer (const string chemin)
 {
     m_processus = new QProcess;
-    m_processus->start(chemin.c_str());
 
+    connect(m_processus, &QProcess::readyReadStandardOutput, this, &Communication::lireDonnees);
+
+    m_processus->start(chemin.c_str());
     m_processus->waitForStarted(-1);
 }
 
@@ -25,12 +27,7 @@ void Communication::envoyerDonnees (const string donnees)
 void Communication::lireDonnees ()
 {
     char buffer[1024];
-    qint64 longueurLue = 0;
-
-    while (longueurLue <= 0) {
-        longueurLue = m_processus->readLine(buffer, sizeof(buffer));
-        qApp->processEvents();
-    }
+    m_processus->readLine(buffer, sizeof(buffer));
 
     emit donneesRecues(string(buffer));
 }
@@ -64,11 +61,6 @@ void Intermediaire::envoyerDonnees (const string donnees)
     emit donneesEnvoyees(donnees);
 }
 
-void Intermediaire::lire ()
-{
-    emit doitLire();
-}
-
 void Intermediaire::tuer ()
 {
     emit doitTuer();
@@ -95,8 +87,6 @@ void JoueurExterneAbstrait::executerProgramme ()
 
 string JoueurExterneAbstrait::getLine ()
 {
-    m_intermediaire.lire();
-
     while (m_intermediaire.m_donnees.empty()) {
         qApp->processEvents();
     }
