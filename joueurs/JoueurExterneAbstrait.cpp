@@ -14,6 +14,9 @@ void Communication::demarrer (const string chemin)
     m_processus = new QProcess;
 
     connect(m_processus, &QProcess::readyReadStandardOutput, this, &Communication::lireDonnees);
+    connect(m_processus, &QProcess::readyReadStandardError, this, &Communication::lireErreur);
+
+    connect(m_processus, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &Communication::termine);
 
     m_processus->start(chemin.c_str());
     m_processus->waitForStarted(-1);
@@ -32,9 +35,19 @@ void Communication::lireDonnees ()
     emit donneesRecues(string(buffer));
 }
 
+void Communication::lireErreur ()
+{
+    cerr << m_processus->readAllStandardError().toStdString();
+}
+
 void Communication::tuer ()
 {
     m_processus->kill();
+}
+
+void Communication::termine (int exitCode, QProcess::ExitStatus exitStatus)
+{
+    cerr << "FIN PROG " << exitCode << " " << exitStatus << endl;
 }
 
 

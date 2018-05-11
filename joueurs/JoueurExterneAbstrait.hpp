@@ -6,6 +6,7 @@
 #include <QEventLoop>
 #include <QThread>
 
+#include <iostream>
 #include <string>
 
 #include "partie/Joueur/Joueur.hpp"
@@ -24,7 +25,10 @@ public slots:
     void demarrer (const string chemin);
     void envoyerDonnees (const string donnees);
     void lireDonnees ();
+    void lireErreur ();
     void tuer ();
+
+    void termine (int exitCode, QProcess::ExitStatus exitStatus);
 
 signals:
     void donneesRecues (const string donnees);
