@@ -4,6 +4,7 @@
 #include <QApplication>
 #include <QProcess>
 #include <QEventLoop>
+#include <QThread>
 
 #include <string>
 

@@ -87,8 +87,11 @@ void JoueurExterneAbstrait::executerProgramme ()
 
 string JoueurExterneAbstrait::getLine ()
 {
+    QThread::msleep(5);
+
     while (m_intermediaire.m_donnees.empty()) {
         qApp->processEvents();
+        QThread::msleep(50);
     }
 
     string donnees = m_intermediaire.m_donnees;
