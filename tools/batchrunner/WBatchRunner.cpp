@@ -30,13 +30,15 @@ WBatchRunner::WBatchRunner (GameRunner *gameRunner, const vector<shared_ptr<Joue
     setLayout(m_layout);
 
     // Tableau d'affichage des résultats
-    m_tableau = new QTableWidget(joueurs.size(), joueurs.size());
+    m_tableau = new QTableWidget(joueurs.size(), joueurs.size()+1);
     m_layout->addWidget(m_tableau);
+
+    m_tableau->setHorizontalHeaderItem(joueurs.size(), new QTableWidgetItem ("Total"));
 
     for (int iJoueur1=0; iJoueur1<(int)joueurs.size(); iJoueur1++) {
         m_nbVictoires.push_back(vector<int>());
 
-        for (int iJoueur2=0; iJoueur2<(int)joueurs.size(); iJoueur2++) {
+        for (int iJoueur2=0; iJoueur2<=(int)joueurs.size(); iJoueur2++) {
             m_nbVictoires.back().push_back(0);
 
             QTableWidgetItem *item = new QTableWidgetItem;
@@ -45,7 +47,7 @@ WBatchRunner::WBatchRunner (GameRunner *gameRunner, const vector<shared_ptr<Joue
                 item->setText("-");
             }
             else {
-                item->setText("?");
+                item->setText("0");
             }
 
             m_tableau->setItem(iJoueur1, iJoueur2, item);
@@ -91,4 +93,12 @@ void WBatchRunner::aGagne (const int iJoueur, const int iAdversaire)
 {
     m_nbVictoires[iJoueur][iAdversaire]++;
     m_tableau->item(iJoueur, iAdversaire)->setText(QString::number(m_nbVictoires[iJoueur][iAdversaire]));
+
+    // Mise à jour du nombre total de victoires
+    int nbVictoires = 0;
+    for (int iAutre=0; iAutre<(int)m_joueurs.size(); iAutre++) {
+        nbVictoires += m_nbVictoires[iJoueur][iAutre];
+    }
+
+    m_tableau->item(iJoueur, m_joueurs.size())->setText(QString::number(nbVictoires));
 }
