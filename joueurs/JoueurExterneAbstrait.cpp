@@ -4,10 +4,6 @@
  * Communication
  */
 
-/*
- * Communication
- */
-
 Communication::Communication (QObject *parent) :
     QObject (parent),
     m_processus (0)
