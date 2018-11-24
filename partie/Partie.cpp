@@ -1,9 +1,7 @@
 #include "Partie.hpp"
 
 Partie::Partie ()
-{
-
-}
+{}
 
 
 // Tours
@@ -30,7 +28,7 @@ const Tour& Partie::dernierTour () const
 }
 
 
-void Partie::addTour (const Tour &nouveauTour)
+void Partie::ajouterTour (const Tour &nouveauTour)
 {
     m_tours.push_back(nouveauTour);
 }

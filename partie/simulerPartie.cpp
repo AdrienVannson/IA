@@ -3,7 +3,7 @@
 shared_ptr<Partie> simulerPartie (const SituationJeu &sitDepart, vector<shared_ptr<Joueur>> &joueurs)
 {
     shared_ptr<Partie> partie (new Partie);
-    partie->addTour(Tour(sitDepart));
+    partie->ajouterTour(Tour(sitDepart));
 
     // Initialisation des joueurs
     for (unsigned int iJoueur=0; iJoueur<joueurs.size(); iJoueur++) {
@@ -27,7 +27,7 @@ shared_ptr<Partie> simulerPartie (const SituationJeu &sitDepart, vector<shared_p
 
         nouveauTour.setSituationJeu(nouvelleSituation);
 
-        partie->addTour(nouveauTour);
+        partie->ajouterTour(nouveauTour);
     }
 
     return partie;

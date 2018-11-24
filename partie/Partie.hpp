@@ -21,7 +21,7 @@ public:
     Tour& dernierTour ();
     const Tour& dernierTour () const;
 
-    void addTour (const Tour &nouveauTour);
+    void ajouterTour (const Tour &nouveauTour);
 
 
 private:
