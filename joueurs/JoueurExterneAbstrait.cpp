@@ -30,9 +30,10 @@ void Communication::envoyerDonnees (const string donnees)
 void Communication::lireDonnees ()
 {
     char buffer[1024];
-    m_processus->readLine(buffer, sizeof(buffer));
 
-    emit donneesRecues(string(buffer));
+    while (m_processus->readLine(buffer, sizeof(buffer))) {
+        emit donneesRecues(string(buffer));
+    }
 }
 
 void Communication::lireErreur ()
@@ -66,7 +67,7 @@ void Intermediaire::demarrer (const string &chemin)
 
 void Intermediaire::recevoirDonnees (const string donnees)
 {
-    m_donnees = donnees;
+    m_lignes.push(donnees);
 }
 
 void Intermediaire::envoyerDonnees (const string donnees)
@@ -102,13 +103,13 @@ string JoueurExterneAbstrait::getLine ()
 {
     QThread::msleep(5);
 
-    while (m_intermediaire.m_donnees.empty()) {
+    while (m_intermediaire.m_lignes.empty()) {
         qApp->processEvents();
         QThread::msleep(50);
     }
 
-    string donnees = m_intermediaire.m_donnees;
-    m_intermediaire.m_donnees.clear();
+    string donnees = m_intermediaire.m_lignes.front();
+    m_intermediaire.m_lignes.pop();
 
     return donnees;
 }

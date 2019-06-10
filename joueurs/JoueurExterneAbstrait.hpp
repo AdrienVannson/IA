@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <string>
+#include <queue>
 
 #include "partie/Joueur/Joueur.hpp"
 
@@ -49,7 +50,7 @@ public:
     void envoyerDonnees (const string donnees);
     void tuer ();
 
-    string m_donnees;
+    queue<string> m_lignes;
 
 public slots:
     void recevoirDonnees (const string donnees);
