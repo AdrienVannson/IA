@@ -73,6 +73,7 @@ public:
     void executerProgramme ();
 
     Intermediaire m_intermediaire;
+    Communication *m_communication;
 
 protected:
     string getLine ();

@@ -87,7 +87,21 @@ void Intermediaire::tuer ()
 
 JoueurExterneAbstrait::JoueurExterneAbstrait (const string chemin) :
     m_chemin (chemin)
-{}
+{
+    m_communication = new Communication;
+
+    QObject::connect(&m_intermediaire, &Intermediaire::debut,
+                     m_communication, &Communication::demarrer);
+
+    QObject::connect(&m_intermediaire, &Intermediaire::doitTuer,
+                     m_communication, &Communication::tuer);
+
+    QObject::connect(&m_intermediaire, &Intermediaire::donneesEnvoyees,
+                     m_communication, &Communication::envoyerDonnees);
+
+    QObject::connect(m_communication, &Communication::donneesRecues,
+                     &m_intermediaire, &Intermediaire::recevoirDonnees);
+}
 
 JoueurExterneAbstrait::~JoueurExterneAbstrait ()
 {
