@@ -22,7 +22,6 @@
 #include "WApercuPartie.hpp"
 #include "GameRunner.hpp"
 #include "tools/batchrunner/WBatchRunner.hpp"
-#include "initialiser.hpp"
 #include "partie/Joueur/JoueurFactory.hpp"
 
 using namespace std;
