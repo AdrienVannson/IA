@@ -111,6 +111,11 @@ JoueurExterneAbstrait::~JoueurExterneAbstrait ()
 void JoueurExterneAbstrait::executerProgramme ()
 {
     m_intermediaire.demarrer(m_chemin);
+
+    while (m_communication->m_processus == 0
+        || m_communication->m_processus->state() != QProcess::Running) {
+        QThread::msleep(50);
+    }
 }
 
 string JoueurExterneAbstrait::getLine ()
