@@ -11,9 +11,7 @@ using namespace std;
 template<class T>
 class Manager
 {
-
 public:
-
     Manager ();
     ~Manager ();
 
@@ -31,11 +29,8 @@ public:
     shared_ptr<T> get (const int pos);
 
 
-
 private:
-
     vector<shared_ptr<T>> m_objects;
-
 };
 
 

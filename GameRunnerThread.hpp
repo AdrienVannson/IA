@@ -16,7 +16,6 @@ class GameRunnerThread : public QThread
     Q_OBJECT
 
 public:
-
     explicit GameRunnerThread (QObject *parent=0);
 
     void setPlayers (const vector<shared_ptr<Joueur>> &players);
@@ -25,14 +24,11 @@ public:
 
 
 signals:
-
     void simulationDone (shared_ptr<Partie> partie);
 
 
 private:
-
     vector<shared_ptr<Joueur>> m_players;
-
 
 };
 

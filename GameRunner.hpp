@@ -22,9 +22,7 @@ class GameRunner : public QObject
 {
     Q_OBJECT
 
-
 public:
-
     GameRunner (QObject *parent=0);
 
     void runGame ( vector<shared_ptr<Joueur>> &players,
@@ -35,24 +33,20 @@ public:
 
 
 public slots:
-
     void handleResults (shared_ptr<Partie> partie);
 
 
 signals:
-
     void updated (); // Emit each time a game is added or finished
     void gameRunned (shared_ptr<Partie> game);
 
 
 private:
-
     void runPendingGames ();
 
     bool m_estPartieEnCours;
     queue< pair<vector<shared_ptr<Joueur>>, CallbackFinSimulation*> > m_enAttente;
     CallbackFinSimulation* m_callbackFinPartie;
-
 
 };
 
