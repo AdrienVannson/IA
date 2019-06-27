@@ -25,7 +25,7 @@ void WAbstractPartie::showGame (const shared_ptr<const Partie> &partie)
 
 void WAbstractPartie::tourSuivant ()
 {
-    m_iTourActuel = (m_iTourActuel+1) % m_partie->tours().size();
+    m_iTourActuel = (m_iTourActuel+1) % m_partie->situationsJeu().size();
     afficherTourActuel();
 }
 

@@ -9,8 +9,8 @@
 #include <vector>
 
 #include "CallbackFinSimulation.hpp"
-#include "partie/simulerPartie.hpp"
-#include "partie/Partie.hpp"
+#include "simulerPartie.hpp"
+#include "Partie.hpp"
 #include "partie/Joueur/Joueur.hpp"
 #include "GameRunnerThread.hpp"
 #include "unused.hpp"

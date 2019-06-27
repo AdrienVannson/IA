@@ -5,8 +5,8 @@
 
 #include <memory>
 
-#include "partie/Partie.hpp"
-#include "partie/simulerPartie.hpp"
+#include "Partie.hpp"
+#include "simulerPartie.hpp"
 
 using namespace std;
 

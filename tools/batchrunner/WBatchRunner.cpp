@@ -8,7 +8,7 @@ CallbackBatchRunner::CallbackBatchRunner (const int iJoueur1, const int iJoueur2
 
 void CallbackBatchRunner::operator() (const shared_ptr<Partie> &partie)
 {
-    vector<int> scores = partie->dernierTour().situationJeu().scores();
+    const vector<int> scores = partie->situationsJeu().back().scores();
 
     if (scores[0] > scores[1]) {
         emit victoire(m_iJoueur1, m_iJoueur2);

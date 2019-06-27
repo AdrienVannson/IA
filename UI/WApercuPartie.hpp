@@ -9,7 +9,7 @@
 
 #include <memory>
 
-#include "partie/Partie.hpp"
+#include "Partie.hpp"
 
 using namespace std;
 

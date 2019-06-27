@@ -13,7 +13,7 @@
 #include <cstdlib>
 
 #include "arbitre.hpp"
-#include "partie/Partie.hpp"
+#include "Partie.hpp"
 #include "WPartie.hpp"
 #include "WJouerPartie.h"
 #include "Manager.hpp"

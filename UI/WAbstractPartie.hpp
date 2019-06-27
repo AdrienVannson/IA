@@ -6,7 +6,7 @@
 
 #include <memory>
 
-#include "partie/Partie.hpp"
+#include "Partie.hpp"
 #include "unused.hpp"
 
 using namespace std;

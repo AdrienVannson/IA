@@ -6,7 +6,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
-#include "partie/simulerPartie.hpp"
+#include "simulerPartie.hpp"
 
 
 class WJouerPartie : public QWidget

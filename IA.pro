@@ -12,7 +12,6 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
     UI/MainWindow.cpp \
-    partie/Tour.cpp \
     UI/WJouerPartie.cpp \
     UI/WApercuJoueur.cpp \
     UI/WApercuPartie.cpp \
@@ -22,10 +21,8 @@ SOURCES += main.cpp\
     UI/WManagerQWidget.cpp \
     partie/Joueur/JoueurFactory.cpp \
     UI/WAbstractPartie.cpp \
-    partie/Partie.cpp \
     joueurs/JoueurExterneAbstrait.cpp \
     partie/Joueur/Joueur.cpp \
-    partie/simulerPartie.cpp \
     CallbackFinSimulation.cpp
 
 HEADERS  += \
@@ -42,11 +39,8 @@ HEADERS  += \
     partie/Joueur/Joueur.hpp \
     partie/Joueur/JoueurFactory.hpp \
     UI/WAbstractPartie.hpp \
-    partie/Partie.hpp \
     joueurs/JoueurExterneAbstrait.hpp \
-    partie/Tour.hpp \
     unused.hpp \
-    partie/simulerPartie.hpp \
     CallbackFinSimulation.hpp
 
 RESOURCES += \

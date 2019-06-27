@@ -4,8 +4,8 @@
 #include <string>
 
 #include "Action.hpp"
+#include "Partie.hpp"
 #include "InfosTour.hpp"
-#include "InfosDebutPartie.hpp"
 #include "unused.hpp"
 
 
@@ -17,7 +17,7 @@ public:
     Joueur ();
     virtual ~Joueur ();
 
-    virtual void debutPartie (const InfosDebutPartie &infos);
+    virtual void debutPartie (const Partie &partie, const int idJoueur);
     virtual Action jouerAction (const InfosTour &informations) = 0;
 
 

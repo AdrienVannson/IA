@@ -8,7 +8,8 @@ Joueur::~Joueur ()
 {
 }
 
-void Joueur::debutPartie (const InfosDebutPartie &infos)
+void Joueur::debutPartie (const Partie &partie, const int idJoueur)
 {
-    UNUSED(infos);
+    UNUSED(partie);
+    UNUSED(idJoueur);
 }
