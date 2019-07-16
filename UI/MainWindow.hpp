@@ -10,8 +10,6 @@
 #include <QStatusBar>
 #include <QLabel>
 
-#include <cstdlib>
-
 #include "Partie.hpp"
 #include "WPartie.hpp"
 #include "WJouerPartie.h"
@@ -22,8 +20,6 @@
 #include "GameRunner.hpp"
 #include "tools/batchrunner/WBatchRunner.hpp"
 #include "partie/Joueur/JoueurFactory.hpp"
-
-using namespace std;
 
 
 class MainWindow : public QMainWindow
