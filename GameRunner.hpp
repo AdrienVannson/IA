@@ -11,7 +11,6 @@
 #include "CallbackFinSimulation.hpp"
 #include "simulerPartie.hpp"
 #include "Partie.hpp"
-#include "partie/Joueur/Joueur.hpp"
 #include "GameRunnerThread.hpp"
 #include "unused.hpp"
 

@@ -15,7 +15,6 @@
 #include <vector>
 
 #include "GameRunner.hpp"
-#include "partie/Joueur/JoueurFactory.hpp"
 
 using namespace std;
 
@@ -44,7 +43,10 @@ class WBatchRunner : public QWidget
     Q_OBJECT
 
 public:
-    explicit WBatchRunner (GameRunner *gameRunner, const vector<shared_ptr<JoueurFactory>> &joueurs, QWidget *parent=0);
+    explicit WBatchRunner ( GameRunner *gameRunner,
+                            const vector<shared_ptr< std::pair< std::function<Joueur*()>, QString> >> &joueurs,
+                            QWidget *parent=0
+    );
 
 public slots:
     void lancerParties ();
@@ -59,7 +61,7 @@ private:
     QPushButton *m_bouttonDemarrer;
 
     GameRunner *m_gameRunner;
-    vector<shared_ptr<JoueurFactory>> m_joueurs;
+    vector<shared_ptr<std::pair< std::function<Joueur*()>, QString>>> m_joueurs;
     vector<vector<int>> m_nbVictoires;
 };
 

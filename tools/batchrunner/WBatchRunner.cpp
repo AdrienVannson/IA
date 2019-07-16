@@ -21,7 +21,9 @@ void CallbackBatchRunner::operator() (const shared_ptr<Partie> &partie)
 }
 
 
-WBatchRunner::WBatchRunner (GameRunner *gameRunner, const vector<shared_ptr<JoueurFactory>> &joueurs, QWidget *parent) :
+WBatchRunner::WBatchRunner (GameRunner *gameRunner,
+                            const vector<shared_ptr<std::pair< std::function<Joueur*()>, QString>>> &joueurs,
+                            QWidget *parent) :
     QWidget (parent),
     m_gameRunner (gameRunner),
     m_joueurs (joueurs)
@@ -80,8 +82,8 @@ void WBatchRunner::lancerParties ()
                 connect(callback, &CallbackBatchRunner::victoire, this, &WBatchRunner::aGagne);
 
                 vector<shared_ptr<Joueur>> joueurs;
-                joueurs.push_back(m_joueurs[iJoueur1]->getNewPlayer());
-                joueurs.push_back(m_joueurs[iJoueur2]->getNewPlayer());
+                joueurs.push_back(shared_ptr<Joueur>(m_joueurs[iJoueur1]->first()));
+                joueurs.push_back(shared_ptr<Joueur>(m_joueurs[iJoueur1]->first()));
 
                 m_gameRunner->runGame(joueurs, callback);
             }

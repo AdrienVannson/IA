@@ -1,6 +1,9 @@
 #ifndef MAINWINDOW_HPP
 #define MAINWINDOW_HPP
 
+#include <utility>
+#include <functional>
+
 #include <QApplication>
 #include <QDockWidget>
 #include <QMainWindow>
@@ -11,7 +14,7 @@
 #include <QLabel>
 
 #include "Partie.hpp"
-#include "WPartie.hpp"
+#include "UI/WPartie.hpp"
 #include "WJouerPartie.h"
 #include "Manager.hpp"
 #include "WManager.hpp"
@@ -19,7 +22,6 @@
 #include "WApercuPartie.hpp"
 #include "GameRunner.hpp"
 #include "tools/batchrunner/WBatchRunner.hpp"
-#include "partie/Joueur/JoueurFactory.hpp"
 
 
 class MainWindow : public QMainWindow
@@ -27,17 +29,15 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-
     explicit MainWindow (QWidget *parent = 0);
     ~MainWindow();
 
-    Manager<JoueurFactory>* joueursManager ();
+    Manager< std::pair< std::function<Joueur*()>, QString> >* joueursManager ();
     Manager<Partie>* partiesManager ();
     GameRunner* gameRunner ();
 
 
 public slots:
-
     void addGame (const shared_ptr<Partie> &game);
     void registerGameOverview (QWidget *apercu);
 
@@ -53,11 +53,10 @@ public slots:
 
 
 private:
-
     QTabWidget *m_ongletsParties;
 
-    Manager<JoueurFactory> m_joueursManager;
-    WManager<JoueurFactory, WApercuJoueur> *m_wJoueursManager;
+    Manager< std::pair< std::function<Joueur*()>, QString> > m_joueursManager;
+    WManager< std::pair< std::function<Joueur*()>, QString>, WApercuJoueur> *m_wJoueursManager;
 
     Manager<Partie> m_partiesManager;
     WManager<Partie, WApercuPartie> *m_wPartiesManager;

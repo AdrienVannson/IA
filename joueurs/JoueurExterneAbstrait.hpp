@@ -10,7 +10,7 @@
 #include <string>
 #include <queue>
 
-#include "partie/Joueur/Joueur.hpp"
+#include "Joueur.hpp"
 
 using namespace std;
 

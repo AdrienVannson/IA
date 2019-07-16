@@ -41,7 +41,7 @@ MainWindow::MainWindow (QWidget *parent) :
 
 
     // Affichage des joueurs
-    m_wJoueursManager = new WManager<JoueurFactory, WApercuJoueur>;
+    m_wJoueursManager = new WManager< std::pair< std::function<Joueur*()>, QString>, WApercuJoueur>;
     m_wJoueursManager->setManager(&m_joueursManager);
 
     QDockWidget *dockJoueurs = new QDockWidget("Joueurs", this);
@@ -79,7 +79,7 @@ MainWindow::MainWindow (QWidget *parent) :
 MainWindow::~MainWindow ()
 {}
 
-Manager<JoueurFactory>* MainWindow::joueursManager ()
+Manager<std::pair<std::function<Joueur *()>, QString> > *MainWindow::joueursManager ()
 {
     return &m_joueursManager;
 }

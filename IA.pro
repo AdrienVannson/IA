@@ -19,10 +19,9 @@ SOURCES += main.cpp\
     GameRunnerThread.cpp \
     tools/batchrunner/WBatchRunner.cpp \
     UI/WManagerQWidget.cpp \
-    partie/Joueur/JoueurFactory.cpp \
     UI/WAbstractPartie.cpp \
     joueurs/JoueurExterneAbstrait.cpp \
-    partie/Joueur/Joueur.cpp \
+    Joueur.cpp \
     CallbackFinSimulation.cpp
 
 HEADERS  += \
@@ -36,8 +35,7 @@ HEADERS  += \
     GameRunnerThread.hpp \
     tools/batchrunner/WBatchRunner.hpp \
     UI/WManagerQWidget.hpp \
-    partie/Joueur/Joueur.hpp \
-    partie/Joueur/JoueurFactory.hpp \
+    Joueur.hpp \
     UI/WAbstractPartie.hpp \
     joueurs/JoueurExterneAbstrait.hpp \
     unused.hpp \
