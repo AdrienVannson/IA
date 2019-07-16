@@ -1,5 +1,7 @@
 #include "WAbstractPartie.hpp"
 
+using namespace std;
+
 WAbstractPartie::WAbstractPartie (QWidget *parent) :
     QWidget (parent),
     m_iTourActuel (0)

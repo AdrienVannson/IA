@@ -1,5 +1,5 @@
-#ifndef WABSTRACTGAME_HPP
-#define WABSTRACTGAME_HPP
+#ifndef WABSTRACTPARTIE_HPP
+#define WABSTRACTPARTIE_HPP
 
 #include <QWidget>
 #include <QTimer>
@@ -9,42 +9,29 @@
 #include "Partie.hpp"
 #include "unused.hpp"
 
-using namespace std;
-
 
 class WAbstractPartie : public QWidget
 {
     Q_OBJECT
 
 public:
-
     explicit WAbstractPartie (QWidget *parent = 0);
 
-
-
 public slots:
-
-    void showGame (const shared_ptr<const Partie> &partie);
+    void showGame (const std::shared_ptr<const Partie> &partie);
     void tourSuivant ();
 
-
-
 protected:
-
-    virtual void afficherPartie (const shared_ptr<const Partie> &partie);
+    virtual void afficherPartie (const std::shared_ptr<const Partie> &partie);
     virtual void afficherTourActuel () {}
 
-
-    shared_ptr<const Partie> m_partie;
+    std::shared_ptr<const Partie> m_partie;
     int m_iTourActuel;
 
-
-
 private:
-
     // Timer pour passer au tour suivant
     QTimer *m_timer;
 
 };
 
-#endif // WABSTRACTGAME_HPP
+#endif // WABSTRACTPARTIE_HPP
