@@ -25,6 +25,6 @@ void SceneSimulateur::afficherPartie (const Partie &partie)
 
 void SceneSimulateur::tourSuivant ()
 {
-    m_iTour = (m_iTour+1) % m_partie.situationsJeu().size();
+    m_iTour = (m_iTour+1) % m_partie.m_situationsJeu.size();
     m_affichageNbTours->setText( QString::number(m_iTour) );
 }

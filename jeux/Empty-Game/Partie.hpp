@@ -11,14 +11,8 @@ class Partie
 public:
     Partie ();
 
-    const std::vector<SituationJeu>& situationsJeu () const;
-    void ajouterSituationJeu (const SituationJeu &sit);
 
-    const std::vector<Action>& actions () const;
-    void ajouterAction (const Action &action);
-
-
-private:
+// Membres publiques
     std::vector<SituationJeu> m_situationsJeu;
     std::vector<Action> m_actions;
 

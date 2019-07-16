@@ -2,12 +2,10 @@
 
 JoueurExterne::JoueurExterne (const std::string &chemin) :
     JoueurExterneAbstrait (chemin)
-{
-}
+{}
 
 JoueurExterne::~JoueurExterne ()
-{
-}
+{}
 
 
 void JoueurExterne::debutPartie (const Partie &partie, const int idJoueur)
