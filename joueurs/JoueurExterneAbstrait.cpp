@@ -1,5 +1,13 @@
 #include "JoueurExterneAbstrait.hpp"
 
+#include <iostream>
+
+#include <QApplication>
+#include <QThread>
+
+using namespace std;
+
+
 /*
  * Communication
  */

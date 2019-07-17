@@ -1,5 +1,8 @@
 #include "JoueurExterne.hpp"
 
+using namespace std;
+
+
 JoueurExterne::JoueurExterne (const std::string &chemin) :
     JoueurExterneAbstrait (chemin)
 {}

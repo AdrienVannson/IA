@@ -1,18 +1,12 @@
 #ifndef JOUEUREXTERNEABSTRAIT_HPP
 #define JOUEUREXTERNEABSTRAIT_HPP
 
-#include <QApplication>
 #include <QProcess>
-#include <QEventLoop>
-#include <QThread>
 
-#include <iostream>
 #include <string>
 #include <queue>
 
 #include "Joueur.hpp"
-
-using namespace std;
 
 
 class Communication : public QObject
@@ -23,8 +17,8 @@ public:
     Communication (QObject *parent=0);
 
 public slots:
-    void demarrer (const string chemin);
-    void envoyerDonnees (const string donnees);
+    void demarrer (const std::string chemin);
+    void envoyerDonnees (const std::string donnees);
     void lireDonnees ();
     void lireErreur ();
     void tuer ();
@@ -32,7 +26,7 @@ public slots:
     void termine (int exitCode, QProcess::ExitStatus exitStatus);
 
 signals:
-    void donneesRecues (const string donnees);
+    void donneesRecues (const std::string donnees);
 
 public:
     QProcess *m_processus;
@@ -46,18 +40,18 @@ class Intermediaire : public QObject
 public:
     Intermediaire (QObject *parent=0);
 
-    void demarrer (const string &chemin);
-    void envoyerDonnees (const string donnees);
+    void demarrer (const std::string &chemin);
+    void envoyerDonnees (const std::string donnees);
     void tuer ();
 
-    queue<string> m_lignes;
+    std::queue<std::string> m_lignes;
 
 public slots:
-    void recevoirDonnees (const string donnees);
+    void recevoirDonnees (const std::string donnees);
 
 signals:
-    void debut (const string chemin);
-    void donneesEnvoyees (const string donnees);
+    void debut (const std::string chemin);
+    void donneesEnvoyees (const std::string donnees);
     void doitTuer ();
 
 };
@@ -67,7 +61,7 @@ class JoueurExterneAbstrait : public Joueur
 {
 
 public:
-    JoueurExterneAbstrait (const string chemin);
+    JoueurExterneAbstrait (const std::string chemin);
     ~JoueurExterneAbstrait ();
 
     void executerProgramme ();
@@ -76,11 +70,11 @@ public:
     Communication *m_communication;
 
 protected:
-    string getLine ();
-    void send (const string &donnees);
+    std::string getLine ();
+    void send (const std::string &donnees);
 
 private:
-    string m_chemin;
+    std::string m_chemin;
 
 };
 
