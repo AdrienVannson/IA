@@ -14,7 +14,7 @@
 #include <QLabel>
 
 #include "Partie.hpp"
-#include "UI/WPartie.hpp"
+#include "WPartie.hpp"
 #include "WJouerPartie.h"
 #include "Manager.hpp"
 #include "WManager.hpp"

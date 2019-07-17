@@ -4,7 +4,7 @@ using namespace std;
 
 WAbstractPartie::WAbstractPartie (QWidget *parent) :
     QWidget (parent),
-    m_iTourActuel (0)
+    m_tourActuel (0)
 {
     // Timer
     m_timer = new QTimer(this);
@@ -16,22 +16,16 @@ WAbstractPartie::WAbstractPartie (QWidget *parent) :
 void WAbstractPartie::showGame (const shared_ptr<const Partie> &partie)
 {
     m_partie = partie;
-    m_iTourActuel = 0;
+    m_tourActuel = 0;
+
+    initialiserPartie();
     afficherTourActuel();
 
     m_timer->start();
-    updateGeometry();
-
-    afficherPartie(partie);
 }
 
 void WAbstractPartie::tourSuivant ()
 {
-    m_iTourActuel = (m_iTourActuel+1) % m_partie->m_situationsJeu.size();
+    m_tourActuel = (m_tourActuel+1) % m_partie->m_situationsJeu.size();
     afficherTourActuel();
-}
-
-void WAbstractPartie::afficherPartie (const shared_ptr<const Partie> &partie)
-{
-    UNUSED(partie);
 }

@@ -3,11 +3,9 @@
 
 #include <QGraphicsSimpleTextItem>
 #include <QGraphicsView>
-#include <QVBoxLayout>
 
 #include "Partie.hpp"
 #include "UI/WAbstractPartie.hpp"
-#include "UI/AffichageSimulateur.hpp"
 
 
 class WPartie : public WAbstractPartie
@@ -17,11 +15,16 @@ class WPartie : public WAbstractPartie
 public:
     explicit WPartie (QWidget *parent = 0);
 
+protected:
+    virtual void initialiserPartie () override;
+    virtual void afficherTourActuel () override;
 
 private:
-    void afficherPartie (const std::shared_ptr<const Partie> &partie);
+    QGraphicsView *m_vue;
+    QGraphicsScene *m_scene;
 
-    AffichageSimulateur *m_vue;
+    // Élements de la scène
+    QGraphicsSimpleTextItem *m_affichageTourActuel;
 };
 
 #endif // WPARTIE_HPP

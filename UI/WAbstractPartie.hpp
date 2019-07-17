@@ -22,11 +22,11 @@ public slots:
     void tourSuivant ();
 
 protected:
-    virtual void afficherPartie (const std::shared_ptr<const Partie> &partie);
-    virtual void afficherTourActuel () {}
+    virtual void initialiserPartie () = 0;
+    virtual void afficherTourActuel () = 0;
 
     std::shared_ptr<const Partie> m_partie;
-    int m_iTourActuel;
+    int m_tourActuel;
 
 private:
     // Timer pour passer au tour suivant
